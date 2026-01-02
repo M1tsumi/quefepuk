@@ -7,8 +7,4 @@ workers_dev = true
 [site]
 bucket = "./src"
 
-# After running 'wrangler login', your account_id will be automatically set
-# Optional: Configure a custom domain
-# [[routes]]
-# pattern = "yourdomain.com/*"
-# zone_name = "yourdomain.com"
+

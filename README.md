@@ -1,24 +1,45 @@
-# quefep
+# quefep - Personal Developer Portfolio & Technical Blog
 
-Personal website built with Cloudflare Workers - fast, serverless, and deployed globally.
+> A modern, serverless personal website featuring technical blog posts about Discord's DAVE encryption protocol, Cloudflare Workers, and more. Built with Cloudflare Workers and deployed globally.
 
-## Features
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
+[![Live Site](https://img.shields.io/badge/Live-quefepukbhu.pawsome2006.workers.dev-blue)](https://quefepukbhu.pawsome2006.workers.dev)
 
-- 🎨 Clean, cream-colored design
-- 🚀 Serverless architecture with Cloudflare Workers
-- 📝 Blog system with syntax highlighting
-- 📱 Fully responsive design
-- ⚡ Zero cold starts, deployed globally
-- 💰 Free tier friendly (100k requests/day)
+## 🌐 Live Website
 
-## Tech Stack
+Visit the live site: [quefepukbhu.pawsome2006.workers.dev](https://quefepukbhu.pawsome2006.workers.dev)
 
-- **Platform**: Cloudflare Workers
-- **Languages**: HTML, CSS, JavaScript
-- **Styling**: Custom CSS with CSS Grid & Flexbox
-- **Code Highlighting**: Highlight.js
+## ✨ Features
 
-## Local Development
+- 🎨 **Clean Design**: Cream-colored, professional interface with custom CSS
+- 🚀 **Serverless Architecture**: Built on Cloudflare Workers for global edge deployment
+- 📝 **Technical Blog**: In-depth articles about Discord encryption, serverless architecture, and more
+- 🔐 **Featured Content**: Deep dive into Discord's DAVE (Discord's Audio & Video E2EE) protocol
+- 💻 **Syntax Highlighting**: Beautiful code blocks with Highlight.js
+- 📱 **Fully Responsive**: Mobile-first design that works on all devices
+- ⚡ **Edge Performance**: Zero cold starts, sub-10ms response times worldwide
+- 💰 **Cost Effective**: Runs on Cloudflare's generous free tier (100k requests/day)
+- 🔍 **SEO Optimized**: Structured data, sitemaps, and comprehensive meta tags
+
+## 📚 Blog Topics
+
+- **Discord DAVE Protocol**: End-to-end encryption for voice and video calls
+- **WebRTC**: Real-time communication and media encryption
+- **Cloudflare Workers**: Serverless computing at the edge
+- **Cryptography**: MLS (Messaging Layer Security) protocol deep dives
+- **Minecraft Development**: CurseForge projects and modding
+
+## 🛠 Tech Stack
+
+- **Platform**: [Cloudflare Workers](https://workers.cloudflare.com/) (Serverless)
+- **Storage**: Workers KV (for static assets)
+- **Languages**: HTML5, CSS3, JavaScript (ES Modules)
+- **Styling**: Custom CSS with CSS Grid, Flexbox, and CSS Variables
+- **Code Highlighting**: [Highlight.js](https://highlightjs.org/)
+- **Deployment**: Wrangler CLI
+- **SEO**: Structured Data (JSON-LD), Open Graph, Twitter Cards
+
+## 🚀 Local Development
 
 ### Prerequisites
 
@@ -129,16 +150,62 @@ Create JSON files in `src/blog-posts/`:
 }
 ```
 
-## Commands
+## 📝 Commands
 
 - `npm run dev` - Start local development server
 - `npm run deploy` - Deploy to Cloudflare Workers
 - `npm run tail` - View live logs from deployed worker
 
-## Free Tier Limits
+## 🔍 SEO Features
+
+This site is optimized for search engines with:
+- **Structured Data**: JSON-LD schema for Person, Blog, and BlogPosting
+- **Meta Tags**: Comprehensive Open Graph and Twitter Card tags
+- **Sitemap**: XML sitemap at `/sitemap.xml`
+- **Robots.txt**: Search engine crawler configuration
+- **Canonical URLs**: Proper canonical tags on all pages
+- **Semantic HTML**: Proper heading hierarchy and ARIA labels
+
+## 🌟 Featured Article
+
+### Decoding DAVE: Discord's End-to-End Encryption for Voice and Video
+
+An in-depth technical analysis of Discord's DAVE protocol, covering:
+- How DAVE implements E2EE for real-time voice and video
+- The MLS (Messaging Layer Security) protocol integration
+- WebRTC Encoded Transform API usage
+- Security properties: forward secrecy and post-leave security
+- Implications for developers building Discord bots and tools
+
+Read the full article: [Discord DAVE Encryption](https://quefepukbhu.pawsome2006.workers.dev/blog/discord-dave-encryption)
+
+## 🔗 Connect
+
+- **GitHub**: [@M1tsumi](https://github.com/M1tsumi)
+- **Discord**: [6nS2KqxQtj](https://discord.com/invite/6nS2KqxQtj)
+- **CurseForge**: [quefep](https://www.curseforge.com/members/quefep)
+- **X (Twitter)**: [@thats_alot](https://x.com/thats_alot)
+
+## 📊 Free Tier Limits
 
 Cloudflare Workers Free Tier includes:
 - 100,000 requests per day
+- 10ms CPU time per request
+- Workers KV: 100,000 reads/day, 1,000 writes/day
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🙏 Acknowledgments
+
+- Built with [Cloudflare Workers](https://workers.cloudflare.com/)
+- Syntax highlighting by [Highlight.js](https://highlightjs.org/)
+- Fonts from [Google Fonts](https://fonts.google.com/)
+
+---
+
+**Keywords**: Discord DAVE encryption, end-to-end encryption, E2EE, WebRTC, MLS protocol, Cloudflare Workers, serverless blog, technical writing, Discord voice encryption, Minecraft development, CurseForge, quefep, M1tsumi
 - 10ms CPU time per request
 - 1 MB script size
 - 10 GB KV storage (100,000 reads/day, 1,000 writes/day)

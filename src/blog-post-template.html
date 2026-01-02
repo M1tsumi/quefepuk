@@ -5,15 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{TITLE}} - quefep</title>
     <meta name="description" content="{{EXCERPT}}">
-    <meta name="keywords" content="{{TAGS_META}}">
+    <meta name="keywords" content="{{TAGS_META}}, quefep, M1tsumi">
     <meta name="author" content="quefep">
-    <meta property="og:title" content="{{TITLE}}">
+    <link rel="canonical" href="https://quefepukbhu.pawsome2006.workers.dev/blog/{{SLUG}}">
+    <link rel="icon" type="image/png" href="https://static.planetminecraft.com/files/avatar/5875422_1.png">
+    <meta property="og:title" content="{{TITLE}} - quefep">
     <meta property="og:description" content="{{EXCERPT}}">
+    <meta property="og:url" content="https://quefepukbhu.pawsome2006.workers.dev/blog/{{SLUG}}">
     <meta property="og:type" content="article">
+    <meta property="og:site_name" content="quefep">
+    <meta property="og:image" content="https://static.planetminecraft.com/files/avatar/5875422_1.png">
     <meta property="article:published_time" content="{{DATE_ISO}}">
     <meta property="article:author" content="quefep">
+    <meta property="article:tag" content="{{TAGS_META}}">
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@thats_alot">
     <meta name="twitter:creator" content="@thats_alot">
+    <meta name="twitter:title" content="{{TITLE}}">
+    <meta name="twitter:description" content="{{EXCERPT}}">
+    <meta name="twitter:image" content="https://static.planetminecraft.com/files/avatar/5875422_1.png">
     <link rel="stylesheet" href="/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,6 +106,30 @@
                 wrapper.appendChild(pre);
             });
         });
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{TITLE}}",
+      "description": "{{EXCERPT}}",
+      "author": {
+        "@type": "Person",
+        "name": "quefep",
+        "url": "https://quefepukbhu.pawsome2006.workers.dev"
+      },
+      "datePublished": "{{DATE_ISO}}",
+      "publisher": {
+        "@type": "Person",
+        "name": "quefep"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://quefepukbhu.pawsome2006.workers.dev/blog/{{SLUG}}"
+      },
+      "keywords": "{{TAGS_META}}"
+    }
     </script>
 </body>
 </html>

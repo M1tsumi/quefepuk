@@ -4,6 +4,9 @@
  */
 
 import { getAssetFromKV } from '@cloudflare/kv-asset-handler';
+import manifestJSON from '__STATIC_CONTENT_MANIFEST';
+
+const assetManifest = JSON.parse(manifestJSON);
 
 // Blog posts metadata
 const BLOG_POSTS = [
@@ -30,32 +33,50 @@ async function handleRequest(request, env, ctx) {
   try {
     // Handle blog routes dynamically
     if (path === '/blog' || path === '/blog/') {
-      return getAssetFromKV({
-        request,
-        waitUntil(promise) { return ctx.waitUntil(promise); },
-      }, {
-        mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/blog-list.html`, req)
-      });
+      const blogListRequest = new Request(`${url.origin}/blog-list.html`, request);
+      return await getAssetFromKV(
+        {
+          request: blogListRequest,
+          waitUntil(promise) {
+            return ctx.waitUntil(promise);
+          },
+        },
+        {
+          ASSET_NAMESPACE: env.__STATIC_CONTENT,
+          ASSET_MANIFEST: assetManifest,
+        }
+      );
     }
     
     if (path.startsWith('/blog/')) {
       const slug = path.replace('/blog/', '').replace(/\/$/, '');
-      return handleBlogPost(slug, request, env, ctx);
+      return await handleBlogPost(slug, request, env, ctx);
     }
     
     // Serve static assets using KV
-    return await getAssetFromKV({
-      request,
-      waitUntil(promise) { return ctx.waitUntil(promise); },
-    });
+    return await getAssetFromKV(
+      {
+        request,
+        waitUntil(promise) {
+          return ctx.waitUntil(promise);
+        },
+      },
+      {
+        ASSET_NAMESPACE: env.__STATIC_CONTENT,
+        ASSET_MANIFEST: assetManifest,
+      }
+    );
     
   } catch (e) {
+    // Log error for debugging
+    console.error('Worker error:', e.message, e.stack);
+    
     // If asset not found, return 404
     if (e.status === 404 || e.message.includes('could not find')) {
       return handle404();
     }
     
-    return new Response('Internal Server Error', { status: 500 });
+    return new Response(`Internal Server Error: ${e.message}`, { status: 500 });
   }
 }
 
@@ -70,12 +91,19 @@ async function handleBlogPost(slug, request, env, ctx) {
   }
 
   // Get the blog post template
-  const templateResponse = await getAssetFromKV({
-    request,
-    waitUntil(promise) { return ctx.waitUntil(promise); },
-  }, {
-    mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/blog-post-template.html`, req)
-  });
+  const templateRequest = new Request(`${new URL(request.url).origin}/blog-post-template.html`, request);
+  const templateResponse = await getAssetFromKV(
+    {
+      request: templateRequest,
+      waitUntil(promise) {
+        return ctx.waitUntil(promise);
+      },
+    },
+    {
+      ASSET_NAMESPACE: env.__STATIC_CONTENT,
+      ASSET_MANIFEST: assetManifest,
+    }
+  );
   
   let template = await templateResponse.text();
 
@@ -114,7 +142,8 @@ async function handleBlogPost(slug, request, env, ctx) {
     .replace(/\{\{TAGS\}\}/g, tagsHTML)
     .replace(/\{\{TAGS_META\}\}/g, tagsMeta)
     .replace(/\{\{CONTENT\}\}/g, blogContent.content)
-    .replace(/\{\{EXCERPT\}\}/g, post.excerpt);
+    .replace(/\{\{EXCERPT\}\}/g, post.excerpt)
+    .replace(/\{\{SLUG\}\}/g, slug);
 
   return new Response(html, {
     headers: {
