@@ -3,6 +3,10 @@ main = "worker.js"
 compatibility_date = "2024-01-01"
 workers_dev = true
 
+# Workers Sites - serve static files from src/ directory
+[site]
+bucket = "./src"
+
 # After running 'wrangler login', your account_id will be automatically set
 # Optional: Configure a custom domain
 # [[routes]]
