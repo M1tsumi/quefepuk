@@ -17,29 +17,37 @@ const BLOG_POSTS = [
   }
 ];
 
-addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event));
-});
+export default {
+  async fetch(request, env, ctx) {
+    return handleRequest(request, env, ctx);
+  }
+};
 
-async function handleRequest(event) {
-  const url = new URL(event.request.url);
+async function handleRequest(request, env, ctx) {
+  const url = new URL(request.url);
   const path = url.pathname;
 
   try {
     // Handle blog routes dynamically
     if (path === '/blog' || path === '/blog/') {
-      return getAssetFromKV(event, {
+      return getAssetFromKV({
+        request,
+        waitUntil(promise) { return ctx.waitUntil(promise); },
+      }, {
         mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/blog-list.html`, req)
       });
     }
     
     if (path.startsWith('/blog/')) {
       const slug = path.replace('/blog/', '').replace(/\/$/, '');
-      return handleBlogPost(slug, event);
+      return handleBlogPost(slug, request, env, ctx);
     }
     
     // Serve static assets using KV
-    return await getAssetFromKV(event);
+    return await getAssetFromKV({
+      request,
+      waitUntil(promise) { return ctx.waitUntil(promise); },
+    });
     
   } catch (e) {
     // If asset not found, return 404
@@ -54,7 +62,7 @@ async function handleRequest(event) {
 /**
  * Serve individual blog post
  */
-async function handleBlogPost(slug, event) {
+async function handleBlogPost(slug, request, env, ctx) {
   const post = BLOG_POSTS.find(p => p.slug === slug);
   
   if (!post) {
@@ -62,7 +70,10 @@ async function handleBlogPost(slug, event) {
   }
 
   // Get the blog post template
-  const templateResponse = await getAssetFromKV(event, {
+  const templateResponse = await getAssetFromKV({
+    request,
+    waitUntil(promise) { return ctx.waitUntil(promise); },
+  }, {
     mapRequestToAsset: req => new Request(`${new URL(req.url).origin}/blog-post-template.html`, req)
   });
   
