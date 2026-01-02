@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - quefep | Technical Articles & Tutorials</title>
+    <meta name="description" content="Technical blog posts by quefep covering development, serverless, Cloudflare Workers, Minecraft, and more.">
+    <meta name="keywords" content="quefep blog, programming tutorials, cloudflare workers, serverless, minecraft development">
+    <meta property="og:title" content="Blog - quefep">
+    <meta property="og:description" content="Technical blog posts and tutorials">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-header">
+            <a href="/" class="nav-logo">quefep</a>
+            <a href="/blog" class="nav-link">blog</a>
+        </nav>
+
+        <main class="blog-container">
+            <h1 class="profile-name" style="margin-bottom: 0.5rem;">Blog</h1>
+            <p class="profile-bio" style="margin-bottom: 2rem;">Thoughts, tutorials, and projects</p>
+
+            <div class="blog-grid" id="blog-posts">
+                <!-- Blog posts will be loaded here -->
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 quefep. Built with care.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Sample blog posts - in production, these would come from KV storage
+        const blogPosts = [
+            {
+                slug: "discord-dave-encryption",
+                title: "Decoding DAVE: Discord's End-to-End Encryption for Voice and Video",
+                date: "January 2, 2026",
+                excerpt: "Explore Discord's DAVE protocol - a deep dive into end-to-end encryption for voice and video calls, how it works, and what it means for developers and users.",
+                tags: ["discord", "encryption", "privacy", "e2ee"]
+            },
+            // Add more posts here
+        ];
+
+        const blogGrid = document.getElementById('blog-posts');
+        
+        if (blogPosts.length === 0) {
+            blogGrid.innerHTML = `
+                <div style="text-align: center; padding: 3rem; color: var(--text-muted);">
+                    <p>No blog posts yet. Check back soon!</p>
+                </div>
+            `;
+        } else {
+            blogPosts.forEach(post => {
+                const card = document.createElement('a');
+                card.href = `/blog/${post.slug}`;
+                card.className = 'blog-card';
+                
+                card.innerHTML = `
+                    <div class="blog-date">${post.date}</div>
+                    <h2 class="blog-title">${post.title}</h2>
+                    <p class="blog-excerpt">${post.excerpt}</p>
+                    ${post.tags ? `
+                        <div class="blog-tags">
+                            ${post.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+                        </div>
+                    ` : ''}
+                `;
+                
+                blogGrid.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} - quefep</title>
+    <meta name="description" content="{{EXCERPT}}">
+    <meta name="keywords" content="{{TAGS_META}}">
+    <meta name="author" content="quefep">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{EXCERPT}}">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="{{DATE_ISO}}">
+    <meta property="article:author" content="quefep">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@thats_alot">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-header">
+            <a href="/" class="nav-logo">quefep</a>
+            <a href="/blog" class="nav-link">blog</a>
+        </nav>
+
+        <main class="blog-post">
+            <a href="/blog" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Back to blog
+            </a>
+
+            <article>
+                <header class="blog-header">
+                    <h1 class="blog-post-title">{{TITLE}}</h1>
+                    <div class="blog-meta">
+                        <span>{{DATE}}</span>
+                        <span>•</span>
+                        <span>{{READ_TIME}} min read</span>
+                    </div>
+                    {{TAGS}}
+                </header>
+
+                <div class="blog-content" id="content">
+                    {{CONTENT}}
+                </div>
+            </article>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 quefep. Built with care.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize syntax highlighting
+        document.addEventListener('DOMContentLoaded', () => {
+            hljs.highlightAll();
+            
+            // Add copy buttons to code blocks
+            document.querySelectorAll('pre code').forEach((block) => {
+                const pre = block.parentElement;
+                const wrapper = document.createElement('div');
+                wrapper.className = 'code-block';
+                
+                const header = document.createElement('div');
+                header.className = 'code-header';
+                
+                const language = block.className.match(/language-(\w+)/);
+                const langSpan = document.createElement('span');
+                langSpan.className = 'code-language';
+                langSpan.textContent = language ? language[1] : 'code';
+                
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'copy-button';
+                copyBtn.textContent = 'Copy';
+                copyBtn.onclick = () => {
+                    navigator.clipboard.writeText(block.textContent);
+                    copyBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyBtn.textContent = 'Copy';
+                    }, 2000);
+                };
+                
+                header.appendChild(langSpan);
+                header.appendChild(copyBtn);
+                
+                pre.parentNode.insertBefore(wrapper, pre);
+                wrapper.appendChild(header);
+                wrapper.appendChild(pre);
+            });
+        });
+    </script>
+</body>
+</html>
