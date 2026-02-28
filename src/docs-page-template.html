@@ -7,11 +7,11 @@
     <meta name="description" content="{{DESCRIPTION}}">
     <meta name="keywords" content="{{TITLE}}, documentation, {{LANGUAGE_LABEL}}, quefep, M1tsumi">
     <meta name="author" content="quefep">
-    <link rel="canonical" href="https://quefepukbhu.pawsome2006.workers.dev/docs/{{SLUG}}">
+    <link rel="canonical" href="https://quefep.uk/docs/{{SLUG}}">
     <link rel="icon" type="image/png" href="https://static.planetminecraft.com/files/avatar/5875422_1.png">
     <meta property="og:title" content="{{TITLE}} Docs - quefep">
     <meta property="og:description" content="{{DESCRIPTION}}">
-    <meta property="og:url" content="https://quefepukbhu.pawsome2006.workers.dev/docs/{{SLUG}}">
+    <meta property="og:url" content="https://quefep.uk/docs/{{SLUG}}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="quefep">
     <meta property="og:image" content="https://static.planetminecraft.com/files/avatar/5875422_1.png">
@@ -24,6 +24,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -85,6 +88,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Syntax highlighting
+            hljs.configure({ ignoreUnescapedHTML: true });
             hljs.highlightAll();
 
             // Add copy buttons to code blocks
