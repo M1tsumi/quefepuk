@@ -68,7 +68,29 @@ async function handleRequest(request, env, ctx) {
       const slug = path.replace('/blog/', '').replace(/\/$/, '');
       return await handleBlogPost(slug, request, env, ctx);
     }
-    
+
+    // Handle docs routes
+    if (path === '/docs' || path === '/docs/') {
+      const docsListRequest = new Request(`${url.origin}/docs-list.html`, request);
+      return await getAssetFromKV(
+        {
+          request: docsListRequest,
+          waitUntil(promise) {
+            return ctx.waitUntil(promise);
+          },
+        },
+        {
+          ASSET_NAMESPACE: env.__STATIC_CONTENT,
+          ASSET_MANIFEST: assetManifest,
+        }
+      );
+    }
+
+    if (path.startsWith('/docs/')) {
+      const slug = path.replace('/docs/', '').replace(/\/$/, '');
+      return await handleDocsPage(slug, request, env, ctx);
+    }
+
     // Serve static assets using KV
     return await getAssetFromKV(
       {
@@ -189,6 +211,91 @@ async function handleBlogPost(slug, request, env, ctx) {
 }
 
 /**
+ * Serve an individual docs page
+ */
+async function handleDocsPage(slug, request, env, ctx) {
+  // Fetch the doc JSON from KV
+  let docData;
+  try {
+    const jsonRequest = new Request(`${new URL(request.url).origin}/docs/${slug}.json`, request);
+    const jsonResponse = await getAssetFromKV(
+      {
+        request: jsonRequest,
+        waitUntil(promise) { return ctx.waitUntil(promise); },
+      },
+      {
+        ASSET_NAMESPACE: env.__STATIC_CONTENT,
+        ASSET_MANIFEST: assetManifest,
+      }
+    );
+    docData = await jsonResponse.json();
+  } catch {
+    return handle404();
+  }
+
+  // Fetch the docs page template from KV
+  const templateRequest = new Request(`${new URL(request.url).origin}/docs-page-template.html`, request);
+  const templateResponse = await getAssetFromKV(
+    {
+      request: templateRequest,
+      waitUntil(promise) { return ctx.waitUntil(promise); },
+    },
+    {
+      ASSET_NAMESPACE: env.__STATIC_CONTENT,
+      ASSET_MANIFEST: assetManifest,
+    }
+  );
+  let template = await templateResponse.text();
+
+  // Build sidebar nav HTML
+  const sidebarNav = (docData.sections || [])
+    .map(s => `<li><a href="#${s.id}" class="docs-sidebar-link">${s.title}</a></li>`)
+    .join('\n');
+
+  // Build main content HTML
+  const content = (docData.sections || [])
+    .map(s => `
+      <section class="docs-section" id="${s.id}">
+        <h2 class="docs-section-heading">${s.title}</h2>
+        ${s.content}
+      </section>`)
+    .join('\n');
+
+  // Tags HTML
+  const tagsHTML = (docData.tags || [])
+    .map(t => `<span class="docs-badge">${t}</span>`)
+    .join('');
+
+  // GitHub link HTML
+  const githubLinkHTML = docData.github
+    ? `<a href="${docData.github}" target="_blank" rel="noopener noreferrer" class="docs-github-link">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        View on GitHub
+      </a>`
+    : '';
+
+  const html = template
+    .replace(/\{\{TITLE\}\}/g, docData.name)
+    .replace(/\{\{SLUG\}\}/g, docData.slug)
+    .replace(/\{\{LANGUAGE\}\}/g, docData.language)
+    .replace(/\{\{LANGUAGE_LABEL\}\}/g, docData.languageLabel)
+    .replace(/\{\{VERSION\}\}/g, docData.version)
+    .replace(/\{\{DESCRIPTION\}\}/g, docData.description)
+    .replace(/\{\{TAGS\}\}/g, tagsHTML)
+    .replace(/\{\{GITHUB_LINK\}\}/g, githubLinkHTML)
+    .replace(/\{\{SIDEBAR_NAV\}\}/g, sidebarNav)
+    .replace(/\{\{CONTENT\}\}/g, content);
+
+  return new Response(html, {
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600',
+      'X-Content-Type-Options': 'nosniff'
+    }
+  });
+}
+
+/**
  * Handle 404 errors
  */
 function handle404() {
@@ -208,7 +315,10 @@ function handle404() {
       <div class="container">
         <nav class="nav-header">
           <a href="/" class="nav-logo">quefep</a>
-          <a href="/blog" class="nav-link">blog</a>
+          <div style="display:flex;gap:0.25rem;">
+            <a href="/blog" class="nav-link">blog</a>
+            <a href="/docs" class="nav-link">docs</a>
+          </div>
         </nav>
         <main class="main-content">
           <div style="text-align: center; padding: 4rem 0;">

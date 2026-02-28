@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docs - quefep | Project Documentation</title>
+    <meta name="description" content="Documentation for quefep's open-source projects in Rust, C#, C, Swift, and C++.">
+    <meta name="keywords" content="quefep docs, documentation, rust, csharp, c, swift, cpp, open source, M1tsumi">
+    <meta name="author" content="quefep">
+    <link rel="canonical" href="https://quefepukbhu.pawsome2006.workers.dev/docs">
+    <link rel="icon" type="image/png" href="https://static.planetminecraft.com/files/avatar/5875422_1.png">
+    <meta property="og:title" content="Docs - quefep | Project Documentation">
+    <meta property="og:description" content="Documentation for quefep's open-source projects in Rust, C#, C, Swift, and C++.">
+    <meta property="og:url" content="https://quefepukbhu.pawsome2006.workers.dev/docs">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="quefep">
+    <meta property="og:image" content="https://static.planetminecraft.com/files/avatar/5875422_1.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@thats_alot">
+    <meta name="twitter:creator" content="@thats_alot">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-header">
+            <a href="/" class="nav-logo">quefep</a>
+            <div style="display:flex;gap:0.25rem;">
+                <a href="/blog" class="nav-link">blog</a>
+                <a href="/docs" class="nav-link" style="color:var(--accent);">docs</a>
+            </div>
+        </nav>
+
+        <main class="docs-container">
+            <h1 class="profile-name" style="margin-bottom:0.5rem;">Docs</h1>
+            <p class="profile-bio" style="margin-bottom:2.5rem;">Documentation for my open-source projects</p>
+
+            <div id="docs-root"></div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 quefep. Built with care.</p>
+        </footer>
+    </div>
+
+    <script>
+        const DOCS_PROJECTS = [
+            // ── Rust ───────────────────────────────────────────────────────────
+            {
+                slug: "ferrite",
+                name: "Ferrite",
+                language: "rust",
+                languageLabel: "Rust",
+                version: "0.3.1",
+                description: "A lightweight async task queue built on Tokio, designed for high-throughput job processing with retry logic and backoff strategies.",
+                tags: ["async", "tokio", "queues"]
+            },
+            // ── C# ────────────────────────────────────────────────────────────
+            {
+                slug: "pawsharp",
+                name: "PawSharp",
+                language: "csharp",
+                languageLabel: "C#",
+                version: "0.6.0-alpha1",
+                description: "A .NET 8+ Discord API wrapper providing a REST client with 140+ endpoints, a WebSocket gateway for 40+ real-time events, built-in caching, slash command interactions, and automatic sharding.",
+                tags: ["discord", "dotnet", "websocket"]
+            },
+            {
+                slug: "vaultnet",
+                name: "VaultNet",
+                language: "csharp",
+                languageLabel: "C#",
+                version: "1.1.0",
+                description: "A .NET library for encrypted local credential storage using AES-256-GCM and hardware-backed key derivation via Windows DPAPI and macOS Keychain.",
+                tags: ["encryption", "dotnet", "security"]
+            },
+            // ── C ─────────────────────────────────────────────────────────────
+            {
+                slug: "cringbuf",
+                name: "cringbuf",
+                language: "c",
+                languageLabel: "C",
+                version: "0.2.0",
+                description: "A lock-free single-producer single-consumer ring buffer in portable C99 with zero dynamic allocation, suitable for embedded and real-time systems.",
+                tags: ["ring-buffer", "lock-free", "embedded"]
+            },
+            // ── Swift ─────────────────────────────────────────────────────────
+            {
+                slug: "swiftbeacon",
+                name: "SwiftBeacon",
+                language: "swift",
+                languageLabel: "Swift",
+                version: "0.1.4",
+                description: "An iOS / macOS Swift package providing iBeacon broadcasting and scanning with Combine publishers and async/await-ready discovery streams.",
+                tags: ["ibeacon", "ble", "combine"]
+            },
+            // ── C++ ───────────────────────────────────────────────────────────
+            {
+                slug: "cortexpp",
+                name: "Cortex++",
+                language: "cpp",
+                languageLabel: "C++",
+                version: "2.0.0",
+                description: "A header-only C++20 neural-network inference library targeting SIMD-accelerated dense and convolutional layers with zero external dependencies.",
+                tags: ["ml", "simd", "header-only"]
+            }
+        ];
+
+        // Group projects by language order
+        const LANGUAGE_ORDER = ["rust", "csharp", "c", "swift", "cpp"];
+        const LANGUAGE_LABELS = {
+            rust: "Rust", csharp: "C#", c: "C", swift: "Swift", cpp: "C++"
+        };
+
+        const root = document.getElementById('docs-root');
+
+        if (DOCS_PROJECTS.length === 0) {
+            root.innerHTML = `
+                <div style="text-align:center;padding:3rem;color:var(--text-muted);">
+                    <p>No documentation yet. Check back soon!</p>
+                </div>
+            `;
+        } else {
+            const byLang = {};
+            LANGUAGE_ORDER.forEach(l => byLang[l] = []);
+            DOCS_PROJECTS.forEach(p => {
+                if (byLang[p.language]) byLang[p.language].push(p);
+            });
+
+            LANGUAGE_ORDER.forEach(lang => {
+                const projects = byLang[lang];
+                if (!projects.length) return;
+
+                const section = document.createElement('div');
+
+                const heading = document.createElement('div');
+                heading.className = 'docs-section-title';
+                heading.innerHTML = `<span class="lang-dot ${lang}"></span>${LANGUAGE_LABELS[lang]}`;
+                section.appendChild(heading);
+
+                const grid = document.createElement('div');
+                grid.className = 'docs-grid';
+
+                projects.forEach(p => {
+                    const card = document.createElement('a');
+                    card.href = `/docs/${p.slug}`;
+                    card.className = `docs-card ${p.language}`;
+
+                    card.innerHTML = `
+                        <div class="docs-card-icon ${p.language}">${p.languageLabel}</div>
+                        <div class="docs-card-body">
+                            <div class="docs-card-name">${p.name}</div>
+                            <div class="docs-card-desc">${p.description}</div>
+                            <div class="docs-card-meta">
+                                <span class="docs-version-badge">v${p.version}</span>
+                                ${p.tags.map(t => `<span class="blog-tag">${t}</span>`).join('')}
+                            </div>
+                        </div>
+                        <svg class="docs-card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    `;
+
+                    grid.appendChild(card);
+                });
+
+                section.appendChild(grid);
+                root.appendChild(section);
+            });
+        }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "quefep - Project Documentation",
+      "description": "Documentation for quefep's open-source projects in Rust, C#, C, Swift, and C++.",
+      "url": "https://quefepukbhu.pawsome2006.workers.dev/docs",
+      "author": {
+        "@type": "Person",
+        "name": "quefep",
+        "url": "https://quefepukbhu.pawsome2006.workers.dev"
+      }
+    }
+    </script>
+</body>
+</html>
