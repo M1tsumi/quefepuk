@@ -229,8 +229,24 @@ async function handleDocsPage(slug, request, env, ctx) {
       }
     );
     docData = await jsonResponse.json();
-  } catch {
-    return handle404();
+  } catch (err) {
+    // If the JSON doc is missing, attempt to serve a static HTML fallback
+    try {
+      const htmlRequest = new Request(`${new URL(request.url).origin}/docs/${slug}.html`, request);
+      const htmlResponse = await getAssetFromKV(
+        {
+          request: htmlRequest,
+          waitUntil(promise) { return ctx.waitUntil(promise); },
+        },
+        {
+          ASSET_NAMESPACE: env.__STATIC_CONTENT,
+          ASSET_MANIFEST: assetManifest,
+        }
+      );
+      return htmlResponse;
+    } catch {
+      return handle404();
+    }
   }
 
   // Fetch the docs page template from KV
