@@ -124,7 +124,14 @@ async function handleRequest(request, env, ctx) {
         const esc = s => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         let manifestKeys = [];
         try { manifestKeys = assetManifest ? Object.keys(assetManifest).slice(0, 200) : []; } catch (merr) { manifestKeys = ['<manifest-error>']; }
-        const body = `<!doctype html><html><head><meta charset="utf-8"><title>Worker Debug</title></head><body style="font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;padding:20px;color:#222"><h1>Worker Debug Output</h1><h2>Message</h2><pre>${esc(e.message)}</pre><h2>Stack</h2><pre>${esc(e.stack || '')}</pre><h2>Asset manifest keys (first 200)</h2><pre>${esc(JSON.stringify(manifestKeys,null,2))}</pre></body></html>`;
+        // Check presence of likely keys in the content namespace for quick diagnosis
+        let hashedForIndex = null;
+        try { hashedForIndex = assetManifest && assetManifest['index.html'] ? assetManifest['index.html'] : null; } catch (merr) { hashedForIndex = null; }
+        let hasHashed = false;
+        let hasLogical = false;
+        try { if (hashedForIndex) { const v = await env.__STATIC_CONTENT.get(hashedForIndex); hasHashed = !!v; } } catch (kerr) { hasHashed = false; }
+        try { const v2 = await env.__STATIC_CONTENT.get('index.html'); hasLogical = !!v2; } catch (kerr2) { hasLogical = false; }
+        const body = `<!doctype html><html><head><meta charset="utf-8"><title>Worker Debug</title></head><body style="font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;padding:20px;color:#222"><h1>Worker Debug Output</h1><h2>Message</h2><pre>${esc(e.message)}</pre><h2>Stack</h2><pre>${esc(e.stack || '')}</pre><h2>Asset manifest keys (first 200)</h2><pre>${esc(JSON.stringify(manifestKeys,null,2))}</pre><h2>Index mapping</h2><pre>assetManifest['index.html'] => ${esc(String(hashedForIndex))}\nhasHashedKeyInKV => ${esc(String(hasHashed))}\nhasLogicalKeyInKV => ${esc(String(hasLogical))}</pre></body></html>`;
         return new Response(body, { status: 500, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
       }
     } catch (dbgErr) {
