@@ -27,6 +27,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/csharp.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2/dist/fuse.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -138,10 +139,11 @@
 
             sections.forEach(s => observer.observe(s));
 
-            // Search filtering
+            // Search filtering & fuzzy member-level results (uses Fuse.js)
             const searchInput = document.getElementById('docs-search');
             const searchEmpty = document.getElementById('docs-search-empty');
             let docsIndex = null;
+            let fuse = null;
             const resultsContainer = document.getElementById('docs-search-results');
 
             // Attempt to fetch a prebuilt search index for faster results
@@ -150,42 +152,59 @@
                 return r.json();
             }).then(idx => {
                 docsIndex = idx || null;
+                if (docsIndex && window.Fuse) {
+                    fuse = new Fuse(docsIndex, {
+                        keys: ['title', 'snippet', 'assembly'],
+                        threshold: 0.35,
+                        includeScore: true,
+                        ignoreLocation: true,
+                        useExtendedSearch: false
+                    });
+                }
             }).catch(() => {
                 docsIndex = null; // fallback to DOM scanning
             });
+
+            function renderResults(list) {
+                resultsContainer.innerHTML = '';
+                if (!list || list.length === 0) {
+                    resultsContainer.style.display = 'none';
+                    if (searchEmpty) searchEmpty.style.display = 'block';
+                    return;
+                }
+                searchEmpty.style.display = 'none';
+                resultsContainer.style.display = '';
+                for (const r of list) {
+                    const url = `/docs/${encodeURIComponent(r.slug)}#${encodeURIComponent(r.id)}`;
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.className = 'search-result';
+                    a.innerHTML = `
+                        <div class="search-result-title">${escapeHtml(r.title)}</div>
+                        <div class="search-result-meta">${escapeHtml(r.assembly)}</div>
+                        <div class="search-result-snippet">${escapeHtml(r.snippet || '')}</div>
+                    `;
+                    resultsContainer.appendChild(a);
+                }
+            }
+
+            function escapeHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
             if (searchInput) {
                 searchInput.addEventListener('input', () => {
-                    const term = searchInput.value.toLowerCase().trim();
-                    // If we have an index, show quick results
-                    if (docsIndex && term.length >= 2) {
-                        const results = docsIndex.filter(item => {
-                            return item.title.toLowerCase().includes(term) || (item.snippet && item.snippet.toLowerCase().includes(term));
-                        }).slice(0, 40);
-                        resultsContainer.innerHTML = '';
-                        if (results.length === 0) {
-                            resultsContainer.style.display = 'none';
-                            if (searchEmpty) searchEmpty.style.display = 'block';
-                            return;
-                        }
-                        searchEmpty.style.display = 'none';
-                        resultsContainer.style.display = '';
-                        for (const r of results) {
-                            const a = document.createElement('a');
-                            a.href = `/docs/${encodeURIComponent(r.slug)}#${encodeURIComponent(r.id)}`;
-                            a.className = 'docs-sidebar-link';
-                            a.style.display = 'block';
-                            a.style.padding = '0.35rem 0.45rem';
-                            a.style.color = 'var(--text-secondary)';
-                            a.textContent = `${r.title} — ${r.assembly}`;
-                            resultsContainer.appendChild(a);
-                        }
+                    const term = searchInput.value.trim();
+                    // If we have an index and fuse, show fuzzy member-level results
+                    if (docsIndex && fuse && term.length >= 2) {
+                        const raw = fuse.search(term, { limit: 40 }).map(r => r.item);
+                        renderResults(raw);
                         return;
                     }
 
                     // Fallback: inline DOM scanning (existing behavior)
+                    const termLower = term.toLowerCase();
                     let visible = 0;
                     document.querySelectorAll('.docs-section[id]').forEach(section => {
-                        const matches = !term || section.innerText.toLowerCase().includes(term);
+                        const matches = !term || section.innerText.toLowerCase().includes(termLower);
                         section.style.display = matches ? '' : 'none';
                         const link = document.querySelector(`.docs-sidebar-link[href="#${section.id}"]`);
                         if (link) link.parentElement.style.display = matches ? '' : 'none';

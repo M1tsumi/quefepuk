@@ -9,6 +9,12 @@ OUT_FILE = os.path.join(DOCS_DIR, 'docs-search-index.json')
 
 items = []
 
+def strip_html(s: str) -> str:
+    import html
+    s = re.sub('<[^<]+?>', '', s)
+    return html.unescape(' '.join(s.split()))
+
+
 for fname in sorted(os.listdir(DOCS_DIR)):
     if not fname.lower().endswith('.json'):
         continue
@@ -35,9 +41,8 @@ for fname in sorted(os.listdir(DOCS_DIR)):
         sec_id = sec.get('id') or ''
         title = sec.get('title') or ''
         content = sec.get('content') or ''
-        # strip html
-        snippet = re.sub('<[^<]+?>', '', content)
-        snippet = ' '.join(snippet.split())[:240]
+        # section-level snippet
+        snippet = strip_html(content)[:240]
         items.append({
             'slug': slug,
             'id': sec_id,
@@ -45,6 +50,32 @@ for fname in sorted(os.listdir(DOCS_DIR)):
             'assembly': assembly,
             'snippet': snippet
         })
+
+        # Extract member-level entries from .api-member blocks
+        # Each member is a <div class="api-member">...<h4><code>SIGNATURE</code></h4>...<p>desc</p>
+        for m in re.findall(r'<div\s+class=["\']api-member["\']>(.*?)</div>', content, re.DOTALL | re.IGNORECASE):
+            sig = ''
+            desc = ''
+            m_h4 = re.search(r'<h4>(.*?)</h4>', m, re.DOTALL | re.IGNORECASE)
+            if m_h4:
+                h4 = m_h4.group(1)
+                # Try to extract <code>...</code> inside h4
+                code_match = re.search(r'<code>(.*?)</code>', h4, re.DOTALL | re.IGNORECASE)
+                sig = code_match.group(1).strip() if code_match else re.sub('<[^<]+?>', '', h4).strip()
+
+            m_p = re.search(r'<p>(.*?)</p>', m, re.DOTALL | re.IGNORECASE)
+            if m_p:
+                desc = strip_html(m_p.group(1))
+
+            if sig:
+                title_member = f"{title} — {sig}"
+                items.append({
+                    'slug': slug,
+                    'id': sec_id,
+                    'title': title_member,
+                    'assembly': assembly,
+                    'snippet': (desc or sig)[:240]
+                })
 
 with open(OUT_FILE, 'w', encoding='utf-8') as of:
     json.dump(items, of, ensure_ascii=False, indent=2)
