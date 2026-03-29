@@ -1,0 +1,20 @@
+{
+  "slug": "pawsharp-api-v1",
+  "name": "PawSharp API — v1.0.0-alpha.2",
+  "language": "csharp",
+  "languageLabel": "C#",
+  "version": "1.0.0-alpha.2",
+  "description": "Generated API reference for PawSharp v1.0.0-alpha.2. Use the per-assembly links to inspect generated member JSON; run the generator locally for a browsable reference.",
+  "sections": [
+    {
+      "id": "overview",
+      "title": "Overview",
+      "content": "<p>This page surfaces the generated XML-comment-based API reference for <strong>PawSharp v1.0.0-alpha.2</strong>. The generator produced per-assembly JSON files which are available below. For fully browsable method signatures and examples, run <code>tools/generate_docs.py</code> locally after building the repository (requires .NET 10 + Python).</p><p style=\"margin-top:0.5rem;color:var(--text-muted);\">Generated assemblies: PawSharp.API, PawSharp.Core, PawSharp.Cache, PawSharp.Client, PawSharp.Commands, PawSharp.Gateway, PawSharp.Interactions, PawSharp.Interactivity, PawSharp.Voice.</p>"
+    },
+    {
+      "id": "assemblies",
+      "title": "Per-Assembly JSON Reference",
+      "content": "<p>The browsable per-assembly API pages generated from XML comments are available below. These are optimized for the website (type pages with method/property lists).</p><ul><li><a href=\"/docs/pawsharp-api\">PawSharp.API — browsable API reference</a> — <a href=\"https://github.com/M1tsumi/PawSharp/tree/main/src/PawSharp.API\" target=\"_blank\">source</a></li><li><a href=\"/docs/pawsharp-core\">PawSharp.Core — browsable core reference</a> — <a href=\"https://github.com/M1tsumi/PawSharp/tree/main/src/PawSharp.Core\" target=\"_blank\">source</a></li><li><a href=\"/docs/pawsharp-cache\">PawSharp.Cache — browsable cache reference</a> — <a href=\"https://github.com/M1tsumi/PawSharp/tree/main/src/PawSharp.Cache\" target=\"_blank\">source</a></li><li><a href=\"/docs/pawsharp-client\">PawSharp.Client — browsable client reference</a> — <a href=\"https://github.com/M1tsumi/PawSharp/tree/main/src/PawSharp.Client\" target=\"_blank\">source</a></li><li><a href=\"/docs/pawsharp-commands\">PawSharp.Commands — browsable commands reference</a> — <a href=\"https://github.com/M1tsumi/PawSharp/tree/main/src/PawSharp.Commands\" target=\"_blank\">source</a></li><li><a href=\"/docs/pawsharp-gateway\">PawSharp.Gateway — browsable gateway reference</a> — <a href=\"https://github.com/M1tsumi/PawSharp/tree/main/src/PawSharp.Gateway\" target=\"_blank\">source</a></li><li><a href=\"/docs/pawsharp-interactions\">PawSharp.Interactions — browsable interactions reference</a> — <a href=\"https://github.com/M1tsumi/PawSharp/tree/main/src/PawSharp.Interactions\" target=\"_blank\">source</a></li><li><a href=\"/docs/pawsharp-interactivity\">PawSharp.Interactivity — browsable interactivity reference</a> — <a href=\"https://github.com/M1tsumi/PawSharp/tree/main/src/PawSharp.Interactivity\" target=\"_blank\">source</a></li><li><a href=\"/docs/pawsharp-voice\">PawSharp.Voice — browsable voice reference</a> — <a href=\"https://github.com/M1tsumi/PawSharp/tree/main/src/PawSharp.Voice\" target=\"_blank\">source</a></li></ul><p style=\"margin-top:0.5rem;color:var(--text-muted);\">You can still access the raw generated JSON under <code>src/docs/pawsharp-ref/</code> if you need the unprocessed data.</p>"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "slug": "pawsharp-interactivity",
+  "name": "PawSharp.Interactivity — API Reference (generated)",
+  "language": "csharp",
+  "languageLabel": "C#",
+  "version": "1.0.0-alpha.2",
+  "description": "Generated API reference for PawSharp.Interactivity.",
+  "sections": [
+    {
+      "id": "overview",
+      "title": "Overview",
+      "content": "<p>Generated API reference for <strong>PawSharp.Interactivity</strong> (generated from XML comments).</p><p>Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Interactivity\\bin\\Release\\net10.0\\PawSharp.Interactivity.xml</p>"
+    },
+    {
+      "id": "namespaces",
+      "title": "Namespaces & Types",
+      "content": "<h3>PawSharp</h3>\n<ul>\n<li><a href=\"#pawsharp-interactivity\">PawSharp.Interactivity</a></li>\n</ul>\n<h3>PawSharp.Interactivity</h3>\n<ul>\n<li><a href=\"#pawsharp-interactivity-extensions\">PawSharp.Interactivity.Extensions</a></li>\n<li><a href=\"#pawsharp-interactivity-interactivityconfiguration\">PawSharp.Interactivity.InteractivityConfiguration</a></li>\n<li><a href=\"#pawsharp-interactivity-interactivityextension\">PawSharp.Interactivity.InteractivityExtension</a></li>\n<li><a href=\"#pawsharp-interactivity-interactivityresult-1\">PawSharp.Interactivity.InteractivityResult`1</a></li>\n<li><a href=\"#pawsharp-interactivity-page\">PawSharp.Interactivity.Page</a></li>\n<li><a href=\"#pawsharp-interactivity-paginationemojis\">PawSharp.Interactivity.PaginationEmojis</a></li>\n<li><a href=\"#pawsharp-interactivity-pollbehaviour\">PawSharp.Interactivity.PollBehaviour</a></li>\n</ul>\n<h3>PawSharp.Interactivity.Extensions</h3>\n<ul>\n<li><a href=\"#pawsharp-interactivity-extensions-channelextensions\">PawSharp.Interactivity.Extensions.ChannelExtensions</a></li>\n<li><a href=\"#pawsharp-interactivity-extensions-interactivityextensions\">PawSharp.Interactivity.Extensions.InteractivityExtensions</a></li>\n<li><a href=\"#pawsharp-interactivity-extensions-messageextensions\">PawSharp.Interactivity.Extensions.MessageExtensions</a></li>\n</ul>"
+    },
+    {
+      "id": "pawsharp-interactivity",
+      "title": "PawSharp.Interactivity",
+      "content": "<h2 id=\"pawsharp-interactivity\">PawSharp.Interactivity</h2>\n<p>Main interactivity extension.</p>"
+    },
+    {
+      "id": "pawsharp-interactivity-extensions",
+      "title": "PawSharp.Interactivity.Extensions",
+      "content": "<h2 id=\"pawsharp-interactivity-extensions\">PawSharp.Interactivity.Extensions</h2>\n<p>Extension methods for Discord messages.</p>"
+    },
+    {
+      "id": "pawsharp-interactivity-extensions-channelextensions",
+      "title": "PawSharp.Interactivity.Extensions.ChannelExtensions",
+      "content": "<h2 id=\"pawsharp-interactivity-extensions-channelextensions\">PawSharp.Interactivity.Extensions.ChannelExtensions</h2>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>SendPaginatedMessageAsync(Channel channel, DiscordClient client, User user, IEnumerable&lt;Page&gt; pages, Nullable&lt;TimeSpan&gt; timeout)</code></h4>\n<p>Sends a paginated message.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>channel</code></td><td>The channel to send to.</td></tr><tr><td><code>client</code></td><td>The Discord client.</td></tr><tr><td><code>user</code></td><td>The user who can control the pagination.</td></tr><tr><td><code>pages</code></td><td>The pages to paginate.</td></tr><tr><td><code>timeout</code></td><td>The timeout for the pagination.</td></tr></tbody></table>\n<p><strong>Returns:</strong> A task representing the asynchronous operation.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>GetNextMessageAsync(Channel channel, DiscordClient client, Func&lt;MessageCreateEvent, bool&gt; predicate, Nullable&lt;TimeSpan&gt; timeout)</code></h4>\n<p>Waits for the next message in the channel.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>channel</code></td><td>The channel to wait in.</td></tr><tr><td><code>client</code></td><td>The Discord client.</td></tr><tr><td><code>predicate</code></td><td>The predicate to match messages.</td></tr><tr><td><code>timeout</code></td><td>The timeout for waiting.</td></tr></tbody></table>\n<p><strong>Returns:</strong> The interactivity result.</p>\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactivity-extensions-interactivityextensions",
+      "title": "PawSharp.Interactivity.Extensions.InteractivityExtensions",
+      "content": "<h2 id=\"pawsharp-interactivity-extensions-interactivityextensions\">PawSharp.Interactivity.Extensions.InteractivityExtensions</h2>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>UseInteractivity(DiscordClient client, InteractivityConfiguration config)</code></h4>\n<p>Enables interactivity for the Discord client.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>client</code></td><td>The Discord client.</td></tr><tr><td><code>config</code></td><td>The interactivity configuration.</td></tr></tbody></table>\n<p><strong>Returns:</strong> The interactivity extension.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>GetExtension()</code></h4>\n<p>Returns the  registered for ,\n            or null if  has not been called for this client.</p>\n\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactivity-extensions-messageextensions",
+      "title": "PawSharp.Interactivity.Extensions.MessageExtensions",
+      "content": "<h2 id=\"pawsharp-interactivity-extensions-messageextensions\">PawSharp.Interactivity.Extensions.MessageExtensions</h2>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>WaitForReactionAsync(Message message, DiscordClient client, User user, string emoji, Nullable&lt;TimeSpan&gt; timeout)</code></h4>\n<p>Waits for a reaction on the message.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>message</code></td><td>The message to wait for reactions on.</td></tr><tr><td><code>client</code></td><td>The Discord client.</td></tr><tr><td><code>user</code></td><td>The user whose reaction to wait for.</td></tr><tr><td><code>emoji</code></td><td>The specific emoji to wait for, or null for any emoji.</td></tr><tr><td><code>timeout</code></td><td>The timeout for waiting.</td></tr></tbody></table>\n<p><strong>Returns:</strong> The interactivity result.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>CollectReactionsAsync(Message message, DiscordClient client, Nullable&lt;TimeSpan&gt; timeout)</code></h4>\n<p>Collects reactions on the message.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>message</code></td><td>The message to collect reactions from.</td></tr><tr><td><code>client</code></td><td>The Discord client.</td></tr><tr><td><code>timeout</code></td><td>The timeout for collecting.</td></tr></tbody></table>\n<p><strong>Returns:</strong> The collected reactions.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>CreatePollAsync(Message message, DiscordClient client, string question, IEnumerable&lt;string&gt; options, Nullable&lt;TimeSpan&gt; timeout)</code></h4>\n<p>Creates a poll on the message.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>message</code></td><td>The message to create a poll on.</td></tr><tr><td><code>client</code></td><td>The Discord client.</td></tr><tr><td><code>question</code></td><td>The poll question.</td></tr><tr><td><code>options</code></td><td>The poll options.</td></tr><tr><td><code>timeout</code></td><td>The timeout for the poll.</td></tr></tbody></table>\n<p><strong>Returns:</strong> A task representing the asynchronous operation.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>WaitForButtonAsync(Message message, DiscordClient client, User user, string customId, Nullable&lt;TimeSpan&gt; timeout)</code></h4>\n<p>Waits for a button click on this message and returns the resulting interaction.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>message</code></td><td>The message whose buttons to listen on.</td></tr><tr><td><code>client</code></td><td>The Discord client.</td></tr><tr><td><code>user</code></td><td>The user whose interaction to accept, or  to accept any user.</td></tr><tr><td><code>customId</code></td><td>The custom_id of the specific button to wait for, or \n            to accept any button on the message.</td></tr><tr><td><code>timeout</code></td><td>The maximum time to wait.  Falls back to \n            if not specified.</td></tr></tbody></table>\n<p><strong>Returns:</strong> An  wrapping the \n            when a matching click arrives, or a timed-out result after the deadline.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>WaitForSelectAsync(Message message, DiscordClient client, User user, string customId, Nullable&lt;TimeSpan&gt; timeout)</code></h4>\n<p>Waits for a select menu interaction on this message and returns the resulting interaction.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>message</code></td><td>The message whose select menus to listen on.</td></tr><tr><td><code>client</code></td><td>The Discord client.</td></tr><tr><td><code>user</code></td><td>The user whose interaction to accept, or  to accept any user.</td></tr><tr><td><code>customId</code></td><td>The custom_id of the specific select menu to wait for, or \n            to accept any select menu on the message.</td></tr><tr><td><code>timeout</code></td><td>The maximum time to wait.  Falls back to \n            if not specified.</td></tr></tbody></table>\n<p><strong>Returns:</strong> An  wrapping the \n            (with Data.Values containing the selected values) when a matching submission\n            arrives, or a timed-out result after the deadline.</p>\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactivity-interactivityconfiguration",
+      "title": "PawSharp.Interactivity.InteractivityConfiguration",
+      "content": "<h2 id=\"pawsharp-interactivity-interactivityconfiguration\">PawSharp.Interactivity.InteractivityConfiguration</h2>\n<h3>Properties</h3>\n<div class=\"api-member\"><h4><code>Timeout</code></h4>\n<p>Gets or sets the default timeout for interactivity operations.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>PollBehaviour</code></h4>\n<p>Gets or sets the pagination behavior for reactions.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>PaginationEmojis</code></h4>\n<p>Gets or sets the pagination emojis.</p>\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactivity-interactivityextension",
+      "title": "PawSharp.Interactivity.InteractivityExtension",
+      "content": "<h2 id=\"pawsharp-interactivity-interactivityextension\">PawSharp.Interactivity.InteractivityExtension</h2>\n<h3>Constructors</h3>\n<div class=\"api-member\"><h4><code>InteractivityExtension(InteractivityConfiguration config)</code></h4>\n<p>Initializes a new instance of the  class.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>config</code></td><td>The interactivity configuration.</td></tr></tbody></table>\n\n</div>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>GeneratePagesInContent(string content, int maxLength)</code></h4>\n<p>Generates pages from content.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>content</code></td><td>The content to paginate.</td></tr><tr><td><code>maxLength</code></td><td>The maximum length per page.</td></tr></tbody></table>\n<p><strong>Returns:</strong> The generated pages.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>GeneratePagesInEmbed(string content, int maxLength)</code></h4>\n<p>Generates pages from content in embeds.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>content</code></td><td>The content to paginate.</td></tr><tr><td><code>maxLength</code></td><td>The maximum length per page.</td></tr></tbody></table>\n<p><strong>Returns:</strong> The generated pages.</p>\n\n</div>\n<h3>Properties</h3>\n<div class=\"api-member\"><h4><code>Timeout</code></h4>\n<p>Gets the timeout for operations.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>PaginationEmojis</code></h4>\n<p>Gets the pagination emojis used by SendPaginatedMessageAsync.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>PollBehaviour</code></h4>\n<p>Gets the poll behaviour (reaction cleanup) used by SendPaginatedMessageAsync.</p>\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactivity-interactivityresult-1",
+      "title": "PawSharp.Interactivity.InteractivityResult`1",
+      "content": "<h2 id=\"pawsharp-interactivity-interactivityresult-1\">PawSharp.Interactivity.InteractivityResult`1</h2>\n<h3>Properties</h3>\n<div class=\"api-member\"><h4><code>TimedOut</code></h4>\n<p>Gets whether the operation timed out.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>Result</code></h4>\n<p>Gets the result value.</p>\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactivity-page",
+      "title": "PawSharp.Interactivity.Page",
+      "content": "<h2 id=\"pawsharp-interactivity-page\">PawSharp.Interactivity.Page</h2>\n<h3>Properties</h3>\n<div class=\"api-member\"><h4><code>Embed</code></h4>\n<p>Gets or sets the embed for this page.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>Content</code></h4>\n<p>Gets or sets the content for this page.</p>\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactivity-paginationemojis",
+      "title": "PawSharp.Interactivity.PaginationEmojis",
+      "content": "<h2 id=\"pawsharp-interactivity-paginationemojis\">PawSharp.Interactivity.PaginationEmojis</h2>\n<h3>Properties</h3>\n<div class=\"api-member\"><h4><code>Left</code></h4>\n<p>Gets or sets the left arrow emoji.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>Right</code></h4>\n<p>Gets or sets the right arrow emoji.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>SkipLeft</code></h4>\n<p>Gets or sets the skip left emoji.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>SkipRight</code></h4>\n<p>Gets or sets the skip right emoji.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>Stop</code></h4>\n<p>Gets or sets the stop emoji.</p>\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactivity-pollbehaviour",
+      "title": "PawSharp.Interactivity.PollBehaviour",
+      "content": "<h2 id=\"pawsharp-interactivity-pollbehaviour\">PawSharp.Interactivity.PollBehaviour</h2>\n<h3>Fields</h3>\n<div class=\"api-member\"><h4><code>DeleteEmojis</code></h4>\n<p>Delete all reactions when done.</p>\n</div>\n<div class=\"api-member\"><h4><code>KeepEmojis</code></h4>\n<p>Keep all reactions when done.</p>\n</div>\n<div class=\"api-member\"><h4><code>DeleteReactions</code></h4>\n<p>Delete only the bot&#x27;s reactions when done.</p>\n</div>"
+    }
+  ]
+}

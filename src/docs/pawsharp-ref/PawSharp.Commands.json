@@ -1,0 +1,1184 @@
+{
+  "assembly": "PawSharp.Commands",
+  "source": "C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Commands\\bin\\Release\\net10.0\\PawSharp.Commands.xml",
+  "members": [
+    {
+      "id": "T:PawSharp.Commands.CommandContext",
+      "kind": "T",
+      "name": "PawSharp.Commands.CommandContext",
+      "summary": "Represents a command context.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandContext.Client",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandContext.Client",
+      "summary": "Gets the Discord client.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandContext.Message",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandContext.Message",
+      "summary": "Gets the message that triggered the command.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandContext.ChannelId",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandContext.ChannelId",
+      "summary": "Gets the channel where the command was executed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandContext.User",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandContext.User",
+      "summary": "Gets the user who executed the command.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandContext.GuildId",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandContext.GuildId",
+      "summary": "Gets the guild where the command was executed, if applicable.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandContext.Prefix",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandContext.Prefix",
+      "summary": "Gets the command prefix used.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandContext.CommandName",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandContext.CommandName",
+      "summary": "Gets the command name.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandContext.Arguments",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandContext.Arguments",
+      "summary": "Gets the command arguments.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandContext.RawArguments",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandContext.RawArguments",
+      "summary": "Gets the raw argument string.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandContext.Member",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandContext.Member",
+      "summary": "Gets the guild member who invoked the command, or  for DM invocations.\n            Populated from the member field of the gateway MESSAGE_CREATE event.\n            Use  in  checks to access computed permissions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandContext.#ctor(PawSharp.Client.DiscordClient,PawSharp.Core.Entities.Message,System.String,System.String,System.String[],System.String,PawSharp.Core.Entities.GuildMember)",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandContext.#ctor(PawSharp.Client.DiscordClient,PawSharp.Core.Entities.Message,System.String,System.String,System.String[],System.String,PawSharp.Core.Entities.GuildMember)",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "message",
+          "description": "The message."
+        },
+        {
+          "name": "prefix",
+          "description": "The command prefix."
+        },
+        {
+          "name": "commandName",
+          "description": "The command name."
+        },
+        {
+          "name": "arguments",
+          "description": "The command arguments."
+        },
+        {
+          "name": "rawArguments",
+          "description": "The raw arguments."
+        },
+        {
+          "name": "member",
+          "description": "The guild member who triggered the command, if in a guild."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandContext.RespondAsync(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandContext.RespondAsync(System.String)",
+      "summary": "Responds to the command.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "content",
+          "description": "The response content."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandContext.RespondAsync(PawSharp.Core.Entities.Embed)",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandContext.RespondAsync(PawSharp.Core.Entities.Embed)",
+      "summary": "Responds to the command with an embed.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "embed",
+          "description": "The embed to send."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandContext.ReplyAsync(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandContext.ReplyAsync(System.String)",
+      "summary": "Replies to the triggering message (creates a Discord message reply thread).",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "content",
+          "description": "The reply content."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandContext.ReplyAsync(PawSharp.Core.Entities.Embed)",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandContext.ReplyAsync(PawSharp.Core.Entities.Embed)",
+      "summary": "Replies to the triggering message with an embed.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "embed",
+          "description": "The embed to include in the reply."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.BaseCommandModule",
+      "kind": "T",
+      "name": "PawSharp.Commands.BaseCommandModule",
+      "summary": "Base class for command modules.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.BaseCommandModule.InitializeAsync",
+      "kind": "M",
+      "name": "PawSharp.Commands.BaseCommandModule.InitializeAsync",
+      "summary": "Called during module registration for async initialization.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.BaseCommandModule.BeforeExecutionAsync(PawSharp.Commands.CommandContext)",
+      "kind": "M",
+      "name": "PawSharp.Commands.BaseCommandModule.BeforeExecutionAsync(PawSharp.Commands.CommandContext)",
+      "summary": "Called before command execution.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "ctx",
+          "description": "The command context."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.BaseCommandModule.AfterExecutionAsync(PawSharp.Commands.CommandContext)",
+      "kind": "M",
+      "name": "PawSharp.Commands.BaseCommandModule.AfterExecutionAsync(PawSharp.Commands.CommandContext)",
+      "summary": "Called after command execution.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "ctx",
+          "description": "The command context."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.CommandAttribute",
+      "kind": "T",
+      "name": "PawSharp.Commands.CommandAttribute",
+      "summary": "Attribute for command methods.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandAttribute.Name",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandAttribute.Name",
+      "summary": "Gets the command name.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandAttribute.#ctor(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandAttribute.#ctor(System.String)",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "name",
+          "description": "The command name."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.AliasesAttribute",
+      "kind": "T",
+      "name": "PawSharp.Commands.AliasesAttribute",
+      "summary": "Attribute for command aliases.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.AliasesAttribute.Aliases",
+      "kind": "P",
+      "name": "PawSharp.Commands.AliasesAttribute.Aliases",
+      "summary": "Gets the command aliases.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.AliasesAttribute.#ctor(System.String[])",
+      "kind": "M",
+      "name": "PawSharp.Commands.AliasesAttribute.#ctor(System.String[])",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "aliases",
+          "description": "The command aliases."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.DescriptionAttribute",
+      "kind": "T",
+      "name": "PawSharp.Commands.DescriptionAttribute",
+      "summary": "Attribute for command descriptions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.DescriptionAttribute.Description",
+      "kind": "P",
+      "name": "PawSharp.Commands.DescriptionAttribute.Description",
+      "summary": "Gets the command description.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.DescriptionAttribute.#ctor(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Commands.DescriptionAttribute.#ctor(System.String)",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "description",
+          "description": "The command description."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.Command",
+      "kind": "T",
+      "name": "PawSharp.Commands.Command",
+      "summary": "Represents a command.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Command.Name",
+      "kind": "P",
+      "name": "PawSharp.Commands.Command.Name",
+      "summary": "Gets the command name.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Command.Aliases",
+      "kind": "P",
+      "name": "PawSharp.Commands.Command.Aliases",
+      "summary": "Gets the command aliases.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Command.Description",
+      "kind": "P",
+      "name": "PawSharp.Commands.Command.Description",
+      "summary": "Gets the command description.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Command.Method",
+      "kind": "P",
+      "name": "PawSharp.Commands.Command.Method",
+      "summary": "Gets the command method.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Command.Module",
+      "kind": "P",
+      "name": "PawSharp.Commands.Command.Module",
+      "summary": "Gets the command module.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Command.Preconditions",
+      "kind": "P",
+      "name": "PawSharp.Commands.Command.Preconditions",
+      "summary": "Gets the precondition checks for this command, collected once at registration.\n            Stored here so attribute instances (and their state, e.g. )\n            are reused across invocations rather than being reconstructed by each\n            GetCustomAttributes call.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.Command.#ctor(System.String,System.String[],System.String,System.Reflection.MethodInfo,PawSharp.Commands.BaseCommandModule,System.Collections.Generic.IReadOnlyList{PawSharp.Commands.Preconditions.IPrecondition})",
+      "kind": "M",
+      "name": "PawSharp.Commands.Command.#ctor(System.String,System.String[],System.String,System.Reflection.MethodInfo,PawSharp.Commands.BaseCommandModule,System.Collections.Generic.IReadOnlyList{PawSharp.Commands.Preconditions.IPrecondition})",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "name",
+          "description": "The command name."
+        },
+        {
+          "name": "aliases",
+          "description": "The command aliases."
+        },
+        {
+          "name": "description",
+          "description": "The command description."
+        },
+        {
+          "name": "method",
+          "description": "The command method."
+        },
+        {
+          "name": "module",
+          "description": "The command module."
+        },
+        {
+          "name": "preconditions",
+          "description": "Pre-collected precondition instances for this command."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.CommandInfo",
+      "kind": "T",
+      "name": "PawSharp.Commands.CommandInfo",
+      "summary": "Represents information about a registered command.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandInfo.Name",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandInfo.Name",
+      "summary": "Gets the command name.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandInfo.Aliases",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandInfo.Aliases",
+      "summary": "Gets the command aliases.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandInfo.Description",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandInfo.Description",
+      "summary": "Gets the command description.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandInfo.#ctor(System.String,System.String[],System.String)",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandInfo.#ctor(System.String,System.String[],System.String)",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "name",
+          "description": "The command name."
+        },
+        {
+          "name": "aliases",
+          "description": "The command aliases."
+        },
+        {
+          "name": "description",
+          "description": "The command description."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.CommandsExtension",
+      "kind": "T",
+      "name": "PawSharp.Commands.CommandsExtension",
+      "summary": "Main commands extension.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandsExtension.CommandErrored",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandsExtension.CommandErrored",
+      "summary": "Invoked when a command throws an unhandled exception.\n            Assign a handler here to customise error reporting (e.g. send a user-facing error message).\n            If no handler is assigned, the exception is logged at Error level and swallowed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandsExtension.#ctor(System.String,Microsoft.Extensions.Logging.ILogger{PawSharp.Commands.CommandsExtension})",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandsExtension.#ctor(System.String,Microsoft.Extensions.Logging.ILogger{PawSharp.Commands.CommandsExtension})",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "prefix",
+          "description": "The command prefix."
+        },
+        {
+          "name": "logger",
+          "description": "Optional logger; defaults to no-op."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandsExtension.RegisterModule(PawSharp.Client.DiscordClient,PawSharp.Commands.BaseCommandModule)",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandsExtension.RegisterModule(PawSharp.Client.DiscordClient,PawSharp.Commands.BaseCommandModule)",
+      "summary": "Registers a command module.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "module",
+          "description": "The command module to register."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandsExtension.UnregisterModule(PawSharp.Commands.BaseCommandModule)",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandsExtension.UnregisterModule(PawSharp.Commands.BaseCommandModule)",
+      "summary": "Unregisters a command module.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "module",
+          "description": "The command module to unregister."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandsExtension.RegisterModuleAsync(PawSharp.Client.DiscordClient,PawSharp.Commands.BaseCommandModule)",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandsExtension.RegisterModuleAsync(PawSharp.Client.DiscordClient,PawSharp.Commands.BaseCommandModule)",
+      "summary": "Registers a command module asynchronously, allowing for async initialization.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "module",
+          "description": "The command module to register."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandsExtension.GetRegisteredCommands",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandsExtension.GetRegisteredCommands",
+      "summary": "Gets a list of all registered commands.",
+      "remarks": "",
+      "returns": "A list of registered command information.",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandsExtension.RegisterSlashModuleAsync(PawSharp.Client.DiscordClient,PawSharp.Commands.BaseCommandModule,System.UInt64,System.Nullable{System.UInt64})",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandsExtension.RegisterSlashModuleAsync(PawSharp.Client.DiscordClient,PawSharp.Commands.BaseCommandModule,System.UInt64,System.Nullable{System.UInt64})",
+      "summary": "Scans a module for -decorated methods, registers each\n            discovered command with the Discord API, and wires the interaction handlers automatically.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "module",
+          "description": "The command module to scan."
+        },
+        {
+          "name": "applicationId",
+          "description": "The bot application ID used to register commands with Discord."
+        },
+        {
+          "name": "guildId",
+          "description": "When non-null, commands are registered as guild-scoped (instant propagation, ideal during\n            development). Pass  to register as global commands (may take up to\n            one hour to propagate to all clients)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.CommandsExtension.BulkRegisterSlashModulesAsync(PawSharp.Client.DiscordClient,System.Collections.Generic.IEnumerable{PawSharp.Commands.BaseCommandModule},System.UInt64,System.Nullable{System.UInt64})",
+      "kind": "M",
+      "name": "PawSharp.Commands.CommandsExtension.BulkRegisterSlashModulesAsync(PawSharp.Client.DiscordClient,System.Collections.Generic.IEnumerable{PawSharp.Commands.BaseCommandModule},System.UInt64,System.Nullable{System.UInt64})",
+      "summary": "Scans every module in  for -decorated\n            methods, registers all discovered commands with Discord in a single bulk-overwrite call, then wires\n            all interaction handlers.  Prefer this over calling  per\n            module on startup — it uses one REST round-trip instead of N, avoiding rate limits.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "modules",
+          "description": "The command modules to scan."
+        },
+        {
+          "name": "applicationId",
+          "description": "The bot application ID."
+        },
+        {
+          "name": "guildId",
+          "description": "When non-null, registers commands as guild-scoped (instant propagation, ideal for development).\n            Pass  to register as global commands (up to one hour propagation)."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.CommandErrorEventArgs",
+      "kind": "T",
+      "name": "PawSharp.Commands.CommandErrorEventArgs",
+      "summary": "Event arguments passed to  when a command throws.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandErrorEventArgs.Context",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandErrorEventArgs.Context",
+      "summary": "The context under which the failing command was invoked.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.CommandErrorEventArgs.Exception",
+      "kind": "P",
+      "name": "PawSharp.Commands.CommandErrorEventArgs.Exception",
+      "summary": "The exception that was thrown by the command method.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Commands.SlashCommandContext",
+      "kind": "T",
+      "name": "PawSharp.Commands.SlashCommandContext",
+      "summary": "A lightweight  surrogate used for slash command error reporting.\n            Unlike a normal , there is no backing ; the\n            context wraps the raw  instead.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.SlashCommandContext.Interaction",
+      "kind": "P",
+      "name": "PawSharp.Commands.SlashCommandContext.Interaction",
+      "summary": "The interaction that triggered this slash command invocation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Commands.SlashCommandAttribute",
+      "kind": "T",
+      "name": "PawSharp.Commands.SlashCommandAttribute",
+      "summary": "Marks a method in a  as a Discord application (slash) command.\n            Use  to auto-register all methods\n            decorated with this attribute in a module.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.SlashCommandAttribute.Name",
+      "kind": "P",
+      "name": "PawSharp.Commands.SlashCommandAttribute.Name",
+      "summary": "Gets the slash command name (1–32 characters, lowercase, no spaces).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.SlashCommandAttribute.Description",
+      "kind": "P",
+      "name": "PawSharp.Commands.SlashCommandAttribute.Description",
+      "summary": "Gets the slash command description shown in the Discord UI (1–100 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.SlashCommandAttribute.#ctor(System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Commands.SlashCommandAttribute.#ctor(System.String,System.String)",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "name",
+          "description": "The command name."
+        },
+        {
+          "name": "description",
+          "description": "The command description."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.SlashOptionAttribute",
+      "kind": "T",
+      "name": "PawSharp.Commands.SlashOptionAttribute",
+      "summary": "Marks a method parameter as a Discord slash command option.\n            Applied to parameters of methods decorated with .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.SlashOptionAttribute.Name",
+      "kind": "P",
+      "name": "PawSharp.Commands.SlashOptionAttribute.Name",
+      "summary": "Gets the option name shown in the Discord UI (1–32 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.SlashOptionAttribute.Description",
+      "kind": "P",
+      "name": "PawSharp.Commands.SlashOptionAttribute.Description",
+      "summary": "Gets the option description shown in the Discord UI (1–100 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.SlashOptionAttribute.Required",
+      "kind": "P",
+      "name": "PawSharp.Commands.SlashOptionAttribute.Required",
+      "summary": "Gets or sets whether this option is required. Defaults to .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.SlashOptionAttribute.#ctor(System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Commands.SlashOptionAttribute.#ctor(System.String,System.String)",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "name",
+          "description": "The option name."
+        },
+        {
+          "name": "description",
+          "description": "The option description."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.Extensions.CommandsExtensions",
+      "kind": "T",
+      "name": "PawSharp.Commands.Extensions.CommandsExtensions",
+      "summary": "Extension methods for adding commands to Discord clients.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.Extensions.CommandsExtensions.UseCommands(PawSharp.Client.DiscordClient,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Commands.Extensions.CommandsExtensions.UseCommands(PawSharp.Client.DiscordClient,System.String)",
+      "summary": "Enables prefix-based commands for the Discord client and returns the singleton\n             for this client.  Idempotent — subsequent calls\n            with the same  return the existing instance.",
+      "remarks": "",
+      "returns": "The  bound to this client.",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "prefix",
+          "description": "The command prefix (default: !)."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.Preconditions.CooldownAttribute",
+      "kind": "T",
+      "name": "PawSharp.Commands.Preconditions.CooldownAttribute",
+      "summary": "Limits how often a command can be executed by tracking invocations against a rolling window.",
+      "remarks": "A bucket key is derived from the invoking user, channel, or guild depending on\n            .  Each bucket is reset once the \n            window has elapsed since the first use in that window.",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Preconditions.CooldownAttribute.MaxUses",
+      "kind": "P",
+      "name": "PawSharp.Commands.Preconditions.CooldownAttribute.MaxUses",
+      "summary": "Maximum number of uses allowed within the time .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Preconditions.CooldownAttribute.Per",
+      "kind": "P",
+      "name": "PawSharp.Commands.Preconditions.CooldownAttribute.Per",
+      "summary": "The rolling window over which  applies.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Preconditions.CooldownAttribute.BucketType",
+      "kind": "P",
+      "name": "PawSharp.Commands.Preconditions.CooldownAttribute.BucketType",
+      "summary": "Determines how invocations are bucketed (per user, per channel, per guild, or globally).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.Preconditions.CooldownAttribute.#ctor(System.Int32,System.Double,PawSharp.Commands.Preconditions.CooldownBucketType)",
+      "kind": "M",
+      "name": "PawSharp.Commands.Preconditions.CooldownAttribute.#ctor(System.Int32,System.Double,PawSharp.Commands.Preconditions.CooldownBucketType)",
+      "summary": "Initialises the attribute.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "maxUses",
+          "description": "Maximum uses within the window."
+        },
+        {
+          "name": "perSeconds",
+          "description": "Length of the rolling window in seconds."
+        },
+        {
+          "name": "bucketType",
+          "description": "Scope of the cooldown bucket."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.Preconditions.CooldownAttribute.CheckAsync(PawSharp.Commands.CommandContext)",
+      "kind": "M",
+      "name": "PawSharp.Commands.Preconditions.CooldownAttribute.CheckAsync(PawSharp.Commands.CommandContext)",
+      "summary": "",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Commands.Preconditions.CooldownBucketType",
+      "kind": "T",
+      "name": "PawSharp.Commands.Preconditions.CooldownBucketType",
+      "summary": "Determines how a  bucket is keyed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Commands.Preconditions.CooldownBucketType.User",
+      "kind": "F",
+      "name": "PawSharp.Commands.Preconditions.CooldownBucketType.User",
+      "summary": "One bucket per invoking user across all channels.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Commands.Preconditions.CooldownBucketType.Channel",
+      "kind": "F",
+      "name": "PawSharp.Commands.Preconditions.CooldownBucketType.Channel",
+      "summary": "One bucket per channel (shared across all users).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Commands.Preconditions.CooldownBucketType.Guild",
+      "kind": "F",
+      "name": "PawSharp.Commands.Preconditions.CooldownBucketType.Guild",
+      "summary": "One bucket per guild (shared across all users and channels).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Commands.Preconditions.CooldownBucketType.Global",
+      "kind": "F",
+      "name": "PawSharp.Commands.Preconditions.CooldownBucketType.Global",
+      "summary": "A single global bucket across all users, channels, and guilds.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Commands.Preconditions.IPrecondition",
+      "kind": "T",
+      "name": "PawSharp.Commands.Preconditions.IPrecondition",
+      "summary": "Defines a check that must pass before a command is executed.\n            Apply derived attributes to command methods;  evaluates\n            every  attribute present before invoking the handler.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.Preconditions.IPrecondition.CheckAsync(PawSharp.Commands.CommandContext)",
+      "kind": "M",
+      "name": "PawSharp.Commands.Preconditions.IPrecondition.CheckAsync(PawSharp.Commands.CommandContext)",
+      "summary": "Evaluates the precondition for the given command context.",
+      "remarks": "",
+      "returns": "A  indicating whether execution should proceed.",
+      "example": "",
+      "params": [
+        {
+          "name": "ctx",
+          "description": "The context of the command being invoked."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Commands.Preconditions.PreconditionFailedException",
+      "kind": "T",
+      "name": "PawSharp.Commands.Preconditions.PreconditionFailedException",
+      "summary": "Thrown when a command precondition check fails.\n            Delivered to  so the bot can respond with\n            the specific  (e.g. \"You are on cooldown. Try again in 3.2 second(s).\").",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.Preconditions.PreconditionFailedException.#ctor(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Commands.Preconditions.PreconditionFailedException.#ctor(System.String)",
+      "summary": "Initialises a new instance with the precondition failure description.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Commands.Preconditions.PreconditionResult",
+      "kind": "T",
+      "name": "PawSharp.Commands.Preconditions.PreconditionResult",
+      "summary": "The result of a precondition check.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Preconditions.PreconditionResult.IsSuccess",
+      "kind": "P",
+      "name": "PawSharp.Commands.Preconditions.PreconditionResult.IsSuccess",
+      "summary": "Gets whether the precondition passed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Preconditions.PreconditionResult.ErrorMessage",
+      "kind": "P",
+      "name": "PawSharp.Commands.Preconditions.PreconditionResult.ErrorMessage",
+      "summary": "Gets the error message when  is ; otherwise .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.Preconditions.PreconditionResult.FromSuccess",
+      "kind": "M",
+      "name": "PawSharp.Commands.Preconditions.PreconditionResult.FromSuccess",
+      "summary": "Returns a successful result.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.Preconditions.PreconditionResult.FromError(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Commands.Preconditions.PreconditionResult.FromError(System.String)",
+      "summary": "Returns a failed result with .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.Preconditions.PreconditionResult.ToString",
+      "kind": "M",
+      "name": "PawSharp.Commands.Preconditions.PreconditionResult.ToString",
+      "summary": "",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Commands.Preconditions.RequireGuildAttribute",
+      "kind": "T",
+      "name": "PawSharp.Commands.Preconditions.RequireGuildAttribute",
+      "summary": "Restricts a command so it can only be executed inside a guild (server), not in DMs.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.Preconditions.RequireGuildAttribute.CheckAsync(PawSharp.Commands.CommandContext)",
+      "kind": "M",
+      "name": "PawSharp.Commands.Preconditions.RequireGuildAttribute.CheckAsync(PawSharp.Commands.CommandContext)",
+      "summary": "",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Commands.Preconditions.RequirePermissionsAttribute",
+      "kind": "T",
+      "name": "PawSharp.Commands.Preconditions.RequirePermissionsAttribute",
+      "summary": "Restricts a command to members who hold at least the specified Discord permission bits.",
+      "remarks": "Discord includes a computed permissions bitfield string on the member object\n            embedded in MESSAGE_CREATE gateway events.  This attribute parses that value and\n            checks it against .\n            Guild owners implicitly hold the ADMINISTRATOR bit; they bypass all checks when\n             is  (the default).",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Preconditions.RequirePermissionsAttribute.RequiredPermissions",
+      "kind": "P",
+      "name": "PawSharp.Commands.Preconditions.RequirePermissionsAttribute.RequiredPermissions",
+      "summary": "The Discord permission bits that must be present.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Commands.Preconditions.RequirePermissionsAttribute.IgnoreAdmins",
+      "kind": "P",
+      "name": "PawSharp.Commands.Preconditions.RequirePermissionsAttribute.IgnoreAdmins",
+      "summary": "When  (default) the ADMINISTRATOR permission (bit 3)\n            and the guild owner bypass the check.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Commands.Preconditions.RequirePermissionsAttribute.#ctor(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Commands.Preconditions.RequirePermissionsAttribute.#ctor(System.UInt64)",
+      "summary": "Initialises the attribute with the required permission bit mask.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "permissions",
+          "description": "Bitwise OR of the Discord permission values to require."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Commands.Preconditions.RequirePermissionsAttribute.CheckAsync(PawSharp.Commands.CommandContext)",
+      "kind": "M",
+      "name": "PawSharp.Commands.Preconditions.RequirePermissionsAttribute.CheckAsync(PawSharp.Commands.CommandContext)",
+      "summary": "",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    }
+  ]
+}

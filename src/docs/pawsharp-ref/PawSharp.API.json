@@ -1,0 +1,2925 @@
+{
+  "assembly": "PawSharp.API",
+  "source": "C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.API.xml",
+  "members": [
+    {
+      "id": "T:PawSharp.API.Builders.MessageBuilder",
+      "kind": "T",
+      "name": "PawSharp.API.Builders.MessageBuilder",
+      "summary": "Fluent builder for constructing  objects.",
+      "remarks": "",
+      "returns": "",
+      "example": "var request = new MessageBuilder()\n                 .WithContent(\"Hello, world!\")\n                 .AddEmbed(e => e.WithTitle(\"Embed Title\").WithDescription(\"Some text\").WithColor(0x5865F2))\n                 .WithReply(1234567890ul)\n                 .WithAllowedMentions(AllowedMentions.PingRepliedUser)\n                 .Build();\n            \n             await client.Rest.CreateMessageAsync(channelId, request);",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Builders.MessageBuilder.MaxContentLength",
+      "kind": "F",
+      "name": "PawSharp.API.Builders.MessageBuilder.MaxContentLength",
+      "summary": "Maximum characters allowed in message content.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Builders.MessageBuilder.MaxEmbeds",
+      "kind": "F",
+      "name": "PawSharp.API.Builders.MessageBuilder.MaxEmbeds",
+      "summary": "Maximum number of embeds per message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Builders.MessageBuilder.MaxStickers",
+      "kind": "F",
+      "name": "PawSharp.API.Builders.MessageBuilder.MaxStickers",
+      "summary": "Maximum number of stickers per message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Builders.MessageBuilder.MaxNonceLength",
+      "kind": "F",
+      "name": "PawSharp.API.Builders.MessageBuilder.MaxNonceLength",
+      "summary": "Maximum nonce length (Discord enforces 25 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Builders.MessageBuilder.FlagSuppressEmbeds",
+      "kind": "F",
+      "name": "PawSharp.API.Builders.MessageBuilder.FlagSuppressEmbeds",
+      "summary": "Suppresses link embeds in the message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Builders.MessageBuilder.FlagSuppressNotifications",
+      "kind": "F",
+      "name": "PawSharp.API.Builders.MessageBuilder.FlagSuppressNotifications",
+      "summary": "Suppresses desktop push notifications.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.WithContent(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.WithContent(System.String)",
+      "summary": "Sets the message text content (max  characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "content",
+          "description": "The text to send."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.ClearContent",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.ClearContent",
+      "summary": "Clears the text content (sends an embed-only or component-only message).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.AddEmbed(PawSharp.Core.Entities.Embed)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.AddEmbed(PawSharp.Core.Entities.Embed)",
+      "summary": "Appends a pre-built  to the message (max ).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.AddEmbed(System.Action{PawSharp.Core.Builders.EmbedBuilder})",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.AddEmbed(System.Action{PawSharp.Core.Builders.EmbedBuilder})",
+      "summary": "Builds and appends an embed using the provided  configuration action.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "configure",
+          "description": "A delegate that configures the ."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.ClearEmbeds",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.ClearEmbeds",
+      "summary": "Removes all embeds from the builder.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.AddComponent(PawSharp.Core.Entities.MessageComponent)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.AddComponent(PawSharp.Core.Entities.MessageComponent)",
+      "summary": "Appends a message component (button, select menu, action row, etc.).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.ClearComponents",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.ClearComponents",
+      "summary": "Removes all components from the builder.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.AddSticker(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.AddSticker(System.UInt64)",
+      "summary": "Appends a sticker by ID (max  stickers). Stickers must belong to the server.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.AsTts",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.AsTts",
+      "summary": "Enables text-to-speech for this message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.SuppressEmbeds",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.SuppressEmbeds",
+      "summary": "Prevents Discord from creating link-preview embeds for any URLs in the message content.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.SuppressNotifications",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.SuppressNotifications",
+      "summary": "Sends the message without triggering desktop push notifications for mentioned users.\n            Useful for bulk announcements or status updates that don't need to interrupt users.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.WithAllowedMentions(PawSharp.Core.Entities.AllowedMentions)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.WithAllowedMentions(PawSharp.Core.Entities.AllowedMentions)",
+      "summary": "Controls who Discord will mention when the message is delivered.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "allowedMentions",
+          "description": "Use factory shortcuts such as ,\n            , or construct a custom instance."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.WithReply(System.UInt64,System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.WithReply(System.UInt64,System.Boolean)",
+      "summary": "Sends this message as an inline reply to .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "messageId",
+          "description": "The ID of the message to reply to."
+        },
+        {
+          "name": "failIfNotExists",
+          "description": "When true, Discord will return an error if the target message has been deleted.\n            Defaults to false so the message is sent as a standalone message if the target is gone."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.WithMessageReference(PawSharp.Core.Entities.MessageReference)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.WithMessageReference(PawSharp.Core.Entities.MessageReference)",
+      "summary": "Sets a raw  on the message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.WithPoll(PawSharp.API.Models.CreatePollRequest)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.WithPoll(PawSharp.API.Models.CreatePollRequest)",
+      "summary": "Attaches a poll to the message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.WithNonce(System.String,System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.WithNonce(System.String,System.Boolean)",
+      "summary": "Sets an opaque nonce string (max  characters)\n            that clients can use to verify a message was sent.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "nonce",
+          "description": "The nonce value."
+        },
+        {
+          "name": "enforce",
+          "description": "When true, Discord checks that this nonce was not used recently\n            and rejects the message if it was (idempotency protection)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.API.Builders.MessageBuilder.Build",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.MessageBuilder.Build",
+      "summary": "Validates and constructs the .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Builders.PollBuilder",
+      "kind": "T",
+      "name": "PawSharp.API.Builders.PollBuilder",
+      "summary": "Fluent builder for constructing  objects.",
+      "remarks": "",
+      "returns": "",
+      "example": "var poll = new PollBuilder()\n                .WithQuestion(\"What is your favourite colour?\")\n                .AddAnswer(\"Red\", emojiName: \"❤️\")\n                .AddAnswer(\"Blue\", emojiName: \"💙\")\n                .WithDuration(24)\n                .AllowMultiselect()\n                .Build();\n            await client.CreatePollAsync(channelId, poll);",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.PollBuilder.WithQuestion(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.PollBuilder.WithQuestion(System.String)",
+      "summary": "Sets the poll question text (max 300 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.PollBuilder.AddAnswer(System.String,System.Nullable{System.UInt64},System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.PollBuilder.AddAnswer(System.String,System.Nullable{System.UInt64},System.String)",
+      "summary": "Adds an answer option with optional emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "text",
+          "description": "Answer text (max 55 characters)."
+        },
+        {
+          "name": "emojiId",
+          "description": "Snowflake ID of a custom guild emoji (mutually exclusive with )."
+        },
+        {
+          "name": "emojiName",
+          "description": "Unicode emoji string or custom emoji name."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.API.Builders.PollBuilder.WithDuration(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.PollBuilder.WithDuration(System.Int32)",
+      "summary": "Sets the poll duration in hours (1–768, default 24).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.PollBuilder.AllowMultiselect(System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.PollBuilder.AllowMultiselect(System.Boolean)",
+      "summary": "Allows users to select more than one answer.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.PollBuilder.WithLayoutType(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.PollBuilder.WithLayoutType(System.Int32)",
+      "summary": "Sets the layout type (1 = Default).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.PollBuilder.Build",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.PollBuilder.Build",
+      "summary": "Builds and returns the .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Builders.RoleBuilder",
+      "kind": "T",
+      "name": "PawSharp.API.Builders.RoleBuilder",
+      "summary": "Fluent builder for constructing  objects.",
+      "remarks": "",
+      "returns": "",
+      "example": "var role = new RoleBuilder()\n                .WithName(\"Moderator\")\n                .WithColor(0xFF5733)\n                .WithPermissions(\"8\")          // Administrator\n                .WithHoist()\n                .WithMentionable()\n                .Build();\n            await client.CreateGuildRoleAsync(guildId, role);",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.RoleBuilder.WithName(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.RoleBuilder.WithName(System.String)",
+      "summary": "Sets the role name (max 100 characters; default is \"new role\").",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.RoleBuilder.WithPermissions(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.RoleBuilder.WithPermissions(System.String)",
+      "summary": "Sets the permissions bit-set string (e.g. \"8\" for Administrator).\n            Pass \"0\" to create a role with no permissions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.RoleBuilder.WithColor(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.RoleBuilder.WithColor(System.Int32)",
+      "summary": "Sets the role colour as a packed RGB integer (e.g. 0xFF5733).\n            Pass 0 to use the default colour (appears grey/colourless).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.RoleBuilder.WithHoist(System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.RoleBuilder.WithHoist(System.Boolean)",
+      "summary": "Displays role members separately from online members in the sidebar.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.RoleBuilder.WithIcon(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.RoleBuilder.WithIcon(System.String)",
+      "summary": "Sets a custom role icon as a base64-encoded data URI (requires the guild to have\n            the ROLE_ICONS feature; mutually exclusive with ).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.RoleBuilder.WithUnicodeEmoji(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.RoleBuilder.WithUnicodeEmoji(System.String)",
+      "summary": "Sets a unicode emoji as the role icon (mutually exclusive with ).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.RoleBuilder.WithMentionable(System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.RoleBuilder.WithMentionable(System.Boolean)",
+      "summary": "Allows anyone to @mention this role.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.RoleBuilder.Build",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.RoleBuilder.Build",
+      "summary": "Builds and returns the .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Builders.ScheduledEventBuilder",
+      "kind": "T",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder",
+      "summary": "Fluent builder for constructing  objects.",
+      "remarks": "",
+      "returns": "",
+      "example": "var evt = new ScheduledEventBuilder()\n                .WithName(\"Dev Meetup\")\n                .WithEntityType(ScheduledEventEntityType.External)\n                .WithLocation(\"Discord Stage\")\n                .WithStartTime(DateTimeOffset.UtcNow.AddDays(3))\n                .WithEndTime(DateTimeOffset.UtcNow.AddDays(3).AddHours(2))\n                .Build();",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Builders.ScheduledEventBuilder.StageInstance",
+      "kind": "F",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.StageInstance",
+      "summary": "Stage instance (requires a stage channel).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Builders.ScheduledEventBuilder.Voice",
+      "kind": "F",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.Voice",
+      "summary": "Voice channel event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Builders.ScheduledEventBuilder.External",
+      "kind": "F",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.External",
+      "summary": "External event (requires location and end time).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.ScheduledEventBuilder.WithChannelId(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.WithChannelId(System.UInt64)",
+      "summary": "Sets the voice or stage channel ID (not required for external events).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.ScheduledEventBuilder.WithName(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.WithName(System.String)",
+      "summary": "Sets the event name (1–100 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.ScheduledEventBuilder.WithDescription(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.WithDescription(System.String)",
+      "summary": "Sets an optional description (max 1000 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.ScheduledEventBuilder.WithStartTime(System.DateTimeOffset)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.WithStartTime(System.DateTimeOffset)",
+      "summary": "Sets the scheduled start time (must be in the future).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.ScheduledEventBuilder.WithEndTime(System.DateTimeOffset)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.WithEndTime(System.DateTimeOffset)",
+      "summary": "Sets the scheduled end time (required for external events).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.ScheduledEventBuilder.WithEntityType(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.WithEntityType(System.Int32)",
+      "summary": "Sets the entity type: 1 = StageInstance, 2 = Voice, 3 = External.\n            Use the , , or  constants.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.ScheduledEventBuilder.WithLocation(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.WithLocation(System.String)",
+      "summary": "Sets the event location string (required for external events, max 100 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.ScheduledEventBuilder.WithImage(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.WithImage(System.String)",
+      "summary": "Sets the cover image as a base64-encoded data URI (e.g. data:image/png;base64,...).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.ScheduledEventBuilder.Build",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.ScheduledEventBuilder.Build",
+      "summary": "Builds and returns the .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Builders.WebhookExecuteBuilder",
+      "kind": "T",
+      "name": "PawSharp.API.Builders.WebhookExecuteBuilder",
+      "summary": "Fluent builder for constructing  objects.",
+      "remarks": "",
+      "returns": "",
+      "example": "var request = new WebhookExecuteBuilder()\n                .WithContent(\"Hello from a webhook!\")\n                .WithUsername(\"CoolBot\")\n                .WithWait(true)\n                .Build();\n            await client.ExecuteWebhookAsync(webhookId, token, request);",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.WebhookExecuteBuilder.WithContent(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.WebhookExecuteBuilder.WithContent(System.String)",
+      "summary": "Sets the message content (max 2000 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.WebhookExecuteBuilder.WithUsername(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.WebhookExecuteBuilder.WithUsername(System.String)",
+      "summary": "Overrides the webhook's display name for this execution.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.WebhookExecuteBuilder.WithAvatarUrl(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.WebhookExecuteBuilder.WithAvatarUrl(System.String)",
+      "summary": "Overrides the webhook's avatar URL for this execution.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.WebhookExecuteBuilder.AddEmbed(PawSharp.Core.Entities.Embed)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.WebhookExecuteBuilder.AddEmbed(PawSharp.Core.Entities.Embed)",
+      "summary": "Adds a rich embed to the message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.WebhookExecuteBuilder.AddComponent(PawSharp.Core.Entities.MessageComponent)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.WebhookExecuteBuilder.AddComponent(PawSharp.Core.Entities.MessageComponent)",
+      "summary": "Adds a message component (action row, button, etc.).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.WebhookExecuteBuilder.WithTts(System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.WebhookExecuteBuilder.WithTts(System.Boolean)",
+      "summary": "Enables text-to-speech for the message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.WebhookExecuteBuilder.WithWait(System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.WebhookExecuteBuilder.WithWait(System.Boolean)",
+      "summary": "When true, Discord returns the created message object.\n            The REST client will append wait=true to the query string automatically.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.WebhookExecuteBuilder.WithThreadName(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.WebhookExecuteBuilder.WithThreadName(System.String)",
+      "summary": "Sets the name of the thread to create (only valid for forum/media channel webhooks).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Builders.WebhookExecuteBuilder.Build",
+      "kind": "M",
+      "name": "PawSharp.API.Builders.WebhookExecuteBuilder.Build",
+      "summary": "Builds and returns the .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Clients.DiscordRestClient",
+      "kind": "T",
+      "name": "PawSharp.API.Clients.DiscordRestClient",
+      "summary": "Implementation of Discord REST API client with rate limiting.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Clients.DiscordRestClient._jsonOptions",
+      "kind": "F",
+      "name": "PawSharp.API.Clients.DiscordRestClient._jsonOptions",
+      "summary": "Shared serializer options: Discord's REST API requires lowercase snake_case field names.\n            Using JsonNamingPolicy.SnakeCaseLower means C# properties like \"GuildId\" become\n            \"guild_id\" automatically, even without [JsonPropertyName] on every request model.\n            Null values are omitted to keep payloads minimal.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.JsonContent(System.Object)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.JsonContent(System.Object)",
+      "summary": "Wraps an object as a UTF-8 JSON  using Discord-compatible serializer options.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.#ctor(System.Net.Http.HttpClient,PawSharp.Core.Models.PawSharpOptions,Microsoft.Extensions.Logging.ILogger{PawSharp.API.Clients.DiscordRestClient})",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.#ctor(System.Net.Http.HttpClient,PawSharp.Core.Models.PawSharpOptions,Microsoft.Extensions.Logging.ILogger{PawSharp.API.Clients.DiscordRestClient})",
+      "summary": "Convenience overload — creates a default  internally.\n            Consumers that register DiscordRestClient directly (e.g. via AddHttpClient)\n            without calling AddAdvancedRateLimiter() will use this overload automatically.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.SendFilesAsync(System.UInt64,System.Collections.Generic.IEnumerable{System.ValueTuple{System.IO.Stream,System.String}},PawSharp.API.Models.CreateMessageRequest,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.SendFilesAsync(System.UInt64,System.Collections.Generic.IEnumerable{System.ValueTuple{System.IO.Stream,System.String}},PawSharp.API.Models.CreateMessageRequest,System.Threading.CancellationToken)",
+      "summary": "Sends up to 10 file attachments in a single message.\n            Each element is a (Stream stream, string fileName) pair.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.ModifyGuildMfaLevelAsync(System.UInt64,System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.ModifyGuildMfaLevelAsync(System.UInt64,System.Int32)",
+      "summary": "Modifies the guild's MFA level (requires the current user to be the guild owner).\n            Returns the updated MFA level on success.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.ExecuteSlackCompatibleWebhookAsync(System.UInt64,System.String,System.Object,System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.ExecuteSlackCompatibleWebhookAsync(System.UInt64,System.String,System.Object,System.Boolean)",
+      "summary": "Executes a webhook using the Slack-compatible endpoint.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.ExecuteGitHubCompatibleWebhookAsync(System.UInt64,System.String,System.Object,System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.ExecuteGitHubCompatibleWebhookAsync(System.UInt64,System.String,System.Object,System.Boolean)",
+      "summary": "Executes a webhook using the GitHub-compatible endpoint.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.GetGuildWidgetAsync(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.GetGuildWidgetAsync(System.UInt64)",
+      "summary": "GET /guilds/{id}/widget.json — public rendered widget (no auth required).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.SendSoundboardSoundAsync(System.UInt64,PawSharp.API.Models.SendSoundboardSoundRequest)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.SendSoundboardSoundAsync(System.UInt64,PawSharp.API.Models.SendSoundboardSoundRequest)",
+      "summary": "POST /channels/{channel.id}/send-soundboard-sound",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.ModifyCurrentUserVoiceStateAsync(System.UInt64,PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.ModifyCurrentUserVoiceStateAsync(System.UInt64,PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest)",
+      "summary": "PATCH /guilds/{guild.id}/voice-states/@me",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.ModifyUserVoiceStateAsync(System.UInt64,System.UInt64,PawSharp.API.Models.ModifyUserVoiceStateRequest)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.ModifyUserVoiceStateAsync(System.UInt64,System.UInt64,PawSharp.API.Models.ModifyUserVoiceStateRequest)",
+      "summary": "PATCH /guilds/{guild.id}/voice-states/{user.id}",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.GetUserApplicationRoleConnectionAsync(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.GetUserApplicationRoleConnectionAsync(System.UInt64)",
+      "summary": "GET /users/@me/applications/{application.id}/role-connection",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.UpdateUserApplicationRoleConnectionAsync(System.UInt64,PawSharp.API.Models.UpdateUserApplicationRoleConnectionRequest)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.UpdateUserApplicationRoleConnectionAsync(System.UInt64,PawSharp.API.Models.UpdateUserApplicationRoleConnectionRequest)",
+      "summary": "PUT /users/@me/applications/{application.id}/role-connection",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.ExchangeCodeAsync(System.String,System.String,System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.ExchangeCodeAsync(System.String,System.String,System.String,System.String)",
+      "summary": "Exchanges an authorization code for an access token.\n            Sends a direct POST oauth2/token with form-encoded body —\n            the client's bot token is NOT attached to this request.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.RefreshTokenAsync(System.String,System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.RefreshTokenAsync(System.String,System.String,System.String)",
+      "summary": "Uses a refresh token to obtain a new access token.\n            Sends a direct POST oauth2/token with form-encoded body —\n            the client's bot token is NOT attached to this request.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.RevokeTokenAsync(System.String,System.String,System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.RevokeTokenAsync(System.String,System.String,System.String,System.String)",
+      "summary": "Revokes an OAuth2 access or refresh token. POST /oauth2/token/revoke.\n            The client's bot token is NOT attached to this request.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.CreateGroupDmAsync(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.String})",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.CreateGroupDmAsync(System.Collections.Generic.List{System.String},System.Collections.Generic.Dictionary{System.String,System.String})",
+      "summary": "Creates a new Group DM channel. POST /users/@me/channels.\n            Requires access tokens of the target users with the gdm.join OAuth2 scope.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Clients.DiscordRestClient.LogSanitizedApiErrorAsync(System.String,System.Net.Http.HttpResponseMessage)",
+      "kind": "M",
+      "name": "PawSharp.API.Clients.DiscordRestClient.LogSanitizedApiErrorAsync(System.String,System.Net.Http.HttpResponseMessage)",
+      "summary": "Logs API failures with sanitized response content to prevent accidental secret exposure.\n            Keep response-body logging behind this helper for consistency across future call sites.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Interfaces.IDiscordRestClient",
+      "kind": "T",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient",
+      "summary": "Interface for Discord REST API client.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.GetAsync(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.GetAsync(System.String)",
+      "summary": "Sends a GET request to the Discord API.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.GetAsync(System.String,System.String,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.GetAsync(System.String,System.String,System.Threading.CancellationToken)",
+      "summary": "Sends a GET request to the Discord API with audit log reason and cancellation support.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.PostAsync(System.String,System.Net.Http.HttpContent)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.PostAsync(System.String,System.Net.Http.HttpContent)",
+      "summary": "Sends a POST request to the Discord API.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.PostAsync(System.String,System.Net.Http.HttpContent,System.String,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.PostAsync(System.String,System.Net.Http.HttpContent,System.String,System.Threading.CancellationToken)",
+      "summary": "Sends a POST request to the Discord API with audit log reason and cancellation support.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.PutAsync(System.String,System.Net.Http.HttpContent)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.PutAsync(System.String,System.Net.Http.HttpContent)",
+      "summary": "Sends a PUT request to the Discord API.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.PutAsync(System.String,System.Net.Http.HttpContent,System.String,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.PutAsync(System.String,System.Net.Http.HttpContent,System.String,System.Threading.CancellationToken)",
+      "summary": "Sends a PUT request to the Discord API with audit log reason and cancellation support.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.DeleteAsync(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.DeleteAsync(System.String)",
+      "summary": "Sends a DELETE request to the Discord API.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.DeleteAsync(System.String,System.String,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.DeleteAsync(System.String,System.String,System.Threading.CancellationToken)",
+      "summary": "Sends a DELETE request to the Discord API with audit log reason and cancellation support.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.PatchAsync(System.String,System.Net.Http.HttpContent)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.PatchAsync(System.String,System.Net.Http.HttpContent)",
+      "summary": "Sends a PATCH request to the Discord API.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.PatchAsync(System.String,System.Net.Http.HttpContent,System.String,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.PatchAsync(System.String,System.Net.Http.HttpContent,System.String,System.Threading.CancellationToken)",
+      "summary": "Sends a PATCH request to the Discord API with audit log reason and cancellation support.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.GetCurrentUserAsync",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.GetCurrentUserAsync",
+      "summary": "Gets the current bot user information.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.GetCurrentBotApplicationInfoAsync",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.GetCurrentBotApplicationInfoAsync",
+      "summary": "Returns the bot's application object. GET /oauth2/applications/@me",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.GetCurrentAuthorizationInfoAsync",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.GetCurrentAuthorizationInfoAsync",
+      "summary": "Returns info about the current authorization. Requires a Bearer token. GET /oauth2/@me",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.GetCurrentApplicationAsync",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.GetCurrentApplicationAsync",
+      "summary": "Returns the current application. GET /applications/@me",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.EditCurrentApplicationAsync(PawSharp.API.Models.EditCurrentApplicationRequest)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.EditCurrentApplicationAsync(PawSharp.API.Models.EditCurrentApplicationRequest)",
+      "summary": "Edits properties of the current application. PATCH /applications/@me",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Interfaces.IDiscordRestClient.GetActivityInstanceAsync(System.UInt64,System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Interfaces.IDiscordRestClient.GetActivityInstanceAsync(System.UInt64,System.String)",
+      "summary": "Fetches a running embedded-application (Activity) instance.\n            GET /applications/{application.id}/activity-instances/{instance.id}",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.Content",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.Content",
+      "summary": "Message text content (max 2000 chars).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.Embeds",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.Embeds",
+      "summary": "Up to 10 embeds to include with the message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.Components",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.Components",
+      "summary": "Interactive components (buttons, select menus, etc.).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.Tts",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.Tts",
+      "summary": "Whether to send the message as text-to-speech.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.AllowedMentions",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.AllowedMentions",
+      "summary": "Controls which roles/users/groups Discord will actually notify.\n            Use  to send a silent message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.MessageReference",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.MessageReference",
+      "summary": "Data showing the source of a crosspost, channel follow add, pin, or reply.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.Poll",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.Poll",
+      "summary": "A poll to include with this message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.Flags",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.Flags",
+      "summary": "Message flags combined as a bitfield (SUPPRESS_EMBEDS=4, SUPPRESS_NOTIFICATIONS=4096).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.StickerIds",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.StickerIds",
+      "summary": "IDs of up to 3 stickers in the server to send in the message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.Nonce",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.Nonce",
+      "summary": "Can be used to verify a message was sent (up to 25 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateMessageRequest.EnforceNonce",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateMessageRequest.EnforceNonce",
+      "summary": "If true, the nonce is checked for uniqueness in the past few minutes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditMessageRequest.Content",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditMessageRequest.Content",
+      "summary": "New message text content (max 2000 chars). Pass an empty string to clear.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditMessageRequest.Embeds",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditMessageRequest.Embeds",
+      "summary": "Up to 10 embeds. Pass an empty list to remove all embeds.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditMessageRequest.Components",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditMessageRequest.Components",
+      "summary": "Interactive components. Pass an empty list to remove all components.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditMessageRequest.AllowedMentions",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditMessageRequest.AllowedMentions",
+      "summary": "Allowed mentions for the edited message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditMessageRequest.Flags",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditMessageRequest.Flags",
+      "summary": "Edit flags for the message (e.g. SUPPRESS_EMBEDS = 4).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateChannelRequest.RtcRegion",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateChannelRequest.RtcRegion",
+      "summary": "Voice channel region override. Null = automatic.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateChannelRequest.VideoQualityMode",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateChannelRequest.VideoQualityMode",
+      "summary": "Video quality mode (1 = AUTO, 2 = FULL). Voice channels only.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateChannelRequest.AvailableTags",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateChannelRequest.AvailableTags",
+      "summary": "Forum/Media: available tags that can be applied to threads.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateChannelRequest.DefaultReactionEmoji",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateChannelRequest.DefaultReactionEmoji",
+      "summary": "Forum/Media: the emoji to show in the add-reaction button.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateChannelRequest.DefaultThreadRateLimitPerUser",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateChannelRequest.DefaultThreadRateLimitPerUser",
+      "summary": "Forum/Media: default rate limit (seconds) per user for new threads.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateChannelRequest.DefaultSortOrder",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateChannelRequest.DefaultSortOrder",
+      "summary": "Forum: default sort order (0 = LATEST_ACTIVITY, 1 = CREATION_DATE).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateChannelRequest.DefaultForumLayout",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateChannelRequest.DefaultForumLayout",
+      "summary": "Forum: default layout (0 = NOT_SET, 1 = LIST_VIEW, 2 = GALLERY_VIEW).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateChannelRequest.PermissionOverwrites",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateChannelRequest.PermissionOverwrites",
+      "summary": "Explicit permission overwrites for members and roles.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelRequest.RtcRegion",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelRequest.RtcRegion",
+      "summary": "Voice channel region override. Null = automatic.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelRequest.VideoQualityMode",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelRequest.VideoQualityMode",
+      "summary": "Video quality mode (1 = AUTO, 2 = FULL). Voice channels only.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelRequest.AvailableTags",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelRequest.AvailableTags",
+      "summary": "Forum/Media: available tags that can be applied to threads.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelRequest.DefaultReactionEmoji",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelRequest.DefaultReactionEmoji",
+      "summary": "Forum/Media: the emoji to show in the add-reaction button.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelRequest.DefaultThreadRateLimitPerUser",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelRequest.DefaultThreadRateLimitPerUser",
+      "summary": "Forum/Media: default rate limit (seconds) per user for new threads.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelRequest.DefaultSortOrder",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelRequest.DefaultSortOrder",
+      "summary": "Forum: default sort order (0 = LATEST_ACTIVITY, 1 = CREATION_DATE).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelRequest.DefaultForumLayout",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelRequest.DefaultForumLayout",
+      "summary": "Forum: default layout (0 = NOT_SET, 1 = LIST_VIEW, 2 = GALLERY_VIEW).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelRequest.PermissionOverwrites",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelRequest.PermissionOverwrites",
+      "summary": "Explicit permission overwrites for members and roles.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildRequest.SystemChannelFlags",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildRequest.SystemChannelFlags",
+      "summary": "System channel flags bitfield.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildRequest.RulesChannelId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildRequest.RulesChannelId",
+      "summary": "ID of the channel where rules or community guidelines are displayed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildRequest.PublicUpdatesChannelId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildRequest.PublicUpdatesChannelId",
+      "summary": "ID of the channel where admins and moderators receive notices from Discord.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildRequest.PreferredLocale",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildRequest.PreferredLocale",
+      "summary": "IETF language tag for the preferred locale (e.g. \"en-US\").",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildRequest.Features",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildRequest.Features",
+      "summary": "Enabled guild feature strings (requires community guilds).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildRequest.Description",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildRequest.Description",
+      "summary": "Guild description (community guilds only).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildRequest.PremiumProgressBarEnabled",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildRequest.PremiumProgressBarEnabled",
+      "summary": "Whether the guild's boost progress bar is shown.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildRequest.SafetyAlertsChannelId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildRequest.SafetyAlertsChannelId",
+      "summary": "ID of the channel where Discord posts safety alerts.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ModifyGuildMfaLevelRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ModifyGuildMfaLevelRequest",
+      "summary": "Request body for PATCH /guilds/{guild_id}/mfa.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildMfaLevelRequest.Level",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildMfaLevelRequest.Level",
+      "summary": "MFA level: 0 = NONE, 1 = ELEVATED (requires 2FA for moderator actions).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.InteractionCallbackData.Choices",
+      "kind": "P",
+      "name": "PawSharp.API.Models.InteractionCallbackData.Choices",
+      "summary": "Autocomplete result choices. Only used with ApplicationCommandAutocompleteResult responses.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.InteractionCallbackData.Title",
+      "kind": "P",
+      "name": "PawSharp.API.Models.InteractionCallbackData.Title",
+      "summary": "Title of the modal. Only used with Modal responses.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.InteractionCallbackData.CustomId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.InteractionCallbackData.CustomId",
+      "summary": "Custom ID of the modal. Only used with Modal responses.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.AutocompleteChoice",
+      "kind": "T",
+      "name": "PawSharp.API.Models.AutocompleteChoice",
+      "summary": "Represents one autocomplete suggestion choice returned to Discord.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.InteractionCallbackType",
+      "kind": "T",
+      "name": "PawSharp.API.Models.InteractionCallbackType",
+      "summary": "Interaction callback types for responding to interactions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Models.InteractionCallbackType.Pong",
+      "kind": "F",
+      "name": "PawSharp.API.Models.InteractionCallbackType.Pong",
+      "summary": "ACK a Ping.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Models.InteractionCallbackType.ChannelMessageWithSource",
+      "kind": "F",
+      "name": "PawSharp.API.Models.InteractionCallbackType.ChannelMessageWithSource",
+      "summary": "Respond to an interaction with a message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Models.InteractionCallbackType.DeferredChannelMessageWithSource",
+      "kind": "F",
+      "name": "PawSharp.API.Models.InteractionCallbackType.DeferredChannelMessageWithSource",
+      "summary": "ACK an interaction and edit a response later, the user sees a loading state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Models.InteractionCallbackType.DeferredUpdateMessage",
+      "kind": "F",
+      "name": "PawSharp.API.Models.InteractionCallbackType.DeferredUpdateMessage",
+      "summary": "For components, ACK an interaction and edit the original message later; the user does not see a loading state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Models.InteractionCallbackType.UpdateMessage",
+      "kind": "F",
+      "name": "PawSharp.API.Models.InteractionCallbackType.UpdateMessage",
+      "summary": "For components, edit the message the component was attached to.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Models.InteractionCallbackType.ApplicationCommandAutocompleteResult",
+      "kind": "F",
+      "name": "PawSharp.API.Models.InteractionCallbackType.ApplicationCommandAutocompleteResult",
+      "summary": "Respond to an autocomplete interaction with suggested choices.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Models.InteractionCallbackType.Modal",
+      "kind": "F",
+      "name": "PawSharp.API.Models.InteractionCallbackType.Modal",
+      "summary": "Respond to an interaction with a popup modal.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Models.InteractionCallbackType.PremiumRequired",
+      "kind": "F",
+      "name": "PawSharp.API.Models.InteractionCallbackType.PremiumRequired",
+      "summary": "Deprecated. Respond to an interaction with an upgrade button.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.API.Models.InteractionCallbackType.LaunchActivity",
+      "kind": "F",
+      "name": "PawSharp.API.Models.InteractionCallbackType.LaunchActivity",
+      "summary": "Launch the Activity associated with the app. Only for apps with Activities enabled.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateApplicationCommandRequest.DefaultPermission",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateApplicationCommandRequest.DefaultPermission",
+      "summary": "Deprecated. Use DefaultMemberPermissions instead.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateApplicationCommandRequest.NameLocalizations",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateApplicationCommandRequest.NameLocalizations",
+      "summary": "Localization dictionary for the name field.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateApplicationCommandRequest.DescriptionLocalizations",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateApplicationCommandRequest.DescriptionLocalizations",
+      "summary": "Localization dictionary for the description field.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateApplicationCommandRequest.DefaultMemberPermissions",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateApplicationCommandRequest.DefaultMemberPermissions",
+      "summary": "Set of permissions represented as a bit set. Set to \"0\" to disable for everyone by default.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateApplicationCommandRequest.DmPermission",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateApplicationCommandRequest.DmPermission",
+      "summary": "Deprecated(use Contexts instead); whether the command is available in DMs with the app.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateApplicationCommandRequest.IntegrationTypes",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateApplicationCommandRequest.IntegrationTypes",
+      "summary": "Installation context(s) where the command is available (0 = GUILD_INSTALL, 1 = USER_INSTALL).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateApplicationCommandRequest.Contexts",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateApplicationCommandRequest.Contexts",
+      "summary": "Interaction context(s) where the command can be used (0 = GUILD, 1 = BOT_DM, 2 = PRIVATE_CHANNEL).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateApplicationCommandRequest.Nsfw",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateApplicationCommandRequest.Nsfw",
+      "summary": "Whether the command is age-restricted.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateApplicationCommandRequest.Handler",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateApplicationCommandRequest.Handler",
+      "summary": "Determines how the interaction is handled (e.g. 1 = APP_HANDLER, 2 = DISCORD_LAUNCH_ACTIVITY).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ExecuteWebhookRequest.Wait",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ExecuteWebhookRequest.Wait",
+      "summary": "If true, Discord returns the created message object. The caller must pass\n            wait=true as a query parameter on webhook execute calls.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ExecuteWebhookRequest.ThreadName",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ExecuteWebhookRequest.ThreadName",
+      "summary": "Name of the thread to create (only for forum/media channels).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateStageInstanceRequest.ChannelId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateStageInstanceRequest.ChannelId",
+      "summary": "The id of the Stage channel.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateStageInstanceRequest.Topic",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateStageInstanceRequest.Topic",
+      "summary": "The topic of the Stage instance (1-120 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateStageInstanceRequest.PrivacyLevel",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateStageInstanceRequest.PrivacyLevel",
+      "summary": "Privacy level. Defaults to .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateStageInstanceRequest.SendStartNotification",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateStageInstanceRequest.SendStartNotification",
+      "summary": "Notify @everyone that a Stage instance has started.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateStageInstanceRequest.GuildScheduledEventId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateStageInstanceRequest.GuildScheduledEventId",
+      "summary": "The id of the scheduled event associated with this Stage instance.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildStickerRequest.Name",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildStickerRequest.Name",
+      "summary": "Name of the sticker (2-30 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildStickerRequest.Description",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildStickerRequest.Description",
+      "summary": "Description of the sticker (empty or 2-100 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildStickerRequest.Tags",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildStickerRequest.Tags",
+      "summary": "Autocomplete/suggestion tags for the sticker (max 200 characters, comma-separated).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildStickerRequest.FileData",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildStickerRequest.FileData",
+      "summary": "The sticker file bytes. Must be uploaded as multipart/form-data.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditChannelPermissionsRequest.Allow",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditChannelPermissionsRequest.Allow",
+      "summary": "The bitwise value of all allowed permissions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditChannelPermissionsRequest.Deny",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditChannelPermissionsRequest.Deny",
+      "summary": "The bitwise value of all disallowed permissions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditChannelPermissionsRequest.Type",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditChannelPermissionsRequest.Type",
+      "summary": "0 = role, 1 = member.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreatePollRequest.Question",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreatePollRequest.Question",
+      "summary": "The question of the poll. Only text is supported.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreatePollRequest.Answers",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreatePollRequest.Answers",
+      "summary": "Each of the answers available in the poll (max 10).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreatePollRequest.Duration",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreatePollRequest.Duration",
+      "summary": "Number of hours the poll should be open for, up to 32 days (768 hours).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreatePollRequest.AllowMultiselect",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreatePollRequest.AllowMultiselect",
+      "summary": "Whether a user can select multiple answers.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreatePollRequest.LayoutType",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreatePollRequest.LayoutType",
+      "summary": "The layout type of the poll. Defaults to Default (1).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateTestEntitlementRequest.SkuId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateTestEntitlementRequest.SkuId",
+      "summary": "ID of the SKU to grant the entitlement to.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateTestEntitlementRequest.OwnerId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateTestEntitlementRequest.OwnerId",
+      "summary": "ID of the guild or user to grant the entitlement to.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateTestEntitlementRequest.OwnerType",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateTestEntitlementRequest.OwnerType",
+      "summary": "1 = guild, 2 = user.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildSoundboardSoundRequest.Name",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildSoundboardSoundRequest.Name",
+      "summary": "Name of the soundboard sound (2-32 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildSoundboardSoundRequest.Sound",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildSoundboardSoundRequest.Sound",
+      "summary": "The mp3, ogg, or aac sound file data (base64 encoded), max 512KB.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildSoundboardSoundRequest.Volume",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildSoundboardSoundRequest.Volume",
+      "summary": "Volume of the soundboard sound (0 to 1). Defaults to 1.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildSoundboardSoundRequest.EmojiId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildSoundboardSoundRequest.EmojiId",
+      "summary": "The id of the custom emoji for the soundboard sound.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildSoundboardSoundRequest.EmojiName",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildSoundboardSoundRequest.EmojiName",
+      "summary": "The unicode character of a standard emoji for the soundboard sound.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildSoundboardSoundRequest.Name",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildSoundboardSoundRequest.Name",
+      "summary": "Name of the soundboard sound (2-32 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildSoundboardSoundRequest.Volume",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildSoundboardSoundRequest.Volume",
+      "summary": "Volume of the soundboard sound (0 to 1).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildSoundboardSoundRequest.EmojiId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildSoundboardSoundRequest.EmojiId",
+      "summary": "The id of the custom emoji for the soundboard sound.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildSoundboardSoundRequest.EmojiName",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildSoundboardSoundRequest.EmojiName",
+      "summary": "The unicode character of a standard emoji for the soundboard sound.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildOnboardingRequest.Prompts",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildOnboardingRequest.Prompts",
+      "summary": "Prompts shown during onboarding and in customize community.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildOnboardingRequest.DefaultChannelIds",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildOnboardingRequest.DefaultChannelIds",
+      "summary": "Channel IDs that members get opted into automatically.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildOnboardingRequest.Enabled",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildOnboardingRequest.Enabled",
+      "summary": "Whether onboarding is enabled in the guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildOnboardingRequest.Mode",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildOnboardingRequest.Mode",
+      "summary": "Current mode of onboarding.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.PollVotersResponse",
+      "kind": "T",
+      "name": "PawSharp.API.Models.PollVotersResponse",
+      "summary": "Wraps Discord's poll answer voters response { \"users\": [...] }.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.GuildSoundboardSoundsResponse",
+      "kind": "T",
+      "name": "PawSharp.API.Models.GuildSoundboardSoundsResponse",
+      "summary": "Wraps Discord's guild soundboard sounds response { \"items\": [...] }.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildTemplateRequest.Name",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildTemplateRequest.Name",
+      "summary": "Name of the template (1-100 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildTemplateRequest.Description",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildTemplateRequest.Description",
+      "summary": "Description for the template (0-120 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildTemplateRequest.Name",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildTemplateRequest.Name",
+      "summary": "New name for the template (1-100 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildTemplateRequest.Description",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildTemplateRequest.Description",
+      "summary": "New description for the template (0-120 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildFromTemplateRequest.Name",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildFromTemplateRequest.Name",
+      "summary": "Name of the guild (2-100 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildFromTemplateRequest.Icon",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildFromTemplateRequest.Icon",
+      "summary": "Base64-encoded 128x128 image for the guild icon.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildWidgetRequest.Enabled",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildWidgetRequest.Enabled",
+      "summary": "Whether the widget is enabled.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildWidgetRequest.ChannelId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildWidgetRequest.ChannelId",
+      "summary": "The widget channel ID, or null to remove.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.GuildWidget",
+      "kind": "T",
+      "name": "PawSharp.API.Models.GuildWidget",
+      "summary": "Public rendered guild widget returned by GET /guilds/{id}/widget.json (no auth).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.GuildWidgetChannel",
+      "kind": "T",
+      "name": "PawSharp.API.Models.GuildWidgetChannel",
+      "summary": "Minimal channel object embedded in a public guild widget.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.GuildWidgetMember",
+      "kind": "T",
+      "name": "PawSharp.API.Models.GuildWidgetMember",
+      "summary": "Minimal member (presence) object embedded in a public guild widget.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildWelcomeScreenRequest.Enabled",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildWelcomeScreenRequest.Enabled",
+      "summary": "Whether the welcome screen is enabled.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildWelcomeScreenRequest.WelcomeChannels",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildWelcomeScreenRequest.WelcomeChannels",
+      "summary": "Channels shown in the welcome screen (max 5).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyGuildWelcomeScreenRequest.Description",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyGuildWelcomeScreenRequest.Description",
+      "summary": "The server description shown in the welcome screen.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.WelcomeScreenChannelRequest.ChannelId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.WelcomeScreenChannelRequest.ChannelId",
+      "summary": "The channel ID to feature.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.WelcomeScreenChannelRequest.Description",
+      "kind": "P",
+      "name": "PawSharp.API.Models.WelcomeScreenChannelRequest.Description",
+      "summary": "Description of the channel (max 42 characters).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.WelcomeScreenChannelRequest.EmojiId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.WelcomeScreenChannelRequest.EmojiId",
+      "summary": "ID of a custom emoji to display, or null for a unicode emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.WelcomeScreenChannelRequest.EmojiName",
+      "kind": "P",
+      "name": "PawSharp.API.Models.WelcomeScreenChannelRequest.EmojiName",
+      "summary": "Unicode character of a standard emoji, or null for a custom emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ModifyChannelPositionRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ModifyChannelPositionRequest",
+      "summary": "Used to reorder channels within a guild (PATCH /guilds/{id}/channels).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelPositionRequest.Id",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelPositionRequest.Id",
+      "summary": "Channel ID.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelPositionRequest.Position",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelPositionRequest.Position",
+      "summary": "New sort position (null to leave unchanged).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelPositionRequest.LockPermissions",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelPositionRequest.LockPermissions",
+      "summary": "Syncs the permission overwrites with the new parent category. Only applicable to non-category channels.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyChannelPositionRequest.ParentId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyChannelPositionRequest.ParentId",
+      "summary": "The new parent category for a channel.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ModifyRolePositionRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ModifyRolePositionRequest",
+      "summary": "Used to reorder roles within a guild (PATCH /guilds/{id}/roles).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyRolePositionRequest.Id",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyRolePositionRequest.Id",
+      "summary": "Role ID.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyRolePositionRequest.Position",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyRolePositionRequest.Position",
+      "summary": "New sort position.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.CreateGuildEmojiRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.CreateGuildEmojiRequest",
+      "summary": "POST /guilds/{guild.id}/emojis — create a guild emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildEmojiRequest.Name",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildEmojiRequest.Name",
+      "summary": "Name for the emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildEmojiRequest.Image",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildEmojiRequest.Image",
+      "summary": "Base64 encoded image (data:image/png;base64,...). Max 256 KB.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGuildEmojiRequest.Roles",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGuildEmojiRequest.Roles",
+      "summary": "Roles allowed to use this emoji. Empty means available to everyone.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ModifyGuildEmojiRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ModifyGuildEmojiRequest",
+      "summary": "PATCH /guilds/{guild.id}/emojis/{emoji.id} — modify a guild emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.CreateApplicationEmojiRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.CreateApplicationEmojiRequest",
+      "summary": "POST /applications/{application.id}/emojis — create an application emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateApplicationEmojiRequest.Image",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateApplicationEmojiRequest.Image",
+      "summary": "Base64 encoded image (data:image/png;base64,...). Max 256 KB.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ModifyApplicationEmojiRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ModifyApplicationEmojiRequest",
+      "summary": "PATCH /applications/{application.id}/emojis/{emoji.id} — modify an application emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ApplicationEmojiListResponse",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ApplicationEmojiListResponse",
+      "summary": "Response wrapper for GET /applications/{application.id}/emojis.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.EditCurrentApplicationRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.EditCurrentApplicationRequest",
+      "summary": "PATCH /applications/@me — edit the current application.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditCurrentApplicationRequest.Icon",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditCurrentApplicationRequest.Icon",
+      "summary": "Base64 encoded icon image data (data:image/png;base64,...).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditCurrentApplicationRequest.CoverImage",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditCurrentApplicationRequest.CoverImage",
+      "summary": "Base64 encoded cover image data.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.EditCurrentApplicationRequest.EventWebhooksStatus",
+      "kind": "P",
+      "name": "PawSharp.API.Models.EditCurrentApplicationRequest.EventWebhooksStatus",
+      "summary": "1 = disabled, 2 = enabled.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.GuildPruneResult",
+      "kind": "T",
+      "name": "PawSharp.API.Models.GuildPruneResult",
+      "summary": "Returned by GET and POST /guilds/{id}/prune.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.BeginGuildPruneRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.BeginGuildPruneRequest",
+      "summary": "POST /guilds/{id}/prune — begin guild prune.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.BulkGuildBanRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.BulkGuildBanRequest",
+      "summary": "POST /guilds/{id}/bulk-ban — ban up to 200 users.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.BulkGuildBanRequest.DeleteMessageSeconds",
+      "kind": "P",
+      "name": "PawSharp.API.Models.BulkGuildBanRequest.DeleteMessageSeconds",
+      "summary": "Number of seconds to delete messages for (0–604800). Default 0.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.BulkGuildBanResponse",
+      "kind": "T",
+      "name": "PawSharp.API.Models.BulkGuildBanResponse",
+      "summary": "Response object from POST /guilds/{id}/bulk-ban.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ModifyGuildIncidentActionsRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ModifyGuildIncidentActionsRequest",
+      "summary": "PUT /guilds/{id}/incident-actions — modify guild incident actions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.GuildIncidentActionsResponse",
+      "kind": "T",
+      "name": "PawSharp.API.Models.GuildIncidentActionsResponse",
+      "summary": "Response returned by PUT /guilds/{id}/incident-actions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.GuildIntegration",
+      "kind": "T",
+      "name": "PawSharp.API.Models.GuildIntegration",
+      "summary": "Minimal representation of a guild integration returned by GET /guilds/{id}/integrations.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.SendSoundboardSoundRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.SendSoundboardSoundRequest",
+      "summary": "POST /channels/{channel.id}/send-soundboard-sound — play a soundboard sound.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.SendSoundboardSoundRequest.SoundId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.SendSoundboardSoundRequest.SoundId",
+      "summary": "The id of the soundboard sound to play.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.SendSoundboardSoundRequest.SourceGuildId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.SendSoundboardSoundRequest.SourceGuildId",
+      "summary": "The id of the guild the soundboard sound is from (required for non-default sounds).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest",
+      "summary": "PATCH /guilds/{guild.id}/voice-states/@me — modify the current user's voice state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest.ChannelId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest.ChannelId",
+      "summary": "The id of the channel the user is currently in (null to disconnect).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest.Suppress",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest.Suppress",
+      "summary": "Toggles the user's suppress state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest.RequestToSpeakTimestamp",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest.RequestToSpeakTimestamp",
+      "summary": "Sets the user's request to speak (ISO8601 timestamp, null to cancel).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ModifyUserVoiceStateRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ModifyUserVoiceStateRequest",
+      "summary": "PATCH /guilds/{guild.id}/voice-states/{user.id} — modify another user's voice state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyUserVoiceStateRequest.ChannelId",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyUserVoiceStateRequest.ChannelId",
+      "summary": "The id of the channel the user is currently in.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ModifyUserVoiceStateRequest.Suppress",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ModifyUserVoiceStateRequest.Suppress",
+      "summary": "Toggles the user's suppress state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ApplicationRoleConnection",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ApplicationRoleConnection",
+      "summary": "A user's linked role connection metadata for an application.\n            Returned by GET /users/@me/applications/{application.id}/role-connection.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ApplicationRoleConnection.PlatformName",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ApplicationRoleConnection.PlatformName",
+      "summary": "The vanity name of the platform a bot has connected (max 50 chars).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ApplicationRoleConnection.PlatformUsername",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ApplicationRoleConnection.PlatformUsername",
+      "summary": "The username on the platform a bot has connected (max 100 chars).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ApplicationRoleConnection.Metadata",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ApplicationRoleConnection.Metadata",
+      "summary": "Object mapping application role connection metadata keys to their string-ified value.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.UpdateUserApplicationRoleConnectionRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.UpdateUserApplicationRoleConnectionRequest",
+      "summary": "PUT /users/@me/applications/{application.id}/role-connection — update user's role connection.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ArchivedThreadsResponse",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ArchivedThreadsResponse",
+      "summary": "Response model for Discord's archived thread list endpoints.\n            Returned by GET /channels/{id}/threads/archived/public,\n            GET /channels/{id}/threads/archived/private, and\n            GET /channels/{id}/users/@me/threads/archived/private.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ArchivedThreadsResponse.Threads",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ArchivedThreadsResponse.Threads",
+      "summary": "The archived thread channels (include ThreadMetadata).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ArchivedThreadsResponse.Members",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ArchivedThreadsResponse.Members",
+      "summary": "Thread member objects for the current user in each returned thread.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ArchivedThreadsResponse.HasMore",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ArchivedThreadsResponse.HasMore",
+      "summary": "Whether there are additional archived threads beyond this page.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.ActiveThreadsResponse",
+      "kind": "T",
+      "name": "PawSharp.API.Models.ActiveThreadsResponse",
+      "summary": "Response for GET /guilds/{id}/threads/active.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ActiveThreadsResponse.Threads",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ActiveThreadsResponse.Threads",
+      "summary": "The active thread channels (include ThreadMetadata).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.ActiveThreadsResponse.Members",
+      "kind": "P",
+      "name": "PawSharp.API.Models.ActiveThreadsResponse.Members",
+      "summary": "Thread member objects for the current user in each returned thread.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.OAuth2TokenResponse",
+      "kind": "T",
+      "name": "PawSharp.API.Models.OAuth2TokenResponse",
+      "summary": "Response returned by Discord's OAuth2 token endpoint.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.OAuth2TokenResponse.ExpiresIn",
+      "kind": "P",
+      "name": "PawSharp.API.Models.OAuth2TokenResponse.ExpiresIn",
+      "summary": "Lifetime of the access token in seconds.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Models.CreateGroupDmRequest",
+      "kind": "T",
+      "name": "PawSharp.API.Models.CreateGroupDmRequest",
+      "summary": "Request body for creating a Group DM channel via POST /users/@me/channels.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGroupDmRequest.AccessTokens",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGroupDmRequest.AccessTokens",
+      "summary": "Access tokens of up to 10 users that have granted the gdm.join scope.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.API.Models.CreateGroupDmRequest.Nicks",
+      "kind": "P",
+      "name": "PawSharp.API.Models.CreateGroupDmRequest.Nicks",
+      "summary": "Optional map of user IDs to their nicknames inside the DM.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.RateLimit.AdvancedRateLimiter",
+      "kind": "T",
+      "name": "PawSharp.API.RateLimit.AdvancedRateLimiter",
+      "summary": "Advanced rate limiter with per-route bucket management.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.RateLimit.AdvancedRateLimiter.WaitForRateLimitAsync(System.String,System.String,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.API.RateLimit.AdvancedRateLimiter.WaitForRateLimitAsync(System.String,System.String,System.Threading.CancellationToken)",
+      "summary": "Wait for rate limit clearance before executing a request.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "route",
+          "description": "The API route (e.g., \"POST /channels/{channel.id}/messages\")"
+        },
+        {
+          "name": "bucketHash",
+          "description": "The bucket hash from Discord's X-RateLimit-Bucket header"
+        },
+        {
+          "name": "cancellationToken",
+          "description": "Token used to cancel waiting for rate-limit clearance."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.API.RateLimit.AdvancedRateLimiter.UpdateRateLimits(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.API.RateLimit.AdvancedRateLimiter.UpdateRateLimits(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.DateTimeOffset},System.Boolean)",
+      "summary": "Update rate limit information from response headers.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.RateLimit.AdvancedRateLimiter.MarkRequestComplete(System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.RateLimit.AdvancedRateLimiter.MarkRequestComplete(System.String,System.String)",
+      "summary": "Mark a request as completed for a bucket.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.RateLimit.RateLimitBucket",
+      "kind": "T",
+      "name": "PawSharp.API.RateLimit.RateLimitBucket",
+      "summary": "Represents a single rate limit bucket.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.RateLimit.IAdvancedRateLimiter",
+      "kind": "T",
+      "name": "PawSharp.API.RateLimit.IAdvancedRateLimiter",
+      "summary": "Abstraction for advanced rate limiting used by REST client integration.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.RateLimit.RateLimitServiceCollectionExtensions",
+      "kind": "T",
+      "name": "PawSharp.API.RateLimit.RateLimitServiceCollectionExtensions",
+      "summary": "Service collection helpers for rate limiting.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.RateLimit.RateLimitServiceCollectionExtensions.AddAdvancedRateLimiter(Microsoft.Extensions.DependencyInjection.IServiceCollection)",
+      "kind": "M",
+      "name": "PawSharp.API.RateLimit.RateLimitServiceCollectionExtensions.AddAdvancedRateLimiter(Microsoft.Extensions.DependencyInjection.IServiceCollection)",
+      "summary": "Registers the advanced rate limiter implementation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.API.Security.LogSanitizer",
+      "kind": "T",
+      "name": "PawSharp.API.Security.LogSanitizer",
+      "summary": "Provides redaction helpers for safe logging of endpoints and HTTP error payloads.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Security.LogSanitizer.RedactSensitiveEndpoint(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Security.LogSanitizer.RedactSensitiveEndpoint(System.String)",
+      "summary": "Replaces sensitive token-like path segments with REDACTED for safe log output.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.API.Security.LogSanitizer.SanitizeHttpErrorBody(System.String)",
+      "kind": "M",
+      "name": "PawSharp.API.Security.LogSanitizer.SanitizeHttpErrorBody(System.String)",
+      "summary": "Sanitizes HTTP response payloads before logging and truncates oversized bodies.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    }
+  ]
+}

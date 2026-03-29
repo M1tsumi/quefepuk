@@ -50,7 +50,8 @@
                 <!-- Sidebar -->
                 <aside class="docs-sidebar">
                     <div class="docs-sidebar-title">On this page</div>
-                    <input type="text" id="docs-search" placeholder="Search docs..." autocomplete="off" style="width:100%;padding:0.45rem 0.65rem;margin-bottom:0.75rem;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-primary);font-size:0.8125rem;font-family:inherit;outline:none;box-sizing:border-box;">
+                    <input type="text" id="docs-search" placeholder="Search docs..." autocomplete="off" style="width:100%;padding:0.45rem 0.65rem;margin-bottom:0.5rem;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-secondary);color:var(--text-primary);font-size:0.8125rem;font-family:inherit;outline:none;box-sizing:border-box;">
+                    <div id="docs-search-results" style="display:none;margin-bottom:0.5rem;max-height:28vh;overflow:auto;padding:0.25rem 0;border-radius:6px;"></div>
                     <p id="docs-search-empty" style="display:none;font-size:0.8rem;color:var(--text-muted);margin:0 0 0.5rem;">No results found.</p>
                     <ul class="docs-sidebar-nav" id="sidebar-nav">
                         {{SIDEBAR_NAV}}
@@ -140,9 +141,48 @@
             // Search filtering
             const searchInput = document.getElementById('docs-search');
             const searchEmpty = document.getElementById('docs-search-empty');
+            let docsIndex = null;
+            const resultsContainer = document.getElementById('docs-search-results');
+
+            // Attempt to fetch a prebuilt search index for faster results
+            fetch('/docs/docs-search-index.json').then(r => {
+                if (!r.ok) throw new Error('no index');
+                return r.json();
+            }).then(idx => {
+                docsIndex = idx || null;
+            }).catch(() => {
+                docsIndex = null; // fallback to DOM scanning
+            });
             if (searchInput) {
                 searchInput.addEventListener('input', () => {
                     const term = searchInput.value.toLowerCase().trim();
+                    // If we have an index, show quick results
+                    if (docsIndex && term.length >= 2) {
+                        const results = docsIndex.filter(item => {
+                            return item.title.toLowerCase().includes(term) || (item.snippet && item.snippet.toLowerCase().includes(term));
+                        }).slice(0, 40);
+                        resultsContainer.innerHTML = '';
+                        if (results.length === 0) {
+                            resultsContainer.style.display = 'none';
+                            if (searchEmpty) searchEmpty.style.display = 'block';
+                            return;
+                        }
+                        searchEmpty.style.display = 'none';
+                        resultsContainer.style.display = '';
+                        for (const r of results) {
+                            const a = document.createElement('a');
+                            a.href = `/docs/${encodeURIComponent(r.slug)}#${encodeURIComponent(r.id)}`;
+                            a.className = 'docs-sidebar-link';
+                            a.style.display = 'block';
+                            a.style.padding = '0.35rem 0.45rem';
+                            a.style.color = 'var(--text-secondary)';
+                            a.textContent = `${r.title} — ${r.assembly}`;
+                            resultsContainer.appendChild(a);
+                        }
+                        return;
+                    }
+
+                    // Fallback: inline DOM scanning (existing behavior)
                     let visible = 0;
                     document.querySelectorAll('.docs-section[id]').forEach(section => {
                         const matches = !term || section.innerText.toLowerCase().includes(term);

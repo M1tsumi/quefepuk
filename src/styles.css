@@ -518,6 +518,76 @@ body {
 /* =========================================
    Documentation Styles
    ========================================= */
+/* Compact, developer-focused API layout */
+.docs-page {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-lg);
+}
+
+.docs-sidebar {
+    position: sticky;
+    top: 1.75rem;
+    align-self: start;
+    max-height: calc(100vh - 3.5rem);
+    overflow: auto;
+    padding-right: 0.5rem;
+}
+
+.docs-main {
+    max-width: 980px;
+    width: 100%;
+}
+
+.docs-content {
+    display: block;
+    width: 100%;
+}
+
+.docs-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.api-member {
+    border-left: 3px solid var(--accent);
+    background: var(--bg-card);
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 0.9rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.api-member h4 {
+    margin: 0 0 0.35rem 0;
+    font-size: 1rem;
+}
+
+.api-member h4 code,
+.api-member .signature {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Noto Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    padding: 0.12rem 0.4rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-light);
+}
+
+.api-member p { color: var(--text-secondary); }
+
+.docs-sidebar-nav { list-style: none; padding: 0; margin: 0; }
+.docs-sidebar-nav li { margin: 0 0 0.45rem 0; }
+.docs-sidebar-link { text-decoration:none; color:var(--text-secondary); font-weight:500; }
+.docs-sidebar-link.active { color:var(--accent); font-weight:700; }
+
+/* Make code blocks slightly tighter for API examples */
+.code-block pre { max-height: 520px; overflow: auto; }
+
+@media (max-width: 900px) {
+    .docs-page { grid-template-columns: 1fr; }
+    .docs-sidebar { position: relative; top: 0; max-height: none; }
+}
+
 
 /* Language accent colours */
 :root {

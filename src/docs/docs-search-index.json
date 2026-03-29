@@ -1,0 +1,2865 @@
+[
+  {
+    "slug": "pawsharp-api-v1",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp API — v1.0.0-alpha.2",
+    "snippet": "This page surfaces the generated XML-comment-based API reference for PawSharp v1.0.0-alpha.2. The generator produced per-assembly JSON files which are available below. For fully browsable method signatures and examples, run tools/generate_d"
+  },
+  {
+    "slug": "pawsharp-api-v1",
+    "id": "assemblies",
+    "title": "Per-Assembly JSON Reference",
+    "assembly": "PawSharp API — v1.0.0-alpha.2",
+    "snippet": "The browsable per-assembly API pages generated from XML comments are available below. These are optimized for the website (type pages with method/property lists).PawSharp.API — browsable API reference — sourcePawSharp.Core — browsable core "
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "Generated API reference for PawSharp.API (generated from XML comments).Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.API.xml"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "namespaces",
+    "title": "Namespaces & Types",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API PawSharp.API.Builders PawSharp.API.Clients PawSharp.API.Interfaces PawSharp.API.Models PawSharp.API.RateLimit PawSharp.API.Security PawSharp.API.Builders PawSharp.API.Builders.MessageBuilder PawSharp.API.Builders.PollBuilder Pa"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-builders",
+    "title": "PawSharp.API.Builders",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Builders Fluent builder for constructing objects."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-builders-messagebuilder",
+    "title": "PawSharp.API.Builders.MessageBuilder",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Builders.MessageBuilder Methods WithContent(string content) Sets the message text content (max characters). ParameterDescriptioncontentThe text to send. ClearContent() Clears the text content (sends an embed-only or component-o"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-builders-pollbuilder",
+    "title": "PawSharp.API.Builders.PollBuilder",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Builders.PollBuilder Methods WithQuestion() Sets the poll question text (max 300 characters). AddAnswer(string text, Nullable&lt;ulong&gt; emojiId, string emojiName) Adds an answer option with optional emoji. ParameterDescripti"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-builders-rolebuilder",
+    "title": "PawSharp.API.Builders.RoleBuilder",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Builders.RoleBuilder Methods WithName() Sets the role name (max 100 characters; default is &quot;new role&quot;). WithPermissions() Sets the permissions bit-set string (e.g. &quot;8&quot; for Administrator). Pass &quot;0&quot; "
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-builders-scheduledeventbuilder",
+    "title": "PawSharp.API.Builders.ScheduledEventBuilder",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Builders.ScheduledEventBuilder Methods WithChannelId() Sets the voice or stage channel ID (not required for external events). WithName() Sets the event name (1–100 characters). WithDescription() Sets an optional description (ma"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-builders-webhookexecutebuilder",
+    "title": "PawSharp.API.Builders.WebhookExecuteBuilder",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Builders.WebhookExecuteBuilder Methods WithContent() Sets the message content (max 2000 characters). WithUsername() Overrides the webhook&#x27;s display name for this execution. WithAvatarUrl() Overrides the webhook&#x27;s avat"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-clients",
+    "title": "PawSharp.API.Clients",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Clients Implementation of Discord REST API client with rate limiting."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-clients-discordrestclient",
+    "title": "PawSharp.API.Clients.DiscordRestClient",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Clients.DiscordRestClient Constructors DiscordRestClient() Convenience overload — creates a default internally. Consumers that register DiscordRestClient directly (e.g. via AddHttpClient) without calling AddAdvancedRateLimiter("
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-interfaces",
+    "title": "PawSharp.API.Interfaces",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Interfaces Interface for Discord REST API client."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-interfaces-idiscordrestclient",
+    "title": "PawSharp.API.Interfaces.IDiscordRestClient",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Interfaces.IDiscordRestClient Methods GetAsync() Sends a GET request to the Discord API. GetAsync() Sends a GET request to the Discord API with audit log reason and cancellation support. PostAsync() Sends a POST request to the "
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models",
+    "title": "PawSharp.API.Models",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models Request body for creating a Group DM channel via POST /users/@me/channels."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-activethreadsresponse",
+    "title": "PawSharp.API.Models.ActiveThreadsResponse",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ActiveThreadsResponse Properties Threads The active thread channels (include ThreadMetadata). Members Thread member objects for the current user in each returned thread."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-applicationroleconnection",
+    "title": "PawSharp.API.Models.ApplicationRoleConnection",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ApplicationRoleConnection Properties PlatformName The vanity name of the platform a bot has connected (max 50 chars). PlatformUsername The username on the platform a bot has connected (max 100 chars). Metadata Object map"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-archivedthreadsresponse",
+    "title": "PawSharp.API.Models.ArchivedThreadsResponse",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ArchivedThreadsResponse Properties Threads The archived thread channels (include ThreadMetadata). Members Thread member objects for the current user in each returned thread. HasMore Whether there are additional archived "
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-bulkguildbanrequest",
+    "title": "PawSharp.API.Models.BulkGuildBanRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.BulkGuildBanRequest Properties DeleteMessageSeconds Number of seconds to delete messages for (0–604800). Default 0."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createapplicationcommandrequest",
+    "title": "PawSharp.API.Models.CreateApplicationCommandRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateApplicationCommandRequest Properties DefaultPermission Deprecated. Use DefaultMemberPermissions instead. NameLocalizations Localization dictionary for the name field. DescriptionLocalizations Localization dictionar"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createapplicationemojirequest",
+    "title": "PawSharp.API.Models.CreateApplicationEmojiRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateApplicationEmojiRequest Properties Image Base64 encoded image (data:image/png;base64,...). Max 256 KB."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createchannelrequest",
+    "title": "PawSharp.API.Models.CreateChannelRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateChannelRequest Properties RtcRegion Voice channel region override. Null = automatic. VideoQualityMode Video quality mode (1 = AUTO, 2 = FULL). Voice channels only. AvailableTags Forum/Media: available tags that can"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-creategroupdmrequest",
+    "title": "PawSharp.API.Models.CreateGroupDmRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateGroupDmRequest Properties AccessTokens Access tokens of up to 10 users that have granted the gdm.join scope. Nicks Optional map of user IDs to their nicknames inside the DM."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createguildemojirequest",
+    "title": "PawSharp.API.Models.CreateGuildEmojiRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateGuildEmojiRequest Properties Name Name for the emoji. Image Base64 encoded image (data:image/png;base64,...). Max 256 KB. Roles Roles allowed to use this emoji. Empty means available to everyone."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createguildfromtemplaterequest",
+    "title": "PawSharp.API.Models.CreateGuildFromTemplateRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateGuildFromTemplateRequest Properties Name Name of the guild (2-100 characters). Icon Base64-encoded 128x128 image for the guild icon."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createguildsoundboardsoundrequest",
+    "title": "PawSharp.API.Models.CreateGuildSoundboardSoundRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateGuildSoundboardSoundRequest Properties Name Name of the soundboard sound (2-32 characters). Sound The mp3, ogg, or aac sound file data (base64 encoded), max 512KB. Volume Volume of the soundboard sound (0 to 1). De"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createguildstickerrequest",
+    "title": "PawSharp.API.Models.CreateGuildStickerRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateGuildStickerRequest Properties Name Name of the sticker (2-30 characters). Description Description of the sticker (empty or 2-100 characters). Tags Autocomplete/suggestion tags for the sticker (max 200 characters, "
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createguildtemplaterequest",
+    "title": "PawSharp.API.Models.CreateGuildTemplateRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateGuildTemplateRequest Properties Name Name of the template (1-100 characters). Description Description for the template (0-120 characters)."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createmessagerequest",
+    "title": "PawSharp.API.Models.CreateMessageRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateMessageRequest Properties Content Message text content (max 2000 chars). Embeds Up to 10 embeds to include with the message. Components Interactive components (buttons, select menus, etc.). Tts Whether to send the "
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createpollrequest",
+    "title": "PawSharp.API.Models.CreatePollRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreatePollRequest Properties Question The question of the poll. Only text is supported. Answers Each of the answers available in the poll (max 10). Duration Number of hours the poll should be open for, up to 32 days (768"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createstageinstancerequest",
+    "title": "PawSharp.API.Models.CreateStageInstanceRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateStageInstanceRequest Properties ChannelId The id of the Stage channel. Topic The topic of the Stage instance (1-120 characters). PrivacyLevel Privacy level. Defaults to . SendStartNotification Notify @everyone that"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-createtestentitlementrequest",
+    "title": "PawSharp.API.Models.CreateTestEntitlementRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.CreateTestEntitlementRequest Properties SkuId ID of the SKU to grant the entitlement to. OwnerId ID of the guild or user to grant the entitlement to. OwnerType 1 = guild, 2 = user."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-editchannelpermissionsrequest",
+    "title": "PawSharp.API.Models.EditChannelPermissionsRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.EditChannelPermissionsRequest Properties Allow The bitwise value of all allowed permissions. Deny The bitwise value of all disallowed permissions. Type 0 = role, 1 = member."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-editcurrentapplicationrequest",
+    "title": "PawSharp.API.Models.EditCurrentApplicationRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.EditCurrentApplicationRequest Properties Icon Base64 encoded icon image data (data:image/png;base64,...). CoverImage Base64 encoded cover image data. EventWebhooksStatus 1 = disabled, 2 = enabled."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-editmessagerequest",
+    "title": "PawSharp.API.Models.EditMessageRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.EditMessageRequest Properties Content New message text content (max 2000 chars). Pass an empty string to clear. Embeds Up to 10 embeds. Pass an empty list to remove all embeds. Components Interactive components. Pass an "
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-executewebhookrequest",
+    "title": "PawSharp.API.Models.ExecuteWebhookRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ExecuteWebhookRequest Properties Wait If true, Discord returns the created message object. The caller must pass wait=true as a query parameter on webhook execute calls. ThreadName Name of the thread to create (only for f"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-interactioncallbackdata",
+    "title": "PawSharp.API.Models.InteractionCallbackData",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.InteractionCallbackData Properties Choices Autocomplete result choices. Only used with ApplicationCommandAutocompleteResult responses. Title Title of the modal. Only used with Modal responses. CustomId Custom ID of the m"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-interactioncallbacktype",
+    "title": "PawSharp.API.Models.InteractionCallbackType",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.InteractionCallbackType Fields Pong ACK a Ping. ChannelMessageWithSource Respond to an interaction with a message. DeferredChannelMessageWithSource ACK an interaction and edit a response later, the user sees a loading st"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifychannelpositionrequest",
+    "title": "PawSharp.API.Models.ModifyChannelPositionRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyChannelPositionRequest Properties Id Channel ID. Position New sort position (null to leave unchanged). LockPermissions Syncs the permission overwrites with the new parent category. Only applicable to non-category c"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifychannelrequest",
+    "title": "PawSharp.API.Models.ModifyChannelRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyChannelRequest Properties RtcRegion Voice channel region override. Null = automatic. VideoQualityMode Video quality mode (1 = AUTO, 2 = FULL). Voice channels only. AvailableTags Forum/Media: available tags that can"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifycurrentuservoicestaterequest",
+    "title": "PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyCurrentUserVoiceStateRequest Properties ChannelId The id of the channel the user is currently in (null to disconnect). Suppress Toggles the user&#x27;s suppress state. RequestToSpeakTimestamp Sets the user&#x27;s r"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifyguildmfalevelrequest",
+    "title": "PawSharp.API.Models.ModifyGuildMfaLevelRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyGuildMfaLevelRequest Properties Level MFA level: 0 = NONE, 1 = ELEVATED (requires 2FA for moderator actions)."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifyguildonboardingrequest",
+    "title": "PawSharp.API.Models.ModifyGuildOnboardingRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyGuildOnboardingRequest Properties Prompts Prompts shown during onboarding and in customize community. DefaultChannelIds Channel IDs that members get opted into automatically. Enabled Whether onboarding is enabled i"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifyguildrequest",
+    "title": "PawSharp.API.Models.ModifyGuildRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyGuildRequest Properties SystemChannelFlags System channel flags bitfield. RulesChannelId ID of the channel where rules or community guidelines are displayed. PublicUpdatesChannelId ID of the channel where admins an"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifyguildsoundboardsoundrequest",
+    "title": "PawSharp.API.Models.ModifyGuildSoundboardSoundRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyGuildSoundboardSoundRequest Properties Name Name of the soundboard sound (2-32 characters). Volume Volume of the soundboard sound (0 to 1). EmojiId The id of the custom emoji for the soundboard sound. EmojiName The"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifyguildtemplaterequest",
+    "title": "PawSharp.API.Models.ModifyGuildTemplateRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyGuildTemplateRequest Properties Name New name for the template (1-100 characters). Description New description for the template (0-120 characters)."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifyguildwelcomescreenrequest",
+    "title": "PawSharp.API.Models.ModifyGuildWelcomeScreenRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyGuildWelcomeScreenRequest Properties Enabled Whether the welcome screen is enabled. WelcomeChannels Channels shown in the welcome screen (max 5). Description The server description shown in the welcome screen."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifyguildwidgetrequest",
+    "title": "PawSharp.API.Models.ModifyGuildWidgetRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyGuildWidgetRequest Properties Enabled Whether the widget is enabled. ChannelId The widget channel ID, or null to remove."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifyrolepositionrequest",
+    "title": "PawSharp.API.Models.ModifyRolePositionRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyRolePositionRequest Properties Id Role ID. Position New sort position."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-modifyuservoicestaterequest",
+    "title": "PawSharp.API.Models.ModifyUserVoiceStateRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.ModifyUserVoiceStateRequest Properties ChannelId The id of the channel the user is currently in. Suppress Toggles the user&#x27;s suppress state."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-oauth2tokenresponse",
+    "title": "PawSharp.API.Models.OAuth2TokenResponse",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.OAuth2TokenResponse Properties ExpiresIn Lifetime of the access token in seconds."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-sendsoundboardsoundrequest",
+    "title": "PawSharp.API.Models.SendSoundboardSoundRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.SendSoundboardSoundRequest Properties SoundId The id of the soundboard sound to play. SourceGuildId The id of the guild the soundboard sound is from (required for non-default sounds)."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-models-welcomescreenchannelrequest",
+    "title": "PawSharp.API.Models.WelcomeScreenChannelRequest",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Models.WelcomeScreenChannelRequest Properties ChannelId The channel ID to feature. Description Description of the channel (max 42 characters). EmojiId ID of a custom emoji to display, or null for a unicode emoji. EmojiName Unic"
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-ratelimit",
+    "title": "PawSharp.API.RateLimit",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.RateLimit Service collection helpers for rate limiting."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-ratelimit-advancedratelimiter",
+    "title": "PawSharp.API.RateLimit.AdvancedRateLimiter",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.RateLimit.AdvancedRateLimiter Methods WaitForRateLimitAsync(string route, string bucketHash, CancellationToken cancellationToken) Wait for rate limit clearance before executing a request. ParameterDescriptionrouteThe API route "
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-ratelimit-ratelimitservicecollectionextensions",
+    "title": "PawSharp.API.RateLimit.RateLimitServiceCollectionExtensions",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.RateLimit.RateLimitServiceCollectionExtensions Methods AddAdvancedRateLimiter() Registers the advanced rate limiter implementation."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-security",
+    "title": "PawSharp.API.Security",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Security Provides redaction helpers for safe logging of endpoints and HTTP error payloads."
+  },
+  {
+    "slug": "pawsharp-api",
+    "id": "pawsharp-api-security-logsanitizer",
+    "title": "PawSharp.API.Security.LogSanitizer",
+    "assembly": "PawSharp.API — API Reference (generated)",
+    "snippet": "PawSharp.API.Security.LogSanitizer Methods RedactSensitiveEndpoint() Replaces sensitive token-like path segments with REDACTED for safe log output. SanitizeHttpErrorBody() Sanitizes HTTP response payloads before logging and truncates oversi"
+  },
+  {
+    "slug": "pawsharp-cache",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp.Cache — API Reference (generated)",
+    "snippet": "Generated API reference for PawSharp.Cache (generated from XML comments).Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Cache.xml"
+  },
+  {
+    "slug": "pawsharp-cache",
+    "id": "namespaces",
+    "title": "Namespaces & Types",
+    "assembly": "PawSharp.Cache — API Reference (generated)",
+    "snippet": "PawSharp.Cache PawSharp.Cache.Interfaces PawSharp.Cache.Providers PawSharp.Cache.Interfaces PawSharp.Cache.Interfaces.CacheStats PawSharp.Cache.Interfaces.IEntityCache PawSharp.Cache.Providers PawSharp.Cache.Providers.RedisCacheOptions PawS"
+  },
+  {
+    "slug": "pawsharp-cache",
+    "id": "pawsharp-cache-interfaces",
+    "title": "PawSharp.Cache.Interfaces",
+    "assembly": "PawSharp.Cache — API Reference (generated)",
+    "snippet": "PawSharp.Cache.Interfaces Cache statistics information."
+  },
+  {
+    "slug": "pawsharp-cache",
+    "id": "pawsharp-cache-interfaces-cachestats",
+    "title": "PawSharp.Cache.Interfaces.CacheStats",
+    "assembly": "PawSharp.Cache — API Reference (generated)",
+    "snippet": "PawSharp.Cache.Interfaces.CacheStats Properties UserCount Number of users cached. GuildCount Number of guilds cached. ChannelCount Number of channels cached. MessageCount Number of messages cached. MemberCount Number of guild members cached"
+  },
+  {
+    "slug": "pawsharp-cache",
+    "id": "pawsharp-cache-interfaces-ientitycache",
+    "title": "PawSharp.Cache.Interfaces.IEntityCache",
+    "assembly": "PawSharp.Cache — API Reference (generated)",
+    "snippet": "PawSharp.Cache.Interfaces.IEntityCache Methods GetCacheStats() Gets cache statistics including counts per entity type and memory usage."
+  },
+  {
+    "slug": "pawsharp-cache",
+    "id": "pawsharp-cache-providers",
+    "title": "PawSharp.Cache.Providers",
+    "assembly": "PawSharp.Cache — API Reference (generated)",
+    "snippet": "PawSharp.Cache.Providers Configuration options for Redis cache provider."
+  },
+  {
+    "slug": "pawsharp-cache",
+    "id": "pawsharp-cache-providers-rediscacheoptions",
+    "title": "PawSharp.Cache.Providers.RedisCacheOptions",
+    "assembly": "PawSharp.Cache — API Reference (generated)",
+    "snippet": "PawSharp.Cache.Providers.RedisCacheOptions Properties ConnectionString Redis connection string (e.g., &quot;localhost:6379&quot;). Password Redis password (optional). Database Redis database number (default: 0). ConnectTimeout Connection ti"
+  },
+  {
+    "slug": "pawsharp-cache",
+    "id": "pawsharp-cache-providers-rediscacheprovider",
+    "title": "PawSharp.Cache.Providers.RedisCacheProvider",
+    "assembly": "PawSharp.Cache — API Reference (generated)",
+    "snippet": "PawSharp.Cache.Providers.RedisCacheProvider Constructors RedisCacheProvider(IOptions&lt;RedisCacheOptions&gt; options) Initializes a new instance of the class. ParameterDescriptionoptionsRedis cache configuration options. RedisCacheProvider"
+  },
+  {
+    "slug": "pawsharp-client",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp.Client — API Reference (generated)",
+    "snippet": "Generated API reference for PawSharp.Client (generated from XML comments).Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Client.xml"
+  },
+  {
+    "slug": "pawsharp-client",
+    "id": "namespaces",
+    "title": "Namespaces & Types",
+    "assembly": "PawSharp.Client — API Reference (generated)",
+    "snippet": "PawSharp PawSharp.Client PawSharp.Client PawSharp.Client.CacheManager PawSharp.Client.DiscordClient PawSharp.Client.DiscordClientIntentValidationExtensions PawSharp.Client.Extensions PawSharp.Client.IntentValidationResult PawSharp.Client.Pa"
+  },
+  {
+    "slug": "pawsharp-client",
+    "id": "pawsharp-client",
+    "title": "PawSharp.Client",
+    "assembly": "PawSharp.Client — API Reference (generated)",
+    "snippet": "PawSharp.Client Lightweight fluent builder that wires up a fully-configured without requiring the Microsoft DI container. For ASP.NET Core or similar host-based applications prefer the services.AddPawSharp(options) extension method instead."
+  },
+  {
+    "slug": "pawsharp-client",
+    "id": "pawsharp-client-cachemanager",
+    "title": "PawSharp.Client.CacheManager",
+    "assembly": "PawSharp.Client — API Reference (generated)",
+    "snippet": "PawSharp.Client.CacheManager Methods SubscribeToGateway() Subscribe to gateway events and automatically cache entities."
+  },
+  {
+    "slug": "pawsharp-client",
+    "id": "pawsharp-client-discordclient",
+    "title": "PawSharp.Client.DiscordClient",
+    "assembly": "PawSharp.Client — API Reference (generated)",
+    "snippet": "PawSharp.Client.DiscordClient Constructors DiscordClient() Creates a with all dependencies supplied externally. Prefer the AddPawSharp DI extension for wiring everything automatically. Methods ConnectAsync() Opens the WebSocket connection t"
+  },
+  {
+    "slug": "pawsharp-client",
+    "id": "pawsharp-client-discordclientintentvalidationextensions",
+    "title": "PawSharp.Client.DiscordClientIntentValidationExtensions",
+    "assembly": "PawSharp.Client — API Reference (generated)",
+    "snippet": "PawSharp.Client.DiscordClientIntentValidationExtensions Methods ValidateIntents(DiscordClient client, GatewayIntents enabledIntents) Validates that all registered gateway event handlers have their required intents enabled. Logs warnings for"
+  },
+  {
+    "slug": "pawsharp-client",
+    "id": "pawsharp-client-extensions",
+    "title": "PawSharp.Client.Extensions",
+    "assembly": "PawSharp.Client — API Reference (generated)",
+    "snippet": "PawSharp.Client.Extensions Convenience extensions for registering PawSharp services with .NET&#x27;s dependency injection container."
+  },
+  {
+    "slug": "pawsharp-client",
+    "id": "pawsharp-client-extensions-pawsharpservicecollectionextensions",
+    "title": "PawSharp.Client.Extensions.PawSharpServiceCollectionExtensions",
+    "assembly": "PawSharp.Client — API Reference (generated)",
+    "snippet": "PawSharp.Client.Extensions.PawSharpServiceCollectionExtensions Methods AddPawSharp(IServiceCollection services, PawSharpOptions options, Func&lt;IServiceProvider, IEntityCache&gt; cacheFactory) Registers all PawSharp services — REST client,"
+  },
+  {
+    "slug": "pawsharp-client",
+    "id": "pawsharp-client-intentvalidationresult",
+    "title": "PawSharp.Client.IntentValidationResult",
+    "assembly": "PawSharp.Client — API Reference (generated)",
+    "snippet": "PawSharp.Client.IntentValidationResult Methods ToString() Gets a human-readable summary of validation results. Properties EnabledIntents The intents that were enabled during validation. Count Number of issues found (events with missing inte"
+  },
+  {
+    "slug": "pawsharp-client",
+    "id": "pawsharp-client-pawsharpclientbuilder",
+    "title": "PawSharp.Client.PawSharpClientBuilder",
+    "assembly": "PawSharp.Client — API Reference (generated)",
+    "snippet": "PawSharp.Client.PawSharpClientBuilder Methods WithToken() Sets the bot token. Must start with Bot (Discord format). If you provide a raw token without the prefix, the prefix is added automatically. WithIntents() Sets the gateway intents to "
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "Generated API reference for PawSharp.Commands (generated from XML comments).Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Commands\\bin\\Release\\net10.0\\PawSharp.Commands.xml"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "namespaces",
+    "title": "Namespaces & Types",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp PawSharp.Commands PawSharp.Commands PawSharp.Commands.AliasesAttribute PawSharp.Commands.BaseCommandModule PawSharp.Commands.Command PawSharp.Commands.CommandAttribute PawSharp.Commands.CommandContext PawSharp.Commands.CommandError"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands",
+    "title": "PawSharp.Commands",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands Marks a method parameter as a Discord slash command option. Applied to parameters of methods decorated with ."
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-aliasesattribute",
+    "title": "PawSharp.Commands.AliasesAttribute",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.AliasesAttribute Constructors AliasesAttribute(String[] aliases) Initializes a new instance of the class. ParameterDescriptionaliasesThe command aliases. Properties Aliases Gets the command aliases."
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-basecommandmodule",
+    "title": "PawSharp.Commands.BaseCommandModule",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.BaseCommandModule Methods InitializeAsync() Called during module registration for async initialization. Returns: A task representing the asynchronous operation. BeforeExecutionAsync(CommandContext ctx) Called before comman"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-command",
+    "title": "PawSharp.Commands.Command",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Command Constructors Command(string name, String[] aliases, string description, MethodInfo method, BaseCommandModule module, IReadOnlyList&lt;IPrecondition&gt; preconditions) Initializes a new instance of the class. Parame"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-commandattribute",
+    "title": "PawSharp.Commands.CommandAttribute",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.CommandAttribute Constructors CommandAttribute(string name) Initializes a new instance of the class. ParameterDescriptionnameThe command name. Properties Name Gets the command name."
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-commandcontext",
+    "title": "PawSharp.Commands.CommandContext",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.CommandContext Constructors CommandContext(DiscordClient client, Message message, string prefix, string commandName, String[] arguments, string rawArguments, GuildMember member) Initializes a new instance of the class. Par"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-commanderroreventargs",
+    "title": "PawSharp.Commands.CommandErrorEventArgs",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.CommandErrorEventArgs Properties Context The context under which the failing command was invoked. Exception The exception that was thrown by the command method."
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-commandinfo",
+    "title": "PawSharp.Commands.CommandInfo",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.CommandInfo Constructors CommandInfo(string name, String[] aliases, string description) Initializes a new instance of the class. ParameterDescriptionnameThe command name.aliasesThe command aliases.descriptionThe command de"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-commandsextension",
+    "title": "PawSharp.Commands.CommandsExtension",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.CommandsExtension Constructors CommandsExtension(string prefix, ILogger&lt;CommandsExtension&gt; logger) Initializes a new instance of the class. ParameterDescriptionprefixThe command prefix.loggerOptional logger; defaults"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-descriptionattribute",
+    "title": "PawSharp.Commands.DescriptionAttribute",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.DescriptionAttribute Constructors DescriptionAttribute(string description) Initializes a new instance of the class. ParameterDescriptiondescriptionThe command description. Properties Description Gets the command descriptio"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-extensions",
+    "title": "PawSharp.Commands.Extensions",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Extensions Extension methods for adding commands to Discord clients."
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-extensions-commandsextensions",
+    "title": "PawSharp.Commands.Extensions.CommandsExtensions",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Extensions.CommandsExtensions Methods UseCommands(DiscordClient client, string prefix) Enables prefix-based commands for the Discord client and returns the singleton for this client. Idempotent — subsequent calls with the "
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-preconditions",
+    "title": "PawSharp.Commands.Preconditions",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Preconditions Restricts a command to members who hold at least the specified Discord permission bits."
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-preconditions-cooldownattribute",
+    "title": "PawSharp.Commands.Preconditions.CooldownAttribute",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Preconditions.CooldownAttribute Constructors CooldownAttribute(int maxUses, Double perSeconds, CooldownBucketType bucketType) Initialises the attribute. ParameterDescriptionmaxUsesMaximum uses within the window.perSecondsL"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-preconditions-cooldownbuckettype",
+    "title": "PawSharp.Commands.Preconditions.CooldownBucketType",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Preconditions.CooldownBucketType Fields User One bucket per invoking user across all channels. Channel One bucket per channel (shared across all users). Guild One bucket per guild (shared across all users and channels). Gl"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-preconditions-iprecondition",
+    "title": "PawSharp.Commands.Preconditions.IPrecondition",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Preconditions.IPrecondition Methods CheckAsync(CommandContext ctx) Evaluates the precondition for the given command context. ParameterDescriptionctxThe context of the command being invoked. Returns: A indicating whether ex"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-preconditions-preconditionfailedexception",
+    "title": "PawSharp.Commands.Preconditions.PreconditionFailedException",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Preconditions.PreconditionFailedException Constructors PreconditionFailedException() Initialises a new instance with the precondition failure description."
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-preconditions-preconditionresult",
+    "title": "PawSharp.Commands.Preconditions.PreconditionResult",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Preconditions.PreconditionResult Methods FromSuccess() Returns a successful result. FromError() Returns a failed result with . ToString() Properties IsSuccess Gets whether the precondition passed. ErrorMessage Gets the err"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-preconditions-requireguildattribute",
+    "title": "PawSharp.Commands.Preconditions.RequireGuildAttribute",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Preconditions.RequireGuildAttribute Methods CheckAsync()"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-preconditions-requirepermissionsattribute",
+    "title": "PawSharp.Commands.Preconditions.RequirePermissionsAttribute",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.Preconditions.RequirePermissionsAttribute Constructors RequirePermissionsAttribute(ulong permissions) Initialises the attribute with the required permission bit mask. ParameterDescriptionpermissionsBitwise OR of the Discor"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-slashcommandattribute",
+    "title": "PawSharp.Commands.SlashCommandAttribute",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.SlashCommandAttribute Constructors SlashCommandAttribute(string name, string description) Initializes a new instance of the class. ParameterDescriptionnameThe command name.descriptionThe command description. Properties Nam"
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-slashcommandcontext",
+    "title": "PawSharp.Commands.SlashCommandContext",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.SlashCommandContext Properties Interaction The interaction that triggered this slash command invocation."
+  },
+  {
+    "slug": "pawsharp-commands",
+    "id": "pawsharp-commands-slashoptionattribute",
+    "title": "PawSharp.Commands.SlashOptionAttribute",
+    "assembly": "PawSharp.Commands — API Reference (generated)",
+    "snippet": "PawSharp.Commands.SlashOptionAttribute Constructors SlashOptionAttribute(string name, string description) Initializes a new instance of the class. ParameterDescriptionnameThe option name.descriptionThe option description. Properties Name Ge"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "Generated API reference for PawSharp.Core (generated from XML comments).Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Core.xml"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "namespaces",
+    "title": "Namespaces & Types",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core PawSharp.Core.Builders PawSharp.Core.CDN PawSharp.Core.Entities PawSharp.Core.Enums PawSharp.Core.Events PawSharp.Core.Exceptions PawSharp.Core.Interfaces PawSharp.Core.Logging PawSharp.Core.Metrics PawSharp.Core.Models PawSha"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-builders",
+    "title": "PawSharp.Core.Builders",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Builders Fluent builder for constructing objects."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-builders-embedbuilder",
+    "title": "PawSharp.Core.Builders.EmbedBuilder",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Builders.EmbedBuilder Methods WithTitle() Sets the embed title (max 256 characters). WithDescription() Sets the embed description (max 4096 characters). WithUrl() Sets the URL that the title hyperlinks to. WithColor() Sets the"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-cdn",
+    "title": "PawSharp.Core.CDN",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.CDN Builds Discord CDN URLs for avatars, icons, banners, emojis, and stickers."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-cdn-discordcdn",
+    "title": "PawSharp.Core.CDN.DiscordCdn",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.CDN.DiscordCdn The supported image file formats. Methods GetUserAvatar() URL for a user&#x27;s avatar. Returns the default avatar URL when is null. Animated avatars (hash starts with &quot;a_&quot;) are returned as GIF when is"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities",
+    "title": "PawSharp.Core.Entities",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities Webhook type."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-actionrow",
+    "title": "PawSharp.Core.Entities.ActionRow",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActionRow Properties Components Child components (Buttons, select menus, or text inputs)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activity",
+    "title": "PawSharp.Core.Entities.Activity",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Activity Properties Name The activity&#x27;s name. Type Activity type. Url Stream url, is validated when type is 1. CreatedAt When the activity was added to the user&#x27;s session. Timestamps Unix timestamps for star"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activityassets",
+    "title": "PawSharp.Core.Entities.ActivityAssets",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivityAssets Properties LargeImage The id for a large asset of the activity, usually a snowflake. LargeText Text displayed when hovering over the large image of the activity. SmallImage The id for a small asset of t"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activitybutton",
+    "title": "PawSharp.Core.Entities.ActivityButton",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivityButton Properties Label The text shown on the button (1-32 characters). Url The url opened when clicking the button (1-512 characters)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activityemoji",
+    "title": "PawSharp.Core.Entities.ActivityEmoji",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivityEmoji Properties Name The name of the emoji. Id The id of the emoji. Animated Whether this emoji is animated."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activityflags",
+    "title": "PawSharp.Core.Entities.ActivityFlags",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivityFlags Fields Instance Instance. Join Join. Spectate Spectate. JoinRequest Join Request. Sync Sync. Play Play. PartyPrivacyFriends Party Privacy Friends. PartyPrivacyVoiceChannel Party Privacy Voice Channel. Em"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activityinstance",
+    "title": "PawSharp.Core.Entities.ActivityInstance",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivityInstance Properties ApplicationId Application ID of the activity. InstanceId Unique string identifier of the instance. LaunchId Snowflake of the launch event that created this instance. Location Location where"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activitylocation",
+    "title": "PawSharp.Core.Entities.ActivityLocation",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivityLocation Properties Id Unique identifier for this location (not a Discord snowflake — it is a stable opaque string assigned by Discord). Kind Where the activity is running: &quot;gc&quot; (guild channel) or &q"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activitylocationkind",
+    "title": "PawSharp.Core.Entities.ActivityLocationKind",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivityLocationKind Fields GuildChannel The activity is running inside a guild (server) voice/stage channel. PrivateChannel The activity is running inside a private or group DM channel."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activityparty",
+    "title": "PawSharp.Core.Entities.ActivityParty",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivityParty Properties Id The id of the party. Size Used to show the party&#x27;s current and maximum size."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activitysecrets",
+    "title": "PawSharp.Core.Entities.ActivitySecrets",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivitySecrets Properties Join The secret for joining a party. Spectate The secret for spectating a game. Match The secret for a specific instanced match."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activitytimestamps",
+    "title": "PawSharp.Core.Entities.ActivityTimestamps",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivityTimestamps Properties Start Unix time (in milliseconds) of when the activity started. End Unix time (in milliseconds) of when the activity ends."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-activitytype",
+    "title": "PawSharp.Core.Entities.ActivityType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ActivityType Fields Game Playing {name}. Streaming Streaming {details}. Listening Listening to {name}. Watching Watching {name}. Custom {emoji} {name}. Competing Competing in {name}."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-allowedmentions",
+    "title": "PawSharp.Core.Entities.AllowedMentions",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AllowedMentions Properties Parse An array of allowed mention types. May contain &quot;roles&quot;, &quot;users&quot;, and/or &quot;everyone&quot;. When null Discord falls back to its default behaviour. Mutually exclus"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-application",
+    "title": "PawSharp.Core.Entities.Application",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Application Properties Name The name of the app. Icon The icon hash of the app. Description The description of the app. RpcOrigins An array of rpc origin urls, if rpc is enabled. BotPublic When false only app owner ca"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-applicationcommand",
+    "title": "PawSharp.Core.Entities.ApplicationCommand",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ApplicationCommand Properties Type The type of command, defaults to 1. ApplicationId ID of the parent application. GuildId Guild id of the command, if not global. Name Name of command, 1-32 characters. Description Des"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-applicationcommandinteractiondataoption",
+    "title": "PawSharp.Core.Entities.ApplicationCommandInteractionDataOption",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ApplicationCommandInteractionDataOption Properties Name The name of the parameter. Type Value of application command option type. Value The value of the option resulting from user input. Options Present if this option"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-applicationcommandoption",
+    "title": "PawSharp.Core.Entities.ApplicationCommandOption",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ApplicationCommandOption Properties Type The type of option. Name 1-32 character name. Description 1-100 character description. Required If the parameter is required or optional--default false. Choices Choices for STR"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-applicationcommandoptionchoice",
+    "title": "PawSharp.Core.Entities.ApplicationCommandOptionChoice",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ApplicationCommandOptionChoice Properties Name 1-100 character choice name. Value Value for the choice, up to 100 characters if string. NameLocalizations Localizations object for the name field."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-applicationcommandpermission",
+    "title": "PawSharp.Core.Entities.ApplicationCommandPermission",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ApplicationCommandPermission Properties Id ID of the role, user, or channel. Type Role, user, or channel. Permission True to allow, false to disallow."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-applicationcommandpermissions",
+    "title": "PawSharp.Core.Entities.ApplicationCommandPermissions",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ApplicationCommandPermissions Properties Id ID of the command or the application ID. ApplicationId ID of the application the command belongs to. GuildId ID of the guild. Permissions Permissions for the command in the "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-applicationcommandtype",
+    "title": "PawSharp.Core.Entities.ApplicationCommandType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ApplicationCommandType Fields PrimaryEntryPoint Entry point command for launching Activities."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-applicationflags",
+    "title": "PawSharp.Core.Entities.ApplicationFlags",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ApplicationFlags Fields AutoModerationRuleCreateBadge Indicates if an app uses the Auto Moderation API. GatewayPresence Intent required for bots in 100 or more servers to receive presence_update events. GatewayGuildMe"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-applicationroleconnectionmetadata",
+    "title": "PawSharp.Core.Entities.ApplicationRoleConnectionMetadata",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ApplicationRoleConnectionMetadata Properties Type Type of metadata value. Key Dictionary key for the metadata field (must be [a-z0-9_], max 50 characters). Name Name of this metadata field (max 100 characters). NameLo"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-applicationroleconnectionmetadatatype",
+    "title": "PawSharp.Core.Entities.ApplicationRoleConnectionMetadataType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ApplicationRoleConnectionMetadataType Fields IntegerLessThanOrEqual the metadata value (integer) is less than or equal to the guild&#x27;s configured value. IntegerGreaterThanOrEqual the metadata value (integer) is gr"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-auditlog",
+    "title": "PawSharp.Core.Entities.AuditLog",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AuditLog Properties AuditLogEntries List of audit log entries. GuildScheduledEvents List of guild scheduled events found in the audit log. Integrations List of partial integration objects. Threads List of threads foun"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-auditlogchange",
+    "title": "PawSharp.Core.Entities.AuditLogChange",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AuditLogChange Properties NewValue New value of the key. OldValue Old value of the key. Key Name of the changed entity, with a few exceptions."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-auditlogentry",
+    "title": "PawSharp.Core.Entities.AuditLogEntry",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AuditLogEntry Properties TargetId ID of the affected entity (webhook, user, role, etc.). Changes Changes made to the target_id. UserId The user who made the changes. Id ID of the entry. ActionType Type of action that "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-automoderationaction",
+    "title": "PawSharp.Core.Entities.AutoModerationAction",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AutoModerationAction Properties Type The type of action. Metadata Additional metadata needed during execution for this specific action type."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-automoderationactionmetadata",
+    "title": "PawSharp.Core.Entities.AutoModerationActionMetadata",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AutoModerationActionMetadata Properties ChannelId Channel to which user content should be logged. DurationSeconds Timeout duration in seconds (Maximum of 2419200). CustomMessage Additional explanation that will be sho"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-automoderationactiontype",
+    "title": "PawSharp.Core.Entities.AutoModerationActionType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AutoModerationActionType Fields BlockMessage Blocks the content of a message according to the rule. SendAlertMessage Logs user content to a specified channel. Timeout Timeout user for a specified duration."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-automoderationeventtype",
+    "title": "PawSharp.Core.Entities.AutoModerationEventType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AutoModerationEventType Fields MessageSend When a member sends or edits a message in the guild."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-automoderationkeywordpresettype",
+    "title": "PawSharp.Core.Entities.AutoModerationKeywordPresetType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AutoModerationKeywordPresetType Fields Profanity Words that may be considered forms of swearing or cursing. SexualContent Words that refer to sexually explicit behavior or activity. Slurs Personal insults or words tha"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-automoderationrule",
+    "title": "PawSharp.Core.Entities.AutoModerationRule",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AutoModerationRule Properties GuildId The guild which this rule belongs to. Name The rule name. CreatorId The user which first created this rule. EventType The rule event type. TriggerType The rule trigger type. Trigg"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-automoderationtriggermetadata",
+    "title": "PawSharp.Core.Entities.AutoModerationTriggerMetadata",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AutoModerationTriggerMetadata Properties KeywordFilter Substrings which will be searched for in content (Maximum of 1000). RegexPatterns Regular expression patterns which will be matched against content (Maximum of 10"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-automoderationtriggertype",
+    "title": "PawSharp.Core.Entities.AutoModerationTriggerType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AutoModerationTriggerType Fields Keyword Check if content contains words from a user defined list of keywords. Spam Check if content represents generic spam. KeywordPreset Check if content contains words from internal"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-avatardecorationdata",
+    "title": "PawSharp.Core.Entities.AvatarDecorationData",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.AvatarDecorationData Properties Asset The hash of the avatar decoration asset. SkuId The id of the avatar decoration&#x27;s SKU."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-ban",
+    "title": "PawSharp.Core.Entities.Ban",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Ban Properties Reason The reason for the ban. User The banned user."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-button",
+    "title": "PawSharp.Core.Entities.Button",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Button Properties Style Button visual style. Label Text that appears on the button (max 80 characters). Emoji Partial emoji to display on the button. CustomId Developer-defined identifier used in interaction payloads "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-channel",
+    "title": "PawSharp.Core.Entities.Channel",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Channel Properties Type The type of channel. GuildId The id of the guild (may be missing for some channel objects received over gateway guild dispatches). Position Sorting position of the channel. PermissionOverwrites"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-channelselectmenu",
+    "title": "PawSharp.Core.Entities.ChannelSelectMenu",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ChannelSelectMenu Properties ChannelTypes Specific channel types to include in the list."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-clientstatus",
+    "title": "PawSharp.Core.Entities.ClientStatus",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ClientStatus Properties Desktop The user&#x27;s status set for an active desktop (Windows, Linux, Mac) application session. Mobile The user&#x27;s status set for an active mobile (iOS, Android) application session. We"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-container",
+    "title": "PawSharp.Core.Entities.Container",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Container Properties Components Child components. AccentColor Optional side-bar accent colour (integer, same format as role/embed colours). Spoiler Whether the entire container is a spoiler."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-defaultmessagenotificationlevel",
+    "title": "PawSharp.Core.Entities.DefaultMessageNotificationLevel",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.DefaultMessageNotificationLevel Fields AllMessages Members will receive notifications for all messages by default. OnlyMentions Members will receive notifications only for messages that @mention them by default."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-defaultreaction",
+    "title": "PawSharp.Core.Entities.DefaultReaction",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.DefaultReaction Properties EmojiId The id of a guild&#x27;s custom emoji. EmojiName The unicode character of the emoji."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-discordentity",
+    "title": "PawSharp.Core.Entities.DiscordEntity",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.DiscordEntity Properties Id CreatedAt"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-emoji",
+    "title": "PawSharp.Core.Entities.Emoji",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Emoji Methods ToDiscordString() Returns the string usable in Discord message content or interaction payloads. Properties Id Snowflake ID of the emoji. Null for standard Unicode emojis. Name Emoji name. May be null in "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-entitlement",
+    "title": "PawSharp.Core.Entities.Entitlement",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Entitlement Properties SkuId ID of the SKU. ApplicationId ID of the parent application. UserId ID of the user that is granted access to the entitlement&#x27;s sku. Type Type of entitlement. Deleted Entitlement was del"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-entitlementtype",
+    "title": "PawSharp.Core.Entities.EntitlementType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.EntitlementType Fields Purchase Entitlement was purchased by user. PremiumSubscription Entitlement for Discord Nitro subscription. DeveloperGift Entitlement was gifted by developer. TestModePurchase Entitlement was pu"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-explicitcontentfilterlevel",
+    "title": "PawSharp.Core.Entities.ExplicitContentFilterLevel",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ExplicitContentFilterLevel Fields Disabled Media content will not be scanned. MembersWithoutRoles Media content sent by members without roles will be scanned. AllMembers Media content sent by all members will be scann"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-filecomponent",
+    "title": "PawSharp.Core.Entities.FileComponent",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.FileComponent Properties File Reference to the attachment file. Use an attachment:// URL to reference one of the message&#x27;s attachments. Spoiler Whether the file should be a spoiler."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-followedchannel",
+    "title": "PawSharp.Core.Entities.FollowedChannel",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.FollowedChannel Properties ChannelId The source Announcement channel that was followed. WebhookId The webhook created in the target channel to deliver the crossposted messages."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-forumtag",
+    "title": "PawSharp.Core.Entities.ForumTag",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ForumTag Properties Id The id of the tag. Name The name of the tag (0-20 characters). Moderated Whether this tag can only be added to or removed from threads by a member with the MANAGE_THREADS permission. EmojiId The"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-gatewaybotinfo",
+    "title": "PawSharp.Core.Entities.GatewayBotInfo",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GatewayBotInfo Properties Url The WSS URL to connect to. Shards Discord&#x27;s recommended shard count for this bot. SessionStartLimit Information about the current session start limit."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guild",
+    "title": "PawSharp.Core.Entities.Guild",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Guild Properties Name Guild name (2-100 characters, excluding trailing and leading whitespace). Icon Icon hash. Splash Splash hash. DiscoverySplash Discovery splash hash. OwnerId Id of owner. Permissions Total permiss"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildincidentsdata",
+    "title": "PawSharp.Core.Entities.GuildIncidentsData",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildIncidentsData Properties DmsDisabledUntil Timestamp until when DMs from non-friends are disabled. InvitesDisabledUntil Timestamp until when invites are disabled. RaidDetectedAt Timestamp when a raid was detected."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildmember",
+    "title": "PawSharp.Core.Entities.GuildMember",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildMember Properties User The user this guild member represents. Nick This user&#x27;s guild nickname. Avatar The member&#x27;s guild avatar hash. Roles Array of role object ids. JoinedAt When the user joined the gu"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildonboarding",
+    "title": "PawSharp.Core.Entities.GuildOnboarding",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildOnboarding Properties GuildId ID of the guild this onboarding is part of. Prompts Prompts shown during onboarding and in customize community. DefaultChannelIds Channel IDs that members get opted into automaticall"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildscheduledevent",
+    "title": "PawSharp.Core.Entities.GuildScheduledEvent",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildScheduledEvent Properties ChannelId The channel id of the scheduled event. Creator The creator of the scheduled event. Name The name of the scheduled event (1-100 characters). Description The description of the s"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildscheduledevententitymetadata",
+    "title": "PawSharp.Core.Entities.GuildScheduledEventEntityMetadata",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildScheduledEventEntityMetadata Properties Location Location of the event (1-100 characters)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildscheduledevententitytype",
+    "title": "PawSharp.Core.Entities.GuildScheduledEventEntityType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildScheduledEventEntityType Fields StageInstance A stage channel event. Voice A voice channel event. External An external event."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildscheduledeventprivacylevel",
+    "title": "PawSharp.Core.Entities.GuildScheduledEventPrivacyLevel",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildScheduledEventPrivacyLevel Fields GuildOnly The scheduled event is only accessible to guild members."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildscheduledeventstatus",
+    "title": "PawSharp.Core.Entities.GuildScheduledEventStatus",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildScheduledEventStatus Fields Scheduled The scheduled event has been scheduled. Active The scheduled event is active. Completed The scheduled event has been completed. Canceled The scheduled event has been canceled"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildscheduledeventuser",
+    "title": "PawSharp.Core.Entities.GuildScheduledEventUser",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildScheduledEventUser Properties GuildScheduledEventId The scheduled event id which the user subscribed to. User User which subscribed to an event. Member Guild member data for this user for the guild which this eve"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildsnapshot",
+    "title": "PawSharp.Core.Entities.GuildSnapshot",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildSnapshot Properties Name Guild name. Description Guild description. Region Guild region. VerificationLevel Guild verification level. DefaultMessageNotifications Guild default message notifications. ExplicitConten"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildtemplate",
+    "title": "PawSharp.Core.Entities.GuildTemplate",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildTemplate Properties Code The template code (unique ID). Name Template name. Description The description for the template. UsageCount Number of times this template has been used. CreatorId The ID of the user who c"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-guildwidgetsettings",
+    "title": "PawSharp.Core.Entities.GuildWidgetSettings",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.GuildWidgetSettings Properties Enabled Whether the widget is enabled. ChannelId The channel ID for the widget&#x27;s invite link, if set."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-installparams",
+    "title": "PawSharp.Core.Entities.InstallParams",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.InstallParams Properties Scopes The scopes to add the application to the server with. Permissions The permissions to request for the bot role."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-integration",
+    "title": "PawSharp.Core.Entities.Integration",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Integration Properties Name Integration name. Type Integration type (&quot;twitch&quot;, &quot;youtube&quot;, &quot;discord&quot;, &quot;guild_subscription&quot;). Enabled Whether this integration is enabled. Syncing "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-integrationaccount",
+    "title": "PawSharp.Core.Entities.IntegrationAccount",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.IntegrationAccount Properties Id Id of the account. Name Name of the account."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-integrationapplication",
+    "title": "PawSharp.Core.Entities.IntegrationApplication",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.IntegrationApplication Properties Id The id of the app. Name The name of the app. Icon The icon hash of the app. Description The description of the app. Bot The bot associated with this application."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-interaction",
+    "title": "PawSharp.Core.Entities.Interaction",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Interaction Properties ApplicationId ID of the application this interaction is for. Type The type of interaction. Data The command data payload. GuildId The guild it was sent from. ChannelId The channel it was sent fr"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-interactiondata",
+    "title": "PawSharp.Core.Entities.InteractionData",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.InteractionData Properties Id The ID of the invoked command. Name The name of the invoked command. Type The type of the invoked command. Options The params + values from the user. CustomId The custom_id of the compone"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-interactionmetadata",
+    "title": "PawSharp.Core.Entities.InteractionMetadata",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.InteractionMetadata Properties Type Interaction type value. UserId ID of the user who triggered the interaction. AuthorizingIntegrationOwners Dictionary of installation contexts to authorizing user/guild IDs. Key 0 = "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-invite",
+    "title": "PawSharp.Core.Entities.Invite",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Invite Properties Code The invite code (unique ID). Guild The guild this invite is for. Channel The channel this invite is for. Inviter The user who created the invite. TargetType The type of target for this voice cha"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-invitestageinstance",
+    "title": "PawSharp.Core.Entities.InviteStageInstance",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.InviteStageInstance Properties Members The members speaking in the Stage. ParticipantCount The number of users in the Stage. SpeakerCount The number of users speaking in the Stage. Topic The topic of the Stage instanc"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-invitetargettype",
+    "title": "PawSharp.Core.Entities.InviteTargetType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.InviteTargetType Fields Stream Stream. EmbeddedApplication Embedded Application."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-mediagallery",
+    "title": "PawSharp.Core.Entities.MediaGallery",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.MediaGallery Properties Items Items to display (1–10 items)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-mediagalleryitem",
+    "title": "PawSharp.Core.Entities.MediaGalleryItem",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.MediaGalleryItem Properties Media The media for this item. Description Optional description (alt-text) for the media item. Spoiler Whether this item is a spoiler (blurred until clicked)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-membershipstate",
+    "title": "PawSharp.Core.Entities.MembershipState",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.MembershipState Fields Invited Invited. Accepted Accepted."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-message",
+    "title": "PawSharp.Core.Entities.Message",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Message Properties ChannelId Id of the channel the message was sent in. Author The author of this message. Content Contents of the message. Timestamp When this message was sent. EditedTimestamp When this message was e"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-messageactivity",
+    "title": "PawSharp.Core.Entities.MessageActivity",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.MessageActivity Properties Type Type of activity (1=Join, 2=Spectate, 3=Listen, 5=JoinRequest). PartyId Party ID from the player&#x27;s Rich Presence, if present."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-messageapplication",
+    "title": "PawSharp.Core.Entities.MessageApplication",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.MessageApplication Properties CoverImage Cover image hash for the application."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-messagecall",
+    "title": "PawSharp.Core.Entities.MessageCall",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.MessageCall Properties Participants Array of user IDs that participated in the call. EndedTimestamp Time when the call ended (null if still in progress)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-messagecomponent",
+    "title": "PawSharp.Core.Entities.MessageComponent",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.MessageComponent Properties Type Component type discriminator."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-messageinteraction",
+    "title": "PawSharp.Core.Entities.MessageInteraction",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.MessageInteraction Properties Type Interaction type (see Discord docs InteractionType enum). Name Name of the application command or component custom_id. User User who invoked the interaction. Member Member who invoke"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-messagereference",
+    "title": "PawSharp.Core.Entities.MessageReference",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.MessageReference Methods Reply() Creates a reply reference pointing at the given message. Properties MessageId ID of the originating message. ChannelId ID of the originating channel. Optional — Discord infers it when "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-messagesnapshot",
+    "title": "PawSharp.Core.Entities.MessageSnapshot",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.MessageSnapshot Properties Message Partial message data from the forwarded message."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-oauth2application",
+    "title": "PawSharp.Core.Entities.OAuth2Application",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.OAuth2Application Properties PublicKey The application&#x27;s public key. RedirectUris The application&#x27;s redirect URIs. Scopes The application&#x27;s scopes. Bot The application&#x27;s bot user."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-oauth2info",
+    "title": "PawSharp.Core.Entities.OAuth2Info",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.OAuth2Info Properties Application The application information. Scopes The scopes the user has authorized the application for. Expires When the access token expires. User The user who has authorized, if the user has au"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-oauth2token",
+    "title": "PawSharp.Core.Entities.OAuth2Token",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.OAuth2Token Properties AccessToken The access token. TokenType The token type. ExpiresIn The expiration time of the access token. RefreshToken The refresh token. Scope The scopes of the access token."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-onboardingmode",
+    "title": "PawSharp.Core.Entities.OnboardingMode",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.OnboardingMode Fields OnboardingDefault Counts only Default Channels towards constraints. OnboardingAdvanced Counts Default Channels and Questions towards constraints."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-onboardingprompt",
+    "title": "PawSharp.Core.Entities.OnboardingPrompt",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.OnboardingPrompt Properties Id ID of the prompt. Type Type of prompt. Options Options available within the prompt. Title Title of the prompt. SingleSelect Indicates whether users are limited to selecting one option fo"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-onboardingpromptoption",
+    "title": "PawSharp.Core.Entities.OnboardingPromptOption",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.OnboardingPromptOption Properties Id ID of the prompt option. ChannelIds IDs for channels a member is added to when the option is selected. RoleIds IDs for roles assigned to a member when the option is selected. Emoji"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-optionalauditentryinfo",
+    "title": "PawSharp.Core.Entities.OptionalAuditEntryInfo",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.OptionalAuditEntryInfo Properties DeleteMemberDays Number of days after which inactive members were kicked. MembersRemoved Number of members removed by the prune. ChannelId Channel in which the entities were targeted."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-overwrite",
+    "title": "PawSharp.Core.Entities.Overwrite",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Overwrite Properties Id Role or user id this overwrite targets. Type Whether this overwrite targets a role (0) or member (1). Allow Permission bitfield string for allowed permissions. Deny Permission bitfield string f"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-partialapplication",
+    "title": "PawSharp.Core.Entities.PartialApplication",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.PartialApplication Properties Flags Application flags bitfield."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-poll",
+    "title": "PawSharp.Core.Entities.Poll",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Poll Properties Question The question of the poll. Only text is supported. Answers Each of the answers available in the poll. Expiry The time when the poll expires. AllowMultiselect Whether a user can select multiple "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-pollanswer",
+    "title": "PawSharp.Core.Entities.PollAnswer",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.PollAnswer Properties AnswerId The ID of the answer. This is only sent as part of responses from Discord&#x27;s API/Gateway. PollMedia The data of the answer."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-pollanswercount",
+    "title": "PawSharp.Core.Entities.PollAnswerCount",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.PollAnswerCount Properties Id The answer_id. Count The number of votes for this answer. MeVoted Whether the current user voted for this answer."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-polllayouttype",
+    "title": "PawSharp.Core.Entities.PollLayoutType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.PollLayoutType Fields Default The default layout type."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-pollmedia",
+    "title": "PawSharp.Core.Entities.PollMedia",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.PollMedia Properties Text The text of the field. Maximum 300 characters for question, 55 for answer. Emoji The emoji of the field."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-pollresults",
+    "title": "PawSharp.Core.Entities.PollResults",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.PollResults Properties IsFinalized Whether the votes have been precisely counted. AnswerCounts The counts for each answer."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-presence",
+    "title": "PawSharp.Core.Entities.Presence",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Presence Properties User The user presence is being updated for. GuildId The guild id the presence update is for, if any. Status Either &quot;idle&quot;, &quot;dnd&quot;, &quot;online&quot;, or &quot;offline&quot;. Ac"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-resolveddata",
+    "title": "PawSharp.Core.Entities.ResolvedData",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ResolvedData Properties Users Map of snowflake ID to user objects. Members Map of snowflake ID to partial member objects (missing user, deaf, mute). Roles Map of snowflake ID to role objects. Channels Map of snowflake"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-role",
+    "title": "PawSharp.Core.Entities.Role",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Role Properties Name Role name (1–100 characters). Color Integer representation of a hexadecimal color code. Hoist Whether this role is pinned in the user listing. Icon Role icon hash. UnicodeEmoji Unicode emoji for t"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-roleflags",
+    "title": "PawSharp.Core.Entities.RoleFlags",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.RoleFlags Fields InPrompt Role can be selected by members in an onboarding prompt."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-rolesubscriptiondata",
+    "title": "PawSharp.Core.Entities.RoleSubscriptionData",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.RoleSubscriptionData Properties RoleSubscriptionListingId ID of the SKU and listing that the user subscribed to. TierName Name of the tier that the user subscribed to. TotalMonthsSubscribed Cumulative number of months"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-roletags",
+    "title": "PawSharp.Core.Entities.RoleTags",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.RoleTags Properties BotId The id of the bot this role belongs to. IntegrationId The id of the integration this role belongs to. SubscriptionListingId The id of this role&#x27;s subscription SKU and listing. PremiumSub"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-section",
+    "title": "PawSharp.Core.Entities.Section",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Section Properties Components Child components — must contain only components. Accessory Optional right-side accessory — a or ."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-selectdefaultvalue",
+    "title": "PawSharp.Core.Entities.SelectDefaultValue",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.SelectDefaultValue Properties Id Snowflake ID of the default user/role/channel. Type Type of the default value: &quot;user&quot;, &quot;role&quot;, or &quot;channel&quot;."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-selectmenu",
+    "title": "PawSharp.Core.Entities.SelectMenu",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.SelectMenu Properties Options Choices available in this menu (max 25)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-selectmenubase",
+    "title": "PawSharp.Core.Entities.SelectMenuBase",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.SelectMenuBase Properties CustomId Developer-defined identifier (max 100 characters). Placeholder Placeholder text when nothing is selected (max 150 characters). MinValues Minimum number of items that must be chosen ("
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-selectoption",
+    "title": "PawSharp.Core.Entities.SelectOption",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.SelectOption Properties Label User-facing name (max 100 characters). Value Developer-defined value returned in the interaction payload (max 100 characters). Description Additional description shown beneath the label ("
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-separator",
+    "title": "PawSharp.Core.Entities.Separator",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Separator Properties Divider Whether to render a visible dividing line. Defaults to true. Spacing Spacing above / below the separator."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-sessionstartlimit",
+    "title": "PawSharp.Core.Entities.SessionStartLimit",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.SessionStartLimit Properties Total Total number of session starts the current user is allowed. Remaining Remaining number of session starts the current user is allowed. ResetAfter Milliseconds after which the limit re"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-sku",
+    "title": "PawSharp.Core.Entities.Sku",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Sku Properties Type Type of SKU. ApplicationId ID of the parent application. Name Customer-facing name of your premium offering. Slug System-generated URL slug based on the SKU name. Flags SKU flags."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-skuflags",
+    "title": "PawSharp.Core.Entities.SkuFlags",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.SkuFlags Fields Available SKU is available for purchase. GuildSubscription Recurring SKU that can be purchased by a user and applied to a single server. Grants access to every user in that server. UserSubscription Rec"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-skutype",
+    "title": "PawSharp.Core.Entities.SkuType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.SkuType Fields Subscription Represents a recurring subscription. SubscriptionGroup System-generated group for each SUBSCRIPTION SKU created. Durable Represents a one-time purchase. Consumable Represents a consumable o"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-soundboardsound",
+    "title": "PawSharp.Core.Entities.SoundboardSound",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.SoundboardSound Properties Name The name of this sound. Description The sound&#x27;s description. Volume The volume of this sound, from 0 to 1. EmojiId The id of the emoji that represents this sound. EmojiName The uni"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-stageinstance",
+    "title": "PawSharp.Core.Entities.StageInstance",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.StageInstance Properties GuildId The guild id of the associated Stage channel. ChannelId The id of the associated Stage channel. Topic The topic of the Stage instance (1-120 characters). PrivacyLevel The privacy level"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-stageinstanceprivacylevel",
+    "title": "PawSharp.Core.Entities.StageInstancePrivacyLevel",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.StageInstancePrivacyLevel Fields Public The Stage instance is visible publicly. (deprecated) GuildOnly The Stage instance is visible to only guild members."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-sticker",
+    "title": "PawSharp.Core.Entities.Sticker",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Sticker Properties PackId For standard stickers, id of the pack the sticker is from. Name The name of the sticker. Description Description of the sticker. Tags For guild stickers, the Discord name of a unicode emoji r"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-stickerformattype",
+    "title": "PawSharp.Core.Entities.StickerFormatType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.StickerFormatType Fields Png PNG. Apng APNG. Lottie Lottie. Gif GIF."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-stickeritem",
+    "title": "PawSharp.Core.Entities.StickerItem",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.StickerItem Properties Id Id of the sticker. Name Name of the sticker. FormatType Type of sticker format."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-stickerpack",
+    "title": "PawSharp.Core.Entities.StickerPack",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.StickerPack Properties Id Id of the sticker pack. Stickers The stickers in the pack. Name Name of the sticker pack. SkuId Id of the pack&#x27;s SKU. CoverStickerId Id of a sticker in the pack which is shown as the pac"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-subscription",
+    "title": "PawSharp.Core.Entities.Subscription",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Subscription Properties UserId ID of the user who is subscribed. SkuIds List of SKUs subscribed to. EntitlementIds List of entitlements granted for this subscription. RenewalSkuIds List of SKUs that this user will be "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-subscriptionstatus",
+    "title": "PawSharp.Core.Entities.SubscriptionStatus",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.SubscriptionStatus Fields Active Subscription is active and scheduled to renew. Ending Subscription is active but will not renew. Inactive Subscription is inactive and not being charged."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-systemchannelflags",
+    "title": "PawSharp.Core.Entities.SystemChannelFlags",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.SystemChannelFlags Fields SuppressJoinNotifications Suppress member join notifications. SuppressPremiumSubscriptions Suppress server boost notifications. SuppressGuildReminderNotifications Suppress server setup tips. "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-team",
+    "title": "PawSharp.Core.Entities.Team",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Team Properties Icon A hash of the image of the team&#x27;s icon. Id The unique id of the team. Members The members of the team. Name The name of the team. OwnerUserId The user id of the current team owner."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-teammember",
+    "title": "PawSharp.Core.Entities.TeamMember",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.TeamMember Properties MembershipState The user&#x27;s membership state on the team. Permissions Will always be [&quot;*&quot;]. TeamId The id of the parent team of which they are a member. User The avatar, discriminat"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-teammemberrole",
+    "title": "PawSharp.Core.Entities.TeamMemberRole",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.TeamMemberRole Fields Owner Owner. Admin Admin. Developer Developer. ReadOnly Read-only."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-textdisplay",
+    "title": "PawSharp.Core.Entities.TextDisplay",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.TextDisplay Properties Content Text content supporting Discord markdown (max 4000 characters)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-textinput",
+    "title": "PawSharp.Core.Entities.TextInput",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.TextInput Properties CustomId Developer-defined identifier (max 100 characters). Style Whether the input is single-line (Short) or multi-line (Paragraph). Label Label above the text input (max 45 characters). MinLengt"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-thread",
+    "title": "PawSharp.Core.Entities.Thread",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Thread Properties OwnerId ID of the user that created this thread. Metadata Timestamp when the thread was created. Member Thread member object for the current user, if they have joined the thread. TotalMessageSent Thr"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-threadmember",
+    "title": "PawSharp.Core.Entities.ThreadMember",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ThreadMember Properties Id ID of the thread. UserId ID of the user. JoinTimestamp Time the current user last joined the thread. Flags Any user-thread settings, currently only used for notifications."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-threadmetadata",
+    "title": "PawSharp.Core.Entities.ThreadMetadata",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ThreadMetadata Properties Archived Whether the thread is archived. AutoArchiveDuration Duration in minutes to automatically archive the thread after recent activity. ArchiveTimestamp Timestamp when the thread&#x27;s a"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-thumbnailcomponent",
+    "title": "PawSharp.Core.Entities.ThumbnailComponent",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.ThumbnailComponent Properties Media The media to display. Description Optional alt text / description for the image. Spoiler Whether to spoiler (blur) the image."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-unfurledmediaitem",
+    "title": "PawSharp.Core.Entities.UnfurledMediaItem",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.UnfurledMediaItem Properties Url The URL of the media. Can be a discord CDN URL, attachment://, or external URL. ProxyUrl Proxied URL of the media (set by Discord). Height Height of the media in pixels. Width Width of"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-user",
+    "title": "PawSharp.Core.Entities.User",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.User Methods GetAvatarUrl() Gets the user&#x27;s avatar URL. Properties Username The user&#x27;s username, not unique across the platform. Discriminator The user&#x27;s Discord-tag (discriminator). Legacy field, will "
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-userconnection",
+    "title": "PawSharp.Core.Entities.UserConnection",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.UserConnection Properties Id ID of the connection account. Name The username of the connection account. Type The service this connection is with (e.g. &quot;twitch&quot;, &quot;github&quot;). Revoked Whether the conne"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-vanityurl",
+    "title": "PawSharp.Core.Entities.VanityUrl",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.VanityUrl Properties Code The vanity invite code (or null if the guild has no vanity URL). Uses Number of times the vanity invite has been used."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-verificationlevel",
+    "title": "PawSharp.Core.Entities.VerificationLevel",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.VerificationLevel Fields None Unrestricted. Low Must have verified email on account. Medium Must be registered on Discord for longer than 5 minutes. High Must be a member of the server for longer than 10 minutes. Very"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-voiceregion",
+    "title": "PawSharp.Core.Entities.VoiceRegion",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.VoiceRegion Properties Id Unique ID for the region. Name Name of the region. Optimal Whether this is the closest region to the current user&#x27;s client. Deprecated Whether this is a deprecated voice region. Custom W"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-voicestate",
+    "title": "PawSharp.Core.Entities.VoiceState",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.VoiceState Properties GuildId The guild id this voice state is for. ChannelId The channel id this user is connected to. UserId The user id this voice state is for. Member The guild member this voice state is for. Sess"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-webhook",
+    "title": "PawSharp.Core.Entities.Webhook",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.Webhook Properties Type The type of the webhook. GuildId The guild id this webhook is for, if any. ChannelId The channel id this webhook is for, if any. User The user this webhook was created by (not returned when get"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-webhooktype",
+    "title": "PawSharp.Core.Entities.WebhookType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.WebhookType Fields Incoming Incoming Webhooks can post messages to channels with a generated token. ChannelFollower Channel Follower Webhooks are internal webhooks used with Channel Following to post new messages into"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-welcomescreen",
+    "title": "PawSharp.Core.Entities.WelcomeScreen",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.WelcomeScreen Properties Description The server description shown in the welcome screen. WelcomeChannels The channels shown in the welcome screen (max 5)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-entities-welcomescreenchannel",
+    "title": "PawSharp.Core.Entities.WelcomeScreenChannel",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Entities.WelcomeScreenChannel Properties ChannelId The channel&#x27;s ID. Description The description shown for the channel. EmojiId The emoji ID, if a custom emoji is set. EmojiName The emoji name (or unicode character) for t"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums",
+    "title": "PawSharp.Core.Enums",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums Camera video quality mode for a voice channel."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-applicationintegrationtype",
+    "title": "PawSharp.Core.Enums.ApplicationIntegrationType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.ApplicationIntegrationType Fields GuildInstall App is installable to servers. UserInstall App is installable to users."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-attachmentflags",
+    "title": "PawSharp.Core.Enums.AttachmentFlags",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.AttachmentFlags Fields IsRemix This attachment has been edited using the remix feature on mobile."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-channelflags",
+    "title": "PawSharp.Core.Enums.ChannelFlags",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.ChannelFlags Fields Pinned This thread is pinned to the top of its parent GUILD_FORUM or GUILD_MEDIA channel. RequireTag Whether a tag is required to be specified when creating a thread in a GUILD_FORUM or GUILD_MEDIA ch"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-channeltype",
+    "title": "PawSharp.Core.Enums.ChannelType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.ChannelType Fields GuildText A text channel within a server. DM A direct message between users. GuildVoice A voice channel within a server. GroupDM A direct message between multiple users. GuildCategory An organizational"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-forumlayouttype",
+    "title": "PawSharp.Core.Enums.ForumLayoutType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.ForumLayoutType Fields NotSet No default has been set for the forum channel. ListView Display posts as a list. GalleryView Display posts as a collection of tiles."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-gatewayintents",
+    "title": "PawSharp.Core.Enums.GatewayIntents",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.GatewayIntents Fields Guilds Guild-related events (e.g., GUILD_CREATE). GuildMembers Guild member events (e.g., GUILD_MEMBER_ADD). GuildModeration Guild moderation events (e.g., GUILD_BAN_ADD). GuildEmojisAndStickers Gui"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-guildmemberflags",
+    "title": "PawSharp.Core.Enums.GuildMemberFlags",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.GuildMemberFlags Fields DidRejoin Member has left and rejoined the guild. CompletedOnboarding Member has completed onboarding. BypassesVerification Member is exempt from guild verification requirements. StartedOnboarding"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-interactioncontexttype",
+    "title": "PawSharp.Core.Enums.InteractionContextType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.InteractionContextType Fields Guild Interaction can be used within servers. BotDm Interaction can be used within DMs with the app&#x27;s bot user. PrivateChannel Interaction can be used within Group DMs and DMs other tha"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-messageflags",
+    "title": "PawSharp.Core.Enums.MessageFlags",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.MessageFlags Fields Crossposted This message has been published to subscribed channels (via Channel Following). IsCrosspost This message originated from a message in another channel (via Channel Following). SuppressEmbed"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-overwritetype",
+    "title": "PawSharp.Core.Enums.OverwriteType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.OverwriteType Fields Role Overwrite applies to a role. Member Overwrite applies to a guild member."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-shardstatus",
+    "title": "PawSharp.Core.Enums.ShardStatus",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.ShardStatus Fields Disconnected The shard is disconnected. Connecting The shard is connecting. Connected The shard is connected and ready. Reconnecting The shard is reconnecting. Failed The shard has failed and cannot re"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-sortordertype",
+    "title": "PawSharp.Core.Enums.SortOrderType",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.SortOrderType Fields LatestActivity Sort forum posts by activity. CreationDate Sort forum posts by creation time (from most recent to oldest)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-enums-videoqualitymode",
+    "title": "PawSharp.Core.Enums.VideoQualityMode",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Enums.VideoQualityMode Fields Auto Discord chooses the quality for optimal performance. Full 720p video quality."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-events",
+    "title": "PawSharp.Core.Events",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Events Metadata extracted from describing which events a handler is interested in and which intents are required."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-events-eventinterestattribute",
+    "title": "PawSharp.Core.Events.EventInterestAttribute",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Events.EventInterestAttribute Constructors EventInterestAttribute(String[] eventTypes) Creates an event interest declaration from event type names. ParameterDescriptioneventTypesGateway event type names (e.g., &quot;MESSAGE_CR"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-events-eventinterestmetadata",
+    "title": "PawSharp.Core.Events.EventInterestMetadata",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Events.EventInterestMetadata Methods FromHandler() Extracts event interest metadata from a method, class, or delegate. Returns null if no interest is declared. FromEventType``1() Extracts event interest metadata from a generic"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-exceptions",
+    "title": "PawSharp.Core.Exceptions",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Exceptions Exception thrown when input validation fails."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-exceptions-deserializationexception",
+    "title": "PawSharp.Core.Exceptions.DeserializationException",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Exceptions.DeserializationException Constructors DeserializationException(string message) Initializes a new instance of the class. ParameterDescriptionmessageThe error message. DeserializationException(string message, string j"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-exceptions-discordapiexception",
+    "title": "PawSharp.Core.Exceptions.DiscordApiException",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Exceptions.DiscordApiException Constructors DiscordApiException(string message, int statusCode) Initializes a new instance of the class. ParameterDescriptionmessageThe error message.statusCodeThe HTTP status code as an integer"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-exceptions-discordexception",
+    "title": "PawSharp.Core.Exceptions.DiscordException",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Exceptions.DiscordException Constructors DiscordException() Initializes a new instance of the class. DiscordException(string message) Initializes a new instance of the class with a specified error message. ParameterDescription"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-exceptions-gatewayexception",
+    "title": "PawSharp.Core.Exceptions.GatewayException",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Exceptions.GatewayException Constructors GatewayException(string message, bool isRecoverable) Initializes a new instance of the class. ParameterDescriptionmessageThe error message.isRecoverableWhether this error is recoverable"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-exceptions-ratelimitexception",
+    "title": "PawSharp.Core.Exceptions.RateLimitException",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Exceptions.RateLimitException Constructors RateLimitException(string message, TimeSpan retryAfter, string bucketId) Initializes a new instance of the class. ParameterDescriptionmessageThe error message.retryAfterThe duration t"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-exceptions-validationexception",
+    "title": "PawSharp.Core.Exceptions.ValidationException",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Exceptions.ValidationException Constructors ValidationException(string message) Initializes a new instance of the class. ParameterDescriptionmessageThe error message. ValidationException(string message, string parameterName, o"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-interfaces",
+    "title": "PawSharp.Core.Interfaces",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Interfaces Represents a base Discord entity with a Snowflake ID."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-interfaces-idiscordentity",
+    "title": "PawSharp.Core.Interfaces.IDiscordEntity",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Interfaces.IDiscordEntity Properties Id The entity&#x27;s unique Snowflake ID. CreatedAt When the entity was created (derived from Snowflake)."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-logging",
+    "title": "PawSharp.Core.Logging",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Logging Common logging message templates for PawSharp."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-logging-loggingextensions",
+    "title": "PawSharp.Core.Logging.LoggingExtensions",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Logging.LoggingExtensions Methods AddPawSharpLogging() Adds PawSharp logging configuration to the service collection. Configures structured logging with appropriate log levels for each component. AddPawSharpLogging() Adds PawS"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-metrics",
+    "title": "PawSharp.Core.Metrics",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Metrics Metrics for a specific cache entity type."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-metrics-imemorymetrics",
+    "title": "PawSharp.Core.Metrics.IMemoryMetrics",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Metrics.IMemoryMetrics Methods GetCurrentMemoryBytes() Gets the current memory usage in bytes. GetPeakMemoryBytes() Gets the peak memory usage in bytes since creation. GetSummary() Gets memory usage summary. ResetPeak() Resets"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-metrics-iperformancemetrics",
+    "title": "PawSharp.Core.Metrics.IPerformanceMetrics",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Metrics.IPerformanceMetrics Methods RecordApiRequest() Records the duration of an API request. RecordCacheOperation() Records a cache operation (hit or miss). RecordGatewayMessage() Records a gateway message received. RecordRe"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-models",
+    "title": "PawSharp.Core.Models",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Models Configuration options for PawSharp."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-models-pawsharpoptions",
+    "title": "PawSharp.Core.Models.PawSharpOptions",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Models.PawSharpOptions Initial presence configuration for the bot. Properties Token The Discord bot token. Intents Gateway intents to subscribe to. Shards Number of shards for this instance. ShardCount Total number of shards a"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-models-pawsharpoptions-cacheoptions",
+    "title": "PawSharp.Core.Models.PawSharpOptions.CacheOptions",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Models.PawSharpOptions.CacheOptions Properties MaxEmojisPerGuild Maximum number of emojis to cache per guild (default: 100). MaxMessagesPerChannel Maximum number of messages to cache per channel (default: 100). MaxMembersPerGu"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-models-pawsharpoptions-presenceoptions",
+    "title": "PawSharp.Core.Models.PawSharpOptions.PresenceOptions",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Models.PawSharpOptions.PresenceOptions Properties Status Discord status string: &quot;online&quot;, &quot;idle&quot;, &quot;dnd&quot;, or &quot;invisible&quot;. ActivityName Activity name shown in the user list (e.g. &quot;wit"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-serialization",
+    "title": "PawSharp.Core.Serialization",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Serialization JSON converter for lists of Discord snowflake IDs."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-serialization-snowflakedictionaryjsonconverterfactory",
+    "title": "PawSharp.Core.Serialization.SnowflakeDictionaryJsonConverterFactory",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Serialization.SnowflakeDictionaryJsonConverterFactory Methods CanConvert() CreateConverter()"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-validation",
+    "title": "PawSharp.Core.Validation",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Validation Utility class for validating URLs."
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-validation-contentvalidator",
+    "title": "PawSharp.Core.Validation.ContentValidator",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Validation.ContentValidator Methods ValidateMessageContent(string content, string parameterName) Validates message content length. ParameterDescriptioncontentThe message content to validate.parameterNameThe name of the paramet"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-validation-embedvalidator",
+    "title": "PawSharp.Core.Validation.EmbedValidator",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Validation.EmbedValidator Methods ValidateEmbedFieldCount(int fieldCount, string parameterName) Validates the number of embed fields. ParameterDescriptionfieldCountThe number of fields in the embed.parameterNameThe name of the"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-validation-snowflakevalidator",
+    "title": "PawSharp.Core.Validation.SnowflakeValidator",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Validation.SnowflakeValidator Methods ValidateSnowflake(ulong snowflake, string parameterName) Validates that a Snowflake ID is valid. ParameterDescriptionsnowflakeThe Snowflake ID to validate.parameterNameThe name of the para"
+  },
+  {
+    "slug": "pawsharp-core",
+    "id": "pawsharp-core-validation-urlvalidator",
+    "title": "PawSharp.Core.Validation.UrlValidator",
+    "assembly": "PawSharp.Core — API Reference (generated)",
+    "snippet": "PawSharp.Core.Validation.UrlValidator Methods ValidateUrl(string url, string parameterName) Validates that a URL is well-formed and uses HTTP/HTTPS. ParameterDescriptionurlThe URL to validate.parameterNameThe name of the parameter being val"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "Generated API reference for PawSharp.Gateway (generated from XML comments).Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Gateway.xml"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "namespaces",
+    "title": "Namespaces & Types",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp PawSharp.Gateway PawSharp.Gateway PawSharp.Gateway.Events PawSharp.Gateway.GatewayClient PawSharp.Gateway.GatewayState PawSharp.Gateway.IGatewayClient PawSharp.Gateway.ReconnectionManager PawSharp.Gateway.ShardManager PawSharp.Gate"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway",
+    "title": "PawSharp.Gateway",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway Manages multiple gateway shards for large bots. Provides automatic shard distribution, reconnection, status monitoring, and event aggregation."
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-events",
+    "title": "PawSharp.Gateway.Events",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.Events VOICE_CHANNEL_STATUS_UPDATE event — fired when a voice channel&#x27;s status text changes."
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-events-eventdispatcher",
+    "title": "PawSharp.Gateway.Events.EventDispatcher",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.Events.EventDispatcher Methods On``1() Registers a synchronous typed event handler. Dispose the returned to unsubscribe. On``1() Registers an asynchronous typed event handler. Dispose the returned to unsubscribe. OnRaw() Re"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-events-eventdispatcherintentextensions",
+    "title": "PawSharp.Gateway.Events.EventDispatcherIntentExtensions",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.Events.EventDispatcherIntentExtensions Methods ValidateHandlerIntents(EventDispatcher dispatcher, GatewayIntents enabledIntents, ILogger logger) Validates that all registered handlers have their required intents enabled. Lo"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-events-gatewayevent",
+    "title": "PawSharp.Gateway.Events.GatewayEvent",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.Events.GatewayEvent Properties RawJson The raw JSON payload from Discord."
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-events-guildmemberschunkevent",
+    "title": "PawSharp.Gateway.Events.GuildMembersChunkEvent",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.Events.GuildMembersChunkEvent Properties Presences Presences of the returned members. Only present when presences=true was sent on the op8 payload."
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-events-interactiondata",
+    "title": "PawSharp.Gateway.Events.InteractionData",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.Events.InteractionData Properties Components Modal and component submit data. Populated for modal submissions (type=5) and component interactions that include sub-components."
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-events-shardevent",
+    "title": "PawSharp.Gateway.Events.ShardEvent",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.Events.ShardEvent Properties ShardId The shard ID that triggered this event."
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-events-voicechanneleffectsendevent",
+    "title": "PawSharp.Gateway.Events.VoiceChannelEffectSendEvent",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.Events.VoiceChannelEffectSendEvent Properties ChannelId The ID of the channel the effect was sent in. GuildId The ID of the guild. UserId The ID of the user who sent the effect. Emoji The emoji sent (null if a soundboard so"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-events-voicechannelstatusupdateevent",
+    "title": "PawSharp.Gateway.Events.VoiceChannelStatusUpdateEvent",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.Events.VoiceChannelStatusUpdateEvent Properties ChannelId The ID of the voice channel whose status changed. GuildId The ID of the guild. Status The new status text, or null if the status was cleared."
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-gatewayclient",
+    "title": "PawSharp.Gateway.GatewayClient",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.GatewayClient Methods UpdatePresenceAsync() Update client presence/status (Opcode 3). RequestGuildMembersAsync() Request guild members list (Opcode 8). Used for member chunking. Provide for targeted member fetches (mutually"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-gatewaystate",
+    "title": "PawSharp.Gateway.GatewayState",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.GatewayState Fields Disconnected Not connected to the gateway. Connecting Currently attempting to connect to the gateway. Connected Connected to the gateway but not yet received READY. Ready Connected and READY event receiv"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-heartbeat-heartbeatmanager",
+    "title": "PawSharp.Gateway.Heartbeat.HeartbeatManager",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.Heartbeat.HeartbeatManager Methods ReceiveAckAsync() Mark that a heartbeat ACK was received. Properties IsHealthy Gets whether the connection is healthy based on ACK tracking. Events OnHeartbeatSent Fired when a heartbeat i"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-igatewayclient",
+    "title": "PawSharp.Gateway.IGatewayClient",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.IGatewayClient Methods ConnectAsync() Opens the WebSocket connection to Discord&#x27;s gateway. DisconnectAsync() Closes the WebSocket connection gracefully. UpdatePresenceAsync(string status, string game, string streamUrl)"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-reconnectionmanager",
+    "title": "PawSharp.Gateway.ReconnectionManager",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.ReconnectionManager Methods Reset() Reset the reconnection counter for a new connection. ReconnectAsync() Attempt to reconnect with exponential backoff. GetCurrentBackoffMs() Get the current backoff duration in milliseconds"
+  },
+  {
+    "slug": "pawsharp-gateway",
+    "id": "pawsharp-gateway-shardmanager",
+    "title": "PawSharp.Gateway.ShardManager",
+    "assembly": "PawSharp.Gateway — API Reference (generated)",
+    "snippet": "PawSharp.Gateway.ShardManager Constructors ShardManager(PawSharpOptions options, ILogger logger, IDiscordRestClient restClient) Initializes a new instance of the class. ParameterDescriptionoptionsThe PawSharp configuration options including"
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "Generated API reference for PawSharp.Interactions (generated from XML comments).Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Interactions.xml"
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "namespaces",
+    "title": "Namespaces & Types",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp PawSharp.Interactions PawSharp.Interactions PawSharp.Interactions.Builders PawSharp.Interactions.Extensions PawSharp.Interactions.InteractionHandler PawSharp.Interactions.Models PawSharp.Interactions.WebhookVerifier PawSharp.Intera"
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions",
+    "title": "PawSharp.Interactions",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions Verifies Discord interaction webhook signatures (X-Signature-Ed25519 / X-Signature-Timestamp headers) per the Discord HTTP Interactions spec. Discord signs each HTTP interaction request using Ed25519. The message that "
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-builders",
+    "title": "PawSharp.Interactions.Builders",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Builders Builder for creating slash commands."
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-builders-buttonbuilder",
+    "title": "PawSharp.Interactions.Builders.ButtonBuilder",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Builders.ButtonBuilder Methods SetEmoji() Sets a Unicode emoji on the button (e.g. &quot;🔥&quot;). SetCustomEmoji(string name, ulong id, bool animated) Sets a custom guild emoji on the button. ParameterDescriptionnameE"
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-builders-channelselectmenubuilder",
+    "title": "PawSharp.Interactions.Builders.ChannelSelectMenuBuilder",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Builders.ChannelSelectMenuBuilder Methods SetChannelTypes() Restricts channels shown to the specified types ( int values)."
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-builders-interactionresponsebuilder",
+    "title": "PawSharp.Interactions.Builders.InteractionResponseBuilder",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Builders.InteractionResponseBuilder Methods WithContent() Sets the text content of the response message. AddEmbed() Appends a pre-built embed to the response. AddActionRow() Appends an already-built to the response. Ad"
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-builders-mediagallerybuilder",
+    "title": "PawSharp.Interactions.Builders.MediaGalleryBuilder",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Builders.MediaGalleryBuilder Methods AddItem(string url, string description, bool spoiler) Adds a media item to the gallery. ParameterDescriptionurlURL of the image or video.descriptionAlt text / description.spoilerWhe"
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-builders-modalbuilder",
+    "title": "PawSharp.Interactions.Builders.ModalBuilder",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Builders.ModalBuilder Methods WithCustomId() Sets the custom ID that will be sent back in the MODAL_SUBMIT interaction. WithTitle() Sets the title shown at the top of the modal. AddTextInput(string label, string custom"
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-extensions",
+    "title": "PawSharp.Interactions.Extensions",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Extensions Extension methods to simplify working with Discord interaction option values."
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-extensions-interactionextensions",
+    "title": "PawSharp.Interactions.Extensions.InteractionExtensions",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Extensions.InteractionExtensions Methods GetOptionValue``1(InteractionCreateEvent interaction, string name) Gets the value of a named slash command option, cast to . Supports string, int, long, double, bool, and ulong."
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-interactionhandler",
+    "title": "PawSharp.Interactions.InteractionHandler",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.InteractionHandler Methods RegisterCommand() Registers a slash command handler. RegisterComponent() Registers a component handler. RegisterAutocomplete() Registers an autocomplete handler for a command. The handler ret"
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-models",
+    "title": "PawSharp.Interactions.Models",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Models Represents a select menu option."
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-models-applicationcommandoption",
+    "title": "PawSharp.Interactions.Models.ApplicationCommandOption",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Models.ApplicationCommandOption Properties ChannelTypes Channel types that can be selected. Only applicable for options of type ."
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-models-applicationcommandtype",
+    "title": "PawSharp.Interactions.Models.ApplicationCommandType",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Models.ApplicationCommandType Fields ChatInput Slash commands; a text-based command that shows up when a user types / User A UI-based command that shows up when you right click or tap on a user Message A UI-based comma"
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-models-buttonstyle",
+    "title": "PawSharp.Interactions.Models.ButtonStyle",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Models.ButtonStyle Fields Premium Premium (App Subscription) button — requires to be set."
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-models-messagecomponent",
+    "title": "PawSharp.Interactions.Models.MessageComponent",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.Models.MessageComponent Properties SkuId SKU identifier for Premium (type 6) buttons. ChannelTypes Channel types that can be selected in a ChannelSelect menu."
+  },
+  {
+    "slug": "pawsharp-interactions",
+    "id": "pawsharp-interactions-webhookverifier",
+    "title": "PawSharp.Interactions.WebhookVerifier",
+    "assembly": "PawSharp.Interactions — API Reference (generated)",
+    "snippet": "PawSharp.Interactions.WebhookVerifier Constructors WebhookVerifier(string publicKeyHex) ParameterDescriptionpublicKeyHexThe application&#x27;s Ed25519 public key in lower-case hex (64 hex chars / 32 bytes). Found in the Discord Developer Po"
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "Generated API reference for PawSharp.Interactivity (generated from XML comments).Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Interactivity\\bin\\Release\\net10.0\\PawSharp.Interactivity.xml"
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "namespaces",
+    "title": "Namespaces & Types",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp PawSharp.Interactivity PawSharp.Interactivity PawSharp.Interactivity.Extensions PawSharp.Interactivity.InteractivityConfiguration PawSharp.Interactivity.InteractivityExtension PawSharp.Interactivity.InteractivityResult`1 PawSharp.I"
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity",
+    "title": "PawSharp.Interactivity",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity Main interactivity extension."
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity-extensions",
+    "title": "PawSharp.Interactivity.Extensions",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity.Extensions Extension methods for Discord messages."
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity-extensions-channelextensions",
+    "title": "PawSharp.Interactivity.Extensions.ChannelExtensions",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity.Extensions.ChannelExtensions Methods SendPaginatedMessageAsync(Channel channel, DiscordClient client, User user, IEnumerable&lt;Page&gt; pages, Nullable&lt;TimeSpan&gt; timeout) Sends a paginated message. ParameterDes"
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity-extensions-interactivityextensions",
+    "title": "PawSharp.Interactivity.Extensions.InteractivityExtensions",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity.Extensions.InteractivityExtensions Methods UseInteractivity(DiscordClient client, InteractivityConfiguration config) Enables interactivity for the Discord client. ParameterDescriptionclientThe Discord client.configThe"
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity-extensions-messageextensions",
+    "title": "PawSharp.Interactivity.Extensions.MessageExtensions",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity.Extensions.MessageExtensions Methods WaitForReactionAsync(Message message, DiscordClient client, User user, string emoji, Nullable&lt;TimeSpan&gt; timeout) Waits for a reaction on the message. ParameterDescriptionmess"
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity-interactivityconfiguration",
+    "title": "PawSharp.Interactivity.InteractivityConfiguration",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity.InteractivityConfiguration Properties Timeout Gets or sets the default timeout for interactivity operations. PollBehaviour Gets or sets the pagination behavior for reactions. PaginationEmojis Gets or sets the paginati"
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity-interactivityextension",
+    "title": "PawSharp.Interactivity.InteractivityExtension",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity.InteractivityExtension Constructors InteractivityExtension(InteractivityConfiguration config) Initializes a new instance of the class. ParameterDescriptionconfigThe interactivity configuration. Methods GeneratePagesIn"
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity-interactivityresult-1",
+    "title": "PawSharp.Interactivity.InteractivityResult`1",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity.InteractivityResult`1 Properties TimedOut Gets whether the operation timed out. Result Gets the result value."
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity-page",
+    "title": "PawSharp.Interactivity.Page",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity.Page Properties Embed Gets or sets the embed for this page. Content Gets or sets the content for this page."
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity-paginationemojis",
+    "title": "PawSharp.Interactivity.PaginationEmojis",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity.PaginationEmojis Properties Left Gets or sets the left arrow emoji. Right Gets or sets the right arrow emoji. SkipLeft Gets or sets the skip left emoji. SkipRight Gets or sets the skip right emoji. Stop Gets or sets t"
+  },
+  {
+    "slug": "pawsharp-interactivity",
+    "id": "pawsharp-interactivity-pollbehaviour",
+    "title": "PawSharp.Interactivity.PollBehaviour",
+    "assembly": "PawSharp.Interactivity — API Reference (generated)",
+    "snippet": "PawSharp.Interactivity.PollBehaviour Fields DeleteEmojis Delete all reactions when done. KeepEmojis Keep all reactions when done. DeleteReactions Delete only the bot&#x27;s reactions when done."
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "Generated API reference for PawSharp.Voice (generated from XML comments).Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Voice.xml"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "namespaces",
+    "title": "Namespaces & Types",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp PawSharp.Voice PawSharp.Voice PawSharp.Voice.DAVE PawSharp.Voice.Extensions PawSharp.Voice.VoiceClient PawSharp.Voice.VoiceConnection PawSharp.Voice.VoiceConnectionState PawSharp.Voice.DAVE PawSharp.Voice.DAVE.DAVEEncryption PawSha"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice",
+    "title": "PawSharp.Voice",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice Represents a voice connection to a Discord voice channel."
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave",
+    "title": "PawSharp.Voice.DAVE",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE MLS (Message Layer Security, RFC 9420) group state for DAVE. Implements the full RFC 9420 protocol for the DAVE ciphersuite: MLS_128_DHKEMX25519_AES128GCM_SHA256_Ed25519 This class is the public face of the MLS implement"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-daveencryption",
+    "title": "PawSharp.Voice.DAVE.DAVEEncryption",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.DAVEEncryption Methods EncryptFrame(Byte[] plaintext, Byte[] key, uint ssrc, ulong frameCounter, Byte[] additionalData) Encrypts a voice frame with AES-128-GCM. ParameterDescriptionplaintextThe raw voice frame payload (O"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-davekeyderivation",
+    "title": "PawSharp.Voice.DAVE.DAVEKeyDerivation",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.DAVEKeyDerivation Methods DeriveEncryptionKey(Byte[] epochSecret, uint ssrc) Derives a 16-byte AES-128 sender key from the current epoch secret and the sender&#x27;s SSRC. ParameterDescriptionepochSecretThe 32-byte epoch"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-daveprotocol",
+    "title": "PawSharp.Voice.DAVE.DAVEProtocol",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.DAVEProtocol Constructors DAVEProtocol() Creates a DAVEProtocol with an anonymous identity. DAVEProtocol(string userId) Creates a DAVEProtocol bound to the given Discord user ID. ParameterDescriptionuserIdThe Discord use"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-davevoiceopcode",
+    "title": "PawSharp.Voice.DAVE.DAVEVoiceOpcode",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.DAVEVoiceOpcode Fields Identify Begin a new voice session. SelectProtocol Select the voice protocol and encryption mode. Ready Server responds with connection info (SSRC, port, etc.). Heartbeat Keep the connection alive."
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-crypto",
+    "title": "PawSharp.Voice.DAVE.MLS.Crypto",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Crypto MLS RFC 9420 §7.4 — HKDF label functions. All MLS-specific HKDF derivations prepend the string &quot;MLS 1.0 &quot; to the label before calling HKDF-Expand, ensuring domain separation from other protocols. The"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-crypto-curve25519",
+    "title": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519 Methods GenerateKeyPair(Byte[]@ privateKey, Byte[]@ publicKey) Generates a random X25519 key pair (private scalar, public point). ParameterDescriptionprivateKey32-byte private key (clamped).publicKe"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-crypto-ed25519",
+    "title": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519 Field element for Ed25519 — wraps 5×51-bit limb arithmetic. Delegates to a separate 10-limb 25.5-bit representation for full correctness, or reuses the Curve25519 field routines via a shim. Methods Gen"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-crypto-ed25519-fe",
+    "title": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.FE",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.FE Methods SqrtRatio() Computes +/- sqrt(u/v) for point decompression."
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-crypto-hpkex25519",
+    "title": "PawSharp.Voice.DAVE.MLS.Crypto.HpkeX25519",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Crypto.HpkeX25519 Methods SealBase(ReadOnlySpan&lt;Byte&gt; recipientPublicKey, ReadOnlySpan&lt;Byte&gt; info, ReadOnlySpan&lt;Byte&gt; aad, ReadOnlySpan&lt;Byte&gt; plaintext, Byte[]@ enc) HPKE Base-mode SealBase: e"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-crypto-mlshkdf",
+    "title": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf Methods Extract(ReadOnlySpan&lt;Byte&gt; salt, ReadOnlySpan&lt;Byte&gt; ikm) HKDF-Extract(salt, IKM) → PRK using SHA-256. RFC 5869 §2.2 ParameterDescriptionsaltSalt (may be zero-length, treated as Hash"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-encoding",
+    "title": "PawSharp.Voice.DAVE.MLS.Encoding",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Encoding Writer for TLS presentation language wire format (RFC 8446 §3). Wraps a and provides helpers for writing the big-endian integers and length-prefixed vectors that make up all MLS message structures."
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-encoding-tlsreader",
+    "title": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader Constructors TlsReader() Initialise a reader over the given byte span. Methods ReadUint8() Reads a single unsigned byte. ReadUint16() Reads a big-endian unsigned 16-bit integer. ReadUint32() Reads "
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-encoding-tlswriter",
+    "title": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter Constructors TlsWriter() Creates a new writer backed by a resizable . TlsWriter() Creates a new writer with an initial buffer capacity hint. Methods WriteUint8() Writes a single unsigned byte. Writ"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages One recipient&#x27;s entry in a Welcome message."
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages-ciphersuite",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages.CipherSuite",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages.CipherSuite Fields MLS_128_DHKEMX25519_AES128GCM_SHA256_Ed25519 DAVE profile: DHKEM(X25519,HKDF-SHA256) + AES-128-GCM + SHA-256 + Ed25519."
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages-commit",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages.Commit",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages.Commit Properties Proposals List of proposal references (by value) included in this Commit. UpdatePath UpdatePath: one entry per direct-path node above the committer&#x27;s leaf, containing the new HPKE key "
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages-credential",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages.Credential",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages.Credential Methods Basic() Creates a BasicCredential with an identity byte string. Encode() Encodes the credential as a TLS struct. Decode() Decodes a credential from TLS bytes. Properties Identity Raw ident"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages-encryptedgroupsecrets",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages.EncryptedGroupSecrets",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages.EncryptedGroupSecrets Properties KeyPackageRef Hash of the recipient&#x27;s KeyPackage, used to match the right entry. RFC 9420 §12.4.3.1: ref = RefHash(&quot;MLS 1.0 KeyPackage&quot;, kp_bytes) EncryptedSec"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages-groupcontext",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages.GroupContext",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages.GroupContext Methods Encode() Encodes the GroupContext as TLS bytes. Decode() Decodes a GroupContext from TLS bytes. Properties GroupId The MLS group identifier (arbitrary bytes assigned by the creator). Epo"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages-groupinfo",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages.GroupInfo",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages.GroupInfo Properties ConfirmationTag Confirmation tag: HMAC-SHA256(confirmation_key, confirmed_transcript_hash). SignerLeafIndex The index of the signer leaf (the committer who produced this Welcome). Signat"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages-groupsecrets",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages.GroupSecrets",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages.GroupSecrets Properties JoinerSecret The joiner_secret for this epoch (must equal DeriveSecret(init_secret, &quot;joiner&quot;)). PathSecret Optional pre-shared key reference (not used by DAVE)."
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages-keypackage",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage Methods Generate(Byte[] identity) Generates a complete, self-signed KeyPackage. ParameterDescriptionidentityThe caller&#x27;s identity bytes (Discord user ID as UTF-8). Encode() Encodes the KeyPac"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages-leafnode",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode Methods Generate(Byte[] identity, Byte[]@ hpkePrivateKeyOut, Byte[]@ sigPrivateKeyOut) Generates a new LeafNode with fresh X25519 and Ed25519 key pairs, signed by the generated Ed25519 private key. "
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-messages-welcomemessage",
+    "title": "PawSharp.Voice.DAVE.MLS.Messages.WelcomeMessage",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Messages.WelcomeMessage Methods TryDecryptSecrets(ReadOnlySpan&lt;Byte&gt; initPrivateKey, ReadOnlySpan&lt;Byte&gt; keyPackageRef, ReadOnlySpan&lt;Byte&gt; groupContext) Finds this client&#x27;s EncryptedGroupSecrets"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-state",
+    "title": "PawSharp.Voice.DAVE.MLS.State",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.State RFC 9420 §8 — MLS Key Schedule. Derives the per-epoch secrets from the commit secret (TreeKEM output) and the current GroupContext. Derivation chain (simplified for the DAVE ciphersuite): init_secret(n-1) → ┐ c"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-state-mlsgroupstate",
+    "title": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState Methods GetOrGenerateKeyPackage(Byte[] identity) Generates (or lazily reuses) a KeyPackage for this client session. Called before joining a group to produce the payload for op-21 (MLS key package "
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-state-mlskeyschedule",
+    "title": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule Constructors MLSKeySchedule(Byte[] commitSecret, Byte[] groupContextBytes) Initialises the key schedule for the very first epoch (epoch 0). Used when creating a new group. ParameterDescriptioncom"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-tree",
+    "title": "PawSharp.Voice.DAVE.MLS.Tree",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Tree A node in the MLS ratchet tree (RFC 9420 §7). Each node holds: - An HPKE public key (and optionally the corresponding private key for leaf nodes owned by this client). - For leaf nodes: the member&#x27;s (identi"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-tree-hpkeciphertext",
+    "title": "PawSharp.Voice.DAVE.MLS.Tree.HpkeCiphertext",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Tree.HpkeCiphertext Properties Enc 32-byte ephemeral encapsulated key. CipherText Encrypted payload (ciphertext + 16-byte tag)."
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-tree-ratchettree",
+    "title": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree Constructors RatchetTree() Initialises an empty ratchet tree. Methods AddLeaf() Adds a new leaf at the next available position with the given HPKE key and credential. Returns the leaf node index (eve"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-tree-treemath",
+    "title": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath Methods IsLeaf() True when is a leaf node (even index). Level() The level of node in the tree. Leaves are at level 0. Level increases by 1 for each parent step. Defined as: the number of trailing 1-bits"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mls-tree-treenode",
+    "title": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode Methods CreateBlank() Creates a blank node at the given tree index. CreateLeaf() Creates a populated leaf node from wire-format fields. CreateParent() Creates a populated internal (parent) node from a p"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-dave-mlsstate",
+    "title": "PawSharp.Voice.DAVE.MLSState",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.DAVE.MLSState Methods GenerateKeyPackage(Byte[] identity) Generates (or reuses) a TLS-encoded KeyPackage for the local client. The associated private key material (init key, HPKE leaf key, signing key) is stored inside the gr"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-extensions",
+    "title": "PawSharp.Voice.Extensions",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.Extensions Extension methods for adding voice support to Discord clients."
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-extensions-voiceextensions",
+    "title": "PawSharp.Voice.Extensions.VoiceExtensions",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.Extensions.VoiceExtensions Methods UseVoice(DiscordClient client) Enables voice support for the Discord client. Returns the same on repeated calls for the same client instance. ParameterDescriptionclientThe Discord client. Re"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-voiceclient",
+    "title": "PawSharp.Voice.VoiceClient",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.VoiceClient Constructors VoiceClient(DiscordClient discordClient, ILogger logger) Initializes a new instance of the class. ParameterDescriptiondiscordClientThe Discord client.loggerThe logger. Methods ConnectAsync(Channel cha"
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-voiceconnection",
+    "title": "PawSharp.Voice.VoiceConnection",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.VoiceConnection Constructors VoiceConnection(DiscordClient discordClient, Channel channel, Action&lt;ulong&gt; onConnectionFailed, ILogger logger) Initializes a new instance of the class. ParameterDescriptiondiscordClientThe "
+  },
+  {
+    "slug": "pawsharp-voice",
+    "id": "pawsharp-voice-voiceconnectionstate",
+    "title": "PawSharp.Voice.VoiceConnectionState",
+    "assembly": "PawSharp.Voice — API Reference (generated)",
+    "snippet": "PawSharp.Voice.VoiceConnectionState Fields Disconnected No active WebSocket connection. Connecting WebSocket connect is in progress. Connected WebSocket is open and the voice session is active. Disconnecting Graceful close is in progress."
+  },
+  {
+    "slug": "pawsharp",
+    "id": "start-here",
+    "title": "Start Here",
+    "assembly": "PawSharp",
+    "snippet": "Quick guide: Follow these three steps to get a minimal bot running.Install the client: dotnet add package PawSharp.ClientSet your bot token in the environment: DISCORD_TOKENUse the Quickstart example to connect and respond to messages.GitHu"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "cheatsheet",
+    "title": "Cheat Sheet — Common Tasks",
+    "assembly": "PawSharp",
+    "snippet": "A compact reference for the most common operations.TaskOne-lineSend messageawait client.Rest.CreateMessageAsync(channelId, new() { Content = \"Hello\" });Edit messageawait client.Rest.EditMessageAsync(channelId, messageId, new EditMessageRequ"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "api-reference",
+    "title": "API Reference & Guides",
+    "assembly": "PawSharp",
+    "snippet": "Live API index (v1.0.0-alpha.2): Interactive API Reference (generated)The full API reference and developer guides also live in the PawSharp repository:/api — endpoint reference and request models/docs — detailed guides (caching, gateway, vo"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "examples",
+    "title": "Examples & Sample Apps",
+    "assembly": "PawSharp",
+    "snippet": "Hands-on example projects and snippets showing common PawSharp usage patterns. Clone the repository and run the samples locally to explore real code.AdvancedExample.cs — comprehensive bot demonstrating DI, events, commands, caching, metrics"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "overview",
+    "title": "Overview",
+    "assembly": "PawSharp",
+    "snippet": "PawSharp is a .NET 8+ Discord API wrapper built around clean abstractions and a dependency-injection-first design. Rather than bundling everything into a single assembly, it is split into focused NuGet packages so you only take on what you "
+  },
+  {
+    "slug": "pawsharp",
+    "id": "installation",
+    "title": "Installation",
+    "assembly": "PawSharp",
+    "snippet": "Prerequisites.NET 8.0 SDK or later — download from dotnet.microsoft.comA Discord bot token — create an application at the Discord Developer PortalBasic familiarity with C# and async/awaitRecommended SetupFor most bots, install the unified c"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "quickstart",
+    "title": "Quickstart",
+    "assembly": "PawSharp",
+    "snippet": "The following example creates a fully working bot that responds to a prefix command. It demonstrates service registration, event subscription, and graceful shutdown.using Microsoft.Extensions.DependencyInjection; using Microsoft.Extensions."
+  },
+  {
+    "slug": "pawsharp",
+    "id": "configuration",
+    "title": "Configuration",
+    "assembly": "PawSharp",
+    "snippet": "PawSharpOptionsAll configuration is provided through a single PawSharpOptions object registered in the DI container.var options = new PawSharpOptions { // Required Token = Environment.GetEnvironmentVariable(\"DISCORD_TOKEN\")!, ApiVersion = 1"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "core-concepts",
+    "title": "Core Concepts",
+    "assembly": "PawSharp",
+    "snippet": "DiscordClientThe DiscordClient is the central object you resolve from the DI container. It provides access to every subsystem.var client = provider.GetRequiredService&lt;DiscordClient&gt;(); var rest = client.Rest; // IDiscordRestClient - 1"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "rest-messages",
+    "title": "REST API — Messages",
+    "assembly": "PawSharp",
+    "snippet": "Sending MessagesCreateMessageRequest PropertiesAt least one of Content, Embeds, StickerIds, Components, or Files must be provided per message.PropertyTypeRequiredDescriptionContentstring?See noteMessage text. Max 2,000 characters.EmbedsList"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "rest-guilds-channels",
+    "title": "REST API — Guilds & Channels",
+    "assembly": "PawSharp",
+    "snippet": "Getting Guild Information// Basic guild info var guild = await client.Rest.GetGuildAsync(guildId); Console.WriteLine($\"{guild.Name} — {guild.MemberCount} members\"); Console.WriteLine($\"Created: {guild.CreatedAt:yyyy-MM-dd}\"); Console.WriteL"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "rest-roles-webhooks",
+    "title": "REST API — Roles, Webhooks & Threads",
+    "assembly": "PawSharp",
+    "snippet": "RolesCreateRoleRequest PropertiesPropertyTypeDefaultDescriptionNamestring?\"new role\"Display name of the role.Colorint?0Decimal RGB colour (e.g. 0x3498DB). 0 renders as the default grey.Hoistbool?falseWhether to display this role separately "
+  },
+  {
+    "slug": "pawsharp",
+    "id": "gateway",
+    "title": "Gateway & Events",
+    "assembly": "PawSharp",
+    "snippet": "How the Event Dispatcher WorksWhen the gateway receives a real-time event from Discord it deserializes it into a typed event object and passes it to all registered handlers. Handlers are invoked in subscription order. Use dispatcher.Use() f"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "commands",
+    "title": "Commands",
+    "assembly": "PawSharp",
+    "snippet": "Prefix CommandsThe PawSharp.Commands package provides an attribute-based command framework. Create a class that inherits BaseCommandModule and decorate methods with [Command].using PawSharp.Commands; using PawSharp.Commands.Attributes; usin"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "caching",
+    "title": "Caching",
+    "assembly": "PawSharp",
+    "snippet": "How Automatic Caching WorksWhen PawSharp connects to the gateway, the built-in CacheManager subscribes to entity lifecycle events. Guilds, channels, users, members, messages, and roles are stored and kept up to date without any extra code o"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "patterns",
+    "title": "Common Patterns",
+    "assembly": "PawSharp",
+    "snippet": "Flexible Command RouterA dictionary-based router gives you full control over argument parsing without the command framework.public class CommandRouter { private readonly IDiscordRestClient _rest; private readonly ILogger&lt;CommandRouter&gt"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "error-handling",
+    "title": "Error Handling",
+    "assembly": "PawSharp",
+    "snippet": "Exception TypesExceptionWhen thrownKey PropertiesValidationExceptionInvalid input before the request is sentMessageRateLimitExceptionDiscord returned HTTP 429RetryAfter (TimeSpan)DiscordApiExceptionDiscord returned a non-2xx responseStatusC"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "troubleshooting",
+    "title": "Troubleshooting",
+    "assembly": "PawSharp",
+    "snippet": "Invalid TokenThe most common cause is whitespace or a typo when reading the token from the environment.// Trim whitespace that may have been added by the shell var token = (Environment.GetEnvironmentVariable(\"DISCORD_TOKEN\") ?? \"\") .Trim();"
+  },
+  {
+    "slug": "pawsharp",
+    "id": "best-practices",
+    "title": "Best Practices",
+    "assembly": "PawSharp",
+    "snippet": "Never Hard-Code Tokens// Correct: read from the environment and trim whitespace var token = (Environment.GetEnvironmentVariable(\"DISCORD_TOKEN\") ?? \"\") .Trim(); if (string.IsNullOrEmpty(token)) throw new InvalidOperationException(\"DISCORD_T"
+  }
+]

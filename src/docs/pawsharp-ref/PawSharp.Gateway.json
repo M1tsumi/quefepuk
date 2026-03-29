@@ -1,0 +1,1927 @@
+{
+  "assembly": "PawSharp.Gateway",
+  "source": "C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Gateway.xml",
+  "members": [
+    {
+      "id": "T:PawSharp.Gateway.Events.EventDispatcher",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.EventDispatcher",
+      "summary": "Thread-safe event dispatcher for Discord gateway events.\n            Supports both synchronous () and asynchronous\n            () event handlers.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcher.On``1(System.String,System.Action{``0})",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcher.On``1(System.String,System.Action{``0})",
+      "summary": "Registers a synchronous typed event handler.\n            Dispose the returned  to unsubscribe.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcher.On``1(System.String,System.Func{``0,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcher.On``1(System.String,System.Func{``0,System.Threading.Tasks.Task})",
+      "summary": "Registers an asynchronous typed event handler.\n            Dispose the returned  to unsubscribe.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcher.OnRaw(System.String,System.Action{System.String})",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcher.OnRaw(System.String,System.Action{System.String})",
+      "summary": "Registers a raw (JSON string) event handler.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcher.Use(System.Func{System.String,System.Object,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcher.Use(System.Func{System.String,System.Object,System.Threading.Tasks.Task})",
+      "summary": "Registers middleware that runs before every event dispatch.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcher.DispatchAsync``1(System.String,``0,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcher.DispatchAsync``1(System.String,``0,System.String)",
+      "summary": "Dispatches a typed event to all registered handlers.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcher.DispatchFromJsonAsync``1(System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcher.DispatchFromJsonAsync``1(System.String,System.String)",
+      "summary": "Deserializes the raw JSON payload and dispatches the resulting event.\n            Falls back to raw-JSON handlers on deserialization failure.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcher.DispatchRawAsync(System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcher.DispatchRawAsync(System.String,System.String)",
+      "summary": "Dispatches a raw JSON string to handlers registered via .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcher.HandlerCount(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcher.HandlerCount(System.String)",
+      "summary": "Returns the number of handlers registered for the given event name.\n            Useful for diagnostics.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.EventDispatcherIntentExtensions",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.EventDispatcherIntentExtensions",
+      "summary": "Extension methods for  to support event interest validation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcherIntentExtensions.ValidateHandlerIntents(PawSharp.Gateway.Events.EventDispatcher,PawSharp.Core.Enums.GatewayIntents,Microsoft.Extensions.Logging.ILogger)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcherIntentExtensions.ValidateHandlerIntents(PawSharp.Gateway.Events.EventDispatcher,PawSharp.Core.Enums.GatewayIntents,Microsoft.Extensions.Logging.ILogger)",
+      "summary": "Validates that all registered handlers have their required intents enabled.\n            Logs warnings for any mismatches.",
+      "remarks": "This should be called after the client connects to Discord with its configured intents.\n            It examines all currently registered event handlers and cross-references their\n            EventInterestAttribute declarations against the enabled intents.\n            \n            Warnings are logged at WARN level because missing intents are a configuration bug\n            that will cause handlers to not receive expected events.",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "dispatcher",
+          "description": "The event dispatcher to validate"
+        },
+        {
+          "name": "enabledIntents",
+          "description": "The intents that are currently enabled"
+        },
+        {
+          "name": "logger",
+          "description": "Optional logger for warnings. If null, uses console.WriteLine"
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcherIntentExtensions.GetRegisteredIntents(PawSharp.Gateway.Events.EventDispatcher)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcherIntentExtensions.GetRegisteredIntents(PawSharp.Gateway.Events.EventDispatcher)",
+      "summary": "Gets a summary of all event interests registered in the dispatcher.\n            Useful for debugging and logging the dispatcher's current configuration.",
+      "remarks": "",
+      "returns": "A list of (EventType, RequiredIntents) tuples",
+      "example": "",
+      "params": [
+        {
+          "name": "dispatcher",
+          "description": "The event dispatcher to examine"
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Gateway.Events.EventDispatcherIntentExtensions.GetRecommendedIntents(PawSharp.Gateway.Events.EventDispatcher)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Events.EventDispatcherIntentExtensions.GetRecommendedIntents(PawSharp.Gateway.Events.EventDispatcher)",
+      "summary": "Gets a recommended set of intents based on all currently registered handlers.\n            This can be used to suggest what intents the client should enable.",
+      "remarks": "",
+      "returns": "A bitmask of recommended intents",
+      "example": "",
+      "params": [
+        {
+          "name": "dispatcher",
+          "description": "The event dispatcher to examine"
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GatewayEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GatewayEvent",
+      "summary": "Base class for all gateway events.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.GatewayEvent.RawJson",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.GatewayEvent.RawJson",
+      "summary": "The raw JSON payload from Discord.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ReadyEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ReadyEvent",
+      "summary": "READY event - contains initial state information.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.MessageCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.MessageCreateEvent",
+      "summary": "MESSAGE_CREATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.MessageUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.MessageUpdateEvent",
+      "summary": "MESSAGE_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.MessageDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.MessageDeleteEvent",
+      "summary": "MESSAGE_DELETE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildCreateEvent",
+      "summary": "GUILD_CREATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildUpdateEvent",
+      "summary": "GUILD_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildDeleteEvent",
+      "summary": "GUILD_DELETE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildEmojisUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildEmojisUpdateEvent",
+      "summary": "GUILD_EMOJIS_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ChannelCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ChannelCreateEvent",
+      "summary": "CHANNEL_CREATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ChannelUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ChannelUpdateEvent",
+      "summary": "CHANNEL_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ChannelDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ChannelDeleteEvent",
+      "summary": "CHANNEL_DELETE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildMemberAddEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildMemberAddEvent",
+      "summary": "GUILD_MEMBER_ADD event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildMemberUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildMemberUpdateEvent",
+      "summary": "GUILD_MEMBER_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildMemberRemoveEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildMemberRemoveEvent",
+      "summary": "GUILD_MEMBER_REMOVE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.InteractionCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.InteractionCreateEvent",
+      "summary": "INTERACTION_CREATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.InteractionData",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.InteractionData",
+      "summary": "Interaction data for slash commands and components.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.InteractionData.Components",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.InteractionData.Components",
+      "summary": "Modal and component submit data. Populated for modal submissions (type=5) and\n            component interactions that include sub-components.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.InteractionResolvedData",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.InteractionResolvedData",
+      "summary": "Resolved data for interactions.\n            Keys are Discord snowflake IDs ().\n            Deserialised via  which\n            translates Discord's string-keyed JSON objects transparently.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ApplicationCommandInteractionDataOption",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ApplicationCommandInteractionDataOption",
+      "summary": "Option data for application command interactions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.TypingStartEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.TypingStartEvent",
+      "summary": "TYPING_START event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.MessageReactionAddEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.MessageReactionAddEvent",
+      "summary": "MESSAGE_REACTION_ADD event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.MessageReactionRemoveEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.MessageReactionRemoveEvent",
+      "summary": "MESSAGE_REACTION_REMOVE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.MessageReactionRemoveAllEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.MessageReactionRemoveAllEvent",
+      "summary": "MESSAGE_REACTION_REMOVE_ALL event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.PresenceUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.PresenceUpdateEvent",
+      "summary": "PRESENCE_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ChannelPinsUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ChannelPinsUpdateEvent",
+      "summary": "CHANNEL_PINS_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildBanAddEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildBanAddEvent",
+      "summary": "GUILD_BAN_ADD event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildBanRemoveEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildBanRemoveEvent",
+      "summary": "GUILD_BAN_REMOVE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.VoiceStateUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.VoiceStateUpdateEvent",
+      "summary": "VOICE_STATE_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.VoiceServerUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.VoiceServerUpdateEvent",
+      "summary": "VOICE_SERVER_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.Activity",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.Activity",
+      "summary": "Represents an activity.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ActivityTimestamps",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ActivityTimestamps",
+      "summary": "Activity timestamps.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ActivityParty",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ActivityParty",
+      "summary": "Activity party.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ActivityAssets",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ActivityAssets",
+      "summary": "Activity assets.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ActivitySecrets",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ActivitySecrets",
+      "summary": "Activity secrets.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ActivityButton",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ActivityButton",
+      "summary": "Activity button.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ClientStatus",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ClientStatus",
+      "summary": "Client status.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ThreadCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ThreadCreateEvent",
+      "summary": "THREAD_CREATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ThreadUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ThreadUpdateEvent",
+      "summary": "THREAD_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ThreadDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ThreadDeleteEvent",
+      "summary": "THREAD_DELETE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ThreadListSyncEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ThreadListSyncEvent",
+      "summary": "THREAD_LIST_SYNC event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ThreadMemberUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ThreadMemberUpdateEvent",
+      "summary": "THREAD_MEMBER_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ThreadMembersUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ThreadMembersUpdateEvent",
+      "summary": "THREAD_MEMBERS_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ShardEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ShardEvent",
+      "summary": "Base class for shard-related events.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.ShardEvent.ShardId",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.ShardEvent.ShardId",
+      "summary": "The shard ID that triggered this event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ShardConnectedEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ShardConnectedEvent",
+      "summary": "Fired when a shard connects.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ShardDisconnectedEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ShardDisconnectedEvent",
+      "summary": "Fired when a shard disconnects.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ShardFailedEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ShardFailedEvent",
+      "summary": "Fired when a shard fails.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildRoleCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildRoleCreateEvent",
+      "summary": "GUILD_ROLE_CREATE event — fired when a role is created in a guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildRoleUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildRoleUpdateEvent",
+      "summary": "GUILD_ROLE_UPDATE event — fired when a role is updated in a guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildRoleDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildRoleDeleteEvent",
+      "summary": "GUILD_ROLE_DELETE event — fired when a role is deleted from a guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildMembersChunkEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildMembersChunkEvent",
+      "summary": "GUILD_MEMBERS_CHUNK event — sent in response to opcode 8 (Request Guild Members).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.GuildMembersChunkEvent.Presences",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.GuildMembersChunkEvent.Presences",
+      "summary": "Presences of the returned members. Only present when presences=true was sent on the op8 payload.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildStickersUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildStickersUpdateEvent",
+      "summary": "GUILD_STICKERS_UPDATE event — fired when a guild's sticker list changes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.MessageReactionRemoveEmojiEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.MessageReactionRemoveEmojiEvent",
+      "summary": "MESSAGE_REACTION_REMOVE_EMOJI event — fired when all reactions for a specific emoji are removed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildIntegrationsUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildIntegrationsUpdateEvent",
+      "summary": "GUILD_INTEGRATIONS_UPDATE event — fired when a guild's integrations are updated.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.UserUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.UserUpdateEvent",
+      "summary": "USER_UPDATE event — fired when the bot user's own settings change.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildScheduledEventCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildScheduledEventCreateEvent",
+      "summary": "GUILD_SCHEDULED_EVENT_CREATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildScheduledEventUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildScheduledEventUpdateEvent",
+      "summary": "GUILD_SCHEDULED_EVENT_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildScheduledEventDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildScheduledEventDeleteEvent",
+      "summary": "GUILD_SCHEDULED_EVENT_DELETE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildScheduledEventUserAddEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildScheduledEventUserAddEvent",
+      "summary": "GUILD_SCHEDULED_EVENT_USER_ADD event — fired when a user subscribes to an event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildScheduledEventUserRemoveEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildScheduledEventUserRemoveEvent",
+      "summary": "GUILD_SCHEDULED_EVENT_USER_REMOVE event — fired when a user unsubscribes from an event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.AutoModerationRuleCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.AutoModerationRuleCreateEvent",
+      "summary": "AUTO_MODERATION_RULE_CREATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.AutoModerationRuleUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.AutoModerationRuleUpdateEvent",
+      "summary": "AUTO_MODERATION_RULE_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.AutoModerationRuleDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.AutoModerationRuleDeleteEvent",
+      "summary": "AUTO_MODERATION_RULE_DELETE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.AutoModerationActionExecutionEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.AutoModerationActionExecutionEvent",
+      "summary": "AUTO_MODERATION_ACTION_EXECUTION event — fired when any rule action is executed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.AutoModerationActionObject",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.AutoModerationActionObject",
+      "summary": "Embedded action for AUTO_MODERATION_ACTION_EXECUTION.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.StageInstanceCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.StageInstanceCreateEvent",
+      "summary": "STAGE_INSTANCE_CREATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.StageInstanceUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.StageInstanceUpdateEvent",
+      "summary": "STAGE_INSTANCE_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.StageInstanceDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.StageInstanceDeleteEvent",
+      "summary": "STAGE_INSTANCE_DELETE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildAuditLogEntryCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildAuditLogEntryCreateEvent",
+      "summary": "GUILD_AUDIT_LOG_ENTRY_CREATE event — fired when an audit log entry is created.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.EntitlementCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.EntitlementCreateEvent",
+      "summary": "ENTITLEMENT_CREATE event — fired when a user subscribes to an SKU.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.EntitlementUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.EntitlementUpdateEvent",
+      "summary": "ENTITLEMENT_UPDATE event — fired when a user's subscription renews.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.EntitlementDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.EntitlementDeleteEvent",
+      "summary": "ENTITLEMENT_DELETE event — fired when a user's entitlement is deleted (not expiry).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.MessagePollVoteAddEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.MessagePollVoteAddEvent",
+      "summary": "MESSAGE_POLL_VOTE_ADD event — fired when a user votes in a poll.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.MessagePollVoteRemoveEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.MessagePollVoteRemoveEvent",
+      "summary": "MESSAGE_POLL_VOTE_REMOVE event — fired when a user retracts a poll vote.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildSoundboardSoundCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildSoundboardSoundCreateEvent",
+      "summary": "GUILD_SOUNDBOARD_SOUND_CREATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildSoundboardSoundUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildSoundboardSoundUpdateEvent",
+      "summary": "GUILD_SOUNDBOARD_SOUND_UPDATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildSoundboardSoundDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildSoundboardSoundDeleteEvent",
+      "summary": "GUILD_SOUNDBOARD_SOUND_DELETE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.GuildSoundboardSoundsUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.GuildSoundboardSoundsUpdateEvent",
+      "summary": "GUILD_SOUNDBOARD_SOUNDS_UPDATE event — fired when multiple soundboard sounds are updated.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.SubscriptionCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.SubscriptionCreateEvent",
+      "summary": "SUBSCRIPTION_CREATE event — fired when a subscription is created.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.SubscriptionUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.SubscriptionUpdateEvent",
+      "summary": "SUBSCRIPTION_UPDATE event — fired when a subscription is updated.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.SubscriptionDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.SubscriptionDeleteEvent",
+      "summary": "SUBSCRIPTION_DELETE event — fired when a subscription is deleted.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.MessageDeleteBulkEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.MessageDeleteBulkEvent",
+      "summary": "MESSAGE_DELETE_BULK event — fired when multiple messages are deleted at once.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.InviteCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.InviteCreateEvent",
+      "summary": "INVITE_CREATE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.InviteDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.InviteDeleteEvent",
+      "summary": "INVITE_DELETE event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.WebhooksUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.WebhooksUpdateEvent",
+      "summary": "WEBHOOKS_UPDATE event — fired when a channel's webhooks change.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.ApplicationCommandPermissionsUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.ApplicationCommandPermissionsUpdateEvent",
+      "summary": "APPLICATION_COMMAND_PERMISSIONS_UPDATE event — fired when application command permissions for a guild are updated.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.IntegrationCreateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.IntegrationCreateEvent",
+      "summary": "INTEGRATION_CREATE event — fired when a guild integration is created.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.IntegrationUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.IntegrationUpdateEvent",
+      "summary": "INTEGRATION_UPDATE event — fired when a guild integration is updated.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.IntegrationDeleteEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.IntegrationDeleteEvent",
+      "summary": "INTEGRATION_DELETE event — fired when a guild integration is deleted.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.VoiceChannelEffectSendEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.VoiceChannelEffectSendEvent",
+      "summary": "VOICE_CHANNEL_EFFECT_SEND event — fired when someone sends an emoji reaction or soundboard sound\n            in a voice channel the current user is connected to.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.ChannelId",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.ChannelId",
+      "summary": "The ID of the channel the effect was sent in.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.GuildId",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.GuildId",
+      "summary": "The ID of the guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.UserId",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.UserId",
+      "summary": "The ID of the user who sent the effect.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.Emoji",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.Emoji",
+      "summary": "The emoji sent (null if a soundboard sound was used instead).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.AnimationType",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.AnimationType",
+      "summary": "The type of emoji animation: 0 = PREMIUM (super-reaction), 1 = BASIC.\n            Null when a soundboard sound is the effect.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.SoundId",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.SoundId",
+      "summary": "The ID of the soundboard sound, if the effect is a soundboard sound.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.SoundVolume",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.VoiceChannelEffectSendEvent.SoundVolume",
+      "summary": "The volume of the soundboard sound, from 0 to 1. Null when not a soundboard effect.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.Events.VoiceChannelStatusUpdateEvent",
+      "kind": "T",
+      "name": "PawSharp.Gateway.Events.VoiceChannelStatusUpdateEvent",
+      "summary": "VOICE_CHANNEL_STATUS_UPDATE event — fired when a voice channel's status text changes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.VoiceChannelStatusUpdateEvent.ChannelId",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.VoiceChannelStatusUpdateEvent.ChannelId",
+      "summary": "The ID of the voice channel whose status changed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.VoiceChannelStatusUpdateEvent.GuildId",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.VoiceChannelStatusUpdateEvent.GuildId",
+      "summary": "The ID of the guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Events.VoiceChannelStatusUpdateEvent.Status",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Events.VoiceChannelStatusUpdateEvent.Status",
+      "summary": "The new status text, or null if the status was cleared.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Gateway.GatewayClient._resumeSessionId",
+      "kind": "F",
+      "name": "PawSharp.Gateway.GatewayClient._resumeSessionId",
+      "summary": "",
+      "remarks": "Discord session IDs are opaque hex-like strings (e.g. \"abc123...\").\n            They must be stored as , not a numeric snowflake.",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Gateway.GatewayClient._resumeGatewayUrl",
+      "kind": "F",
+      "name": "PawSharp.Gateway.GatewayClient._resumeGatewayUrl",
+      "summary": "The résumé gateway URL sent by Discord in the READY payload.\n            Must be used instead of the default gateway URL when reconnecting/resuming,\n            per Discord API documentation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.GatewayClient.OnStateChanged",
+      "kind": "E",
+      "name": "PawSharp.Gateway.GatewayClient.OnStateChanged",
+      "summary": "Fired when the gateway state changes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.GatewayClient.OnReconnectionAttempt",
+      "kind": "E",
+      "name": "PawSharp.Gateway.GatewayClient.OnReconnectionAttempt",
+      "summary": "Fired when reconnection is about to be attempted.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.GatewayClient.OnReconnectionFailed",
+      "kind": "E",
+      "name": "PawSharp.Gateway.GatewayClient.OnReconnectionFailed",
+      "summary": "Fired when reconnection has failed after all attempts.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.GatewayClient.VoiceStateUpdate",
+      "kind": "E",
+      "name": "PawSharp.Gateway.GatewayClient.VoiceStateUpdate",
+      "summary": "Fired when a voice state update is received.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.GatewayClient.VoiceServerUpdate",
+      "kind": "E",
+      "name": "PawSharp.Gateway.GatewayClient.VoiceServerUpdate",
+      "summary": "Fired when a voice server update is received.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.GatewayClient.OnIdentifyFailed",
+      "kind": "E",
+      "name": "PawSharp.Gateway.GatewayClient.OnIdentifyFailed",
+      "summary": "Fired when identify fails.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.GatewayClient.OnResumeFailed",
+      "kind": "E",
+      "name": "PawSharp.Gateway.GatewayClient.OnResumeFailed",
+      "summary": "Fired when resume fails.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.GatewayClient.Events",
+      "kind": "P",
+      "name": "PawSharp.Gateway.GatewayClient.Events",
+      "summary": "Access the event dispatcher to register event handlers.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.GatewayClient.CurrentState",
+      "kind": "P",
+      "name": "PawSharp.Gateway.GatewayClient.CurrentState",
+      "summary": "Get the current gateway connection state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.GatewayClient.SessionId",
+      "kind": "P",
+      "name": "PawSharp.Gateway.GatewayClient.SessionId",
+      "summary": "",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.GatewayClient.LastHeartbeatLatency",
+      "kind": "P",
+      "name": "PawSharp.Gateway.GatewayClient.LastHeartbeatLatency",
+      "summary": "",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.GatewayClient.UpdatePresenceAsync(System.String,System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.GatewayClient.UpdatePresenceAsync(System.String,System.String,System.String)",
+      "summary": "Update client presence/status (Opcode 3).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.GatewayClient.RequestGuildMembersAsync(System.UInt64,System.Int32,System.String,System.Nullable{System.Boolean},System.UInt64[])",
+      "kind": "M",
+      "name": "PawSharp.Gateway.GatewayClient.RequestGuildMembersAsync(System.UInt64,System.Int32,System.String,System.Nullable{System.Boolean},System.UInt64[])",
+      "summary": "Request guild members list (Opcode 8). Used for member chunking.\n            Provide  for targeted member fetches (mutually exclusive with ).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.GatewayClient.RequestSoundboardSoundsAsync(System.UInt64[])",
+      "kind": "M",
+      "name": "PawSharp.Gateway.GatewayClient.RequestSoundboardSoundsAsync(System.UInt64[])",
+      "summary": "Requests soundboard sounds for one or more guilds (Opcode 31).\n            Discord will respond with a GUILD_SOUNDBOARD_SOUNDS_UPDATE event for each requested guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "guildIds",
+          "description": "The IDs of the guilds whose soundboard sounds to request."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Gateway.GatewayClient.ReconnectAsync",
+      "kind": "M",
+      "name": "PawSharp.Gateway.GatewayClient.ReconnectAsync",
+      "summary": "Gracefully reconnect with exponential backoff on transient errors.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.GatewayClient.GatewaySendAsync(System.String,System.Threading.CancellationToken,System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.GatewayClient.GatewaySendAsync(System.String,System.Threading.CancellationToken,System.Boolean)",
+      "summary": "Sends a serialised payload through the WebSocket, optionally subject to the\n            120-commands-per-60-second gateway rate limit.  Heartbeat opcodes (op 1) should\n            pass  =  to bypass\n            the throttle — they must always be sent on time to keep the connection alive.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.GatewayClient.SendVoiceStateUpdateAsync(System.UInt64,System.Nullable{System.UInt64},System.Boolean,System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.GatewayClient.SendVoiceStateUpdateAsync(System.UInt64,System.Nullable{System.UInt64},System.Boolean,System.Boolean)",
+      "summary": "Sends a voice state update to the gateway.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        },
+        {
+          "name": "channelId",
+          "description": "The channel ID to join (null to leave)."
+        },
+        {
+          "name": "selfMute",
+          "description": "Whether to mute self."
+        },
+        {
+          "name": "selfDeaf",
+          "description": "Whether to deafen self."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Gateway.GatewayState",
+      "kind": "T",
+      "name": "PawSharp.Gateway.GatewayState",
+      "summary": "Represents the current state of the gateway connection.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Gateway.GatewayState.Disconnected",
+      "kind": "F",
+      "name": "PawSharp.Gateway.GatewayState.Disconnected",
+      "summary": "Not connected to the gateway.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Gateway.GatewayState.Connecting",
+      "kind": "F",
+      "name": "PawSharp.Gateway.GatewayState.Connecting",
+      "summary": "Currently attempting to connect to the gateway.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Gateway.GatewayState.Connected",
+      "kind": "F",
+      "name": "PawSharp.Gateway.GatewayState.Connected",
+      "summary": "Connected to the gateway but not yet received READY.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Gateway.GatewayState.Ready",
+      "kind": "F",
+      "name": "PawSharp.Gateway.GatewayState.Ready",
+      "summary": "Connected and READY event received - fully operational.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Gateway.GatewayState.Failed",
+      "kind": "F",
+      "name": "PawSharp.Gateway.GatewayState.Failed",
+      "summary": "Connection failed and all reconnection attempts exhausted.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.Heartbeat.HeartbeatManager.OnHeartbeatSent",
+      "kind": "E",
+      "name": "PawSharp.Gateway.Heartbeat.HeartbeatManager.OnHeartbeatSent",
+      "summary": "Fired when a heartbeat is sent.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.Heartbeat.HeartbeatManager.OnHeartbeatAckReceived",
+      "kind": "E",
+      "name": "PawSharp.Gateway.Heartbeat.HeartbeatManager.OnHeartbeatAckReceived",
+      "summary": "Fired when a heartbeat ACK is received.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.Heartbeat.HeartbeatManager.OnZombieConnection",
+      "kind": "E",
+      "name": "PawSharp.Gateway.Heartbeat.HeartbeatManager.OnZombieConnection",
+      "summary": "Fired when heartbeat ACKs are not being received (zombie connection).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.Heartbeat.HeartbeatManager.IsHealthy",
+      "kind": "P",
+      "name": "PawSharp.Gateway.Heartbeat.HeartbeatManager.IsHealthy",
+      "summary": "Gets whether the connection is healthy based on ACK tracking.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.Heartbeat.HeartbeatManager.ReceiveAckAsync",
+      "kind": "M",
+      "name": "PawSharp.Gateway.Heartbeat.HeartbeatManager.ReceiveAckAsync",
+      "summary": "Mark that a heartbeat ACK was received.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.IGatewayClient",
+      "kind": "T",
+      "name": "PawSharp.Gateway.IGatewayClient",
+      "summary": "Abstraction over the Discord gateway WebSocket connection.\n            Enables dependency injection and unit testing without a live WebSocket.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.IGatewayClient.Events",
+      "kind": "P",
+      "name": "PawSharp.Gateway.IGatewayClient.Events",
+      "summary": "Access the event dispatcher to subscribe to typed gateway events.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.IGatewayClient.CurrentState",
+      "kind": "P",
+      "name": "PawSharp.Gateway.IGatewayClient.CurrentState",
+      "summary": "The current gateway connection state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.IGatewayClient.SessionId",
+      "kind": "P",
+      "name": "PawSharp.Gateway.IGatewayClient.SessionId",
+      "summary": "The session ID from the most recent READY event. Opaque string — not a numeric snowflake.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.IGatewayClient.LastHeartbeatLatency",
+      "kind": "P",
+      "name": "PawSharp.Gateway.IGatewayClient.LastHeartbeatLatency",
+      "summary": "Round-trip latency from the last heartbeat–ACK pair. Null until the first ACK is received.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.IGatewayClient.ConnectAsync",
+      "kind": "M",
+      "name": "PawSharp.Gateway.IGatewayClient.ConnectAsync",
+      "summary": "Opens the WebSocket connection to Discord's gateway.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.IGatewayClient.DisconnectAsync",
+      "kind": "M",
+      "name": "PawSharp.Gateway.IGatewayClient.DisconnectAsync",
+      "summary": "Closes the WebSocket connection gracefully.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.IGatewayClient.UpdatePresenceAsync(System.String,System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.IGatewayClient.UpdatePresenceAsync(System.String,System.String,System.String)",
+      "summary": "Updates the bot's presence/status (Opcode 3).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "status",
+          "description": "Status string: \"online\", \"idle\", \"dnd\", or \"invisible\"."
+        },
+        {
+          "name": "game",
+          "description": "Optional activity/game name to display."
+        },
+        {
+          "name": "streamUrl",
+          "description": "Optional Twitch stream URL (sets status to streaming)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Gateway.IGatewayClient.RequestGuildMembersAsync(System.UInt64,System.Int32,System.String,System.Nullable{System.Boolean},System.UInt64[])",
+      "kind": "M",
+      "name": "PawSharp.Gateway.IGatewayClient.RequestGuildMembersAsync(System.UInt64,System.Int32,System.String,System.Nullable{System.Boolean},System.UInt64[])",
+      "summary": "Requests guild member chunks (Opcode 8).\n            Responses are delivered via .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.IGatewayClient.RequestSoundboardSoundsAsync(System.UInt64[])",
+      "kind": "M",
+      "name": "PawSharp.Gateway.IGatewayClient.RequestSoundboardSoundsAsync(System.UInt64[])",
+      "summary": "Requests soundboard sounds for one or more guilds (Opcode 31).\n            Discord responds with a  for each requested guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.IGatewayClient.VoiceStateUpdate",
+      "kind": "E",
+      "name": "PawSharp.Gateway.IGatewayClient.VoiceStateUpdate",
+      "summary": "Fires when a voice state update is received from Discord.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.IGatewayClient.VoiceServerUpdate",
+      "kind": "E",
+      "name": "PawSharp.Gateway.IGatewayClient.VoiceServerUpdate",
+      "summary": "Fires when a voice server update is received from Discord.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.IGatewayClient.SendVoiceStateUpdateAsync(System.UInt64,System.Nullable{System.UInt64},System.Boolean,System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.IGatewayClient.SendVoiceStateUpdateAsync(System.UInt64,System.Nullable{System.UInt64},System.Boolean,System.Boolean)",
+      "summary": "Sends a Voice State Update payload (Opcode 4) to join/leave/move voice channels.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.ReconnectionManager",
+      "kind": "T",
+      "name": "PawSharp.Gateway.ReconnectionManager",
+      "summary": "Manages automatic reconnection with exponential backoff.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.ReconnectionManager.OnReconnectionAttempt",
+      "kind": "E",
+      "name": "PawSharp.Gateway.ReconnectionManager.OnReconnectionAttempt",
+      "summary": "Fired when reconnection is about to be attempted.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Gateway.ReconnectionManager.OnReconnectionFailed",
+      "kind": "E",
+      "name": "PawSharp.Gateway.ReconnectionManager.OnReconnectionFailed",
+      "summary": "Fired when all reconnection attempts have been exhausted.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.ReconnectionManager.AttemptsCount",
+      "kind": "P",
+      "name": "PawSharp.Gateway.ReconnectionManager.AttemptsCount",
+      "summary": "Gets the current number of reconnection attempts made.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.ReconnectionManager.CanReconnect",
+      "kind": "P",
+      "name": "PawSharp.Gateway.ReconnectionManager.CanReconnect",
+      "summary": "Gets whether we can still attempt to reconnect.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ReconnectionManager.Reset",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ReconnectionManager.Reset",
+      "summary": "Reset the reconnection counter for a new connection.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ReconnectionManager.ReconnectAsync",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ReconnectionManager.ReconnectAsync",
+      "summary": "Attempt to reconnect with exponential backoff.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ReconnectionManager.GetCurrentBackoffMs",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ReconnectionManager.GetCurrentBackoffMs",
+      "summary": "Get the current backoff duration in milliseconds.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Gateway.ShardManager",
+      "kind": "T",
+      "name": "PawSharp.Gateway.ShardManager",
+      "summary": "Manages multiple gateway shards for large bots.\n            Provides automatic shard distribution, reconnection, status monitoring, and event aggregation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.#ctor(PawSharp.Core.Models.PawSharpOptions,Microsoft.Extensions.Logging.ILogger,PawSharp.API.Interfaces.IDiscordRestClient)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.#ctor(PawSharp.Core.Models.PawSharpOptions,Microsoft.Extensions.Logging.ILogger,PawSharp.API.Interfaces.IDiscordRestClient)",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "options",
+          "description": "The PawSharp configuration options including shard settings."
+        },
+        {
+          "name": "logger",
+          "description": "The logger instance for diagnostic output."
+        },
+        {
+          "name": "restClient",
+          "description": "Optional REST client used by ."
+        }
+      ]
+    },
+    {
+      "id": "P:PawSharp.Gateway.ShardManager.Events",
+      "kind": "P",
+      "name": "PawSharp.Gateway.ShardManager.Events",
+      "summary": "Event dispatcher for multi-shard events.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.ShardManager.ShardCount",
+      "kind": "P",
+      "name": "PawSharp.Gateway.ShardManager.ShardCount",
+      "summary": "Total number of shards.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Gateway.ShardManager.ConnectedShardCount",
+      "kind": "P",
+      "name": "PawSharp.Gateway.ShardManager.ConnectedShardCount",
+      "summary": "Number of shards currently in the  state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.ConnectAllAsync",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.ConnectAllAsync",
+      "summary": "Connect all shards managed by this instance.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.OnShardStateChangedAsync(System.Int32,PawSharp.Gateway.GatewayState,PawSharp.Gateway.GatewayState)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.OnShardStateChangedAsync(System.Int32,PawSharp.Gateway.GatewayState,PawSharp.Gateway.GatewayState)",
+      "summary": "Handles shard state changes and triggers reconnection if needed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.ReconnectShardAsync(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.ReconnectShardAsync(System.Int32)",
+      "summary": "Reconnects a specific shard.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.DisconnectAllAsync",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.DisconnectAllAsync",
+      "summary": "Disconnect all shards.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.GetShard(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.GetShard(System.Int32)",
+      "summary": "Get a specific shard by ID.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.GetShardStatus(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.GetShardStatus(System.Int32)",
+      "summary": "Get the status of a specific shard.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.GetAllShardStatuses",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.GetAllShardStatuses",
+      "summary": "Get statuses of all shards.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.CalculateRecommendedShardCount(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.CalculateRecommendedShardCount(System.Int32)",
+      "summary": "Calculate recommended shard count based on guild count.\n            Discord recommends approximately 1000 guilds per shard.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.CalculateRecommendedShardCountAsync",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.CalculateRecommendedShardCountAsync",
+      "summary": "Queries Discord's GET /gateway/bot endpoint and returns the recommended shard count.\n            Falls back to  with the configured guild count\n            when no REST client is available.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.GetShardIdForGuild(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.GetShardIdForGuild(System.UInt64)",
+      "summary": "Calculate which shard a guild belongs to.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.OnAllShards``1(System.String,System.Action{``0})",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.OnAllShards``1(System.String,System.Action{``0})",
+      "summary": "Register an event handler on all shards.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Gateway.ShardManager.MapGatewayStateToShardStatus(PawSharp.Gateway.GatewayState)",
+      "kind": "M",
+      "name": "PawSharp.Gateway.ShardManager.MapGatewayStateToShardStatus(PawSharp.Gateway.GatewayState)",
+      "summary": "Maps a GatewayState to a ShardStatus.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    }
+  ]
+}

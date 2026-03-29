@@ -1,0 +1,3440 @@
+{
+  "assembly": "PawSharp.Voice",
+  "source": "C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Voice.xml",
+  "members": [
+    {
+      "id": "T:PawSharp.Voice.DAVE.DAVEEncryption",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.DAVEEncryption",
+      "summary": "DAVE frame encryption and decryption using AES-128-GCM.\n            \n             Wire format for an encrypted DAVE frame:\n             \n               [ nonce (12 bytes) ][ ciphertext ][ auth tag (16 bytes) ]\n             \n             Nonce construction:\n               bytes 0–3   : sender SSRC (big-endian uint32)\n               bytes 4–11  : frame counter (little-endian uint64)\n            \n             Key lifecycle:\n               The caller owns the key byte array. Call \n               on it when it is no longer needed so the material is wiped from memory before GC.\n            \n             Replay protection:\n               Callers must ensure the frame counter is monotonically increasing\n               per (key, SSRC) pair. The library does not maintain counter state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEEncryption.EncryptFrame(System.Byte[],System.Byte[],System.UInt32,System.UInt64,System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEEncryption.EncryptFrame(System.Byte[],System.Byte[],System.UInt32,System.UInt64,System.Byte[])",
+      "summary": "Encrypts a voice frame with AES-128-GCM.",
+      "remarks": "",
+      "returns": "nonce + ciphertext + tag.",
+      "example": "",
+      "params": [
+        {
+          "name": "plaintext",
+          "description": "The raw voice frame payload (Opus-encoded audio)."
+        },
+        {
+          "name": "key",
+          "description": "The 16-byte sender key (from ).\n              Zero the array with  when done."
+        },
+        {
+          "name": "ssrc",
+          "description": "The sender's SSRC, used in the nonce."
+        },
+        {
+          "name": "frameCounter",
+          "description": "A monotonically increasing counter that prevents replay attacks."
+        },
+        {
+          "name": "additionalData",
+          "description": "Optional additional authenticated data (AAD), e.g. the RTP header.\n              Authenticated but not encrypted."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEEncryption.DecryptFrame(System.Byte[],System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEEncryption.DecryptFrame(System.Byte[],System.Byte[],System.Byte[])",
+      "summary": "Decrypts a voice frame with AES-128-GCM.\n            Throws  when the auth tag does not match\n            (tampered ciphertext, wrong key, replayed frame with wrong counter).\n            Prefer  for non-fatal failure paths.",
+      "remarks": "",
+      "returns": "Decrypted plaintext (Opus data).",
+      "example": "",
+      "params": [
+        {
+          "name": "encryptedFrame",
+          "description": "nonce + ciphertext + tag (as produced by )."
+        },
+        {
+          "name": "key",
+          "description": "The 16-byte sender key."
+        },
+        {
+          "name": "additionalData",
+          "description": "The same AAD that was used during encryption."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEEncryption.TryDecryptFrame(System.Byte[],System.Byte[],System.Byte[]@,System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEEncryption.TryDecryptFrame(System.Byte[],System.Byte[],System.Byte[]@,System.Byte[])",
+      "summary": "Attempts to decrypt a voice frame with AES-128-GCM.\n            Returns  and sets  to\n             when authentication fails instead of throwing.",
+      "remarks": "",
+      "returns": "on success;  when the frame is invalid or tampered.",
+      "example": "",
+      "params": [
+        {
+          "name": "encryptedFrame",
+          "description": "nonce + ciphertext + tag."
+        },
+        {
+          "name": "key",
+          "description": "The 16-byte sender key."
+        },
+        {
+          "name": "plaintext",
+          "description": "The decrypted Opus payload, or  on failure."
+        },
+        {
+          "name": "additionalData",
+          "description": "The same AAD used during encryption."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.DAVEKeyDerivation",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.DAVEKeyDerivation",
+      "summary": "DAVE (Discord's E2EE protocol) key derivation using HKDF-SHA256.\n            Per-sender encryption keys are derived from the epoch secret so that\n            each sender in an MLS group has a unique symmetrical key.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEKeyDerivation.DeriveEncryptionKey(System.Byte[],System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEKeyDerivation.DeriveEncryptionKey(System.Byte[],System.UInt32)",
+      "summary": "Derives a 16-byte AES-128 sender key from the current epoch secret and the sender's SSRC.",
+      "remarks": "",
+      "returns": "A 16-byte key suitable for AES-128-GCM.",
+      "example": "",
+      "params": [
+        {
+          "name": "epochSecret",
+          "description": "The 32-byte epoch secret from the MLS group state."
+        },
+        {
+          "name": "ssrc",
+          "description": "The sender's SSRC (synchronisation source) identifier."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEKeyDerivation.ExtractEpochSecret(System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEKeyDerivation.ExtractEpochSecret(System.Byte[],System.Byte[])",
+      "summary": "Extracts a pseudo-random key from the input keying material using HKDF-Extract.\n            This is used during epoch transitions (MLS commit processing).",
+      "remarks": "",
+      "returns": "A 32-byte extracted PRK.",
+      "example": "",
+      "params": [
+        {
+          "name": "ikm",
+          "description": "Input keying material (e.g. the MLS epoch exporter secret)."
+        },
+        {
+          "name": "salt",
+          "description": "Optional salt; pass null for the zero-length default."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.DAVEProtocol",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol",
+      "summary": "Handles the DAVE E2EE protocol state machine for a Discord voice connection.\n            \n             DAVE (Discord's AV1 Encrypted / E2EE) applies end-to-end encryption to voice\n             and video frames inside DMs and Group DMs.  It uses MLS (RFC 9420) for key\n             exchange and AES-128-GCM for media frame encryption.\n            \n             Lifecycle:\n               1. Server sends op 23 (PrepareTransition) — note the upcoming transition.\n               2. Client sends op 21 (KeyPackage) — our MLS key package.\n               3. Server sends op 25 (Welcome) OR op 26 (Commit) — establish group.\n               4. Server sends op 24 (ProtocolReady)  — activate encryption.\n               5. All outgoing frames are encrypted; incoming frames are decrypted.\n               6. Epoch advances on op 26 (Commit) / op 28 (PrepareEpoch).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEProtocol.#ctor",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.#ctor",
+      "summary": "Creates a DAVEProtocol with an anonymous identity.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEProtocol.#ctor(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.#ctor(System.String)",
+      "summary": "Creates a DAVEProtocol bound to the given Discord user ID.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "userId",
+          "description": "The Discord user ID (e.g. \"123456789012345678\")."
+        }
+      ]
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.DAVEProtocol.IsActive",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.IsActive",
+      "summary": "True when DAVE encryption is fully active (op 24 received).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.DAVEProtocol.IsTransitionPending",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.IsTransitionPending",
+      "summary": "True while a commit transition is in progress and encryption is awaiting reactivation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.DAVEProtocol.EpochNumber",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.EpochNumber",
+      "summary": "Current MLS epoch number (advances on every Commit or Welcome).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.DAVEProtocol.LocalSsrc",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.LocalSsrc",
+      "summary": "The local sender's SSRC (set from the voice Ready payload, op 2).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEProtocol.HandleOpcodeAsync(System.Int32,System.Text.Json.JsonElement,System.Net.WebSockets.ClientWebSocket,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.HandleOpcodeAsync(System.Int32,System.Text.Json.JsonElement,System.Net.WebSockets.ClientWebSocket,System.Threading.CancellationToken)",
+      "summary": "Routes an incoming voice gateway DAVE opcode to the appropriate handler.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "opcode",
+          "description": "The numeric opcode (21–31)."
+        },
+        {
+          "name": "data",
+          "description": "The d field from the gateway JSON payload."
+        },
+        {
+          "name": "webSocket",
+          "description": "The voice WebSocket (used to send key-package response)."
+        },
+        {
+          "name": "ct",
+          "description": "Cancellation token."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEProtocol.EncryptFrame(System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.EncryptFrame(System.Byte[],System.Byte[])",
+      "summary": "Encrypts an outgoing voice frame when DAVE is active.\n            Returns the original frame unchanged when DAVE has not yet been activated.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "frame",
+          "description": "Raw Opus-encoded audio frame."
+        },
+        {
+          "name": "additionalData",
+          "description": "Optional RTP header bytes for AAD."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEProtocol.DecryptFrame(System.Byte[],System.UInt32,System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.DecryptFrame(System.Byte[],System.UInt32,System.Byte[])",
+      "summary": "Decrypts an incoming voice frame when DAVE is active.\n            Returns the original data unchanged when DAVE is not active.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "encryptedFrame",
+          "description": "Encrypted frame as received from Discord (nonce+ciphertext+tag)."
+        },
+        {
+          "name": "ssrc",
+          "description": "The sender's SSRC."
+        },
+        {
+          "name": "additionalData",
+          "description": "Optional AAD (must match what was used during encryption)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEProtocol.SendKeyPackageAsync(System.Net.WebSockets.ClientWebSocket,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.SendKeyPackageAsync(System.Net.WebSockets.ClientWebSocket,System.Threading.CancellationToken)",
+      "summary": "Builds the DAVE key-package payload and sends it to the voice gateway (op 21).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEProtocol.GenerateKeyPackage",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.GenerateKeyPackage",
+      "summary": "Generates a production-quality MLS KeyPackage for this DAVE session.\n            The key material is stored inside  so a subsequent\n            Welcome message can be decrypted using the correct init private key.\n            Returns TLS-encoded KeyPackage bytes per RFC 9420 §10.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.DAVEProtocol.Reset",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.DAVEProtocol.Reset",
+      "summary": "Resets the DAVE protocol state for reconnection without deallocating the instance.\n            Deactivates encryption, resets the frame counter, and clears MLS group state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.DAVEVoiceOpcode",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode",
+      "summary": "Discord voice gateway opcodes, including DAVE E2EE-specific opcodes (21–31).\n            Standard voice opcodes are 0–20; DAVE opcodes are 21–31.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.Identify",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.Identify",
+      "summary": "Begin a new voice session.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.SelectProtocol",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.SelectProtocol",
+      "summary": "Select the voice protocol and encryption mode.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.Ready",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.Ready",
+      "summary": "Server responds with connection info (SSRC, port, etc.).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.Heartbeat",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.Heartbeat",
+      "summary": "Keep the connection alive.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.SessionDescription",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.SessionDescription",
+      "summary": "Server sends encryption keys and session description.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.Speaking",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.Speaking",
+      "summary": "Notify speaking status change.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.HeartbeatAck",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.HeartbeatAck",
+      "summary": "Heartbeat acknowledgement.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.Resume",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.Resume",
+      "summary": "Resume a dropped session.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.Hello",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.Hello",
+      "summary": "Server sends the heartbeat interval.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.Resumed",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.Resumed",
+      "summary": "Server acknowledges a resumed session.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.ClientsConnect",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.ClientsConnect",
+      "summary": "List of SSRCs for clients currently connected.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.ClientDisconnect",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.ClientDisconnect",
+      "summary": "A client disconnected from the voice channel.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.SessionUpdate",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.SessionUpdate",
+      "summary": "Session-level update (used for codec negotiation).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.MediaSinkWants",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.MediaSinkWants",
+      "summary": "Request the user's media receive sink preferences.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.VoiceBackendVersion",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.VoiceBackendVersion",
+      "summary": "Backend version info.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.ChannelOptionsUpdate",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.ChannelOptionsUpdate",
+      "summary": "Update per-channel audio options.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.Flags",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.Flags",
+      "summary": "Bitfield of voice flags active in the session.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.SpeedTest",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.SpeedTest",
+      "summary": "Speed-test probe payload.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.Platform",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.Platform",
+      "summary": "Platform identifier sent by the client.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsKeyPackage",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsKeyPackage",
+      "summary": "Client sends its MLS key package to the server.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsKeyPackageRequest",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsKeyPackageRequest",
+      "summary": "Server requests a new MLS key package from the client.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveProtocolPrepareTransition",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveProtocolPrepareTransition",
+      "summary": "Server tells clients to prepare for an upcoming DAVE protocol transition\n            (e.g. switching DAVE version or establishing a new MLS group).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveProtocolReady",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveProtocolReady",
+      "summary": "Server signals that the DAVE protocol transition is now active.\n            Clients should switch to using DAVE encryption.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsWelcome",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsWelcome",
+      "summary": "Server distributes an MLS Welcome message to a new member.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsCommit",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsCommit",
+      "summary": "A member sends (or the server forwards) an MLS Commit message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsProposals",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsProposals",
+      "summary": "One or more MLS Proposal messages.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveProtocolPrepareEpoch",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveProtocolPrepareEpoch",
+      "summary": "Server tells clients to prepare for a new MLS epoch.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsAnnounceCommitTransition",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsAnnounceCommitTransition",
+      "summary": "A member announces the most recently applied MLS commit transition,\n            so other members know which epoch they are on.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsInvalidCommitWelcome",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsInvalidCommitWelcome",
+      "summary": "Server rejects an MLS commit and sends a new Welcome message instead,\n            forcing the client to rejoin.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsExternalSenderPackage",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.DAVEVoiceOpcode.DaveMlsExternalSenderPackage",
+      "summary": "Server distributes the MLS external sender package.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLSState",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLSState",
+      "summary": "MLS (Message Layer Security, RFC 9420) group state for DAVE.\n            \n             Implements the full RFC 9420 protocol for the DAVE ciphersuite:\n               MLS_128_DHKEMX25519_AES128GCM_SHA256_Ed25519\n            \n             This class is the public face of the MLS implementation.  All heavy lifting\n             is delegated to  (the internal RFC 9420 engine).\n            \n             Per-SSRC AES-128 sender keys are derived from the epoch secret on first access\n             and cached for the lifetime of the epoch.  The cache is invalidated on every\n             epoch advance (ProcessCommit / ProcessWelcome).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLSState.EpochNumber",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLSState.EpochNumber",
+      "summary": "Current MLS epoch number.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLSState.EpochSecret",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLSState.EpochSecret",
+      "summary": "Current 32-byte epoch secret (the DAVE-specific MLS exporter secret).\n            Null until the group has been established via .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLSState.GroupId",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLSState.GroupId",
+      "summary": "MLS group identifier.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLSState.IsInitialized",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLSState.IsInitialized",
+      "summary": "True when the MLS group has been established and the DAVE protocol is active.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLSState.GenerateKeyPackage(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLSState.GenerateKeyPackage(System.Byte[])",
+      "summary": "Generates (or reuses) a TLS-encoded KeyPackage for the local client.\n            \n             The associated private key material (init key, HPKE leaf key, signing key) is\n             stored inside the group state so that a subsequent \n             call can decrypt the EncryptedGroupSecrets entry addressed to us.",
+      "remarks": "",
+      "returns": "TLS-encoded KeyPackage bytes, suitable for sending as op 21.",
+      "example": "",
+      "params": [
+        {
+          "name": "identity",
+          "description": "The caller's Discord user ID encoded as UTF-8 bytes."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLSState.ProcessWelcome(System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLSState.ProcessWelcome(System.Byte[],System.Byte[])",
+      "summary": "Processes an MLS Welcome message (opcode 25).\n            \n             Decrypts the GroupSecrets using the local init key, derives the epoch secret\n             via the RFC 9420 key schedule, and transitions the group to epoch 1.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "welcome",
+          "description": "Raw TLS-encoded MLS Welcome bytes."
+        },
+        {
+          "name": "groupId",
+          "description": "Optional group ID for validation (may be null)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLSState.ProcessCommit(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLSState.ProcessCommit(System.Byte[])",
+      "summary": "Processes an MLS Commit (opcode 26).\n            \n             Applies pending proposals and the UpdatePath to the ratchet tree,\n             then advances the key schedule to derive the new epoch secret.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "commit",
+          "description": "Raw TLS-encoded MLS Commit bytes."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLSState.ProcessProposals(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLSState.ProcessProposals(System.Byte[])",
+      "summary": "Queues one or more MLS Proposals (opcode 27) for application at the next Commit.\n            \n             Proposals (Add / Remove / Update) are parsed and cached internally.\n             They do not affect the epoch secret until a Commit is processed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "proposals",
+          "description": "TLS-encoded MLS Proposal bytes (may be concatenated)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLSState.GetSenderKey(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLSState.GetSenderKey(System.UInt32)",
+      "summary": "Returns the 16-byte AES-128 sender key for the given SSRC in the current epoch.\n            Keys are derived on first access and cached for the lifetime of the epoch.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "ssrc",
+          "description": "The sender's SSRC."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLSState.Reset",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLSState.Reset",
+      "summary": "Resets the MLS group state for reconnection, wiping all key material.\n            After this call the group must be re-entered via .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519",
+      "summary": "RFC 7748 §5 — X25519 Elliptic Curve Diffie-Hellman function over Curve25519.\n            \n             Implements a constant-time Montgomery ladder for cross-platform scalar multiplication\n             using only 64-bit integer arithmetic (no P/Invoke, no platform-specific APIs).\n            \n             Field: GF(2^255 - 19), working in 5×51-bit limbs stored as Int64.\n             Reference: https://www.rfc-editor.org/rfc/rfc7748",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.KeySize",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.KeySize",
+      "summary": "Length of a Curve25519 key or scalar, in bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.BasePoint",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.BasePoint",
+      "summary": "Standard base point u = 9 in little-endian encoding.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.GenerateKeyPair(System.Byte[]@,System.Byte[]@)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.GenerateKeyPair(System.Byte[]@,System.Byte[]@)",
+      "summary": "Generates a random X25519 key pair (private scalar, public point).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "privateKey",
+          "description": "32-byte private key (clamped)."
+        },
+        {
+          "name": "publicKey",
+          "description": "32-byte public key (scalar-mult of base point)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.SharedSecret(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.SharedSecret(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "summary": "Computes the X25519 shared secret: ECDH(myPrivate, theirPublic).",
+      "remarks": "",
+      "returns": "32-byte shared secret u-coordinate.",
+      "example": "",
+      "params": [
+        {
+          "name": "privateKey",
+          "description": "32-byte clamped private scalar."
+        },
+        {
+          "name": "publicKey",
+          "description": "32-byte peer public key (u-coordinate)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.ScalarMult(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.ScalarMult(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "summary": "Raw X25519 scalar multiplication: u * k (both 32 bytes, little-endian).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.ClampScalar(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.ClampScalar(System.Byte[])",
+      "summary": "Clamps a private scalar in-place per RFC 7748 §5.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.FReduce(System.Int64[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.FReduce(System.Int64[])",
+      "summary": "Propagate carries to keep limbs in ~51-bit range.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.FPow22523(System.Int64[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.FPow22523(System.Int64[])",
+      "summary": "Computes a^(2^252-3) mod p using a pre-computed addition chain,\n            which gives a^(-1) when followed by FMul(a, result).\n            RFC 7748 uses a^(p-2) = a^(2^255-21).\n            This is: a^(2^252 + 27742317777372353535851937790883648493 - 3)\n            We compute a^(p-2) directly using the standard Curve25519 chain.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.FPowChain(System.Int64[],System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.FPowChain(System.Int64[],System.Int32)",
+      "summary": "Square k times: a^(2^k).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.Load51(System.ReadOnlySpan{System.Byte},System.Int64[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.Load51(System.ReadOnlySpan{System.Byte},System.Int64[])",
+      "summary": "Loads 32 little-endian bytes into 5×51-bit limbs.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.Save51(System.Int64[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Curve25519.Save51(System.Int64[])",
+      "summary": "Serialises 5×51-bit limbs to 32 little-endian bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Crypto.Ed25519",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519",
+      "summary": "RFC 8032 §5.1 — Ed25519 signature scheme.\n            \n             Uses SHA-512 as the hash function and arithmetic over the twisted Edwards curve\n             defined over GF(2^255 - 19):\n               -x^2 + y^2 = 1 - (121665/121666) x^2 y^2\n            \n             Key sizes: 32-byte private seed, 32-byte public key, 64-byte signature.\n            \n             Reference: https://www.rfc-editor.org/rfc/rfc8032",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.GenerateKeyPair(System.Byte[]@,System.Byte[]@)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.GenerateKeyPair(System.Byte[]@,System.Byte[]@)",
+      "summary": "Generates a new Ed25519 key pair.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "privateKey",
+          "description": "The 32-byte private seed."
+        },
+        {
+          "name": "publicKey",
+          "description": "The 32-byte compressed public key."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.GetPublicKey(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.GetPublicKey(System.ReadOnlySpan{System.Byte})",
+      "summary": "Derives the public key from a private seed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.Sign(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.Sign(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "summary": "Signs a message using Ed25519.",
+      "remarks": "",
+      "returns": "64-byte signature (R || S).",
+      "example": "",
+      "params": [
+        {
+          "name": "message",
+          "description": "The message bytes."
+        },
+        {
+          "name": "privateKey",
+          "description": "The 32-byte private seed."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.Verify(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.Verify(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "summary": "Verifies an Ed25519 signature.",
+      "remarks": "",
+      "returns": "True if the signature is valid.",
+      "example": "",
+      "params": [
+        {
+          "name": "message",
+          "description": "The message that was signed."
+        },
+        {
+          "name": "signature",
+          "description": "64-byte signature."
+        },
+        {
+          "name": "publicKey",
+          "description": "32-byte compressed public key."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.ReduceModL(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.ReduceModL(System.Byte[])",
+      "summary": "Reduces a 64-byte little-endian integer mod l using the constant Barrett-like\n            reduction chain from the SUPERCOP/ref10 implementation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.FE",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.FE",
+      "summary": "Field element for Ed25519 — wraps 5×51-bit limb arithmetic.\n            Delegates to a separate 10-limb 25.5-bit representation for full correctness,\n            or reuses the Curve25519 field routines via a shim.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.FE.SqrtRatio(PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.FE,PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.FE)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.FE.SqrtRatio(PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.FE,PawSharp.Voice.DAVE.MLS.Crypto.Ed25519.FE)",
+      "summary": "Computes +/- sqrt(u/v) for point decompression.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Crypto.HpkeX25519",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.HpkeX25519",
+      "summary": "RFC 9180 — HPKE (Hybrid Public Key Encryption).\n            \n             Implements the specific KEM/KDF/AEAD combination used by the DAVE MLS ciphersuite:\n               KEM  : DHKEM(X25519, HKDF-SHA256)   — suite_id prefix \"KEM\\x00\\x20\"\n               KDF  : HKDF-SHA256                  — suite_id prefix \"HPKE\\x00\\x20\\x00\\x01\\x00\\x01\"\n               AEAD : AES-128-GCM                  — Nk = 16, Nn = 12, Nt = 16\n            \n             Only the Base-mode (no authentication) single-shot Seal/Open operations are\n             needed by MLS (RFC 9420 §5.1.2) for encrypting GroupSecrets in Welcome messages.\n            \n             References:\n               RFC 9180 — HPKE\n               RFC 9420 §5.1.2 — MLS HPKE usage",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.HpkeX25519.SealBase(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Byte[]@)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.HpkeX25519.SealBase(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Byte[]@)",
+      "summary": "HPKE Base-mode SealBase: encrypts plaintext for recipientPublicKey.",
+      "remarks": "",
+      "returns": "Ciphertext (same length as plaintext) followed by 16-byte GCM auth tag.",
+      "example": "",
+      "params": [
+        {
+          "name": "recipientPublicKey",
+          "description": "32-byte recipient X25519 public key."
+        },
+        {
+          "name": "info",
+          "description": "Application-specific info bytes (RFC 9420 §5.1.2 provides \"MLS 1.0 \" labels)."
+        },
+        {
+          "name": "aad",
+          "description": "Additional authenticated data (bound to ciphertext but not encrypted)."
+        },
+        {
+          "name": "plaintext",
+          "description": "The plaintext to encrypt."
+        },
+        {
+          "name": "enc",
+          "description": "Output: 32-byte ephemeral encapsulated key (sent to recipient)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.HpkeX25519.OpenBase(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.HpkeX25519.OpenBase(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "summary": "HPKE Base-mode OpenBase: decrypts ciphertext using recipientPrivateKey.",
+      "remarks": "",
+      "returns": "Decrypted plaintext.",
+      "example": "",
+      "params": [
+        {
+          "name": "recipientPrivateKey",
+          "description": "32-byte recipient X25519 private key."
+        },
+        {
+          "name": "enc",
+          "description": "32-byte encapsulated key (received from sender)."
+        },
+        {
+          "name": "info",
+          "description": "Same info bytes used by the sender."
+        },
+        {
+          "name": "aad",
+          "description": "Same AAD bytes used by the sender."
+        },
+        {
+          "name": "ciphertext",
+          "description": "Ciphertext + 16-byte auth tag (as produced by SealBase)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.HpkeX25519.ExtractAndExpand(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.HpkeX25519.ExtractAndExpand(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "summary": "Derives the shared_secret from the DH output and the encapsulated key material.\n            RFC 9180 §4.1 — ExtractAndExpand",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf",
+      "summary": "MLS RFC 9420 §7.4 — HKDF label functions.\n            \n             All MLS-specific HKDF derivations prepend the string \"MLS 1.0 \" to the label\n             before calling HKDF-Expand, ensuring domain separation from other protocols.\n            \n             The DAVE ciphersuite uses SHA-256 throughout (hash output length = 32 bytes).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.HashLen",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.HashLen",
+      "summary": "Output length of SHA-256 in bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.MlsPrefix",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.MlsPrefix",
+      "summary": "MLS version label prefix, prepended to every HKDF label.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.Extract(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.Extract(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "summary": "HKDF-Extract(salt, IKM) → PRK using SHA-256.\n            RFC 5869 §2.2",
+      "remarks": "",
+      "returns": "32-byte pseudo-random key.",
+      "example": "",
+      "params": [
+        {
+          "name": "salt",
+          "description": "Salt (may be zero-length, treated as HashLen zero bytes per RFC 5869)."
+        },
+        {
+          "name": "ikm",
+          "description": "Input keying material."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.Expand(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.Expand(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.Int32)",
+      "summary": "HKDF-Expand(PRK, info, length) → OKM using SHA-256.\n            RFC 5869 §2.3",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.ExpandWithLabel(System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.ExpandWithLabel(System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.Int32)",
+      "summary": "ExpandWithLabel(Secret, Label, Context, Length) → bytes\n            \n             RFC 9420 §7.4:\n               ExpandWithLabel(Secret, Label, Context, Length) =\n                 HKDF-Expand(Secret, KDFLabel, Length)\n            \n               struct {\n                 uint16 length;\n                 opaque label<7..255>;   // \"MLS 1.0 \" + Label\n                 opaque context<0..2^32-1>;\n               } KDFLabel;",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "secret",
+          "description": "The base secret (PRK)."
+        },
+        {
+          "name": "label",
+          "description": "Label string (without the \"MLS 1.0 \" prefix)."
+        },
+        {
+          "name": "context",
+          "description": "Context bytes (can be empty)."
+        },
+        {
+          "name": "length",
+          "description": "Output length in bytes."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.DeriveSecret(System.ReadOnlySpan{System.Byte},System.String)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.DeriveSecret(System.ReadOnlySpan{System.Byte},System.String)",
+      "summary": "DeriveSecret(Secret, Label) → bytes of length HashLen.\n            \n             RFC 9420 §7.4: DeriveSecret(Secret, Label) = ExpandWithLabel(Secret, Label, \"\", HashLen)",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.ExpandWithLabelN(System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.ExpandWithLabelN(System.ReadOnlySpan{System.Byte},System.String,System.ReadOnlySpan{System.Byte},System.Int32)",
+      "summary": "Derives a secret of a specific length from a labeled context.\n            Used when the length differs from HashLen (e.g., AES key material).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.Hash(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.Hash(System.ReadOnlySpan{System.Byte})",
+      "summary": "SHA-256 hash of arbitrary data. Used for transcript hashes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.BuildKdfLabel(System.UInt16,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Crypto.MlsHkdf.BuildKdfLabel(System.UInt16,System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "summary": "Encodes the KDFLabel structure per RFC 9420 §7.4 (TLS presentation language).\n            \n             struct {\n               uint16 length;\n               opaque label<7..255>;    // 1-byte length-prefix + label bytes\n               opaque context<0..2^32-1>; // 4-byte length-prefix + context bytes\n             } KDFLabel;",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader",
+      "summary": "Reader for TLS presentation language wire format (RFC 8446 §3).\n            \n             MLS messages are encoded using TLS vectors with big-endian length prefixes.\n             This reader wraps a  and advances a position\n             cursor, throwing  on any overrun or malformed input.\n            \n             All integers are big-endian (network byte order) per TLS convention.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.#ctor(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.#ctor(System.ReadOnlySpan{System.Byte})",
+      "summary": "Initialise a reader over the given byte span.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.Remaining",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.Remaining",
+      "summary": "Number of bytes remaining in the buffer.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.IsEmpty",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.IsEmpty",
+      "summary": "True when the entire buffer has been consumed.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.Position",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.Position",
+      "summary": "Current read position (0-based).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadUint8",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadUint8",
+      "summary": "Reads a single unsigned byte.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadUint16",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadUint16",
+      "summary": "Reads a big-endian unsigned 16-bit integer.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadUint32",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadUint32",
+      "summary": "Reads a big-endian unsigned 32-bit integer.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadUint64",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadUint64",
+      "summary": "Reads a big-endian unsigned 64-bit integer.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadBytes(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadBytes(System.Int32)",
+      "summary": "Reads exactly  bytes and returns them as a new array.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadVector8",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadVector8",
+      "summary": "Reads a variable-length opaque vector prefixed with a 1-byte length\n            (TLS opaque<0..255>).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadVector16",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadVector16",
+      "summary": "Reads a variable-length opaque vector prefixed with a 2-byte big-endian\n            length (TLS opaque<0..65535>).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadVector32",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.ReadVector32",
+      "summary": "Reads a variable-length opaque vector prefixed with a 4-byte big-endian\n            length (TLS opaque<0..2^32-1>).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.Slice(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsReader.Slice(System.Int32)",
+      "summary": "Returns a sub-reader scoped to the next  bytes.\n            Advances the current position by .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Encoding.MlsDecodeException",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.MlsDecodeException",
+      "summary": "Thrown when a TLS-encoded MLS message cannot be decoded due to structural errors.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter",
+      "summary": "Writer for TLS presentation language wire format (RFC 8446 §3).\n            \n             Wraps a  and provides helpers for writing\n             the big-endian integers and length-prefixed vectors that make up all\n             MLS message structures.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.#ctor",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.#ctor",
+      "summary": "Creates a new writer backed by a resizable .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.#ctor(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.#ctor(System.Int32)",
+      "summary": "Creates a new writer with an initial buffer capacity hint.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteUint8(System.Byte)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteUint8(System.Byte)",
+      "summary": "Writes a single unsigned byte.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteUint16(System.UInt16)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteUint16(System.UInt16)",
+      "summary": "Writes a big-endian unsigned 16-bit integer.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteUint32(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteUint32(System.UInt32)",
+      "summary": "Writes a big-endian unsigned 32-bit integer.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteUint64(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteUint64(System.UInt64)",
+      "summary": "Writes a big-endian unsigned 64-bit integer.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteBytes(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteBytes(System.ReadOnlySpan{System.Byte})",
+      "summary": "Writes the raw bytes from a span (no length prefix).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteVector8(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteVector8(System.ReadOnlySpan{System.Byte})",
+      "summary": "Writes a variable-length opaque vector with a 1-byte length prefix\n            (TLS opaque<0..255>).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteVector16(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteVector16(System.ReadOnlySpan{System.Byte})",
+      "summary": "Writes a variable-length opaque vector with a 2-byte big-endian length prefix\n            (TLS opaque<0..65535>).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteVector32(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteVector32(System.ReadOnlySpan{System.Byte})",
+      "summary": "Writes a variable-length opaque vector with a 4-byte big-endian length prefix\n            (TLS opaque<0..2^32-1>).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteNested16(PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteNested16(PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter)",
+      "summary": "Writes the encoded output of an inner  as a Vector16\n            (2-byte length prefix + inner bytes).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteNested32(PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.WriteNested32(PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter)",
+      "summary": "Writes the encoded output of an inner  as a Vector32\n            (4-byte length prefix + inner bytes).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.ToArray",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.ToArray",
+      "summary": "Returns the accumulated bytes as a new array.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.Length",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Encoding.TlsWriter.Length",
+      "summary": "Returns the current length of the buffer in bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.Credential",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.Credential",
+      "summary": "RFC 9420 §5.3.1 — MLS credential.\n            \n             A credential binds an identity to a leaf node's signature key.\n             DAVE uses BasicCredential (type=1) with a raw identity byte string\n             (typically the Discord user ID encoded as UTF-8).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.Credential.Identity",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.Credential.Identity",
+      "summary": "Raw identity bytes (for BasicCredential: UTF-8 Discord user ID).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.Credential.Certificates",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.Credential.Certificates",
+      "summary": "X.509 DER certificate chain (for X509Credential, unused by DAVE).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.Credential.Basic(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.Credential.Basic(System.Byte[])",
+      "summary": "Creates a BasicCredential with an identity byte string.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.Credential.Encode",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.Credential.Encode",
+      "summary": "Encodes the credential as a TLS struct.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.Credential.Decode(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.Credential.Decode(System.ReadOnlySpan{System.Byte})",
+      "summary": "Decodes a credential from TLS bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.GroupContext",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupContext",
+      "summary": "RFC 9420 §8.1 / §8.3 — GroupContext.\n            \n             The GroupContext binds all group state into a compact descriptor used as\n             additional authenticated data throughout MLS (HPKE, transcript hashes).\n            \n             struct GroupContext {\n               ProtocolVersion  version;        // uint16\n               CipherSuite      cipher_suite;   // uint16\n               opaque           group_id<V>;    // variable\n               uint64           epoch;\n               opaque           tree_hash<V>;   // SHA-256 of ratchet tree\n               opaque           confirmed_transcript_hash<V>;\n               Extension        extensions<V>;  // empty for DAVE\n             }",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.GroupContext.GroupId",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupContext.GroupId",
+      "summary": "The MLS group identifier (arbitrary bytes assigned by the creator).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.GroupContext.Epoch",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupContext.Epoch",
+      "summary": "Current epoch number.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.GroupContext.TreeHash",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupContext.TreeHash",
+      "summary": "Tree hash of the current ratchet tree (32 bytes, SHA-256).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.GroupContext.ConfirmedTranscriptHash",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupContext.ConfirmedTranscriptHash",
+      "summary": "Confirmed transcript hash (32 bytes, SHA-256).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.GroupContext.Encode",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupContext.Encode",
+      "summary": "Encodes the GroupContext as TLS bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.GroupContext.Decode(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupContext.Decode(System.ReadOnlySpan{System.Byte})",
+      "summary": "Decodes a GroupContext from TLS bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage",
+      "summary": "RFC 9420 §10 — MLS KeyPackage.\n            \n             A KeyPackage advertises a member's desire to join an MLS group.\n             It bundles:\n               - The MLS protocol version and ciphersuite\n               - An HPKE init key (used to encrypt GroupSecrets in Welcome messages)\n               - A LeafNode (HPKE encryption key, signature key, credential)\n               - An Ed25519 signature over the whole structure\n            \n             Discord DAVE uses ciphersuite 0x0001 only.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.InitKey",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.InitKey",
+      "summary": "X25519 init public key (different from the leaf HPKE key, used once per Welcome).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.Leaf",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.Leaf",
+      "summary": "The member LeafNode embedded in this KeyPackage.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.Signature",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.Signature",
+      "summary": "Ed25519 signature over the TBS (to-be-signed) content.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.InitPrivateKey",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.InitPrivateKey",
+      "summary": "X25519 private key corresponding to .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.LeafHpkePrivateKey",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.LeafHpkePrivateKey",
+      "summary": "X25519 private key embedded in the leaf node.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.LeafSignPrivateKey",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.LeafSignPrivateKey",
+      "summary": "Ed25519 private seed embedded in the leaf node.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.Generate(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.Generate(System.Byte[])",
+      "summary": "Generates a complete, self-signed KeyPackage.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "identity",
+          "description": "The caller's identity bytes (Discord user ID as UTF-8)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.Encode",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.Encode",
+      "summary": "Encodes the KeyPackage as TLS bytes (for sending to Discord).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.Decode(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.Decode(System.ReadOnlySpan{System.Byte})",
+      "summary": "Decodes a KeyPackage from TLS bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.VerifySignature",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.KeyPackage.VerifySignature",
+      "summary": "Verifies the KeyPackage self-signature.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.LeafNode",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode",
+      "summary": "RFC 9420 §7.2 — LeafNode.\n            \n             Represents a group member's entry in the MLS ratchet tree.  It bundles the\n             member's HPKE encryption key, Ed25519 signature key, credential, and\n             capabilities — all signed by the member's signature key.\n            \n             For DAVE the capabilities list is fixed to the single supported ciphersuite.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.LeafNode.EncryptionKey",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode.EncryptionKey",
+      "summary": "X25519 HPKE public key (32 bytes).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.LeafNode.SignatureKey",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode.SignatureKey",
+      "summary": "Ed25519 signing public key (32 bytes).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Credential",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Credential",
+      "summary": "Member identity credential.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Source",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Source",
+      "summary": "Lifecycle source of this leaf node (KeyPackage, Update, or Commit).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Signature",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Signature",
+      "summary": "Ed25519 signature over the serialised leaf node content\n            (everything except the signature field itself).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Generate(System.Byte[],System.Byte[]@,System.Byte[]@)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Generate(System.Byte[],System.Byte[]@,System.Byte[]@)",
+      "summary": "Generates a new LeafNode with fresh X25519 and Ed25519 key pairs,\n            signed by the generated Ed25519 private key.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "identity",
+          "description": "The member's raw identity bytes (e.g. Discord user ID as UTF-8)."
+        },
+        {
+          "name": "hpkePrivateKeyOut",
+          "description": "Outputs the X25519 private key (caller must store securely)."
+        },
+        {
+          "name": "sigPrivateKeyOut",
+          "description": "Outputs the Ed25519 private seed (caller must store securely)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Encode",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Encode",
+      "summary": "Encodes the full leaf node (including signature) as TLS bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Decode(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode.Decode(System.ReadOnlySpan{System.Byte})",
+      "summary": "Decodes a LeafNode from TLS bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.LeafNode.VerifySignature",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode.VerifySignature",
+      "summary": "Verifies the leaf node's self-signature (RFC 9420 §7.3).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.LeafNode.ToBeSigned",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNode.ToBeSigned",
+      "summary": "The byte sequence over which the signature is computed (all fields except signature).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.CipherSuite",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.CipherSuite",
+      "summary": "MLS ciphersuite identifiers (RFC 9420 §5.1).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.MLS.Messages.CipherSuite.MLS_128_DHKEMX25519_AES128GCM_SHA256_Ed25519",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.CipherSuite.MLS_128_DHKEMX25519_AES128GCM_SHA256_Ed25519",
+      "summary": "DAVE profile: DHKEM(X25519,HKDF-SHA256) + AES-128-GCM + SHA-256 + Ed25519.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.ProtocolVersion",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.ProtocolVersion",
+      "summary": "MLS protocol version (RFC 9420 §5.1).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.ContentType",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.ContentType",
+      "summary": "MLS message content types (RFC 9420 §6).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.ProposalType",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.ProposalType",
+      "summary": "MLS proposal types (RFC 9420 §12.1).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.CredentialType",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.CredentialType",
+      "summary": "MLS credential types (RFC 9420 §5.3.1).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.SenderType",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.SenderType",
+      "summary": "MLS sender types (RFC 9420 §6.2.1).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.LeafNodeSource",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.LeafNodeSource",
+      "summary": "MLS leaf node source (RFC 9420 §7.2).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.Proposal",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.Proposal",
+      "summary": "RFC 9420 §12.1 — MLS Proposal.\n            \n             A proposal describes a pending modification to the group state.\n             DAVE primarily uses Add, Remove, and Update proposals.\n             Proposals are collected and applied atomically by the next Commit.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.Commit",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.Commit",
+      "summary": "RFC 9420 §12.4 — MLS Commit.\n            \n             A Commit applies a list of proposals and optionally supplies a new UpdatePath\n             to advance the epoch secret.  After a Commit the epoch number increments.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.Commit.Proposals",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.Commit.Proposals",
+      "summary": "List of proposal references (by value) included in this Commit.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.Commit.UpdatePath",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.Commit.UpdatePath",
+      "summary": "UpdatePath: one entry per direct-path node above the committer's leaf,\n            containing the new HPKE key and encrypted path secrets.\n            May be null for commits that only contain Remove proposals.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.GroupInfo",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupInfo",
+      "summary": "RFC 9420 §12.4.3.1 — GroupInfo.\n            \n             Sent inside a Welcome message to communicate the current group state\n             (GroupContext + ratchet tree + confirmation tag) to new joiners.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.GroupInfo.ConfirmationTag",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupInfo.ConfirmationTag",
+      "summary": "Confirmation tag: HMAC-SHA256(confirmation_key, confirmed_transcript_hash).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.GroupInfo.SignerLeafIndex",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupInfo.SignerLeafIndex",
+      "summary": "The index of the signer leaf (the committer who produced this Welcome).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.GroupInfo.Signature",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupInfo.Signature",
+      "summary": "Ed25519 signature by the signer's leaf key over the GroupInfo TBS.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.GroupSecrets",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupSecrets",
+      "summary": "RFC 9420 §12.4.3.1 — GroupSecrets.\n            \n             The shared secrets encrypted per-recipient in a Welcome message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.GroupSecrets.JoinerSecret",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupSecrets.JoinerSecret",
+      "summary": "The joiner_secret for this epoch (must equal DeriveSecret(init_secret, \"joiner\")).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.GroupSecrets.PathSecret",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.GroupSecrets.PathSecret",
+      "summary": "Optional pre-shared key reference (not used by DAVE).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.WelcomeMessage",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.WelcomeMessage",
+      "summary": "RFC 9420 §12.4.3 — Welcome message.\n            \n             Sent to new group members (from opcode 25).  Contains:\n               1. A vector of EncryptedGroupSecrets — one per invited member, each encrypted\n                  with the recipient's HPKE init key from their KeyPackage.\n               2. The GroupInfo encrypted with a key derived from the welcome_secret.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.WelcomeMessage.Secrets",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.WelcomeMessage.Secrets",
+      "summary": "Per-recipient HPKE-encrypted GroupSecrets.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.WelcomeMessage.EncryptedGroupInfo",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.WelcomeMessage.EncryptedGroupInfo",
+      "summary": "GroupInfo encrypted with the welcome_secret-derived key.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Messages.WelcomeMessage.TryDecryptSecrets(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.WelcomeMessage.TryDecryptSecrets(System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte},System.ReadOnlySpan{System.Byte})",
+      "summary": "Finds this client's EncryptedGroupSecrets entry and decrypts it using the\n            provided HPKE init private key.",
+      "remarks": "",
+      "returns": "Decrypted .",
+      "example": "",
+      "params": [
+        {
+          "name": "initPrivateKey",
+          "description": "32-byte X25519 private key from the matching KeyPackage."
+        },
+        {
+          "name": "keyPackageRef",
+          "description": "Hash of the KeyPackage used to find the right entry (RFC 9420 §12.4.3.1)."
+        },
+        {
+          "name": "groupContext",
+          "description": "GroupContext bytes, used as HPKE info."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Messages.EncryptedGroupSecrets",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.EncryptedGroupSecrets",
+      "summary": "One recipient's entry in a Welcome message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.EncryptedGroupSecrets.KeyPackageRef",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.EncryptedGroupSecrets.KeyPackageRef",
+      "summary": "Hash of the recipient's KeyPackage, used to match the right entry.\n            RFC 9420 §12.4.3.1: ref = RefHash(\"MLS 1.0 KeyPackage\", kp_bytes)",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Messages.EncryptedGroupSecrets.EncryptedSecret",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Messages.EncryptedGroupSecrets.EncryptedSecret",
+      "summary": "HPKE-encrypted GroupSecrets payload.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.State.MLSGroupState",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState",
+      "summary": "RFC 9420 — Full MLS group state for the DAVE E2EE protocol.\n            \n             Owns all per-epoch state:\n               • Ratchet tree ()\n               • Key schedule ()\n               • GroupContext (group ID, epoch, tree hash, transcript hash)\n               • Local key material (HPKE private key for this client's leaf)\n               • Proposal queue (proposals received between commits)\n            \n             Lifecycle:\n               1.  — join an existing group (receive epoch secrets).\n               2.  — enqueue incoming proposals.\n               3.  — apply commit, validate, advance epoch.\n               4.  — read the per-epoch AES key derivation secret.\n            \n             This class is intentionally single-threaded. The caller ()\n             is responsible for synchronisation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.State.MLSGroupState.IsInitialized",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState.IsInitialized",
+      "summary": "True once a Welcome or Commit has successfully established epoch secrets.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.State.MLSGroupState.EpochNumber",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState.EpochNumber",
+      "summary": "The current MLS epoch number.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.State.MLSGroupState.DaveEpochSecret",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState.DaveEpochSecret",
+      "summary": "The current DAVE epoch secret (32 bytes); null until .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.State.MLSGroupState.GroupId",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState.GroupId",
+      "summary": "The MLS group identifier.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSGroupState.GetOrGenerateKeyPackage(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState.GetOrGenerateKeyPackage(System.Byte[])",
+      "summary": "Generates (or lazily reuses) a KeyPackage for this client session.\n            Called before joining a group to produce the payload for op-21 (MLS key package request).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "identity",
+          "description": "Caller identity bytes (Discord user ID as UTF-8)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSGroupState.ProcessWelcome(System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState.ProcessWelcome(System.Byte[],System.Byte[])",
+      "summary": "Processes an MLS Welcome message (opcode 25) per RFC 9420 §12.4.3.1.\n            \n             Full path:\n               1. Decode the TLS-encoded WelcomeMessage.\n               2. Decrypt our EncryptedGroupSecrets entry via HPKE-Base using the local init key.\n               3. Derive welcome_key + welcome_nonce from the welcome_secret and use them to\n                  AES-128-GCM decrypt the GroupInfo.\n               4. Populate group state (epoch, tree hash, transcript hash) from GroupInfo.Context.\n               5. Run  and store the key schedule\n                  for subsequent  epoch advances.\n               6. Derive the DAVE epoch secret via ExpandWithLabel(\"DAVE sender\").\n            \n             Falls back to a domain-separated HKDF shortcut if the full parse fails (e.g.\n             a non-standard Discord framing edge case), so the session still produces a usable\n             epoch secret.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSGroupState.TryDecryptAndDecodeGroupInfo(System.Byte[],System.Byte[],System.Byte[],PawSharp.Voice.DAVE.MLS.Messages.GroupInfo@)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState.TryDecryptAndDecodeGroupInfo(System.Byte[],System.Byte[],System.Byte[],PawSharp.Voice.DAVE.MLS.Messages.GroupInfo@)",
+      "summary": "Decrypts and decodes the GroupInfo that Discord ships inside Welcome.EncryptedGroupInfo.\n            RFC 9420 §12.4.3.1: the encrypted payload is ciphertext || 16-byte-GCM-tag\n            (no prepended nonce — the nonce is derived from the key schedule).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSGroupState.ProcessProposals(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState.ProcessProposals(System.Byte[])",
+      "summary": "Queues incoming MLS Proposals (opcode 27) for application at the next Commit.\n            \n             Proposals are parsed from the wire-format bytes and stored in memory.\n             They do not change the epoch until processed by .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSGroupState.ProcessCommit(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState.ProcessCommit(System.Byte[])",
+      "summary": "Processes an MLS Commit (opcode 26) and advances the epoch per RFC 9420 §12.4.\n            \n             Full path:\n               1. Decode the Commit (proposals + optional UpdatePath).\n               2. Apply queued proposals (Add/Remove/Update) and any inline commit proposals.\n               3. Merge the UpdatePath into the ratchet tree to obtain the commit secret.\n               4. Update the transcript hash and tree hash.\n               5. Advance the RFC 9420 key schedule and re-derive the DAVE epoch secret.\n            \n             Falls back to HKDF rotation if decode fails, preserving forward secrecy.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSGroupState.Reset",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSGroupState.Reset",
+      "summary": "Resets all group state so the instance can be reused for a new session\n            (e.g. after a voice channel reconnect without re-creating the protocol object).\n            Wipes all key material before clearing.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule",
+      "summary": "RFC 9420 §8 — MLS Key Schedule.\n            \n             Derives the per-epoch secrets from the commit secret (TreeKEM output)\n             and the current GroupContext.\n            \n             Derivation chain (simplified for the DAVE ciphersuite):\n            \n               init_secret(n-1)  →  ┐\n               commit_secret     →  ├→ Extract → joiner_secret\n                                    ↓\n               joiner_secret     →  DeriveSecret(\"welcome\")  → welcome_secret\n               welcome_secret    →  DeriveSecret(\"epoch\")    → not used directly\n            \n               joiner_secret + GroupContext →  Extract → epoch_secret\n               epoch_secret  →  DeriveSecret(\"exporter\")     → exporter_secret\n               epoch_secret  →  DeriveSecret(\"confirmed\")    → confirmation_key\n               epoch_secret  →  DeriveSecret(\"sender data\")  → sender_data_secret\n            \n               exporter_secret → used by DAVE to derive the 32-byte epoch secret\n                                 passed to \n            \n             References:\n               RFC 9420 §8 — https://www.rfc-editor.org/rfc/rfc9420#section-8",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.InitSecret",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.InitSecret",
+      "summary": "The init secret carried forward to the next epoch.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.JoinerSecret",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.JoinerSecret",
+      "summary": "32-byte joiner secret (used to produce welcome_secret for new members).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.EpochSecret",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.EpochSecret",
+      "summary": "32-byte epoch secret (root of all per-epoch key derivations).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.ExporterSecret",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.ExporterSecret",
+      "summary": "32-byte exporter secret — exposed to DAVE as the top-level epoch secret.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.ConfirmationKey",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.ConfirmationKey",
+      "summary": "32-byte confirmation key — HMAC key for the confirmation tag.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.WelcomeSecret",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.WelcomeSecret",
+      "summary": "32-byte welcome secret — used to encrypt GroupInfo for new members.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.#ctor(System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.#ctor(System.Byte[],System.Byte[])",
+      "summary": "Initialises the key schedule for the very first epoch (epoch 0).\n            Used when creating a new group.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "commitSecret",
+          "description": "The initial commit secret (32 zero bytes for the first epoch, per RFC 9420 §8)."
+        },
+        {
+          "name": "groupContextBytes",
+          "description": "Serialised GroupContext for epoch 0."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.FromJoinerSecret(System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.FromJoinerSecret(System.Byte[],System.Byte[])",
+      "summary": "Constructs a key schedule from a joiner_secret received in a Welcome.\n            RFC 9420 §8.2 — joiner path.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "joinerSecret",
+          "description": "Decrypted from Welcome's GroupSecrets."
+        },
+        {
+          "name": "groupContextBytes",
+          "description": "The GroupContext from the GroupInfo in the Welcome."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.AdvanceEpoch(System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.AdvanceEpoch(System.Byte[],System.Byte[])",
+      "summary": "Advances the key schedule by one epoch using the new commit secret.\n            Must be called after every successful Commit.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "newCommitSecret",
+          "description": "TreeKEM path secret at the root for this Commit."
+        },
+        {
+          "name": "newGroupContextBytes",
+          "description": "GroupContext for the new epoch."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.Advance(System.Byte[],System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.Advance(System.Byte[],System.Byte[],System.Byte[])",
+      "summary": "Core key schedule derivation.\n            \n               joiner_secret = HKDF-Extract(init_secret, commit_secret)\n               welcome_secret = DeriveSecret(joiner_secret, \"welcome\")\n               epoch_secret  = HKDF-Extract(DeriveSecret(joiner_secret, \"epoch\"), groupContext)\n               exporter_secret = DeriveSecret(epoch_secret, \"exporter\")\n               confirmation_key = DeriveSecret(epoch_secret, \"confirmed\")\n               new_init_secret  = DeriveSecret(epoch_secret, \"init\")",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.DeriveDaveEpochSecret",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.State.MLSKeySchedule.DeriveDaveEpochSecret",
+      "summary": "Derives the 32-byte DAVE epoch secret from \n             using MLS-Export with the DAVE-specific label.\n            \n             RFC 9420 §8.5 — MLS-Exporter:\n               exporter_value = DeriveSecret(\n                   ExpandWithLabel(exporter_secret, label, context, HashLen),\n                   \"exporter\")",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree",
+      "summary": "RFC 9420 §7 — MLS Ratchet Tree.\n            \n             Manages the left-balanced binary tree of HPKE nodes used by TreeKEM to\n             establish shared secrets among all group members.  Each leaf holds a\n             member's HPKE public key; internal nodes hold derived keys used to\n             propagate secrets down the tree during Commit processing.\n            \n             Key operations:\n               1.    — join a new member (from a KeyPackage or Welcome).\n               2.  — blank leaf + ancestor path on Remove.\n               3.  — apply a Commit's UpdatePath to advance epoch.\n               4.   — compute the RFC 9420 tree hash (used in GroupContext).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree._nodes",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree._nodes",
+      "summary": "All nodes, indexed by in-order index (0 = first leaf, 1 = root of 2-leaf tree, …).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.LeafCount",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.LeafCount",
+      "summary": "Number of leaves currently in the tree.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree._blank",
+      "kind": "F",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree._blank",
+      "summary": "Set of blank node indices (for resolution queries).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.LocalLeafIndex",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.LocalLeafIndex",
+      "summary": "The (even) node index of the local client's leaf, or null if not set.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.#ctor",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.#ctor",
+      "summary": "Initialises an empty ratchet tree.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.AddLeaf(System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.AddLeaf(System.Byte[],System.Byte[],System.Byte[],System.Byte[],System.Boolean)",
+      "summary": "Adds a new leaf at the next available position with the given HPKE key and credential.\n            Returns the leaf node index (even).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.ReplaceLeafHpkeKey(System.UInt32,System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.ReplaceLeafHpkeKey(System.UInt32,System.Byte[])",
+      "summary": "Replaces the HPKE public key on a leaf node (Update proposal, RFC 9420 §12.1.2).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "leafNodeIndex",
+          "description": "Even in-order node index of the leaf to update."
+        },
+        {
+          "name": "newHpkePublicKey",
+          "description": "32-byte replacement X25519 public key."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.FindLeafByCredential(System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.FindLeafByCredential(System.ReadOnlySpan{System.Byte})",
+      "summary": "Finds the in-order node index of the first leaf whose credential bytes match\n            . Returns null when not found.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.BlankPath(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.BlankPath(System.UInt32)",
+      "summary": "Blanks the direct path from a leaf up to (but not including) the root.\n            Used when removing a member (RFC 9420 §12.4 step 2).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.MergeUpdatePath(System.UInt32,System.Collections.Generic.IReadOnlyList{PawSharp.Voice.DAVE.MLS.Tree.UpdatePathNode},System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.MergeUpdatePath(System.UInt32,System.Collections.Generic.IReadOnlyList{PawSharp.Voice.DAVE.MLS.Tree.UpdatePathNode},System.ReadOnlySpan{System.Byte})",
+      "summary": "Applies a Commit's UpdatePath to the tree, deriving the new commit secret\n             from the path secret decryptable by the local leaf.\n            \n             RFC 9420 §12.4 step 4.",
+      "remarks": "",
+      "returns": "The commit secret (path secret at root level) if the local key can decrypt it;\n               otherwise the path secret is from an unrelated subtree and the caller must\n               have received it via Welcome.",
+      "example": "",
+      "params": [
+        {
+          "name": "senderLeafIndex",
+          "description": "Leaf index (NOT node index) of the committer."
+        },
+        {
+          "name": "updatePath",
+          "description": "Sequence of (HPKE public key, encrypted path secrets) for each level on the\n               sender's direct path.  Each entry's encrypted list is indexed by the copath\n               resolution nodes."
+        },
+        {
+          "name": "groupContext",
+          "description": "The GroupContext bytes used as AAD for HPKE."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.TreeHash",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.RatchetTree.TreeHash",
+      "summary": "Computes the RFC 9420 §7.8 tree hash for the full tree.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Tree.UpdatePathNode",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.UpdatePathNode",
+      "summary": "One node in an MLS UpdatePath (RFC 9420 §7.6).\n            Contains the new HPKE public key and a list of encrypted path secrets,\n            one per node in the copath resolution.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Tree.HpkeCiphertext",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.HpkeCiphertext",
+      "summary": "An HPKE ciphertext (enc || ciphertext) carried in an UpdatePath or Welcome.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.HpkeCiphertext.Enc",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.HpkeCiphertext.Enc",
+      "summary": "32-byte ephemeral encapsulated key.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.HpkeCiphertext.CipherText",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.HpkeCiphertext.CipherText",
+      "summary": "Encrypted payload (ciphertext + 16-byte tag).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Tree.TreeMath",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath",
+      "summary": "RFC 9420 §7.1 — Left-balanced binary tree index arithmetic.\n            \n             MLS uses a left-balanced binary tree (complete binary tree, left-subtree first)\n             to represent the ratchet tree.  Node indices are assigned by an in-order traversal:\n               - Leaf nodes occupy even indices: 0, 2, 4, ...\n               - Parent nodes occupy odd indices: 1, 3, 5, ...\n            \n             For a tree of n leaves, there are 2n-1 total nodes.\n            \n             All index arithmetic in this class follows RFC 9420 §7.1 exactly.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.IsLeaf(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.IsLeaf(System.UInt32)",
+      "summary": "True when  is a leaf node (even index).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Level(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Level(System.UInt32)",
+      "summary": "The level of node  in the tree.\n            Leaves are at level 0. Level increases by 1 for each parent step.\n            Defined as: the number of trailing 1-bits in x.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.NodeWidth(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.NodeWidth(System.UInt32)",
+      "summary": "The total number of nodes in a tree with  leaves.\n            Formula: 2n - 1",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Root(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Root(System.UInt32)",
+      "summary": "The index of the root node for a tree of  leaves.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Left(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Left(System.UInt32)",
+      "summary": "Returns the left child of node .\n            Requires  to be an internal (non-leaf) node.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Right(System.UInt32,System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Right(System.UInt32,System.UInt32)",
+      "summary": "Returns the right child of node .\n            Requires  to be an internal (non-leaf) node.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Parent(System.UInt32,System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Parent(System.UInt32,System.UInt32)",
+      "summary": "Returns the parent of node  in a tree of  leaves.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Sibling(System.UInt32,System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Sibling(System.UInt32,System.UInt32)",
+      "summary": "Returns the sibling of node  in a tree of  leaves.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.DirectPath(System.UInt32,System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.DirectPath(System.UInt32,System.UInt32)",
+      "summary": "The direct path of a leaf node: the sequence of ancestor nodes\n            from the leaf's parent up to (but not including) the root.\n            RFC 9420 §7.1",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.CoPath(System.UInt32,System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.CoPath(System.UInt32,System.UInt32)",
+      "summary": "The copath of a leaf node: for each node on the direct path,\n            its sibling (the node that must be hashed to verify the tree).\n            The copath has the same length as the direct path.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.LeafToNode(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.LeafToNode(System.UInt32)",
+      "summary": "Converts leaf index  to its node index (2*l).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.NodeToLeaf(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.NodeToLeaf(System.UInt32)",
+      "summary": "Converts node index  to leaf index (x/2). Requires even x.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Resolution(System.UInt32,System.UInt32,System.Collections.Generic.ISet{System.UInt32})",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeMath.Resolution(System.UInt32,System.UInt32,System.Collections.Generic.ISet{System.UInt32})",
+      "summary": "Returns the resolution of node  in a tree of  leaves:\n            the set of non-blank descendants that cover the subtree.\n            The blank list enumerates known-blank node indices.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.DAVE.MLS.Tree.TreeNode",
+      "kind": "T",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode",
+      "summary": "A node in the MLS ratchet tree (RFC 9420 §7).\n            \n             Each node holds:\n               - An HPKE public key (and optionally the corresponding private key for leaf nodes\n                 owned by this client).\n               - For leaf nodes: the member's  (identity material).\n               - A blank flag: blank nodes have no key material and represent absent tree positions.\n            \n             The tree uses projective x-only coordinates (Curve25519).\n             Key sizes are Curve25519: 32 bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.IsBlank",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.IsBlank",
+      "summary": "True when this node has been blanked (removed member or intermediate blank).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.IsLeaf",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.IsLeaf",
+      "summary": "True when this is a leaf node (nodeIndex is even).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.NodeIndex",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.NodeIndex",
+      "summary": "The node's position in the in-order indexing scheme.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.HpkePublicKey",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.HpkePublicKey",
+      "summary": "HPKE public key for this node (32 bytes, X25519).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.HpkePrivateKey",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.HpkePrivateKey",
+      "summary": "HPKE private key (only set for the local leaf node, 32 bytes).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.Credential",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.Credential",
+      "summary": "The member credential — only meaningful for (non-blank) leaf nodes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.SignatureKey",
+      "kind": "P",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.SignatureKey",
+      "summary": "The signature public key (Ed25519, 32 bytes) for verifying leaf node signatures.\n            Only meaningful for leaf nodes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.CreateBlank(System.UInt32)",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.CreateBlank(System.UInt32)",
+      "summary": "Creates a blank node at the given tree index.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.CreateLeaf(System.UInt32,System.Byte[],System.Byte[],System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.CreateLeaf(System.UInt32,System.Byte[],System.Byte[],System.Byte[],System.Byte[])",
+      "summary": "Creates a populated leaf node from wire-format fields.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.CreateParent(System.UInt32,System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.CreateParent(System.UInt32,System.Byte[])",
+      "summary": "Creates a populated internal (parent) node from a path secret.\n            The HPKE public key is derived from the path secret during Commit processing.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.Blank",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.Blank",
+      "summary": "Blanks this node, clearing all key material.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.DAVE.MLS.Tree.TreeNode.SetHpkeKeys(System.Byte[],System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.DAVE.MLS.Tree.TreeNode.SetHpkeKeys(System.Byte[],System.Byte[])",
+      "summary": "Sets the HPKE key pair (used when merging an UpdatePath).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.Extensions.VoiceExtensions",
+      "kind": "T",
+      "name": "PawSharp.Voice.Extensions.VoiceExtensions",
+      "summary": "Extension methods for adding voice support to Discord clients.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.Extensions.VoiceExtensions.UseVoice(PawSharp.Client.DiscordClient)",
+      "kind": "M",
+      "name": "PawSharp.Voice.Extensions.VoiceExtensions.UseVoice(PawSharp.Client.DiscordClient)",
+      "summary": "Enables voice support for the Discord client.\n            Returns the same  on repeated calls for the same client instance.",
+      "remarks": "",
+      "returns": "The voice client.",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Voice.VoiceClient",
+      "kind": "T",
+      "name": "PawSharp.Voice.VoiceClient",
+      "summary": "Main voice client for handling Discord voice connections.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceClient.#ctor(PawSharp.Client.DiscordClient,Microsoft.Extensions.Logging.ILogger)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceClient.#ctor(PawSharp.Client.DiscordClient,Microsoft.Extensions.Logging.ILogger)",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "discordClient",
+          "description": "The Discord client."
+        },
+        {
+          "name": "logger",
+          "description": "The logger."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceClient.ConnectAsync(PawSharp.Core.Entities.Channel)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceClient.ConnectAsync(PawSharp.Core.Entities.Channel)",
+      "summary": "Connects to a voice channel. The actual WebSocket connection is completed\n            asynchronously when Discord sends VOICE_SERVER_UPDATE.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "channel",
+          "description": "The voice channel to connect to."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceClient.DisconnectAsync(PawSharp.Core.Entities.Channel)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceClient.DisconnectAsync(PawSharp.Core.Entities.Channel)",
+      "summary": "Disconnects from a voice channel.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "channel",
+          "description": "The voice channel to disconnect from."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceClient.HandleConnectionFailureAsync(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceClient.HandleConnectionFailureAsync(System.UInt64)",
+      "summary": "Handles voice connection failure and attempts reconnection.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "channelId",
+          "description": "The channel ID."
+        }
+      ]
+    },
+    {
+      "id": "P:PawSharp.Voice.VoiceClient.ActiveConnections",
+      "kind": "P",
+      "name": "PawSharp.Voice.VoiceClient.ActiveConnections",
+      "summary": "Gets all currently active voice connections keyed by channel ID.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceClient.GetConnection(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceClient.GetConnection(System.UInt64)",
+      "summary": "Gets the voice connection for a channel.",
+      "remarks": "",
+      "returns": "The voice connection, or null if not connected.",
+      "example": "",
+      "params": [
+        {
+          "name": "channelId",
+          "description": "The channel ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceClient.Dispose",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceClient.Dispose",
+      "summary": "Unsubscribes gateway event handlers to prevent delegate leaks.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.VoiceConnectionState",
+      "kind": "T",
+      "name": "PawSharp.Voice.VoiceConnectionState",
+      "summary": "Describes the lifecycle state of a .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.VoiceConnectionState.Disconnected",
+      "kind": "F",
+      "name": "PawSharp.Voice.VoiceConnectionState.Disconnected",
+      "summary": "No active WebSocket connection.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.VoiceConnectionState.Connecting",
+      "kind": "F",
+      "name": "PawSharp.Voice.VoiceConnectionState.Connecting",
+      "summary": "WebSocket connect is in progress.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.VoiceConnectionState.Connected",
+      "kind": "F",
+      "name": "PawSharp.Voice.VoiceConnectionState.Connected",
+      "summary": "WebSocket is open and the voice session is active.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Voice.VoiceConnectionState.Disconnecting",
+      "kind": "F",
+      "name": "PawSharp.Voice.VoiceConnectionState.Disconnecting",
+      "summary": "Graceful close is in progress.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Voice.VoiceConnection",
+      "kind": "T",
+      "name": "PawSharp.Voice.VoiceConnection",
+      "summary": "Represents a voice connection to a Discord voice channel.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.VoiceConnection.State",
+      "kind": "P",
+      "name": "PawSharp.Voice.VoiceConnection.State",
+      "summary": "Gets the current connection lifecycle state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.VoiceConnection.GuildId",
+      "kind": "P",
+      "name": "PawSharp.Voice.VoiceConnection.GuildId",
+      "summary": "Gets the guild ID.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.VoiceConnection.ChannelId",
+      "kind": "P",
+      "name": "PawSharp.Voice.VoiceConnection.ChannelId",
+      "summary": "Gets the channel ID.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.VoiceConnection.Channel",
+      "kind": "P",
+      "name": "PawSharp.Voice.VoiceConnection.Channel",
+      "summary": "Gets the voice channel.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.VoiceConnection.IsConnected",
+      "kind": "P",
+      "name": "PawSharp.Voice.VoiceConnection.IsConnected",
+      "summary": "Gets whether the connection is connected.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Voice.VoiceConnection.IsPlaying",
+      "kind": "P",
+      "name": "PawSharp.Voice.VoiceConnection.IsPlaying",
+      "summary": "Gets whether audio is currently playing.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "E:PawSharp.Voice.VoiceConnection.VoicePacketReceived",
+      "kind": "E",
+      "name": "PawSharp.Voice.VoiceConnection.VoicePacketReceived",
+      "summary": "Raised whenever a decoded PCM audio frame is received from another speaker.\n            The first argument is the sender SSRC and the second is the raw 16-bit signed\n            mono PCM byte array at 48 kHz — identical to what is fed to the local speaker.\n            Subscribe to this event to capture or process incoming voice audio\n            (e.g. speech-to-text transcription) without relying on NAudio playback.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.#ctor(PawSharp.Client.DiscordClient,PawSharp.Core.Entities.Channel,System.Action{System.UInt64},Microsoft.Extensions.Logging.ILogger)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.#ctor(PawSharp.Client.DiscordClient,PawSharp.Core.Entities.Channel,System.Action{System.UInt64},Microsoft.Extensions.Logging.ILogger)",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "discordClient",
+          "description": "The Discord client."
+        },
+        {
+          "name": "channel",
+          "description": "The voice channel."
+        },
+        {
+          "name": "onConnectionFailed",
+          "description": "Callback for connection failures."
+        },
+        {
+          "name": "logger",
+          "description": "Logger used for voice diagnostics."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.ConnectAsync(System.String,System.UInt64,System.UInt64,System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.ConnectAsync(System.String,System.UInt64,System.UInt64,System.String,System.String)",
+      "summary": "Connects to the Discord voice WebSocket and sends the IDENTIFY payload.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "endpoint",
+          "description": "The voice server endpoint from VOICE_SERVER_UPDATE (may have \":80\" suffix)."
+        },
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        },
+        {
+          "name": "userId",
+          "description": "The bot's user ID."
+        },
+        {
+          "name": "sessionId",
+          "description": "The session ID from VOICE_STATE_UPDATE."
+        },
+        {
+          "name": "token",
+          "description": "The voice token from VOICE_SERVER_UPDATE."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.ReconnectAsync",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.ReconnectAsync",
+      "summary": "Reconnects using the stored handshake parameters.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.DisconnectAsync",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.DisconnectAsync",
+      "summary": "Disconnects from the voice channel.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.StopPlayback",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.StopPlayback",
+      "summary": "Stops the current audio playback, if any.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.StopAsync",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.StopAsync",
+      "summary": "Stops the current audio playback. Alias for  with an async signature\n            for use in async pipelines.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.PlayAsync(System.String,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.PlayAsync(System.String,System.Threading.CancellationToken)",
+      "summary": "Reads an audio file, resamples it to 48 kHz mono PCM if necessary, encodes it with Opus,\n            and streams it to the voice channel. Raises the Discord Speaking gate automatically.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "filePath",
+          "description": "Path to an audio file readable by NAudio (WAV, MP3, AIFF, etc.)."
+        },
+        {
+          "name": "cancellationToken",
+          "description": "Token to cancel mid-stream playback."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.PlayAsync(NAudio.Wave.WaveStream,System.Threading.CancellationToken)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.PlayAsync(NAudio.Wave.WaveStream,System.Threading.CancellationToken)",
+      "summary": "Reads 16-bit signed mono PCM at 48 kHz from  and streams\n            it to the voice channel. Use  when\n            you have a file in another format — it handles resampling automatically.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "pcmStream",
+          "description": "A  whose format is (or will be resampled to) 48 kHz, mono, 16-bit PCM.\n            If the format does not match the Opus requirements it is automatically resampled via\n            ."
+        },
+        {
+          "name": "cancellationToken",
+          "description": "Token to cancel mid-stream playback."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.StartCapture",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.StartCapture",
+      "summary": "Starts capturing audio from the microphone and raises the Discord Speaking gate (op 5).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.StopCapture",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.StopCapture",
+      "summary": "Stops capturing audio from the microphone and lowers the Discord Speaking gate (op 5).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.PlayAudioAsync(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.PlayAudioAsync(System.Byte[])",
+      "summary": "Plays audio data.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "audioData",
+          "description": "The audio data to play."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.PlayAudioFromPcmAsync(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.PlayAudioFromPcmAsync(System.Byte[])",
+      "summary": "Plays already-decoded 16-bit signed mono PCM data at 48 kHz through the local speaker.\n            Called internally by the receive loop after Opus decoding; also available for external use.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "pcmData",
+          "description": "Raw PCM bytes (16-bit signed LE, mono, 48 kHz)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.SendAudioAsync(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.SendAudioAsync(System.Byte[])",
+      "summary": "Encodes and sends PCM audio to the voice channel.\n            Input must be 16-bit signed mono PCM at 48 kHz (matching the capture ).\n            Internally the method accumulates samples across calls until a complete 20 ms Opus frame\n            ( bytes) is available, then encodes, wraps in an RTP header,\n            applies DAVE AES-128-GCM encryption, and transmits the packet.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "audioData",
+          "description": "Raw 16-bit signed PCM bytes to transmit."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.EncodeFrame(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.EncodeFrame(System.Byte[])",
+      "summary": "Opus-encodes exactly one 20 ms PCM frame ( bytes of 16-bit samples).\n            Returns  when the encoder is unavailable or encoding fails.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.DecodeAudio(System.Byte[])",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.DecodeAudio(System.Byte[])",
+      "summary": "Decodes an Opus-encoded packet to 16-bit mono PCM at 48 kHz.\n            Returns the input unchanged when the decoder is unavailable.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.SetSpeakingAsync(System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.SetSpeakingAsync(System.Boolean)",
+      "summary": "Sends the Discord Speaking (op 5) payload to gate audio transmission.\n            Raises or lowers the speaking indicator so that Discord shows the microphone\n            animation and correctly routes the voice stream.  Call with\n             before sending the first audio frame and with\n             after the stream ends.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "speaking",
+          "description": "to raise;  to lower."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.BuildRtpHeader",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.BuildRtpHeader",
+      "summary": "Builds a 12-byte RTP fixed header (RFC 3550 §5.1) for the next outgoing audio packet.\n            Sequence number (uint16) and timestamp (uint32, 48 kHz clock) advance on every call.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.TryParseRtpPacket(System.Byte[],System.UInt32@,System.Byte[]@,System.Byte[]@)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.TryParseRtpPacket(System.Byte[],System.UInt32@,System.Byte[]@,System.Byte[]@)",
+      "summary": "Parses the fixed 12-byte RTP header from an inbound voice packet.\n            Returns the sender SSRC (used for DAVE per-sender key derivation),\n            the raw header bytes (passed as DAVE AAD), and the encrypted payload.",
+      "remarks": "",
+      "returns": "when the packet contains a valid 12-byte header.",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.UpdateVoiceState(PawSharp.Gateway.Events.VoiceStateUpdateEvent)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.UpdateVoiceState(PawSharp.Gateway.Events.VoiceStateUpdateEvent)",
+      "summary": "Updates the voice state.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "evt",
+          "description": "The voice state update event."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.UpdateVoiceServer(PawSharp.Gateway.Events.VoiceServerUpdateEvent)",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.UpdateVoiceServer(PawSharp.Gateway.Events.VoiceServerUpdateEvent)",
+      "summary": "Updates the voice server. (Connection is now initiated by  via ConnectAsync.)",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "evt",
+          "description": "The voice server update event."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Voice.VoiceConnection.Dispose",
+      "kind": "M",
+      "name": "PawSharp.Voice.VoiceConnection.Dispose",
+      "summary": "Disposes the voice connection.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    }
+  ]
+}

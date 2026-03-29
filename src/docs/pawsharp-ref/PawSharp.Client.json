@@ -1,0 +1,1113 @@
+{
+  "assembly": "PawSharp.Client",
+  "source": "C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Client.xml",
+  "members": [
+    {
+      "id": "T:PawSharp.Client.CacheManager",
+      "kind": "T",
+      "name": "PawSharp.Client.CacheManager",
+      "summary": "Automatically caches entities from gateway events.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.CacheManager.SubscribeToGateway(PawSharp.Gateway.IGatewayClient)",
+      "kind": "M",
+      "name": "PawSharp.Client.CacheManager.SubscribeToGateway(PawSharp.Gateway.IGatewayClient)",
+      "summary": "Subscribe to gateway events and automatically cache entities.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Client.DiscordClient",
+      "kind": "T",
+      "name": "PawSharp.Client.DiscordClient",
+      "summary": "Primary entry point for bots interacting with Discord.\n            Composes the REST client, gateway, cache, and interaction handler.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Client.DiscordClient.CurrentUser",
+      "kind": "P",
+      "name": "PawSharp.Client.DiscordClient.CurrentUser",
+      "summary": "The bot's own user object, populated after  completes\n            and the READY gateway event is received.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.#ctor(PawSharp.Core.Models.PawSharpOptions,PawSharp.Cache.Interfaces.IEntityCache,Microsoft.Extensions.Logging.ILogger{PawSharp.Client.DiscordClient},PawSharp.API.Interfaces.IDiscordRestClient,PawSharp.Gateway.IGatewayClient)",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.#ctor(PawSharp.Core.Models.PawSharpOptions,PawSharp.Cache.Interfaces.IEntityCache,Microsoft.Extensions.Logging.ILogger{PawSharp.Client.DiscordClient},PawSharp.API.Interfaces.IDiscordRestClient,PawSharp.Gateway.IGatewayClient)",
+      "summary": "Creates a  with all dependencies supplied externally.\n            Prefer the AddPawSharp DI extension for wiring everything automatically.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Client.DiscordClient.Gateway",
+      "kind": "P",
+      "name": "PawSharp.Client.DiscordClient.Gateway",
+      "summary": "Access the gateway client for low-level event handling and presence.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Client.DiscordClient.Rest",
+      "kind": "P",
+      "name": "PawSharp.Client.DiscordClient.Rest",
+      "summary": "Access the REST API client for all HTTP operations.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Client.DiscordClient.Cache",
+      "kind": "P",
+      "name": "PawSharp.Client.DiscordClient.Cache",
+      "summary": "Access the entity cache.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Client.DiscordClient.Interactions",
+      "kind": "P",
+      "name": "PawSharp.Client.DiscordClient.Interactions",
+      "summary": "Access the interaction handler for registering slash commands and components.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.ConnectAsync",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.ConnectAsync",
+      "summary": "Opens the WebSocket connection to Discord's gateway.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.DisconnectAsync",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.DisconnectAsync",
+      "summary": "Closes the WebSocket connection gracefully.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.SendMessageAsync(System.UInt64,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.SendMessageAsync(System.UInt64,System.String)",
+      "summary": "Sends a plain-text message to a channel.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.SendMessageAsync(System.UInt64,PawSharp.API.Models.CreateMessageRequest)",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.SendMessageAsync(System.UInt64,PawSharp.API.Models.CreateMessageRequest)",
+      "summary": "Sends a fully specified message to a channel.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.GetCurrentUserAsync",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.GetCurrentUserAsync",
+      "summary": "Returns the current bot user from the Discord API.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnReady(System.Func{PawSharp.Gateway.Events.ReadyEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnReady(System.Func{PawSharp.Gateway.Events.ReadyEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the READY gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnMessageCreated(System.Func{PawSharp.Gateway.Events.MessageCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnMessageCreated(System.Func{PawSharp.Gateway.Events.MessageCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the MESSAGE_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnMessageUpdated(System.Func{PawSharp.Gateway.Events.MessageUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnMessageUpdated(System.Func{PawSharp.Gateway.Events.MessageUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the MESSAGE_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnMessageDeleted(System.Func{PawSharp.Gateway.Events.MessageDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnMessageDeleted(System.Func{PawSharp.Gateway.Events.MessageDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the MESSAGE_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnMessagesBulkDeleted(System.Func{PawSharp.Gateway.Events.MessageDeleteBulkEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnMessagesBulkDeleted(System.Func{PawSharp.Gateway.Events.MessageDeleteBulkEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the MESSAGE_DELETE_BULK gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnReactionAdded(System.Func{PawSharp.Gateway.Events.MessageReactionAddEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnReactionAdded(System.Func{PawSharp.Gateway.Events.MessageReactionAddEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the MESSAGE_REACTION_ADD gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnReactionRemoved(System.Func{PawSharp.Gateway.Events.MessageReactionRemoveEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnReactionRemoved(System.Func{PawSharp.Gateway.Events.MessageReactionRemoveEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the MESSAGE_REACTION_REMOVE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnAllReactionsRemoved(System.Func{PawSharp.Gateway.Events.MessageReactionRemoveAllEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnAllReactionsRemoved(System.Func{PawSharp.Gateway.Events.MessageReactionRemoveAllEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the MESSAGE_REACTION_REMOVE_ALL gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnEmojiReactionsRemoved(System.Func{PawSharp.Gateway.Events.MessageReactionRemoveEmojiEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnEmojiReactionsRemoved(System.Func{PawSharp.Gateway.Events.MessageReactionRemoveEmojiEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the MESSAGE_REACTION_REMOVE_EMOJI gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnGuildAvailable(System.Func{PawSharp.Gateway.Events.GuildCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnGuildAvailable(System.Func{PawSharp.Gateway.Events.GuildCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnGuildUpdated(System.Func{PawSharp.Gateway.Events.GuildUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnGuildUpdated(System.Func{PawSharp.Gateway.Events.GuildUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnGuildUnavailable(System.Func{PawSharp.Gateway.Events.GuildDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnGuildUnavailable(System.Func{PawSharp.Gateway.Events.GuildDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnGuildMemberJoined(System.Func{PawSharp.Gateway.Events.GuildMemberAddEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnGuildMemberJoined(System.Func{PawSharp.Gateway.Events.GuildMemberAddEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_MEMBER_ADD gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnGuildMemberUpdated(System.Func{PawSharp.Gateway.Events.GuildMemberUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnGuildMemberUpdated(System.Func{PawSharp.Gateway.Events.GuildMemberUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_MEMBER_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnGuildMemberLeft(System.Func{PawSharp.Gateway.Events.GuildMemberRemoveEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnGuildMemberLeft(System.Func{PawSharp.Gateway.Events.GuildMemberRemoveEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_MEMBER_REMOVE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnChannelCreated(System.Func{PawSharp.Gateway.Events.ChannelCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnChannelCreated(System.Func{PawSharp.Gateway.Events.ChannelCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the CHANNEL_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnChannelUpdated(System.Func{PawSharp.Gateway.Events.ChannelUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnChannelUpdated(System.Func{PawSharp.Gateway.Events.ChannelUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the CHANNEL_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnChannelDeleted(System.Func{PawSharp.Gateway.Events.ChannelDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnChannelDeleted(System.Func{PawSharp.Gateway.Events.ChannelDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the CHANNEL_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnChannelPinsUpdated(System.Func{PawSharp.Gateway.Events.ChannelPinsUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnChannelPinsUpdated(System.Func{PawSharp.Gateway.Events.ChannelPinsUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the CHANNEL_PINS_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnRoleCreated(System.Func{PawSharp.Gateway.Events.GuildRoleCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnRoleCreated(System.Func{PawSharp.Gateway.Events.GuildRoleCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_ROLE_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnRoleUpdated(System.Func{PawSharp.Gateway.Events.GuildRoleUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnRoleUpdated(System.Func{PawSharp.Gateway.Events.GuildRoleUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_ROLE_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnRoleDeleted(System.Func{PawSharp.Gateway.Events.GuildRoleDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnRoleDeleted(System.Func{PawSharp.Gateway.Events.GuildRoleDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_ROLE_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnBanAdded(System.Func{PawSharp.Gateway.Events.GuildBanAddEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnBanAdded(System.Func{PawSharp.Gateway.Events.GuildBanAddEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_BAN_ADD gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnBanRemoved(System.Func{PawSharp.Gateway.Events.GuildBanRemoveEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnBanRemoved(System.Func{PawSharp.Gateway.Events.GuildBanRemoveEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_BAN_REMOVE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnTypingStarted(System.Func{PawSharp.Gateway.Events.TypingStartEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnTypingStarted(System.Func{PawSharp.Gateway.Events.TypingStartEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the TYPING_START gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnPresenceUpdated(System.Func{PawSharp.Gateway.Events.PresenceUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnPresenceUpdated(System.Func{PawSharp.Gateway.Events.PresenceUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the PRESENCE_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnVoiceStateUpdated(System.Func{PawSharp.Gateway.Events.VoiceStateUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnVoiceStateUpdated(System.Func{PawSharp.Gateway.Events.VoiceStateUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the VOICE_STATE_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnThreadCreated(System.Func{PawSharp.Gateway.Events.ThreadCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnThreadCreated(System.Func{PawSharp.Gateway.Events.ThreadCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the THREAD_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnThreadUpdated(System.Func{PawSharp.Gateway.Events.ThreadUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnThreadUpdated(System.Func{PawSharp.Gateway.Events.ThreadUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the THREAD_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnThreadDeleted(System.Func{PawSharp.Gateway.Events.ThreadDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnThreadDeleted(System.Func{PawSharp.Gateway.Events.ThreadDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the THREAD_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnInteractionCreated(System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnInteractionCreated(System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the INTERACTION_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnInviteCreated(System.Func{PawSharp.Gateway.Events.InviteCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnInviteCreated(System.Func{PawSharp.Gateway.Events.InviteCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the INVITE_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnInviteDeleted(System.Func{PawSharp.Gateway.Events.InviteDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnInviteDeleted(System.Func{PawSharp.Gateway.Events.InviteDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the INVITE_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnScheduledEventCreated(System.Func{PawSharp.Gateway.Events.GuildScheduledEventCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnScheduledEventCreated(System.Func{PawSharp.Gateway.Events.GuildScheduledEventCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_SCHEDULED_EVENT_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnScheduledEventUpdated(System.Func{PawSharp.Gateway.Events.GuildScheduledEventUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnScheduledEventUpdated(System.Func{PawSharp.Gateway.Events.GuildScheduledEventUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_SCHEDULED_EVENT_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnScheduledEventDeleted(System.Func{PawSharp.Gateway.Events.GuildScheduledEventDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnScheduledEventDeleted(System.Func{PawSharp.Gateway.Events.GuildScheduledEventDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_SCHEDULED_EVENT_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnAutoModerationActionExecuted(System.Func{PawSharp.Gateway.Events.AutoModerationActionExecutionEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnAutoModerationActionExecuted(System.Func{PawSharp.Gateway.Events.AutoModerationActionExecutionEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the AUTO_MODERATION_ACTION_EXECUTION gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnVoiceServerUpdated(System.Func{PawSharp.Gateway.Events.VoiceServerUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnVoiceServerUpdated(System.Func{PawSharp.Gateway.Events.VoiceServerUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the VOICE_SERVER_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnGuildEmojisUpdated(System.Func{PawSharp.Gateway.Events.GuildEmojisUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnGuildEmojisUpdated(System.Func{PawSharp.Gateway.Events.GuildEmojisUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_EMOJIS_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnGuildStickersUpdated(System.Func{PawSharp.Gateway.Events.GuildStickersUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnGuildStickersUpdated(System.Func{PawSharp.Gateway.Events.GuildStickersUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_STICKERS_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnGuildMembersChunked(System.Func{PawSharp.Gateway.Events.GuildMembersChunkEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnGuildMembersChunked(System.Func{PawSharp.Gateway.Events.GuildMembersChunkEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_MEMBERS_CHUNK gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnGuildAuditLogEntryCreated(System.Func{PawSharp.Gateway.Events.GuildAuditLogEntryCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnGuildAuditLogEntryCreated(System.Func{PawSharp.Gateway.Events.GuildAuditLogEntryCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_AUDIT_LOG_ENTRY_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnWebhooksUpdated(System.Func{PawSharp.Gateway.Events.WebhooksUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnWebhooksUpdated(System.Func{PawSharp.Gateway.Events.WebhooksUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the WEBHOOKS_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnStageInstanceCreated(System.Func{PawSharp.Gateway.Events.StageInstanceCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnStageInstanceCreated(System.Func{PawSharp.Gateway.Events.StageInstanceCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the STAGE_INSTANCE_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnStageInstanceUpdated(System.Func{PawSharp.Gateway.Events.StageInstanceUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnStageInstanceUpdated(System.Func{PawSharp.Gateway.Events.StageInstanceUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the STAGE_INSTANCE_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnStageInstanceDeleted(System.Func{PawSharp.Gateway.Events.StageInstanceDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnStageInstanceDeleted(System.Func{PawSharp.Gateway.Events.StageInstanceDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the STAGE_INSTANCE_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnScheduledEventUserAdded(System.Func{PawSharp.Gateway.Events.GuildScheduledEventUserAddEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnScheduledEventUserAdded(System.Func{PawSharp.Gateway.Events.GuildScheduledEventUserAddEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_SCHEDULED_EVENT_USER_ADD gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnScheduledEventUserRemoved(System.Func{PawSharp.Gateway.Events.GuildScheduledEventUserRemoveEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnScheduledEventUserRemoved(System.Func{PawSharp.Gateway.Events.GuildScheduledEventUserRemoveEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the GUILD_SCHEDULED_EVENT_USER_REMOVE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnAutoModerationRuleCreated(System.Func{PawSharp.Gateway.Events.AutoModerationRuleCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnAutoModerationRuleCreated(System.Func{PawSharp.Gateway.Events.AutoModerationRuleCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the AUTO_MODERATION_RULE_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnAutoModerationRuleUpdated(System.Func{PawSharp.Gateway.Events.AutoModerationRuleUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnAutoModerationRuleUpdated(System.Func{PawSharp.Gateway.Events.AutoModerationRuleUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the AUTO_MODERATION_RULE_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnAutoModerationRuleDeleted(System.Func{PawSharp.Gateway.Events.AutoModerationRuleDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnAutoModerationRuleDeleted(System.Func{PawSharp.Gateway.Events.AutoModerationRuleDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the AUTO_MODERATION_RULE_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnIntegrationCreated(System.Func{PawSharp.Gateway.Events.IntegrationCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnIntegrationCreated(System.Func{PawSharp.Gateway.Events.IntegrationCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the INTEGRATION_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnIntegrationUpdated(System.Func{PawSharp.Gateway.Events.IntegrationUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnIntegrationUpdated(System.Func{PawSharp.Gateway.Events.IntegrationUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the INTEGRATION_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnIntegrationDeleted(System.Func{PawSharp.Gateway.Events.IntegrationDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnIntegrationDeleted(System.Func{PawSharp.Gateway.Events.IntegrationDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the INTEGRATION_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnMessagePollVoteAdded(System.Func{PawSharp.Gateway.Events.MessagePollVoteAddEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnMessagePollVoteAdded(System.Func{PawSharp.Gateway.Events.MessagePollVoteAddEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the MESSAGE_POLL_VOTE_ADD gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnMessagePollVoteRemoved(System.Func{PawSharp.Gateway.Events.MessagePollVoteRemoveEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnMessagePollVoteRemoved(System.Func{PawSharp.Gateway.Events.MessagePollVoteRemoveEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the MESSAGE_POLL_VOTE_REMOVE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnEntitlementCreated(System.Func{PawSharp.Gateway.Events.EntitlementCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnEntitlementCreated(System.Func{PawSharp.Gateway.Events.EntitlementCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the ENTITLEMENT_CREATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnEntitlementUpdated(System.Func{PawSharp.Gateway.Events.EntitlementUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnEntitlementUpdated(System.Func{PawSharp.Gateway.Events.EntitlementUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the ENTITLEMENT_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnEntitlementDeleted(System.Func{PawSharp.Gateway.Events.EntitlementDeleteEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnEntitlementDeleted(System.Func{PawSharp.Gateway.Events.EntitlementDeleteEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the ENTITLEMENT_DELETE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnThreadListSynced(System.Func{PawSharp.Gateway.Events.ThreadListSyncEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnThreadListSynced(System.Func{PawSharp.Gateway.Events.ThreadListSyncEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the THREAD_LIST_SYNC gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnThreadMemberUpdated(System.Func{PawSharp.Gateway.Events.ThreadMemberUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnThreadMemberUpdated(System.Func{PawSharp.Gateway.Events.ThreadMemberUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the THREAD_MEMBER_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnThreadMembersUpdated(System.Func{PawSharp.Gateway.Events.ThreadMembersUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnThreadMembersUpdated(System.Func{PawSharp.Gateway.Events.ThreadMembersUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the THREAD_MEMBERS_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClient.OnApplicationCommandPermissionsUpdated(System.Func{PawSharp.Gateway.Events.ApplicationCommandPermissionsUpdateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClient.OnApplicationCommandPermissionsUpdated(System.Func{PawSharp.Gateway.Events.ApplicationCommandPermissionsUpdateEvent,System.Threading.Tasks.Task})",
+      "summary": "Subscribes to the APPLICATION_COMMAND_PERMISSIONS_UPDATE gateway event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Client.Extensions.PawSharpServiceCollectionExtensions",
+      "kind": "T",
+      "name": "PawSharp.Client.Extensions.PawSharpServiceCollectionExtensions",
+      "summary": "Convenience extensions for registering PawSharp services with .NET's dependency injection container.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.Extensions.PawSharpServiceCollectionExtensions.AddPawSharp(Microsoft.Extensions.DependencyInjection.IServiceCollection,PawSharp.Core.Models.PawSharpOptions,System.Func{System.IServiceProvider,PawSharp.Cache.Interfaces.IEntityCache})",
+      "kind": "M",
+      "name": "PawSharp.Client.Extensions.PawSharpServiceCollectionExtensions.AddPawSharp(Microsoft.Extensions.DependencyInjection.IServiceCollection,PawSharp.Core.Models.PawSharpOptions,System.Func{System.IServiceProvider,PawSharp.Cache.Interfaces.IEntityCache})",
+      "summary": "Registers all PawSharp services — REST client, gateway, cache, interaction handler, and  —\n            with the supplied service collection using the provided options.",
+      "remarks": "",
+      "returns": "The same  for chaining.",
+      "example": "",
+      "params": [
+        {
+          "name": "services",
+          "description": "The service collection to register into."
+        },
+        {
+          "name": "options",
+          "description": "Bot configuration (token, intents, etc.)."
+        },
+        {
+          "name": "cacheFactory",
+          "description": "Optional factory for supplying a custom  implementation.\n            When null, the in-memory provider from PawSharp.Cache is expected to be\n            registered separately (e.g. via services.AddMemoryCache())."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Client.Extensions.PawSharpServiceCollectionExtensions.AddPawSharpWithMemoryCache(Microsoft.Extensions.DependencyInjection.IServiceCollection,PawSharp.Core.Models.PawSharpOptions)",
+      "kind": "M",
+      "name": "PawSharp.Client.Extensions.PawSharpServiceCollectionExtensions.AddPawSharpWithMemoryCache(Microsoft.Extensions.DependencyInjection.IServiceCollection,PawSharp.Core.Models.PawSharpOptions)",
+      "summary": "Registers all PawSharp services with an in-memory entity cache.\n            Equivalent to calling \n            with cacheFactory: _ => new MemoryCacheProvider().",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Client.DiscordClientIntentValidationExtensions",
+      "kind": "T",
+      "name": "PawSharp.Client.DiscordClientIntentValidationExtensions",
+      "summary": "Extension methods for  to support event interest validation.",
+      "remarks": "These extensions provide ergonomic APIs for validating that handlers' required intents\n            are enabled before connecting to the gateway, catching configuration bugs early.",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClientIntentValidationExtensions.ValidateIntents(PawSharp.Client.DiscordClient,PawSharp.Core.Enums.GatewayIntents)",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClientIntentValidationExtensions.ValidateIntents(PawSharp.Client.DiscordClient,PawSharp.Core.Enums.GatewayIntents)",
+      "summary": "Validates that all registered gateway event handlers have their required intents enabled.\n            Logs warnings for any mismatches and collects detailed validation results.",
+      "remarks": "Example usage:\n            \n            var client = new PawSharpClientBuilder()\n                .WithToken(token)\n                .WithIntents(GatewayIntents.AllNonPrivileged)\n                .Build();\n            \n            // Register handlers...\n            client.OnMessageCreated(async msg => { ... });\n            \n            // Validate intent configuration\n            var enabledIntents = GatewayIntents.AllNonPrivileged;\n            var issues = client.ValidateIntents(enabledIntents);\n            if (!issues.IsValid)\n            {\n                foreach (var (eventType, required, missing) in issues.Issues)\n                    Console.WriteLine($\"{eventType} needs {missing}\");\n            }\n            \n            await client.ConnectAsync();",
+      "returns": "A summary of intent validation issues (empty if all valid)",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client"
+        },
+        {
+          "name": "enabledIntents",
+          "description": "The intents that are currently enabled"
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClientIntentValidationExtensions.GetRecommendedIntents(PawSharp.Client.DiscordClient)",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClientIntentValidationExtensions.GetRecommendedIntents(PawSharp.Client.DiscordClient)",
+      "summary": "Gets the recommended set of intents based on all currently registered handlers.\n            Useful for suggesting minimal working intent configuration.",
+      "remarks": "Returns only the intents needed for registered handlers, excluding extra intents.\n            This is useful when you want to determine the minimal permission set your bot needs.",
+      "returns": "Recommended intents, or (GatewayIntents)0 if no handlers are registered",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client"
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Client.DiscordClientIntentValidationExtensions.LogIntentSummary(PawSharp.Client.DiscordClient,PawSharp.Core.Enums.GatewayIntents)",
+      "kind": "M",
+      "name": "PawSharp.Client.DiscordClientIntentValidationExtensions.LogIntentSummary(PawSharp.Client.DiscordClient,PawSharp.Core.Enums.GatewayIntents)",
+      "summary": "Logs a summary of which intents are currently enabled and which are recommended.\n            Useful for debugging intent configuration at startup.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client"
+        },
+        {
+          "name": "enabledIntents",
+          "description": "The intents that are currently enabled"
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Client.IntentValidationResult",
+      "kind": "T",
+      "name": "PawSharp.Client.IntentValidationResult",
+      "summary": "Result of an intent validation check, containing summary of any mismatches.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Client.IntentValidationResult.EnabledIntents",
+      "kind": "P",
+      "name": "PawSharp.Client.IntentValidationResult.EnabledIntents",
+      "summary": "The intents that were enabled during validation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Client.IntentValidationResult.Count",
+      "kind": "P",
+      "name": "PawSharp.Client.IntentValidationResult.Count",
+      "summary": "Number of issues found (events with missing intents).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Client.IntentValidationResult.IsValid",
+      "kind": "P",
+      "name": "PawSharp.Client.IntentValidationResult.IsValid",
+      "summary": "True if validation passed (no issues found).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Client.IntentValidationResult.Issues",
+      "kind": "P",
+      "name": "PawSharp.Client.IntentValidationResult.Issues",
+      "summary": "Gets a summary of all issues found.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.IntentValidationResult.ToString",
+      "kind": "M",
+      "name": "PawSharp.Client.IntentValidationResult.ToString",
+      "summary": "Gets a human-readable summary of validation results.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Client.PawSharpClientBuilder",
+      "kind": "T",
+      "name": "PawSharp.Client.PawSharpClientBuilder",
+      "summary": "Lightweight fluent builder that wires up a fully-configured \n             without requiring the Microsoft DI container.\n             \n             For ASP.NET Core or similar host-based applications prefer the\n             services.AddPawSharp(options) extension method instead.",
+      "remarks": "",
+      "returns": "",
+      "example": "var client = new PawSharpClientBuilder()\n                 .WithToken(\"Bot YOUR_TOKEN_HERE\")\n                 .WithIntents(GatewayIntents.AllNonPrivileged | GatewayIntents.MessageContent)\n                 .UseConsoleLogging(LogLevel.Information)\n                 .Build();\n            \n             client.OnMessageCreated(msg => Console.WriteLine($\"[{msg.ChannelId}] {msg.Author?.Username}: {msg.Content}\"));\n            \n             await client.ConnectAsync();\n             await Task.Delay(-1); // keep alive",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.WithToken(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.WithToken(System.String)",
+      "summary": "Sets the bot token. Must start with Bot  (Discord format).\n            If you provide a raw token without the prefix, the prefix is added automatically.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.WithIntents(PawSharp.Core.Enums.GatewayIntents)",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.WithIntents(PawSharp.Core.Enums.GatewayIntents)",
+      "summary": "Sets the gateway intents to subscribe to.",
+      "remarks": ", ,\n            and  are privileged — enable them in the\n            Discord Developer Portal before using them.",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.AddIntents(PawSharp.Core.Enums.GatewayIntents)",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.AddIntents(PawSharp.Core.Enums.GatewayIntents)",
+      "summary": "Adds additional intents to the current set.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.WithApiVersion(System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.WithApiVersion(System.Int32)",
+      "summary": "Sets the Discord API version to use (default: 10).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.WithSharding(System.Int32,System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.WithSharding(System.Int32,System.Int32)",
+      "summary": "Configures sharding for large bots (> ~2 500 guilds).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "shardId",
+          "description": "Zero-based index of this shard."
+        },
+        {
+          "name": "totalShards",
+          "description": "Total number of shards across all instances."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.UseCompression",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.UseCompression",
+      "summary": "Enables zlib gateway compression (reduces bandwidth on large bots).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.UseLoggerFactory(Microsoft.Extensions.Logging.ILoggerFactory)",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.UseLoggerFactory(Microsoft.Extensions.Logging.ILoggerFactory)",
+      "summary": "Supplies a custom  for all PawSharp components.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.UseConsoleLogging(Microsoft.Extensions.Logging.LogLevel)",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.UseConsoleLogging(Microsoft.Extensions.Logging.LogLevel)",
+      "summary": "Configures PawSharp to write logs to Console.Out at the specified minimum level.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "minimumLevel",
+          "description": "Minimum level to log (default: )."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.UseMemoryCache",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.UseMemoryCache",
+      "summary": "Uses the built-in in-memory cache (default behaviour when no cache is specified).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.UseCache(PawSharp.Cache.Interfaces.IEntityCache)",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.UseCache(PawSharp.Cache.Interfaces.IEntityCache)",
+      "summary": "Supplies a custom  implementation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.UseHttpClient(System.Net.Http.HttpClient)",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.UseHttpClient(System.Net.Http.HttpClient)",
+      "summary": "Supplies a custom  for the REST layer\n            (e.g. to inject a mock in tests or add a custom HTTP handler).\n            If not provided, a default instance is created automatically.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.WithPresence(System.String,System.Int32,System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.WithPresence(System.String,System.Int32,System.String,System.String)",
+      "summary": "Sets the bot's initial presence shown immediately after the gateway READY event.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "activityName",
+          "description": "Activity text shown in the user list (e.g. \"with fire\")."
+        },
+        {
+          "name": "activityType",
+          "description": "Activity type integer: 0 = Playing (default), 1 = Streaming, 2 = Listening,\n            3 = Watching, 5 = Competing."
+        },
+        {
+          "name": "status",
+          "description": "Discord status: \"online\" (default), \"idle\", \"dnd\", or \"invisible\"."
+        },
+        {
+          "name": "streamUrl",
+          "description": "Stream URL required when  is 1 (Streaming)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Client.PawSharpClientBuilder.Build",
+      "kind": "M",
+      "name": "PawSharp.Client.PawSharpClientBuilder.Build",
+      "summary": "Validates configuration and constructs a fully wired .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    }
+  ]
+}

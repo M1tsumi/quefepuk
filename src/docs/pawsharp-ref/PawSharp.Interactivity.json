@@ -1,0 +1,563 @@
+{
+  "assembly": "PawSharp.Interactivity",
+  "source": "C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Interactivity\\bin\\Release\\net10.0\\PawSharp.Interactivity.xml",
+  "members": [
+    {
+      "id": "T:PawSharp.Interactivity.Extensions.ChannelExtensions",
+      "kind": "T",
+      "name": "PawSharp.Interactivity.Extensions.ChannelExtensions",
+      "summary": "Extension methods for Discord channels.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactivity.Extensions.ChannelExtensions.SendPaginatedMessageAsync(PawSharp.Core.Entities.Channel,PawSharp.Client.DiscordClient,PawSharp.Core.Entities.User,System.Collections.Generic.IEnumerable{PawSharp.Interactivity.Page},System.Nullable{System.TimeSpan})",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.Extensions.ChannelExtensions.SendPaginatedMessageAsync(PawSharp.Core.Entities.Channel,PawSharp.Client.DiscordClient,PawSharp.Core.Entities.User,System.Collections.Generic.IEnumerable{PawSharp.Interactivity.Page},System.Nullable{System.TimeSpan})",
+      "summary": "Sends a paginated message.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "channel",
+          "description": "The channel to send to."
+        },
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "user",
+          "description": "The user who can control the pagination."
+        },
+        {
+          "name": "pages",
+          "description": "The pages to paginate."
+        },
+        {
+          "name": "timeout",
+          "description": "The timeout for the pagination."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactivity.Extensions.ChannelExtensions.GetNextMessageAsync(PawSharp.Core.Entities.Channel,PawSharp.Client.DiscordClient,System.Func{PawSharp.Gateway.Events.MessageCreateEvent,System.Boolean},System.Nullable{System.TimeSpan})",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.Extensions.ChannelExtensions.GetNextMessageAsync(PawSharp.Core.Entities.Channel,PawSharp.Client.DiscordClient,System.Func{PawSharp.Gateway.Events.MessageCreateEvent,System.Boolean},System.Nullable{System.TimeSpan})",
+      "summary": "Waits for the next message in the channel.",
+      "remarks": "",
+      "returns": "The interactivity result.",
+      "example": "",
+      "params": [
+        {
+          "name": "channel",
+          "description": "The channel to wait in."
+        },
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "predicate",
+          "description": "The predicate to match messages."
+        },
+        {
+          "name": "timeout",
+          "description": "The timeout for waiting."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Interactivity.Extensions.InteractivityExtensions",
+      "kind": "T",
+      "name": "PawSharp.Interactivity.Extensions.InteractivityExtensions",
+      "summary": "Extension methods for adding interactivity to Discord clients.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactivity.Extensions.InteractivityExtensions.UseInteractivity(PawSharp.Client.DiscordClient,PawSharp.Interactivity.InteractivityConfiguration)",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.Extensions.InteractivityExtensions.UseInteractivity(PawSharp.Client.DiscordClient,PawSharp.Interactivity.InteractivityConfiguration)",
+      "summary": "Enables interactivity for the Discord client.",
+      "remarks": "",
+      "returns": "The interactivity extension.",
+      "example": "",
+      "params": [
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "config",
+          "description": "The interactivity configuration."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactivity.Extensions.InteractivityExtensions.GetExtension(PawSharp.Client.DiscordClient)",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.Extensions.InteractivityExtensions.GetExtension(PawSharp.Client.DiscordClient)",
+      "summary": "Returns the  registered for ,\n            or null if  has not been called for this client.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactivity.Extensions.MessageExtensions",
+      "kind": "T",
+      "name": "PawSharp.Interactivity.Extensions.MessageExtensions",
+      "summary": "Extension methods for Discord messages.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactivity.Extensions.MessageExtensions.WaitForReactionAsync(PawSharp.Core.Entities.Message,PawSharp.Client.DiscordClient,PawSharp.Core.Entities.User,System.String,System.Nullable{System.TimeSpan})",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.Extensions.MessageExtensions.WaitForReactionAsync(PawSharp.Core.Entities.Message,PawSharp.Client.DiscordClient,PawSharp.Core.Entities.User,System.String,System.Nullable{System.TimeSpan})",
+      "summary": "Waits for a reaction on the message.",
+      "remarks": "",
+      "returns": "The interactivity result.",
+      "example": "",
+      "params": [
+        {
+          "name": "message",
+          "description": "The message to wait for reactions on."
+        },
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "user",
+          "description": "The user whose reaction to wait for."
+        },
+        {
+          "name": "emoji",
+          "description": "The specific emoji to wait for, or null for any emoji."
+        },
+        {
+          "name": "timeout",
+          "description": "The timeout for waiting."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactivity.Extensions.MessageExtensions.CollectReactionsAsync(PawSharp.Core.Entities.Message,PawSharp.Client.DiscordClient,System.Nullable{System.TimeSpan})",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.Extensions.MessageExtensions.CollectReactionsAsync(PawSharp.Core.Entities.Message,PawSharp.Client.DiscordClient,System.Nullable{System.TimeSpan})",
+      "summary": "Collects reactions on the message.",
+      "remarks": "",
+      "returns": "The collected reactions.",
+      "example": "",
+      "params": [
+        {
+          "name": "message",
+          "description": "The message to collect reactions from."
+        },
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "timeout",
+          "description": "The timeout for collecting."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactivity.Extensions.MessageExtensions.CreatePollAsync(PawSharp.Core.Entities.Message,PawSharp.Client.DiscordClient,System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.TimeSpan})",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.Extensions.MessageExtensions.CreatePollAsync(PawSharp.Core.Entities.Message,PawSharp.Client.DiscordClient,System.String,System.Collections.Generic.IEnumerable{System.String},System.Nullable{System.TimeSpan})",
+      "summary": "Creates a poll on the message.",
+      "remarks": "",
+      "returns": "A task representing the asynchronous operation.",
+      "example": "",
+      "params": [
+        {
+          "name": "message",
+          "description": "The message to create a poll on."
+        },
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "question",
+          "description": "The poll question."
+        },
+        {
+          "name": "options",
+          "description": "The poll options."
+        },
+        {
+          "name": "timeout",
+          "description": "The timeout for the poll."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(PawSharp.Core.Entities.Message,PawSharp.Client.DiscordClient,PawSharp.Core.Entities.User,System.String,System.Nullable{System.TimeSpan})",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.Extensions.MessageExtensions.WaitForButtonAsync(PawSharp.Core.Entities.Message,PawSharp.Client.DiscordClient,PawSharp.Core.Entities.User,System.String,System.Nullable{System.TimeSpan})",
+      "summary": "Waits for a button click on this message and returns the resulting interaction.",
+      "remarks": "",
+      "returns": "An  wrapping the \n            when a matching click arrives, or a timed-out result after the deadline.",
+      "example": "",
+      "params": [
+        {
+          "name": "message",
+          "description": "The message whose buttons to listen on."
+        },
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "user",
+          "description": "The user whose interaction to accept, or  to accept any user."
+        },
+        {
+          "name": "customId",
+          "description": "The custom_id of the specific button to wait for, or \n            to accept any button on the message."
+        },
+        {
+          "name": "timeout",
+          "description": "The maximum time to wait.  Falls back to \n            if not specified."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactivity.Extensions.MessageExtensions.WaitForSelectAsync(PawSharp.Core.Entities.Message,PawSharp.Client.DiscordClient,PawSharp.Core.Entities.User,System.String,System.Nullable{System.TimeSpan})",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.Extensions.MessageExtensions.WaitForSelectAsync(PawSharp.Core.Entities.Message,PawSharp.Client.DiscordClient,PawSharp.Core.Entities.User,System.String,System.Nullable{System.TimeSpan})",
+      "summary": "Waits for a select menu interaction on this message and returns the resulting interaction.",
+      "remarks": "",
+      "returns": "An  wrapping the \n            (with Data.Values containing the selected values) when a matching submission\n            arrives, or a timed-out result after the deadline.",
+      "example": "",
+      "params": [
+        {
+          "name": "message",
+          "description": "The message whose select menus to listen on."
+        },
+        {
+          "name": "client",
+          "description": "The Discord client."
+        },
+        {
+          "name": "user",
+          "description": "The user whose interaction to accept, or  to accept any user."
+        },
+        {
+          "name": "customId",
+          "description": "The custom_id of the specific select menu to wait for, or \n            to accept any select menu on the message."
+        },
+        {
+          "name": "timeout",
+          "description": "The maximum time to wait.  Falls back to \n            if not specified."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Interactivity.InteractivityConfiguration",
+      "kind": "T",
+      "name": "PawSharp.Interactivity.InteractivityConfiguration",
+      "summary": "Configuration for interactivity.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.InteractivityConfiguration.Timeout",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.InteractivityConfiguration.Timeout",
+      "summary": "Gets or sets the default timeout for interactivity operations.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.InteractivityConfiguration.PollBehaviour",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.InteractivityConfiguration.PollBehaviour",
+      "summary": "Gets or sets the pagination behavior for reactions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.InteractivityConfiguration.PaginationEmojis",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.InteractivityConfiguration.PaginationEmojis",
+      "summary": "Gets or sets the pagination emojis.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactivity.PaginationEmojis",
+      "kind": "T",
+      "name": "PawSharp.Interactivity.PaginationEmojis",
+      "summary": "Pagination emojis.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.PaginationEmojis.Left",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.PaginationEmojis.Left",
+      "summary": "Gets or sets the left arrow emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.PaginationEmojis.Right",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.PaginationEmojis.Right",
+      "summary": "Gets or sets the right arrow emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.PaginationEmojis.SkipLeft",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.PaginationEmojis.SkipLeft",
+      "summary": "Gets or sets the skip left emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.PaginationEmojis.SkipRight",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.PaginationEmojis.SkipRight",
+      "summary": "Gets or sets the skip right emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.PaginationEmojis.Stop",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.PaginationEmojis.Stop",
+      "summary": "Gets or sets the stop emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactivity.PollBehaviour",
+      "kind": "T",
+      "name": "PawSharp.Interactivity.PollBehaviour",
+      "summary": "Poll behavior for reactions.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Interactivity.PollBehaviour.DeleteEmojis",
+      "kind": "F",
+      "name": "PawSharp.Interactivity.PollBehaviour.DeleteEmojis",
+      "summary": "Delete all reactions when done.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Interactivity.PollBehaviour.KeepEmojis",
+      "kind": "F",
+      "name": "PawSharp.Interactivity.PollBehaviour.KeepEmojis",
+      "summary": "Keep all reactions when done.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Interactivity.PollBehaviour.DeleteReactions",
+      "kind": "F",
+      "name": "PawSharp.Interactivity.PollBehaviour.DeleteReactions",
+      "summary": "Delete only the bot's reactions when done.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactivity.Page",
+      "kind": "T",
+      "name": "PawSharp.Interactivity.Page",
+      "summary": "Represents a page in a paginated message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.Page.Embed",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.Page.Embed",
+      "summary": "Gets or sets the embed for this page.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.Page.Content",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.Page.Content",
+      "summary": "Gets or sets the content for this page.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactivity.InteractivityResult`1",
+      "kind": "T",
+      "name": "PawSharp.Interactivity.InteractivityResult`1",
+      "summary": "Result of an interactivity operation.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.InteractivityResult`1.TimedOut",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.InteractivityResult`1.TimedOut",
+      "summary": "Gets whether the operation timed out.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.InteractivityResult`1.Result",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.InteractivityResult`1.Result",
+      "summary": "Gets the result value.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactivity.InteractivityExtension",
+      "kind": "T",
+      "name": "PawSharp.Interactivity.InteractivityExtension",
+      "summary": "Main interactivity extension.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactivity.InteractivityExtension.#ctor(PawSharp.Interactivity.InteractivityConfiguration)",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.InteractivityExtension.#ctor(PawSharp.Interactivity.InteractivityConfiguration)",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "config",
+          "description": "The interactivity configuration."
+        }
+      ]
+    },
+    {
+      "id": "P:PawSharp.Interactivity.InteractivityExtension.Timeout",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.InteractivityExtension.Timeout",
+      "summary": "Gets the timeout for operations.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.InteractivityExtension.PaginationEmojis",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.InteractivityExtension.PaginationEmojis",
+      "summary": "Gets the pagination emojis used by SendPaginatedMessageAsync.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactivity.InteractivityExtension.PollBehaviour",
+      "kind": "P",
+      "name": "PawSharp.Interactivity.InteractivityExtension.PollBehaviour",
+      "summary": "Gets the poll behaviour (reaction cleanup) used by SendPaginatedMessageAsync.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactivity.InteractivityExtension.GeneratePagesInContent(System.String,System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.InteractivityExtension.GeneratePagesInContent(System.String,System.Int32)",
+      "summary": "Generates pages from content.",
+      "remarks": "",
+      "returns": "The generated pages.",
+      "example": "",
+      "params": [
+        {
+          "name": "content",
+          "description": "The content to paginate."
+        },
+        {
+          "name": "maxLength",
+          "description": "The maximum length per page."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactivity.InteractivityExtension.GeneratePagesInEmbed(System.String,System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Interactivity.InteractivityExtension.GeneratePagesInEmbed(System.String,System.Int32)",
+      "summary": "Generates pages from content in embeds.",
+      "remarks": "",
+      "returns": "The generated pages.",
+      "example": "",
+      "params": [
+        {
+          "name": "content",
+          "description": "The content to paginate."
+        },
+        {
+          "name": "maxLength",
+          "description": "The maximum length per page."
+        }
+      ]
+    }
+  ]
+}

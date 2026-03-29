@@ -1,0 +1,901 @@
+{
+  "assembly": "PawSharp.Interactions",
+  "source": "C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Interactions.xml",
+  "members": [
+    {
+      "id": "T:PawSharp.Interactions.Builders.ButtonBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.ButtonBuilder",
+      "summary": "Builder for creating buttons.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.ButtonBuilder.SetEmoji(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.ButtonBuilder.SetEmoji(System.String)",
+      "summary": "Sets a Unicode emoji on the button (e.g. \"🔥\").",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.ButtonBuilder.SetCustomEmoji(System.String,System.UInt64,System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.ButtonBuilder.SetCustomEmoji(System.String,System.UInt64,System.Boolean)",
+      "summary": "Sets a custom guild emoji on the button.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "name",
+          "description": "Emoji name (without colons)."
+        },
+        {
+          "name": "id",
+          "description": "The guild emoji snowflake ID."
+        },
+        {
+          "name": "animated",
+          "description": "Whether the emoji is animated."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.ButtonBuilder.SetSkuId(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.ButtonBuilder.SetSkuId(System.UInt64)",
+      "summary": "Sets the SKU ID for a  button.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.SelectMenuBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.SelectMenuBuilder",
+      "summary": "Builder for creating select menus.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.UserSelectMenuBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.UserSelectMenuBuilder",
+      "summary": "Builder for a User select menu (component type 5) — lets users choose one or more guild members.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.RoleSelectMenuBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.RoleSelectMenuBuilder",
+      "summary": "Builder for a Role select menu (component type 6) — lets users choose one or more guild roles.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.MentionableSelectMenuBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.MentionableSelectMenuBuilder",
+      "summary": "Builder for a Mentionable select menu (component type 7) — lets users choose users or roles.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.ChannelSelectMenuBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.ChannelSelectMenuBuilder",
+      "summary": "Builder for a Channel select menu (component type 8) — lets users choose one or more channels.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.ChannelSelectMenuBuilder.SetChannelTypes(System.Int32[])",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.ChannelSelectMenuBuilder.SetChannelTypes(System.Int32[])",
+      "summary": "Restricts channels shown to the specified types ( int values).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.ActionRowBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.ActionRowBuilder",
+      "summary": "Builder for creating action rows (component containers).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.TextDisplayBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.TextDisplayBuilder",
+      "summary": "Builder for  (component type 10).\n            Renders a block of markdown-formatted text in a Components v2 layout.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.SeparatorBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.SeparatorBuilder",
+      "summary": "Builder for  (component type 14).\n            Renders a visual divider between other Components v2 elements.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.MediaGalleryBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.MediaGalleryBuilder",
+      "summary": "Builder for  (component type 12).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.MediaGalleryBuilder.AddItem(System.String,System.String,System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.MediaGalleryBuilder.AddItem(System.String,System.String,System.Boolean)",
+      "summary": "Adds a media item to the gallery.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "url",
+          "description": "URL of the image or video."
+        },
+        {
+          "name": "description",
+          "description": "Alt text / description."
+        },
+        {
+          "name": "spoiler",
+          "description": "Whether to hide the media behind a spoiler overlay."
+        }
+      ]
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.SectionBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.SectionBuilder",
+      "summary": "Builder for  (component type 9).\n            A horizontal row that groups text displays with an optional accessory (button or thumbnail).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.ContainerBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.ContainerBuilder",
+      "summary": "Builder for  (component type 17).\n            A full-width layout container that can hold any mix of Components v2 elements.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.InteractionResponseBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.InteractionResponseBuilder",
+      "summary": "Fluent builder for  objects.\n             Handles ChannelMessageWithSource (type 4) and\n             UpdateMessage (type 7) response types, with optional ephemeral, embeds, content, and components.",
+      "remarks": "",
+      "returns": "",
+      "example": "var response = new InteractionResponseBuilder()\n                 .WithContent(\"Hello!\")\n                 .AddEmbed(embedBuilder.Build())\n                 .AddActionRow(row => row.AddButton(new ButtonBuilder(\"btn\", \"Click me!\")))\n                 .AsEphemeral()\n                 .Build();\n            \n             await handler.RespondAsync(interaction.Id, interaction.Token, response);",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.InteractionResponseBuilder.WithContent(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.InteractionResponseBuilder.WithContent(System.String)",
+      "summary": "Sets the text content of the response message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.InteractionResponseBuilder.AddEmbed(PawSharp.Core.Entities.Embed)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.InteractionResponseBuilder.AddEmbed(PawSharp.Core.Entities.Embed)",
+      "summary": "Appends a pre-built embed to the response.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.InteractionResponseBuilder.AddActionRow(PawSharp.Core.Entities.MessageComponent)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.InteractionResponseBuilder.AddActionRow(PawSharp.Core.Entities.MessageComponent)",
+      "summary": "Appends an already-built  to the response.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.InteractionResponseBuilder.AddActionRow(System.Action{PawSharp.Interactions.Builders.ActionRowBuilder})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.InteractionResponseBuilder.AddActionRow(System.Action{PawSharp.Interactions.Builders.ActionRowBuilder})",
+      "summary": "Builds and appends an action row using a callback.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.InteractionResponseBuilder.AsEphemeral(System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.InteractionResponseBuilder.AsEphemeral(System.Boolean)",
+      "summary": "Marks the response as ephemeral — only the user who triggered the interaction will see it.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.InteractionResponseBuilder.AsUpdateMessage(System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.InteractionResponseBuilder.AsUpdateMessage(System.Boolean)",
+      "summary": "Produces an UpdateMessage (type 7) response that edits the original component message\n            instead of sending a new one. Used in button / select menu handlers.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.InteractionResponseBuilder.Build",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.InteractionResponseBuilder.Build",
+      "summary": "Constructs the .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.ModalBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.ModalBuilder",
+      "summary": "Fluent builder for Discord modal dialogs.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.ModalBuilder.WithCustomId(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.ModalBuilder.WithCustomId(System.String)",
+      "summary": "Sets the custom ID that will be sent back in the MODAL_SUBMIT interaction.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.ModalBuilder.WithTitle(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.ModalBuilder.WithTitle(System.String)",
+      "summary": "Sets the title shown at the top of the modal.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.ModalBuilder.AddTextInput(System.String,System.String,PawSharp.Core.Entities.TextInputStyle,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.ModalBuilder.AddTextInput(System.String,System.String,PawSharp.Core.Entities.TextInputStyle,System.Boolean,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})",
+      "summary": "Adds a text input field to the modal.\n            Each input is automatically wrapped in an ActionRow as Discord requires.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "label",
+          "description": "Label shown above the input field."
+        },
+        {
+          "name": "customId",
+          "description": "Unique ID used to retrieve submitted value."
+        },
+        {
+          "name": "style",
+          "description": "1 = SHORT (single-line), 2 = PARAGRAPH (multi-line)."
+        },
+        {
+          "name": "required",
+          "description": "Whether the field must be filled before submission."
+        },
+        {
+          "name": "placeholder",
+          "description": "Placeholder text shown when the field is empty."
+        },
+        {
+          "name": "minLength",
+          "description": "Minimum character count."
+        },
+        {
+          "name": "maxLength",
+          "description": "Maximum character count (max 4000)."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.ModalBuilder.Build",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.ModalBuilder.Build",
+      "summary": "Builds the  payload ready to be sent as a Modal response.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Builders.ModalBuilder.BuildResponse",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Builders.ModalBuilder.BuildResponse",
+      "summary": "Builds a complete  wrapping the modal payload.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Builders.SlashCommandBuilder",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Builders.SlashCommandBuilder",
+      "summary": "Builder for creating slash commands.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Extensions.InteractionExtensions",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Extensions.InteractionExtensions",
+      "summary": "Extension methods to simplify working with Discord interaction option values.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Extensions.InteractionExtensions.GetOptionValue``1(PawSharp.Gateway.Events.InteractionCreateEvent,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Extensions.InteractionExtensions.GetOptionValue``1(PawSharp.Gateway.Events.InteractionCreateEvent,System.String)",
+      "summary": "Gets the value of a named slash command option, cast to .\n            Supports string, int, long, double, bool, and ulong.\n            Automatically walks into the first-level subcommand options when the interaction uses a subcommand.\n            Returns default if the option is not found or the cast fails.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "interaction",
+          "description": "The interaction event."
+        },
+        {
+          "name": "name",
+          "description": "Option name, case-insensitive."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactions.Extensions.InteractionExtensions.GetSubcommandName(PawSharp.Gateway.Events.InteractionCreateEvent)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Extensions.InteractionExtensions.GetSubcommandName(PawSharp.Gateway.Events.InteractionCreateEvent)",
+      "summary": "Returns the name of the invoked subcommand (type 1), drilling through a\n            subcommand group (type 2) when present, or null if no subcommand\n            was used.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Extensions.InteractionExtensions.GetOptionValue``1(System.Collections.Generic.IEnumerable{PawSharp.Gateway.Events.ApplicationCommandInteractionDataOption},System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Extensions.InteractionExtensions.GetOptionValue``1(System.Collections.Generic.IEnumerable{PawSharp.Gateway.Events.ApplicationCommandInteractionDataOption},System.String)",
+      "summary": "Gets the value of a named option from an explicit option list, cast to .\n            Useful for subcommand options.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.Extensions.InteractionExtensions.FindOption(PawSharp.Gateway.Events.InteractionCreateEvent,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.Extensions.InteractionExtensions.FindOption(PawSharp.Gateway.Events.InteractionCreateEvent,System.String)",
+      "summary": "Finds a named option (top-level only).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.InteractionHandler",
+      "kind": "T",
+      "name": "PawSharp.Interactions.InteractionHandler",
+      "summary": "Handles Discord interactions (slash commands, components, autocomplete, context menus).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.RegisterCommand(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.RegisterCommand(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Registers a slash command handler.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.RegisterComponent(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.RegisterComponent(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Registers a component handler.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.RegisterAutocomplete(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task{System.Collections.Generic.List{PawSharp.API.Models.AutocompleteChoice}}})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.RegisterAutocomplete(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task{System.Collections.Generic.List{PawSharp.API.Models.AutocompleteChoice}}})",
+      "summary": "Registers an autocomplete handler for a command. The handler returns a list of choices\n            which will be sent back to Discord automatically.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.RegisterUserContextMenu(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.RegisterUserContextMenu(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Registers a user context menu command handler (right-click on a user).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.RegisterMessageContextMenu(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.RegisterMessageContextMenu(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Registers a message context menu command handler (right-click on a message).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.RegisterModal(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.RegisterModal(System.String,System.Func{PawSharp.Gateway.Events.InteractionCreateEvent,System.Threading.Tasks.Task})",
+      "summary": "Registers a modal submit handler by its custom_id.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.HandleInteractionAsync(PawSharp.Gateway.Events.InteractionCreateEvent)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.HandleInteractionAsync(PawSharp.Gateway.Events.InteractionCreateEvent)",
+      "summary": "Handles an interaction event by routing to the appropriate registered handler.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.RespondAsync(System.UInt64,System.String,PawSharp.API.Models.InteractionResponse)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.RespondAsync(System.UInt64,System.String,PawSharp.API.Models.InteractionResponse)",
+      "summary": "Responds to an interaction with a message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.RespondEphemeralAsync(System.UInt64,System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.RespondEphemeralAsync(System.UInt64,System.String,System.String)",
+      "summary": "Responds to a slash command interaction with an ephemeral (only-visible-to-user) message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.DeferAsync(System.UInt64,System.String,System.Boolean)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.DeferAsync(System.UInt64,System.String,System.Boolean)",
+      "summary": "Defers a slash command interaction, showing a \"Bot is thinking…\" state.\n            Use  or  to follow up.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "interactionId",
+          "description": "The interaction ID from the event."
+        },
+        {
+          "name": "interactionToken",
+          "description": "The interaction token from the event."
+        },
+        {
+          "name": "ephemeral",
+          "description": "When true, the follow-up response will only be visible to the invoking user."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.DeferComponentAsync(System.UInt64,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.DeferComponentAsync(System.UInt64,System.String)",
+      "summary": "Defers an update for a component interaction (button / select menu).\n            The original message is not modified; use  to update it afterwards.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.EditResponseAsync(System.String,System.String,PawSharp.API.Models.EditMessageRequest)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.EditResponseAsync(System.String,System.String,PawSharp.API.Models.EditMessageRequest)",
+      "summary": "Edits the original interaction response.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.CreateFollowupAsync(System.String,System.String,PawSharp.API.Models.CreateMessageRequest)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.CreateFollowupAsync(System.String,System.String,PawSharp.API.Models.CreateMessageRequest)",
+      "summary": "Follows up with an additional message. Returns the created Message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.EditFollowupAsync(System.String,System.String,System.UInt64,PawSharp.API.Models.EditMessageRequest)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.EditFollowupAsync(System.String,System.String,System.UInt64,PawSharp.API.Models.EditMessageRequest)",
+      "summary": "Edits a previously sent follow-up message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.DeleteFollowupAsync(System.String,System.String,System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.DeleteFollowupAsync(System.String,System.String,System.UInt64)",
+      "summary": "Deletes a follow-up message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.FollowupAsync(System.String,System.String,PawSharp.API.Models.InteractionCallbackData)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.FollowupAsync(System.String,System.String,PawSharp.API.Models.InteractionCallbackData)",
+      "summary": "Follows up with an additional message (legacy overload using InteractionCallbackData).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.GetGuildApplicationCommandPermissionsAsync(System.UInt64,System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.GetGuildApplicationCommandPermissionsAsync(System.UInt64,System.UInt64)",
+      "summary": "Gets all application command permissions for a guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.GetApplicationCommandPermissionsAsync(System.UInt64,System.UInt64,System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.GetApplicationCommandPermissionsAsync(System.UInt64,System.UInt64,System.UInt64)",
+      "summary": "Gets permissions for a specific application command.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.EditApplicationCommandPermissionsAsync(System.UInt64,System.UInt64,System.UInt64,System.Collections.Generic.List{PawSharp.Core.Entities.ApplicationCommandPermission})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.EditApplicationCommandPermissionsAsync(System.UInt64,System.UInt64,System.UInt64,System.Collections.Generic.List{PawSharp.Core.Entities.ApplicationCommandPermission})",
+      "summary": "Edits permissions for a specific application command.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.InteractionHandler.BatchEditApplicationCommandPermissionsAsync(System.UInt64,System.UInt64,System.Collections.Generic.List{PawSharp.Core.Entities.ApplicationCommandPermissions})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.InteractionHandler.BatchEditApplicationCommandPermissionsAsync(System.UInt64,System.UInt64,System.Collections.Generic.List{PawSharp.Core.Entities.ApplicationCommandPermissions})",
+      "summary": "Batch edits permissions for multiple application commands.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.InteractionType",
+      "kind": "T",
+      "name": "PawSharp.Interactions.InteractionType",
+      "summary": "Discord interaction types.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.InteractionResponseType",
+      "kind": "T",
+      "name": "PawSharp.Interactions.InteractionResponseType",
+      "summary": "Interaction response types.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Models.ApplicationCommandType",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Models.ApplicationCommandType",
+      "summary": "Application command types.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Interactions.Models.ApplicationCommandType.ChatInput",
+      "kind": "F",
+      "name": "PawSharp.Interactions.Models.ApplicationCommandType.ChatInput",
+      "summary": "Slash commands; a text-based command that shows up when a user types /",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Interactions.Models.ApplicationCommandType.User",
+      "kind": "F",
+      "name": "PawSharp.Interactions.Models.ApplicationCommandType.User",
+      "summary": "A UI-based command that shows up when you right click or tap on a user",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Interactions.Models.ApplicationCommandType.Message",
+      "kind": "F",
+      "name": "PawSharp.Interactions.Models.ApplicationCommandType.Message",
+      "summary": "A UI-based command that shows up when you right click or tap on a message",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Models.ApplicationCommandOptionType",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Models.ApplicationCommandOptionType",
+      "summary": "Application command option types.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Models.ApplicationCommand",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Models.ApplicationCommand",
+      "summary": "Represents an application command.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Models.ApplicationCommandOption",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Models.ApplicationCommandOption",
+      "summary": "Represents a command option.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactions.Models.ApplicationCommandOption.ChannelTypes",
+      "kind": "P",
+      "name": "PawSharp.Interactions.Models.ApplicationCommandOption.ChannelTypes",
+      "summary": "Channel types that can be selected. Only applicable for options of type\n            .",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Models.ApplicationCommandOptionChoice",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Models.ApplicationCommandOptionChoice",
+      "summary": "Represents a command option choice.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Models.ComponentType",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Models.ComponentType",
+      "summary": "Component types.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Models.ButtonStyle",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Models.ButtonStyle",
+      "summary": "Button styles.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "F:PawSharp.Interactions.Models.ButtonStyle.Premium",
+      "kind": "F",
+      "name": "PawSharp.Interactions.Models.ButtonStyle.Premium",
+      "summary": "Premium (App Subscription) button — requires  to be set.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Models.MessageComponent",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Models.MessageComponent",
+      "summary": "Represents a message component.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactions.Models.MessageComponent.SkuId",
+      "kind": "P",
+      "name": "PawSharp.Interactions.Models.MessageComponent.SkuId",
+      "summary": "SKU identifier for Premium (type 6) buttons.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Interactions.Models.MessageComponent.ChannelTypes",
+      "kind": "P",
+      "name": "PawSharp.Interactions.Models.MessageComponent.ChannelTypes",
+      "summary": "Channel types that can be selected in a ChannelSelect menu.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.Models.SelectMenuOption",
+      "kind": "T",
+      "name": "PawSharp.Interactions.Models.SelectMenuOption",
+      "summary": "Represents a select menu option.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Interactions.WebhookVerifier",
+      "kind": "T",
+      "name": "PawSharp.Interactions.WebhookVerifier",
+      "summary": "Verifies Discord interaction webhook signatures (X-Signature-Ed25519 /\n             X-Signature-Timestamp headers) per the Discord HTTP Interactions spec.\n            \n             Discord signs each HTTP interaction request using Ed25519. The message that\n             is signed is the concatenation of the raw timestamp header value and the raw\n             request body bytes.  A request is valid only when:\n               1. The X-Signature-Timestamp is not older than 5 minutes (replay protection).\n               2. The Ed25519 signature covers timestamp_bytes || body_bytes and\n                  verifies against the application's Ed25519 public key shown in the\n                  Developer Portal.\n            \n             Usage:\n             \n             var verifier = new WebhookVerifier(\"your_application_public_key_hex\");\n             bool valid = verifier.Verify(signatureHeader, timestampHeader, requestBodyBytes);\n             if (!valid) { return Results.Unauthorized(); }\n             \n            \n             The Ed25519 verification is implemented using \n             arithmetic for full portability across platforms without adding NuGet dependencies.\n             For high-throughput scenarios consider replacing the inner\n              method with a native binding (e.g. NSec.Cryptography).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Interactions.WebhookVerifier.#ctor(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.WebhookVerifier.#ctor(System.String)",
+      "summary": "",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "publicKeyHex",
+          "description": "The application's Ed25519 public key in lower-case hex (64 hex chars / 32 bytes).\n            Found in the Discord Developer Portal → Application → General Information."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactions.WebhookVerifier.Verify(System.String,System.String,System.ReadOnlySpan{System.Byte})",
+      "kind": "M",
+      "name": "PawSharp.Interactions.WebhookVerifier.Verify(System.String,System.String,System.ReadOnlySpan{System.Byte})",
+      "summary": "Verifies an incoming Discord interaction webhook request.",
+      "remarks": "",
+      "returns": "if the signature is valid and the timestamp is fresh.",
+      "example": "",
+      "params": [
+        {
+          "name": "signatureHex",
+          "description": "Value of the X-Signature-Ed25519 header (128 hex chars)."
+        },
+        {
+          "name": "timestamp",
+          "description": "Value of the X-Signature-Timestamp header."
+        },
+        {
+          "name": "bodyBytes",
+          "description": "Raw request body bytes."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Interactions.WebhookVerifier.Verify(System.String,System.String,System.String)",
+      "kind": "M",
+      "name": "PawSharp.Interactions.WebhookVerifier.Verify(System.String,System.String,System.String)",
+      "summary": "Convenience overload accepting the body as a UTF-8 string.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "slug": "pawsharp-interactions",
+  "name": "PawSharp.Interactions — API Reference (generated)",
+  "language": "csharp",
+  "languageLabel": "C#",
+  "version": "1.0.0-alpha.2",
+  "description": "Generated API reference for PawSharp.Interactions.",
+  "sections": [
+    {
+      "id": "overview",
+      "title": "Overview",
+      "content": "<p>Generated API reference for <strong>PawSharp.Interactions</strong> (generated from XML comments).</p><p>Source XML: C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Interactions.xml</p>"
+    },
+    {
+      "id": "namespaces",
+      "title": "Namespaces & Types",
+      "content": "<h3>PawSharp</h3>\n<ul>\n<li><a href=\"#pawsharp-interactions\">PawSharp.Interactions</a></li>\n</ul>\n<h3>PawSharp.Interactions</h3>\n<ul>\n<li><a href=\"#pawsharp-interactions-builders\">PawSharp.Interactions.Builders</a></li>\n<li><a href=\"#pawsharp-interactions-extensions\">PawSharp.Interactions.Extensions</a></li>\n<li><a href=\"#pawsharp-interactions-interactionhandler\">PawSharp.Interactions.InteractionHandler</a></li>\n<li><a href=\"#pawsharp-interactions-models\">PawSharp.Interactions.Models</a></li>\n<li><a href=\"#pawsharp-interactions-webhookverifier\">PawSharp.Interactions.WebhookVerifier</a></li>\n</ul>\n<h3>PawSharp.Interactions.Builders</h3>\n<ul>\n<li><a href=\"#pawsharp-interactions-builders-buttonbuilder\">PawSharp.Interactions.Builders.ButtonBuilder</a></li>\n<li><a href=\"#pawsharp-interactions-builders-channelselectmenubuilder\">PawSharp.Interactions.Builders.ChannelSelectMenuBuilder</a></li>\n<li><a href=\"#pawsharp-interactions-builders-interactionresponsebuilder\">PawSharp.Interactions.Builders.InteractionResponseBuilder</a></li>\n<li><a href=\"#pawsharp-interactions-builders-mediagallerybuilder\">PawSharp.Interactions.Builders.MediaGalleryBuilder</a></li>\n<li><a href=\"#pawsharp-interactions-builders-modalbuilder\">PawSharp.Interactions.Builders.ModalBuilder</a></li>\n</ul>\n<h3>PawSharp.Interactions.Extensions</h3>\n<ul>\n<li><a href=\"#pawsharp-interactions-extensions-interactionextensions\">PawSharp.Interactions.Extensions.InteractionExtensions</a></li>\n</ul>\n<h3>PawSharp.Interactions.Models</h3>\n<ul>\n<li><a href=\"#pawsharp-interactions-models-applicationcommandoption\">PawSharp.Interactions.Models.ApplicationCommandOption</a></li>\n<li><a href=\"#pawsharp-interactions-models-applicationcommandtype\">PawSharp.Interactions.Models.ApplicationCommandType</a></li>\n<li><a href=\"#pawsharp-interactions-models-buttonstyle\">PawSharp.Interactions.Models.ButtonStyle</a></li>\n<li><a href=\"#pawsharp-interactions-models-messagecomponent\">PawSharp.Interactions.Models.MessageComponent</a></li>\n</ul>"
+    },
+    {
+      "id": "pawsharp-interactions",
+      "title": "PawSharp.Interactions",
+      "content": "<h2 id=\"pawsharp-interactions\">PawSharp.Interactions</h2>\n<p>Verifies Discord interaction webhook signatures (X-Signature-Ed25519 /\n             X-Signature-Timestamp headers) per the Discord HTTP Interactions spec.\n            \n             Discord signs each HTTP interaction request using Ed25519. The message that\n             is signed is the concatenation of the raw timestamp header value and the raw\n             request body bytes.  A request is valid only when:\n               1. The X-Signature-Timestamp is not older than 5 minutes (replay protection).\n               2. The Ed25519 signature covers timestamp_bytes || body_bytes and\n                  verifies against the application&#x27;s Ed25519 public key shown in the\n                  Developer Portal.\n            \n             Usage:\n             \n             var verifier = new WebhookVerifier(&quot;your_application_public_key_hex&quot;);\n             bool valid = verifier.Verify(signatureHeader, timestampHeader, requestBodyBytes);\n             if (!valid) { return Results.Unauthorized(); }\n             \n            \n             The Ed25519 verification is implemented using \n             arithmetic for full portability across platforms without adding NuGet dependencies.\n             For high-throughput scenarios consider replacing the inner\n              method with a native binding (e.g. NSec.Cryptography).</p>"
+    },
+    {
+      "id": "pawsharp-interactions-builders",
+      "title": "PawSharp.Interactions.Builders",
+      "content": "<h2 id=\"pawsharp-interactions-builders\">PawSharp.Interactions.Builders</h2>\n<p>Builder for creating slash commands.</p>"
+    },
+    {
+      "id": "pawsharp-interactions-builders-buttonbuilder",
+      "title": "PawSharp.Interactions.Builders.ButtonBuilder",
+      "content": "<h2 id=\"pawsharp-interactions-builders-buttonbuilder\">PawSharp.Interactions.Builders.ButtonBuilder</h2>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>SetEmoji()</code></h4>\n<p>Sets a Unicode emoji on the button (e.g. &quot;🔥&quot;).</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>SetCustomEmoji(string name, ulong id, bool animated)</code></h4>\n<p>Sets a custom guild emoji on the button.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td>Emoji name (without colons).</td></tr><tr><td><code>id</code></td><td>The guild emoji snowflake ID.</td></tr><tr><td><code>animated</code></td><td>Whether the emoji is animated.</td></tr></tbody></table>\n\n</div>\n<div class=\"api-member\"><h4><code>SetSkuId()</code></h4>\n<p>Sets the SKU ID for a  button.</p>\n\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-builders-channelselectmenubuilder",
+      "title": "PawSharp.Interactions.Builders.ChannelSelectMenuBuilder",
+      "content": "<h2 id=\"pawsharp-interactions-builders-channelselectmenubuilder\">PawSharp.Interactions.Builders.ChannelSelectMenuBuilder</h2>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>SetChannelTypes()</code></h4>\n<p>Restricts channels shown to the specified types ( int values).</p>\n\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-builders-interactionresponsebuilder",
+      "title": "PawSharp.Interactions.Builders.InteractionResponseBuilder",
+      "content": "<h2 id=\"pawsharp-interactions-builders-interactionresponsebuilder\">PawSharp.Interactions.Builders.InteractionResponseBuilder</h2>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>WithContent()</code></h4>\n<p>Sets the text content of the response message.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>AddEmbed()</code></h4>\n<p>Appends a pre-built embed to the response.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>AddActionRow()</code></h4>\n<p>Appends an already-built  to the response.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>AddActionRow()</code></h4>\n<p>Builds and appends an action row using a callback.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>AsEphemeral()</code></h4>\n<p>Marks the response as ephemeral — only the user who triggered the interaction will see it.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>AsUpdateMessage()</code></h4>\n<p>Produces an UpdateMessage (type 7) response that edits the original component message\n            instead of sending a new one. Used in button / select menu handlers.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>Build()</code></h4>\n<p>Constructs the .</p>\n\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-builders-mediagallerybuilder",
+      "title": "PawSharp.Interactions.Builders.MediaGalleryBuilder",
+      "content": "<h2 id=\"pawsharp-interactions-builders-mediagallerybuilder\">PawSharp.Interactions.Builders.MediaGalleryBuilder</h2>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>AddItem(string url, string description, bool spoiler)</code></h4>\n<p>Adds a media item to the gallery.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>url</code></td><td>URL of the image or video.</td></tr><tr><td><code>description</code></td><td>Alt text / description.</td></tr><tr><td><code>spoiler</code></td><td>Whether to hide the media behind a spoiler overlay.</td></tr></tbody></table>\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-builders-modalbuilder",
+      "title": "PawSharp.Interactions.Builders.ModalBuilder",
+      "content": "<h2 id=\"pawsharp-interactions-builders-modalbuilder\">PawSharp.Interactions.Builders.ModalBuilder</h2>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>WithCustomId()</code></h4>\n<p>Sets the custom ID that will be sent back in the MODAL_SUBMIT interaction.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>WithTitle()</code></h4>\n<p>Sets the title shown at the top of the modal.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>AddTextInput(string label, string customId, TextInputStyle style, bool required, string placeholder, Nullable&lt;int&gt; minLength, Nullable&lt;int&gt; maxLength)</code></h4>\n<p>Adds a text input field to the modal.\n            Each input is automatically wrapped in an ActionRow as Discord requires.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>label</code></td><td>Label shown above the input field.</td></tr><tr><td><code>customId</code></td><td>Unique ID used to retrieve submitted value.</td></tr><tr><td><code>style</code></td><td>1 = SHORT (single-line), 2 = PARAGRAPH (multi-line).</td></tr><tr><td><code>required</code></td><td>Whether the field must be filled before submission.</td></tr><tr><td><code>placeholder</code></td><td>Placeholder text shown when the field is empty.</td></tr><tr><td><code>minLength</code></td><td>Minimum character count.</td></tr><tr><td><code>maxLength</code></td><td>Maximum character count (max 4000).</td></tr></tbody></table>\n\n</div>\n<div class=\"api-member\"><h4><code>Build()</code></h4>\n<p>Builds the  payload ready to be sent as a Modal response.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>BuildResponse()</code></h4>\n<p>Builds a complete  wrapping the modal payload.</p>\n\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-extensions",
+      "title": "PawSharp.Interactions.Extensions",
+      "content": "<h2 id=\"pawsharp-interactions-extensions\">PawSharp.Interactions.Extensions</h2>\n<p>Extension methods to simplify working with Discord interaction option values.</p>"
+    },
+    {
+      "id": "pawsharp-interactions-extensions-interactionextensions",
+      "title": "PawSharp.Interactions.Extensions.InteractionExtensions",
+      "content": "<h2 id=\"pawsharp-interactions-extensions-interactionextensions\">PawSharp.Interactions.Extensions.InteractionExtensions</h2>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>GetOptionValue``1(InteractionCreateEvent interaction, string name)</code></h4>\n<p>Gets the value of a named slash command option, cast to .\n            Supports string, int, long, double, bool, and ulong.\n            Automatically walks into the first-level subcommand options when the interaction uses a subcommand.\n            Returns default if the option is not found or the cast fails.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>interaction</code></td><td>The interaction event.</td></tr><tr><td><code>name</code></td><td>Option name, case-insensitive.</td></tr></tbody></table>\n\n</div>\n<div class=\"api-member\"><h4><code>GetSubcommandName()</code></h4>\n<p>Returns the name of the invoked subcommand (type 1), drilling through a\n            subcommand group (type 2) when present, or null if no subcommand\n            was used.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>GetOptionValue``1()</code></h4>\n<p>Gets the value of a named option from an explicit option list, cast to .\n            Useful for subcommand options.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>FindOption()</code></h4>\n<p>Finds a named option (top-level only).</p>\n\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-interactionhandler",
+      "title": "PawSharp.Interactions.InteractionHandler",
+      "content": "<h2 id=\"pawsharp-interactions-interactionhandler\">PawSharp.Interactions.InteractionHandler</h2>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>RegisterCommand()</code></h4>\n<p>Registers a slash command handler.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>RegisterComponent()</code></h4>\n<p>Registers a component handler.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>RegisterAutocomplete()</code></h4>\n<p>Registers an autocomplete handler for a command. The handler returns a list of choices\n            which will be sent back to Discord automatically.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>RegisterUserContextMenu()</code></h4>\n<p>Registers a user context menu command handler (right-click on a user).</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>RegisterMessageContextMenu()</code></h4>\n<p>Registers a message context menu command handler (right-click on a message).</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>RegisterModal()</code></h4>\n<p>Registers a modal submit handler by its custom_id.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>HandleInteractionAsync()</code></h4>\n<p>Handles an interaction event by routing to the appropriate registered handler.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>RespondAsync()</code></h4>\n<p>Responds to an interaction with a message.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>RespondEphemeralAsync()</code></h4>\n<p>Responds to a slash command interaction with an ephemeral (only-visible-to-user) message.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>DeferAsync(ulong interactionId, string interactionToken, bool ephemeral)</code></h4>\n<p>Defers a slash command interaction, showing a &quot;Bot is thinking…&quot; state.\n            Use  or  to follow up.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>interactionId</code></td><td>The interaction ID from the event.</td></tr><tr><td><code>interactionToken</code></td><td>The interaction token from the event.</td></tr><tr><td><code>ephemeral</code></td><td>When true, the follow-up response will only be visible to the invoking user.</td></tr></tbody></table>\n\n</div>\n<div class=\"api-member\"><h4><code>DeferComponentAsync()</code></h4>\n<p>Defers an update for a component interaction (button / select menu).\n            The original message is not modified; use  to update it afterwards.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>EditResponseAsync()</code></h4>\n<p>Edits the original interaction response.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>CreateFollowupAsync()</code></h4>\n<p>Follows up with an additional message. Returns the created Message.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>EditFollowupAsync()</code></h4>\n<p>Edits a previously sent follow-up message.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>DeleteFollowupAsync()</code></h4>\n<p>Deletes a follow-up message.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>FollowupAsync()</code></h4>\n<p>Follows up with an additional message (legacy overload using InteractionCallbackData).</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>GetGuildApplicationCommandPermissionsAsync()</code></h4>\n<p>Gets all application command permissions for a guild.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>GetApplicationCommandPermissionsAsync()</code></h4>\n<p>Gets permissions for a specific application command.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>EditApplicationCommandPermissionsAsync()</code></h4>\n<p>Edits permissions for a specific application command.</p>\n\n\n</div>\n<div class=\"api-member\"><h4><code>BatchEditApplicationCommandPermissionsAsync()</code></h4>\n<p>Batch edits permissions for multiple application commands.</p>\n\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-models",
+      "title": "PawSharp.Interactions.Models",
+      "content": "<h2 id=\"pawsharp-interactions-models\">PawSharp.Interactions.Models</h2>\n<p>Represents a select menu option.</p>"
+    },
+    {
+      "id": "pawsharp-interactions-models-applicationcommandoption",
+      "title": "PawSharp.Interactions.Models.ApplicationCommandOption",
+      "content": "<h2 id=\"pawsharp-interactions-models-applicationcommandoption\">PawSharp.Interactions.Models.ApplicationCommandOption</h2>\n<h3>Properties</h3>\n<div class=\"api-member\"><h4><code>ChannelTypes</code></h4>\n<p>Channel types that can be selected. Only applicable for options of type\n            .</p>\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-models-applicationcommandtype",
+      "title": "PawSharp.Interactions.Models.ApplicationCommandType",
+      "content": "<h2 id=\"pawsharp-interactions-models-applicationcommandtype\">PawSharp.Interactions.Models.ApplicationCommandType</h2>\n<h3>Fields</h3>\n<div class=\"api-member\"><h4><code>ChatInput</code></h4>\n<p>Slash commands; a text-based command that shows up when a user types /</p>\n</div>\n<div class=\"api-member\"><h4><code>User</code></h4>\n<p>A UI-based command that shows up when you right click or tap on a user</p>\n</div>\n<div class=\"api-member\"><h4><code>Message</code></h4>\n<p>A UI-based command that shows up when you right click or tap on a message</p>\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-models-buttonstyle",
+      "title": "PawSharp.Interactions.Models.ButtonStyle",
+      "content": "<h2 id=\"pawsharp-interactions-models-buttonstyle\">PawSharp.Interactions.Models.ButtonStyle</h2>\n<h3>Fields</h3>\n<div class=\"api-member\"><h4><code>Premium</code></h4>\n<p>Premium (App Subscription) button — requires  to be set.</p>\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-models-messagecomponent",
+      "title": "PawSharp.Interactions.Models.MessageComponent",
+      "content": "<h2 id=\"pawsharp-interactions-models-messagecomponent\">PawSharp.Interactions.Models.MessageComponent</h2>\n<h3>Properties</h3>\n<div class=\"api-member\"><h4><code>SkuId</code></h4>\n<p>SKU identifier for Premium (type 6) buttons.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>ChannelTypes</code></h4>\n<p>Channel types that can be selected in a ChannelSelect menu.</p>\n\n</div>"
+    },
+    {
+      "id": "pawsharp-interactions-webhookverifier",
+      "title": "PawSharp.Interactions.WebhookVerifier",
+      "content": "<h2 id=\"pawsharp-interactions-webhookverifier\">PawSharp.Interactions.WebhookVerifier</h2>\n<h3>Constructors</h3>\n<div class=\"api-member\"><h4><code>WebhookVerifier(string publicKeyHex)</code></h4>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>publicKeyHex</code></td><td>The application&#x27;s Ed25519 public key in lower-case hex (64 hex chars / 32 bytes).\n            Found in the Discord Developer Portal → Application → General Information.</td></tr></tbody></table>\n\n</div>\n<h3>Methods</h3>\n<div class=\"api-member\"><h4><code>Verify(string signatureHex, string timestamp, ReadOnlySpan&lt;Byte&gt; bodyBytes)</code></h4>\n<p>Verifies an incoming Discord interaction webhook request.</p>\n<table><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td><code>signatureHex</code></td><td>Value of the X-Signature-Ed25519 header (128 hex chars).</td></tr><tr><td><code>timestamp</code></td><td>Value of the X-Signature-Timestamp header.</td></tr><tr><td><code>bodyBytes</code></td><td>Raw request body bytes.</td></tr></tbody></table>\n<p><strong>Returns:</strong> if the signature is valid and the timestamp is fresh.</p>\n\n</div>\n<div class=\"api-member\"><h4><code>Verify()</code></h4>\n<p>Convenience overload accepting the body as a UTF-8 string.</p>\n\n\n</div>"
+    }
+  ]
+}

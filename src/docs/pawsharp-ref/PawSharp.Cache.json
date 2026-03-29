@@ -1,0 +1,695 @@
+{
+  "assembly": "PawSharp.Cache",
+  "source": "C:\\Users\\quefep\\Desktop\\Development\\March\\PawSharp\\src\\PawSharp.Voice\\bin\\Release\\net10.0\\PawSharp.Cache.xml",
+  "members": [
+    {
+      "id": "T:PawSharp.Cache.Interfaces.IEntityCache",
+      "kind": "T",
+      "name": "PawSharp.Cache.Interfaces.IEntityCache",
+      "summary": "Interface for caching Discord entities.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Cache.Interfaces.IEntityCache.GetCacheStats",
+      "kind": "M",
+      "name": "PawSharp.Cache.Interfaces.IEntityCache.GetCacheStats",
+      "summary": "Gets cache statistics including counts per entity type and memory usage.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Cache.Interfaces.CacheStats",
+      "kind": "T",
+      "name": "PawSharp.Cache.Interfaces.CacheStats",
+      "summary": "Cache statistics information.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Interfaces.CacheStats.UserCount",
+      "kind": "P",
+      "name": "PawSharp.Cache.Interfaces.CacheStats.UserCount",
+      "summary": "Number of users cached.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Interfaces.CacheStats.GuildCount",
+      "kind": "P",
+      "name": "PawSharp.Cache.Interfaces.CacheStats.GuildCount",
+      "summary": "Number of guilds cached.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Interfaces.CacheStats.ChannelCount",
+      "kind": "P",
+      "name": "PawSharp.Cache.Interfaces.CacheStats.ChannelCount",
+      "summary": "Number of channels cached.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Interfaces.CacheStats.MessageCount",
+      "kind": "P",
+      "name": "PawSharp.Cache.Interfaces.CacheStats.MessageCount",
+      "summary": "Number of messages cached.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Interfaces.CacheStats.MemberCount",
+      "kind": "P",
+      "name": "PawSharp.Cache.Interfaces.CacheStats.MemberCount",
+      "summary": "Number of guild members cached.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Interfaces.CacheStats.RoleCount",
+      "kind": "P",
+      "name": "PawSharp.Cache.Interfaces.CacheStats.RoleCount",
+      "summary": "Number of roles cached.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Interfaces.CacheStats.EmojiCount",
+      "kind": "P",
+      "name": "PawSharp.Cache.Interfaces.CacheStats.EmojiCount",
+      "summary": "Number of emojis cached.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Interfaces.CacheStats.MemoryUsage",
+      "kind": "P",
+      "name": "PawSharp.Cache.Interfaces.CacheStats.MemoryUsage",
+      "summary": "Estimated memory usage in bytes.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Cache.Providers.RedisCacheProvider",
+      "kind": "T",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider",
+      "summary": "Redis-based distributed cache provider for PawSharp.\n            Provides distributed caching capabilities with Redis as the backend.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.#ctor(Microsoft.Extensions.Options.IOptions{PawSharp.Cache.Providers.RedisCacheOptions})",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.#ctor(Microsoft.Extensions.Options.IOptions{PawSharp.Cache.Providers.RedisCacheOptions})",
+      "summary": "Initializes a new instance of the  class.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "options",
+          "description": "Redis cache configuration options."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.#ctor(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.#ctor(System.String)",
+      "summary": "Initializes a new instance of the  class with a connection string.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "connectionString",
+          "description": "Redis connection string."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.Add(System.String,System.Object)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.Add(System.String,System.Object)",
+      "summary": "Adds an item to the cache.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "key",
+          "description": "The cache key."
+        },
+        {
+          "name": "entity",
+          "description": "The entity to cache."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.Get(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.Get(System.String)",
+      "summary": "Gets an item from the cache.",
+      "remarks": "",
+      "returns": "The cached entity, or null if not found.",
+      "example": "",
+      "params": [
+        {
+          "name": "key",
+          "description": "The cache key."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.Remove(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.Remove(System.String)",
+      "summary": "Removes an item from the cache.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "key",
+          "description": "The cache key."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.Clear",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.Clear",
+      "summary": "Clears all items from the cache.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.Exists(System.String)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.Exists(System.String)",
+      "summary": "Checks if a key exists in the cache.",
+      "remarks": "",
+      "returns": "True if the key exists, false otherwise.",
+      "example": "",
+      "params": [
+        {
+          "name": "key",
+          "description": "The cache key."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.CacheUser(PawSharp.Core.Entities.User)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.CacheUser(PawSharp.Core.Entities.User)",
+      "summary": "Caches a user.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "user",
+          "description": "The user to cache."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetUser(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetUser(System.UInt64)",
+      "summary": "Gets a cached user.",
+      "remarks": "",
+      "returns": "The cached user, or null if not found.",
+      "example": "",
+      "params": [
+        {
+          "name": "userId",
+          "description": "The user ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.CacheGuild(PawSharp.Core.Entities.Guild)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.CacheGuild(PawSharp.Core.Entities.Guild)",
+      "summary": "Caches a guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "guild",
+          "description": "The guild to cache."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetGuild(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetGuild(System.UInt64)",
+      "summary": "Gets a cached guild.",
+      "remarks": "",
+      "returns": "The cached guild, or null if not found.",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetAllGuilds",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetAllGuilds",
+      "summary": "Gets all cached guilds.",
+      "remarks": "",
+      "returns": "An enumerable of all cached guilds.",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.CacheChannel(PawSharp.Core.Entities.Channel)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.CacheChannel(PawSharp.Core.Entities.Channel)",
+      "summary": "Caches a channel.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "channel",
+          "description": "The channel to cache."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetChannel(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetChannel(System.UInt64)",
+      "summary": "Gets a cached channel.",
+      "remarks": "",
+      "returns": "The cached channel, or null if not found.",
+      "example": "",
+      "params": [
+        {
+          "name": "channelId",
+          "description": "The channel ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetGuildChannels(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetGuildChannels(System.UInt64)",
+      "summary": "Gets all channels for a guild.",
+      "remarks": "",
+      "returns": "An enumerable of channels in the guild.",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.CacheMessage(PawSharp.Core.Entities.Message)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.CacheMessage(PawSharp.Core.Entities.Message)",
+      "summary": "Caches a message.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "message",
+          "description": "The message to cache."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetMessage(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetMessage(System.UInt64)",
+      "summary": "Gets a cached message.",
+      "remarks": "",
+      "returns": "The cached message, or null if not found.",
+      "example": "",
+      "params": [
+        {
+          "name": "messageId",
+          "description": "The message ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetChannelMessages(System.UInt64,System.Int32)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetChannelMessages(System.UInt64,System.Int32)",
+      "summary": "Gets recent messages for a channel.",
+      "remarks": "",
+      "returns": "An enumerable of recent messages in the channel.",
+      "example": "",
+      "params": [
+        {
+          "name": "channelId",
+          "description": "The channel ID."
+        },
+        {
+          "name": "limit",
+          "description": "Maximum number of messages to return."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.CacheGuildMember(System.UInt64,PawSharp.Core.Entities.GuildMember)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.CacheGuildMember(System.UInt64,PawSharp.Core.Entities.GuildMember)",
+      "summary": "Caches a guild member.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        },
+        {
+          "name": "member",
+          "description": "The member to cache."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetGuildMember(System.UInt64,System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetGuildMember(System.UInt64,System.UInt64)",
+      "summary": "Gets a cached guild member.",
+      "remarks": "",
+      "returns": "The cached member, or null if not found.",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        },
+        {
+          "name": "userId",
+          "description": "The user ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetGuildMembers(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetGuildMembers(System.UInt64)",
+      "summary": "Gets all members for a guild.",
+      "remarks": "",
+      "returns": "An enumerable of members in the guild.",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.CacheRole(System.UInt64,PawSharp.Core.Entities.Role)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.CacheRole(System.UInt64,PawSharp.Core.Entities.Role)",
+      "summary": "Caches a role.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        },
+        {
+          "name": "role",
+          "description": "The role to cache."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetRole(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetRole(System.UInt64)",
+      "summary": "Gets a cached role.",
+      "remarks": "",
+      "returns": "The cached role, or null if not found.",
+      "example": "",
+      "params": [
+        {
+          "name": "roleId",
+          "description": "The role ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetGuildRoles(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetGuildRoles(System.UInt64)",
+      "summary": "Gets all roles for a guild.",
+      "remarks": "",
+      "returns": "An enumerable of roles in the guild.",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.CacheEmoji(System.UInt64,PawSharp.Core.Entities.Emoji)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.CacheEmoji(System.UInt64,PawSharp.Core.Entities.Emoji)",
+      "summary": "Caches an emoji.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        },
+        {
+          "name": "emoji",
+          "description": "The emoji to cache."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetEmoji(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetEmoji(System.UInt64)",
+      "summary": "Gets a cached emoji.",
+      "remarks": "",
+      "returns": "The cached emoji, or null if not found.",
+      "example": "",
+      "params": [
+        {
+          "name": "emojiId",
+          "description": "The emoji ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetGuildEmojis(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetGuildEmojis(System.UInt64)",
+      "summary": "Gets all emojis for a guild.",
+      "remarks": "",
+      "returns": "An enumerable of emojis in the guild.",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.CacheGuildData(PawSharp.Core.Entities.Guild)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.CacheGuildData(PawSharp.Core.Entities.Guild)",
+      "summary": "Caches complete guild data including channels, roles, and emojis.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "guild",
+          "description": "The guild to cache completely."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.RemoveGuild(System.UInt64)",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.RemoveGuild(System.UInt64)",
+      "summary": "Removes all data for a guild.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": [
+        {
+          "name": "guildId",
+          "description": "The guild ID to remove."
+        }
+      ]
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetEntityCount",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetEntityCount",
+      "summary": "Gets the total number of cached entities.",
+      "remarks": "",
+      "returns": "The total entity count.",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetMemoryUsage",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetMemoryUsage",
+      "summary": "Gets the estimated memory usage.",
+      "remarks": "",
+      "returns": "Estimated memory usage in bytes.",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.GetCacheStats",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.GetCacheStats",
+      "summary": "Gets detailed cache statistics.",
+      "remarks": "",
+      "returns": "Cache statistics.",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "M:PawSharp.Cache.Providers.RedisCacheProvider.Dispose",
+      "kind": "M",
+      "name": "PawSharp.Cache.Providers.RedisCacheProvider.Dispose",
+      "summary": "Disposes the Redis connection.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "T:PawSharp.Cache.Providers.RedisCacheOptions",
+      "kind": "T",
+      "name": "PawSharp.Cache.Providers.RedisCacheOptions",
+      "summary": "Configuration options for Redis cache provider.",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Providers.RedisCacheOptions.ConnectionString",
+      "kind": "P",
+      "name": "PawSharp.Cache.Providers.RedisCacheOptions.ConnectionString",
+      "summary": "Redis connection string (e.g., \"localhost:6379\").",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Providers.RedisCacheOptions.Password",
+      "kind": "P",
+      "name": "PawSharp.Cache.Providers.RedisCacheOptions.Password",
+      "summary": "Redis password (optional).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Providers.RedisCacheOptions.Database",
+      "kind": "P",
+      "name": "PawSharp.Cache.Providers.RedisCacheOptions.Database",
+      "summary": "Redis database number (default: 0).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Providers.RedisCacheOptions.ConnectTimeout",
+      "kind": "P",
+      "name": "PawSharp.Cache.Providers.RedisCacheOptions.ConnectTimeout",
+      "summary": "Connection timeout in milliseconds (default: 5000).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Providers.RedisCacheOptions.SyncTimeout",
+      "kind": "P",
+      "name": "PawSharp.Cache.Providers.RedisCacheOptions.SyncTimeout",
+      "summary": "Sync timeout in milliseconds (default: 5000).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Providers.RedisCacheOptions.ConnectRetry",
+      "kind": "P",
+      "name": "PawSharp.Cache.Providers.RedisCacheOptions.ConnectRetry",
+      "summary": "Number of connection retry attempts (default: 3).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    },
+    {
+      "id": "P:PawSharp.Cache.Providers.RedisCacheOptions.DefaultExpiry",
+      "kind": "P",
+      "name": "PawSharp.Cache.Providers.RedisCacheOptions.DefaultExpiry",
+      "summary": "Default cache expiry time (default: 1 hour).",
+      "remarks": "",
+      "returns": "",
+      "example": "",
+      "params": []
+    }
+  ]
+}
