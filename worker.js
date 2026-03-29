@@ -116,12 +116,26 @@ async function handleRequest(request, env, ctx) {
   } catch (e) {
     // Log error for debugging
     console.error('Worker error:', e.message, e.stack);
-    
+
+    // If ?debug=1 is present, return a safe debug page with the error message and limited manifest info
+    try {
+      const dbg = new URL(request.url).searchParams.get('debug');
+      if (dbg === '1') {
+        const esc = s => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        let manifestKeys = [];
+        try { manifestKeys = assetManifest ? Object.keys(assetManifest).slice(0, 200) : []; } catch (merr) { manifestKeys = ['<manifest-error>']; }
+        const body = `<!doctype html><html><head><meta charset="utf-8"><title>Worker Debug</title></head><body style="font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;padding:20px;color:#222"><h1>Worker Debug Output</h1><h2>Message</h2><pre>${esc(e.message)}</pre><h2>Stack</h2><pre>${esc(e.stack || '')}</pre><h2>Asset manifest keys (first 200)</h2><pre>${esc(JSON.stringify(manifestKeys,null,2))}</pre></body></html>`;
+        return new Response(body, { status: 500, headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+      }
+    } catch (dbgErr) {
+      console.error('Debug render failed', dbgErr && (dbgErr.message || dbgErr));
+    }
+
     // If asset not found, return 404
-    if (e.status === 404 || e.message.includes('could not find')) {
+    if (e.status === 404 || (e.message && e.message.toLowerCase().includes('could not find'))) {
       return handle404();
     }
-    
+
     return new Response(`Internal Server Error: ${e.message}`, { status: 500 });
   }
 }
